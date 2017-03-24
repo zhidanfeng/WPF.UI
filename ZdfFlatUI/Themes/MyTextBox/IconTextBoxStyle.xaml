@@ -1,0 +1,250 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Converters="clr-namespace:ZdfFlatUI.Converters" 
+                    xmlns:MyTextBox="clr-namespace:ZdfFlatUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WPF.UI;component/Resources/PathGeometry.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <Converters:ValueIsZeroConverter x:Key="ValueIsZeroConverter" />
+    <Converters:InverseBooleanVisibilityConverter x:Key="InverseBooleanVisibilityConverter" />
+
+    <ControlTemplate x:Key="IconIsRight" TargetType="{x:Type MyTextBox:IconTextBox}">
+        <Border x:Name="border" CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="3,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                           FontSize="{TemplateBinding FontSize}" Opacity="0.4"
+                           Text="{TemplateBinding Watermark}" Margin="{TemplateBinding Padding}">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" 
+                              HorizontalScrollBarVisibility="Hidden" 
+                              VerticalScrollBarVisibility="Hidden" />
+
+                <Path Grid.Column="1" Data="{TemplateBinding PathData}" 
+                      Fill="{TemplateBinding IconColor}" Stretch="Uniform" 
+                      Width="{TemplateBinding IconWidth}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Margin="8,0,10,0" SnapsToDevicePixels="True" UseLayoutRounding="True"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="Opacity" Value="0.56" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="IconIsLeft" TargetType="{x:Type MyTextBox:IconTextBox}">
+        <Border x:Name="border" CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="0,0,3,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" 
+                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                           FontSize="{TemplateBinding FontSize}"
+                           Opacity="0.4" Text="{TemplateBinding Watermark}">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" 
+                              HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden" />
+
+                <Path Grid.Column="0" Data="{TemplateBinding PathData}" 
+                      Fill="{TemplateBinding IconColor}" Stretch="Uniform" 
+                      Width="{TemplateBinding IconWidth}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Margin="10,0,8,0" SnapsToDevicePixels="True" UseLayoutRounding="True"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="Opacity" Value="0.56" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="NotShowIcon" TargetType="{x:Type MyTextBox:IconTextBox}">
+        <Border x:Name="border" CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="3,0,3,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" FontSize="12"
+                           Opacity="0.4" Text="{TemplateBinding Watermark}">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="True" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                        <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyTextBox:IconTextBox}}}" Value="False" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" 
+                              HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="Opacity" Value="0.56" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type MyTextBox:IconTextBox}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+        <Setter Property="BorderBrush" Value="#ABADB3" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="PathData" Value="{StaticResource Icon_head}" />
+        <Setter Property="IconWidth" Value="13" />
+        <Setter Property="IconColor" Value="Black" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsShowIcon" Value="True" />
+                    <Condition Property="IconPlacement" Value="Right" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Template" Value="{StaticResource IconIsRight}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsShowIcon" Value="True" />
+                    <Condition Property="IconPlacement" Value="Left" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Template" Value="{StaticResource IconIsLeft}"/>
+            </MultiTrigger>
+            <Trigger Property="IsShowIcon" Value="False">
+                <Setter Property="Template" Value="{StaticResource NotShowIcon}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DynamicExpresso.Core</name>
+    </assembly>
+    <members>
+        <member name="F:DynamicExpresso.AssignmentOperators.None">
+            <summary>
+            Disable all the assignment operators
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.AssignmentOperators.AssignmentEqual">
+            <summary>
+            Enable the assignment equal operator
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.AssignmentOperators.All">
+            <summary>
+            Enable all assignment operators
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.LanguageConstants.CSharpPrimitiveTypes">
+            <summary>
+            Primitive types alias (string, int, ...)
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.LanguageConstants.CommonTypes">
+            <summary>
+            Common .NET Types (Math, Convert, Enumerable)
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.LanguageConstants.Literals">
+            <summary>
+            true, false, null
+            </summary>
+        </member>
+        <member name="M:DynamicExpresso.ParserArguments.TryGetParameters(System.String,System.Linq.Expressions.ParameterExpression@)">
+            <summary>
+            Get the parameter and mark is as used.
+            </summary>
+        </member>
+        <member name="P:DynamicExpresso.ReferenceType.Name">
+            <summary>
+            Public name that must be used in the expression.
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.PrimitiveTypes">
+            <summary>
+            Load primitive types like 'string', 'double', 'int', 'DateTime', 'Guid', ... See also LanguageConstants.CSharpPrimitiveTypes and LanguageConstants.PrimitiveTypes
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.SystemKeywords">
+            <summary>
+            Load system keywords like 'true', 'false', 'null'. See also LanguageConstants.Literals.
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.CommonTypes">
+            <summary>
+            Load common types like 'System.Math', 'System.Convert', 'System.Linq.Enumerable'. See also LanguageConstants.CommonTypes.
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.CaseInsensitive">
+            <summary>
+            Variables and parameters names are case insensitive.
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.Default">
+            <summary>
+            Load all default configurations: PrimitiveTypes + SystemKeywords + CommonTypes
+            </summary>
+        </member>
+        <member name="F:DynamicExpresso.InterpreterOptions.DefaultCaseInsensitive">
+            <summary>
+            Load all default configurations: PrimitiveTypes + SystemKeywords + CommonTypes + CaseInsensitive
+            </summary>
+        </member>
+        <member name="T:DynamicExpresso.Lambda">
+            <summary>
+            Represents a lambda expression that can be invoked. This class is thread safe.
+            </summary>
+        </member>
+        <member name="M:DynamicExpresso.Lambda.Invoke(System.Object[])">
+            <summary>
+            Invoke the expression with the given parameters values.
+            </summary>
+            <param name="args">Order of parameters must be the same of the parameters used during parse (DeclaredParameters).</param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Lambda.Compile``1">
+            <summary>
+            Generate the given delegate by compiling the lambda expression.
+            </summary>
+            <typeparam name="TDelegate">The delegate to generate. Delegate parameters must match the one defined when creating the expression, see UsedParameters.</typeparam>
+        </member>
+        <member name="M:DynamicExpresso.Lambda.LambdaExpression``1">
+            <summary>
+            Generate a lambda expression.
+            </summary>
+            <returns>The lambda expression.</returns>
+            <typeparam name="TDelegate">The delegate to generate. Delegate parameters must match the one defined when creating the expression, see UsedParameters.</typeparam>
+        </member>
+        <member name="P:DynamicExpresso.Lambda.Parameters">
+            <summary>
+            Gets the parameters actually used in the expression parsed.
+            </summary>
+            <value>The used parameters.</value>
+        </member>
+        <member name="P:DynamicExpresso.Lambda.UsedParameters">
+            <summary>
+            Gets the parameters actually used in the expression parsed.
+            </summary>
+            <value>The used parameters.</value>
+        </member>
+        <member name="P:DynamicExpresso.Lambda.DeclaredParameters">
+            <summary>
+            Gets the parameters declared when parsing the expression.
+            </summary>
+            <value>The declared parameters.</value>
+        </member>
+        <member name="T:DynamicExpresso.Interpreter">
+            <summary>
+            Class used to parse and compile a text expression into an Expression or a Delegate that can be invoked. Expression are written using a subset of C# syntax.
+            Only get properties, Parse and Eval methods are thread safe.
+            </summary>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.#ctor">
+            <summary>
+            Creates a new Interpreter using InterpreterOptions.Default.
+            </summary>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.#ctor(DynamicExpresso.InterpreterOptions)">
+            <summary>
+            Creates a new Interpreter using the specified options.
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.EnableAssignment(DynamicExpresso.AssignmentOperators)">
+            <summary>
+            Allows to enable/disable assignment operators. 
+            For security when expression are generated by the users is more safe to disable assignment operators.
+            </summary>
+            <param name="assignmentOperators"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.EnableReflection">
+            <summary>
+            Enable reflection expression (like x.GetType().GetMethod() or typeof(double).Assembly) by removing the DisableReflectionVisitor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetFunction(System.String,System.Delegate)">
+            <summary>
+            Allow the specified function delegate to be called from a parsed expression.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetVariable(System.String,System.Object)">
+            <summary>
+            Allow the specified variable to be used in a parsed expression.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetVariable(System.String,System.Object,System.Type)">
+            <summary>
+            Allow the specified variable to be used in a parsed expression.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetExpression(System.String,System.Linq.Expressions.Expression)">
+            <summary>
+            Allow the specified Expression to be used in a parsed expression.
+            Basically add the specified expression as a known identifier.
+            </summary>
+            <param name="name"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetIdentifiers(System.Collections.Generic.IEnumerable{DynamicExpresso.Identifier})">
+            <summary>
+            Allow the specified list of identifiers to be used in a parsed expression.
+            Basically add the specified expressions as a known identifier.
+            </summary>
+            <param name="identifiers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.SetIdentifier(DynamicExpresso.Identifier)">
+            <summary>
+            Allow the specified identifier to be used in a parsed expression.
+            Basically add the specified expression as a known identifier.
+            </summary>
+            <param name="identifier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Reference(System.Type)">
+            <summary>
+            Allow the specified type to be used inside an expression. The type will be available using its name.
+            If the type contains method extensions methods they will be available inside expressions.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Reference(System.Collections.Generic.IEnumerable{DynamicExpresso.ReferenceType})">
+            <summary>
+            Allow the specified type to be used inside an expression.
+            See Reference(Type, string) method.
+            </summary>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Reference(System.Type,System.String)">
+            <summary>
+            Allow the specified type to be used inside an expression by using a custom alias.
+            If the type contains extensions methods they will be available inside expressions.
+            </summary>
+            <param name="type"></param>
+            <param name="typeName">Public name that must be used in the expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Reference(DynamicExpresso.ReferenceType)">
+            <summary>
+            Allow the specified type to be used inside an expression by using a custom alias.
+            If the type contains extensions methods they will be available inside expressions.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Parse(System.String,DynamicExpresso.Parameter[])">
+            <summary>
+            Parse a text expression and returns a Lambda class that can be used to invoke it.
+            </summary>
+            <param name="expressionText">Expression statement</param>
+            <param name="parameters"></param>
+            <returns></returns>
+            <exception cref="T:DynamicExpresso.ParseException"></exception>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Parse(System.String,System.Type,DynamicExpresso.Parameter[])">
+            <summary>
+            Parse a text expression and returns a Lambda class that can be used to invoke it.
+            If the expression cannot be converted to the type specified in the expressionType parameter
+            an exception is throw.
+            </summary>
+            <param name="expressionText">Expression statement</param>
+            <param name="expressionType">The expected return type. Use void or object type if there isn't an expected return type.</param>
+            <param name="parameters"></param>
+            <returns></returns>
+            <exception cref="T:DynamicExpresso.ParseException"></exception>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.ParseAsDelegate``1(System.String,System.String[])">
+            <summary>
+            Parse a text expression and convert it into a delegate.
+            </summary>
+            <typeparam name="TDelegate">Delegate to use</typeparam>
+            <param name="expressionText">Expression statement</param>
+            <param name="parametersNames">Names of the parameters. If not specified the parameters names defined inside the delegate are used.</param>
+            <returns></returns>
+            <exception cref="T:DynamicExpresso.ParseException"></exception>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.ParseAsExpression``1(System.String,System.String[])">
+            <summary>
+            Parse a text expression and convert it into a lambda expression.
+            </summary>
+            <typeparam name="TDelegate">Delegate to use</typeparam>
+            <param name="expressionText">Expression statement</param>
+            <param name="parametersNames">Names of the parameters. If not specified the parameters names defined inside the delegate are used.</param>
+            <returns></returns>
+            <exception cref="T:DynamicExpresso.ParseException"></exception>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Eval(System.String,DynamicExpresso.Parameter[])">
+            <summary>
+            Parse and invoke the specified expression.
+            </summary>
+            <param name="expressionText"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Eval``1(System.String,DynamicExpresso.Parameter[])">
+            <summary>
+            Parse and invoke the specified expression.
+            </summary>
+            <param name="expressionText"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DynamicExpresso.Interpreter.Eval(System.String,System.Type,DynamicExpresso.Parameter[])">
+            <summary>
+            Parse and invoke the specified expression.
+            </summary>
+            <param name="expressionText"></param>
+            <param name="expressionType">The return type of the expression. Use void or object if you don't know the expected return type.</param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DynamicExpresso.Interpreter.ReferencedTypes">
+            <summary>
+            Gets a list of registeres types. Add types by using the Reference method.
+            </summary>
+        </member>
+        <member name="P:DynamicExpresso.Interpreter.Identifiers">
+            <summary>
+            Gets a list of known identifiers. Add identifiers using SetVariable, SetFunction or SetExpression methods.
+            </summary>
+        </member>
+        <member name="P:DynamicExpresso.Interpreter.AssignmentOperators">
+            <summary>
+            Gets the available assignment operators.
+            </summary>
+        </member>
+        <member name="T:DynamicExpresso.Parameter">
+            <summary>
+            An expression parameter. This class is thread safe.
+            </summary>
+        </member>
+    </members>
+</doc>

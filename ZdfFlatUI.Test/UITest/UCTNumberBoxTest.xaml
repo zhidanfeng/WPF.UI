@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTNumberBoxTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:Primitives="clr-namespace:ZdfFlatUI.MyControls.Primitives;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <StackPanel Orientation="Horizontal">
+        <Primitives:NumberBox Height="25" Width="150" StartNumber="0" EndNumber="23" Title="小时" />
+        <Primitives:NumberBox Height="25" Width="150" StartNumber="0" EndNumber="59" Margin="10,0" Title="分钟" ShowShadow="True" />
+        <Primitives:NumberBox Height="25" Width="150" StartNumber="0" EndNumber="59" Title="秒数" MaxDropDownWidth="280" />
+    </StackPanel>
+</UserControl>

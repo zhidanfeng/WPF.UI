@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WPF.UI;component/Resources/TooltipStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/SegmentButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathTextButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathIconButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/FlatButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/IconTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TagTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/ValidateTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/NumericUpDownStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TitleTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/Popup/NoticeMessageStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/ListBox/NavigationBarStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/Window/BaseWindowStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/ToggleButton/DefaultToggleButton.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/DefaultCheckBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/RadionButton/DefaultRadionButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/FlatDatePickerStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/DateTimePickerStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/TimePickerStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/Themes/Primitives/NumberBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/MultiComboBox/Themes/Generic.xaml" />
+        <!--仪表盘-->
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Dashboard/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ProgressBar/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Slider/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ComboBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Tree/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Upload/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigateMenu/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ToggleButton/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Expander/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ScrollViewer/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Badge/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Notice/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ToolTip/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/SlideSwitch/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/MessageBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/CascaderBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/StepBar/Themes/Generic.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

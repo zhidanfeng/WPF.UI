@@ -1,0 +1,346 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:My="clr-namespace:ZdfFlatUI"
+                    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+                    xmlns:StyleSelectors="clr-namespace:ZdfFlatUI.StyleSelectors">
+
+    <!--#region 左边Item样式-->
+    <Style x:Key="RightItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,1" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="#B2B2B0" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Grid x:Name="grid" Margin="-1,0" MinWidth="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="12" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.ColumnSpan="3" Margin="5,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Border Padding="10,3" Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Border>
+                            <Path Grid.Row="1" Data="M0,0 5,5 10,0z" Fill="{TemplateBinding Background}" Width="10" Stretch="Uniform" />
+                        </Grid>
+
+                        <Border x:Name="PART_LeftLine" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
+                                BorderBrush="#C9C9C9" BorderThickness="0,1,0,0" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+
+                        <Grid x:Name="grid_border" Grid.Row="1" Grid.Column="1" Background="Transparent">
+                            <Border x:Name="innerBorder" Width="7" Height="7" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Background="#C9C9C9" CornerRadius="100" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="grid_border" Property="Cursor" Value="Hand" />
+                            <Setter TargetName="innerBorder" Property="Width" Value="10" />
+                            <Setter TargetName="innerBorder" Property="Height" Value="10" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    
+    <!--#region 中间Item样式-->
+    <Style x:Key="MiddleItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,1" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="#B2B2B0" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Grid x:Name="grid" Margin="-1,0" MinWidth="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="12" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.ColumnSpan="3" Margin="5,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Border Padding="10,3" Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Border>
+                            <Path Grid.Row="1" Data="M0,0 5,5 10,0z" Fill="{TemplateBinding Background}" Width="10" Stretch="Uniform" />
+                        </Grid>
+                        
+                        <Border x:Name="PART_LeftLine" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
+                                BorderBrush="#C9C9C9" BorderThickness="0,1,0,0" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+
+                        <Grid x:Name="grid_border" Grid.Row="1" Grid.Column="1" Background="Transparent">
+                            <Border x:Name="innerBorder" Width="7" Height="7" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Background="#C9C9C9" CornerRadius="100" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </Grid>
+
+                        <Border x:Name="PART_RightLine" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                                BorderBrush="#C9C9C9" BorderThickness="0,1,0,0" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="grid_border" Property="Cursor" Value="Hand" />
+                            <Setter TargetName="innerBorder" Property="Width" Value="10" />
+                            <Setter TargetName="innerBorder" Property="Height" Value="10" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+                            
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region 右边Item样式-->
+    <Style x:Key="LeftItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,1" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="#B2B2B0" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Grid x:Name="grid" Margin="-1,0" MinWidth="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="12" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="12" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.ColumnSpan="3" Margin="5,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Border Padding="10,3" Background="{TemplateBinding Background}"
+                                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Border>
+                            <Path Grid.Row="1" Data="M0,0 5,5 10,0z" Fill="{TemplateBinding Background}" Width="10" Stretch="Uniform" />
+                        </Grid>
+
+                        <Grid x:Name="grid_border" Grid.Row="1" Grid.Column="1" Background="Transparent">
+                            <Border x:Name="innerBorder" Width="7" Height="7" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Background="#C9C9C9" CornerRadius="100" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </Grid>
+
+                        <Border x:Name="PART_RightLine" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center"
+                                BorderBrush="#C9C9C9" BorderThickness="0,1,0,0" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="grid_border" Property="Cursor" Value="Hand" />
+                            <Setter TargetName="innerBorder" Property="Width" Value="10" />
+                            <Setter TargetName="innerBorder" Property="Height" Value="10" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="innerBorder" Property="Background" Value="#F29925" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter Property="Background" Value="#F29925" />
+
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
+
+    <Style x:Key="PathListBoxItemStyle1" TargetType="{x:Type ec:PathListBoxItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ec:PathListBoxItem}">
+                    <Grid Margin="0,15,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="textBlock" VerticalAlignment="Center"
+                                   Text="{Binding text}" TextWrapping="NoWrap" HorizontalAlignment="Center" />
+
+                        <Grid Grid.Row="1" Width="20" Height="20" HorizontalAlignment="Center"
+                              VerticalAlignment="Center" Margin="0,5">
+                            <Ellipse Width="Auto" Height="Auto" Margin="0" VerticalAlignment="Stretch" Fill="#FFF4F4F5"
+                                     Stroke="{x:Null}" StrokeThickness="0" />
+                            <Ellipse Width="Auto" Height="Auto" Margin="4" VerticalAlignment="Stretch" Fill="#FFF36C0D"
+                                     Stroke="{x:Null}" StrokeThickness="0" />
+                        </Grid>
+
+                        <StackPanel Orientation="Vertical" Grid.Row="2">
+                            <TextBlock Text="2016-08-29" HorizontalAlignment="Center" />
+                            <TextBlock Text="19:02" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+        <WrapPanel IsItemsHost="True" />
+    </ItemsPanelTemplate>
+
+    <StyleSelectors:NavigateBarStyleSelector x:Key="NavigateBarStyleSelector"
+                                             LeftItemStyle="{StaticResource LeftItemStyle}"
+                                             MiddleItemStyle="{StaticResource MiddleItemStyle}"
+                                             RightItemStyle="{StaticResource RightItemStyle}"/>
+
+    <Style TargetType="{x:Type My:NavigationBar}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <!--<Setter Property="ItemContainerStyleSelector">
+            <Setter.Value>
+                <StaticResource ResourceKey="NavigateBarStyleSelector" />
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="ItemContainerStyle" Value="{StaticResource MiddleItemStyle}" />
+        <Setter Property="ItemsPanel" Value="{StaticResource ItemsPanelTemplate1}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type My:NavigationBar}">
+                    <Border Name="Bd" Background="Transparent"
+                            BorderBrush="{TemplateBinding Control.BorderBrush}"
+                            BorderThickness="{TemplateBinding Control.BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <ScrollViewer Focusable="False" HorizontalScrollBarVisibility="Disabled"
+                                      Padding="{TemplateBinding Control.Padding}"
+                                      VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter Margin="20,0" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

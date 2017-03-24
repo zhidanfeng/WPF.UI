@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTBadgeTest" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="300" d:DesignWidth="900" mc:Ignorable="d">
+    <AdornerDecorator>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <WPF.UI:Badge Margin="10,10" HorizontalAlignment="Center" VerticalAlignment="Center" Number="88" />
+                <WPF.UI:Badge Margin="10,10" HorizontalAlignment="Center" VerticalAlignment="Center" Number="100" />
+                <WPF.UI:Badge Margin="10,10" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#49C0F6"
+                              Number="10" />
+                <WPF.UI:Badge Margin="10,10" HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Number="3" />
+
+                <WPF.UI:FlatButton x:Name="button" Width="100" Height="30" WPF.UI:BadgeAdorner.Background="#5CB85C"
+                                   WPF.UI:BadgeAdorner.BadgeType="Normal" WPF.UI:BadgeAdorner.HasAdorner="True" WPF.UI:BadgeAdorner.IsShowAdorner="True" WPF.UI:BadgeAdorner.Number="98"
+                                   Click="FlatButton_Click" Content="显示角标" CornerRadius="3" />
+
+                <WPF.UI:FlatButton x:Name="button1" Width="100" Height="30" Margin="20,0,0,0"
+                                   WPF.UI:BadgeAdorner.Background="#49C0F6" 
+                                   WPF.UI:BadgeAdorner.HasAdorner="True" 
+                                   WPF.UI:BadgeAdorner.IsShowAdorner="True" 
+                                   WPF.UI:BadgeAdorner.Number="98"
+                                   Click="FlatButton_Click" Content="显示角标" CornerRadius="3" Type="Default" />
+
+                <WPF.UI:ZComboBox Width="150" Height="25" Margin="30,20,0,20" 
+                                  WPF.UI:BadgeAdorner.HasAdorner="True"
+                                  WPF.UI:BadgeAdorner.IsShowAdorner="True" 
+                                  WPF.UI:BadgeAdorner.Number="98"
+                                  WPF.UI:BadgeAdorner.BadgeType="Normal"/>
+
+                <WPF.UI:ZComboBox Width="150" Height="25" Margin="30,20,0,20" 
+                                  WPF.UI:BadgeAdorner.HasAdorner="False"
+                                  WPF.UI:BadgeAdorner.IsShowAdorner="False" 
+                                  WPF.UI:BadgeAdorner.Number="100" />
+            </StackPanel>
+
+            <StackPanel Margin="0,20,0,0">
+                <WPF.UI:ZTextBox x:Name="text" Width="200" Height="50" 
+                                 WPF.UI:BadgeAdorner.HasAdorner="True"
+                                 WPF.UI:BadgeAdorner.IsShowAdorner="True" 
+                                 WPF.UI:BadgeAdorner.BadgeType="Dot"
+                                 WPF.UI:BadgeAdorner.Number="3" MultiRow="True" />
+
+
+                <ToggleButton x:Name="btnChangeAdornerType" Width="100" Height="30" Margin="20"
+                              WPF.UI:BadgeAdorner.HasAdorner="True" 
+                              WPF.UI:BadgeAdorner.IsShowAdorner="True" 
+                              WPF.UI:BadgeAdorner.Number="3" 
+                              Click="btnChangeAdornerType_Click" />
+
+            </StackPanel>
+        </StackPanel>
+    </AdornerDecorator>
+</UserControl>

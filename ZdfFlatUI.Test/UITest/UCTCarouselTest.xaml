@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTCarouselTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <WPF.UI:Carousel VerticalAlignment="Top" x:Name="Carousel" HorizontalAlignment="Center">
+            <WPF.UI:Carousel.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="#506B9E" Padding="50,40" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="测试：" Foreground="White" />
+                            <TextBlock Text="{Binding .}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </WPF.UI:Carousel.ItemTemplate>
+        </WPF.UI:Carousel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="自动切换" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <WPF.UI:DefaultToggleButton x:Name="toggleBtnAutoPlay" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" />
+
+                <TextBlock Text="自动切换速度" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <WPF.UI:FlatSilder x:Name="FlatSilder" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                                   Minimum="1000" Maximum="10000" Interval="1000" Value="2000" Margin="10,0,0,0" />
+            </Grid>
+            <WPF.UI:Carousel Grid.Row="1" VerticalAlignment="Top" x:Name="Carousel2" HorizontalAlignment="Center"
+                             AutoPlay="{Binding IsChecked, ElementName=toggleBtnAutoPlay}" Margin="0,20,0,0"
+                             AutoPlaySpeed="{Binding Value, ElementName=FlatSilder}">
+                <WPF.UI:Carousel.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ImageUrl}" Stretch="Fill" />
+                    </DataTemplate>
+                </WPF.UI:Carousel.ItemTemplate>
+            </WPF.UI:Carousel>
+        </Grid>
+    </Grid>
+</UserControl>

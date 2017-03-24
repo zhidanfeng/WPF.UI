@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTNumericUpDownTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:My="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="300"
+             d:DesignWidth="600" mc:Ignorable="d">
+    <UserControl.Resources>
+
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3" />
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA" />
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5" />
+
+        <SolidColorBrush x:Key="UpDownButton.Static.Background">#37BC9B</SolidColorBrush>
+        <SolidColorBrush x:Key="UpDownButton.Static.Foreground">#FFFFFF</SolidColorBrush>
+
+        <!--  TextBlock基础样式，用于设置加减按钮的文本外观  -->
+        <Style x:Key="TextBoxBaseStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <!--  “减少”按钮样式  -->
+        <Style x:Key="DecreaseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#EEEEEE" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="0,0" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Padding="{TemplateBinding Padding}" CornerRadius="3"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                            <TextBlock Style="{StaticResource TextBoxBaseStyle}" Text="-" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#DDDDDD" />
+                                <Setter TargetName="Bd" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Bd" Property="Background" Value="#C2C3C9" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  “增加”按钮样式  -->
+        <Style x:Key="AddButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#EEEEEE" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Bd" Background="{TemplateBinding Background}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Padding="{TemplateBinding Padding}" CornerRadius="3"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                            <TextBlock Style="{StaticResource TextBoxBaseStyle}" Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#DDDDDD" />
+                                <Setter TargetName="Bd" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Bd" Property="Background" Value="#C2C3C9" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  加减按钮位于两侧  -->
+        <ControlTemplate x:Key="HorizontalUpDown" TargetType="{x:Type My:IntegerUpDown}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <Popup AllowsTransparency="True"
+                           IsOpen="{Binding IsShowTip,
+                                            RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                           Placement="Top"
+                           PlacementTarget="{Binding ElementName=border}"
+                           StaysOpen="False">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="5" />
+                        </Grid.RowDefinitions>
+                        <Border Background="{Binding TipBackground,
+                                                         RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                    CornerRadius="2" Padding="5" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                            <TextBlock Foreground="White" Text="{Binding TipText, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        </Border>
+
+                        <Path Grid.Row="1" Margin="10,0,0,0" HorizontalAlignment="Left" Data="M0,0 5,5 10,0Z"
+                                  Fill="{Binding TipBackground,
+                                                 RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                    </Grid>
+                </Popup>
+
+                <Button x:Name="PART_DOWN" Grid.Column="0" Style="{StaticResource DecreaseButtonStyle}" Background="#3186FD"
+                        Width="25" Height="25" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                
+                <Border x:Name="border" Grid.Column="1" Margin="5,0" CornerRadius="3"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="0,0,0,0" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                    <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden" />
+                </Border>
+
+                <Button x:Name="PART_UP" Grid.Column="2"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Style="{StaticResource AddButtonStyle}" Background="#3186FD"
+                        Width="25" Height="25" Foreground="White" FontSize="32"/>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter TargetName="border" Property="Opacity" Value="0.56" />
+                </Trigger>
+                <Trigger Property="IsReadOnly" Value="True">
+                    <Setter Property="Cursor" Value="Arrow" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.MouseOver.Border}" />
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="true">
+                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.Focus.Border}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!--  控件样式，以UpDownOrientation来控制控件呈现方式  -->
+        <Style x:Key="IntegerUpDownStyle1" TargetType="{x:Type My:IntegerUpDown}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Text" Value="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
+            <Setter Property="Height" Value="25" />
+            <Style.Triggers>
+                <Trigger Property="UpDownOrientation" Value="Horizontal">
+                    <Setter Property="Template" Value="{StaticResource HorizontalUpDown}" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <My:IntegerUpDown Width="100" Height="30" Margin="0,0" Increment="2"
+                                          Maximum="20" Minimum="0" Value="2" />
+            <My:IntegerUpDown Width="100" Height="30" Margin="10,0" Maximum="20"
+                                          Minimum="0" UpDownOrientation="Horizontal" />
+            <My:IntegerUpDown Width="100" Height="25" Increment="3" Margin="0,0"
+                              Maximum="20" Minimum="0" Value="20"
+                              Style="{DynamicResource IntegerUpDownStyle1}"
+                              UpDownOrientation="Horizontal" IsReadOnly="False" />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

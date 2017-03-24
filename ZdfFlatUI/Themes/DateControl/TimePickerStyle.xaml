@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Primitives="clr-namespace:ZdfFlatUI.MyControls.Primitives"
+                    xmlns:WPF.UI="clr-namespace:ZdfFlatUI">
+
+    <SolidColorBrush x:Key="ComboBox.BorderBrush" Color="#CCCCCC" />
+    <SolidColorBrush x:Key="ComboBox.Normal.Background" Color="#FFFFFF" />
+
+    <Style TargetType="{x:Type WPF.UI:TimePicker}">
+        <Setter Property="MinWidth" Value="70" />
+        <Setter Property="Background" Value="{StaticResource ComboBox.Normal.Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ComboBox.BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type WPF.UI:TimePicker}">
+                    <Border Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Primitives:NumberBox Title="小时" Grid.Column="0" BorderThickness="0" EndNumber="23"
+                                                  FontFamily="{TemplateBinding FontFamily}"
+                                                  FontSize="{TemplateBinding FontSize}"
+                                                  FontStretch="{TemplateBinding FontStretch}"
+                                                  FontWeight="{TemplateBinding FontWeight}"
+                                                  SelectedItem="{Binding Hour,
+                                                                         RelativeSource={RelativeSource TemplatedParent}}"
+                                                  StartNumber="0" />
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       FontStretch="{TemplateBinding FontStretch}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       Text=":" />
+                            <Primitives:NumberBox Title="分钟" Grid.Column="2" BorderThickness="0" EndNumber="59"
+                                                  FontFamily="{TemplateBinding FontFamily}"
+                                                  FontSize="{TemplateBinding FontSize}"
+                                                  FontStretch="{TemplateBinding FontStretch}"
+                                                  FontWeight="{TemplateBinding FontWeight}"
+                                                  MaxDropDownWidth="280"
+                                                  SelectedItem="{Binding Minute,
+                                                                         RelativeSource={RelativeSource TemplatedParent}}"
+                                                  StartNumber="0" />
+                            <TextBlock Grid.Column="3" VerticalAlignment="Center"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       FontStretch="{TemplateBinding FontStretch}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       Text=":" />
+                            <Primitives:NumberBox Title="秒数" Grid.Column="4" BorderThickness="0" EndNumber="59"
+                                                  FontFamily="{TemplateBinding FontFamily}"
+                                                  FontSize="{TemplateBinding FontSize}"
+                                                  FontStretch="{TemplateBinding FontStretch}"
+                                                  FontWeight="{TemplateBinding FontWeight}"
+                                                  MaxDropDownWidth="280"
+                                                  SelectedItem="{Binding Second,
+                                                                         RelativeSource={RelativeSource TemplatedParent}}"
+                                                  StartNumber="0" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

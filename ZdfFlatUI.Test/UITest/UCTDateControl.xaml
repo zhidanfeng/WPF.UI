@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTDateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Primitives="clr-namespace:ZdfFlatUI.MyControls.Primitives;assembly=WPF.UI"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="300"
+             d:DesignWidth="800" mc:Ignorable="d">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="ComboBox.Normal.Background" Color="#FFFFFF" />
+
+        <SolidColorBrush x:Key="ComboBox.BorderBrush" Color="#CCCCCC" />
+
+        <Style x:Key="TimePickerStyle1" TargetType="{x:Type WPF.UI:TimePicker}">
+            <Setter Property="MinWidth" Value="70" />
+            <Setter Property="Background" Value="{StaticResource ComboBox.Normal.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource ComboBox.BorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="UseLayoutRounding" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type WPF.UI:TimePicker}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="#CCCCCC" BorderThickness="1,1,0,1" Background="#F6F6F6" 
+                                    SnapsToDevicePixels="True" UseLayoutRounding="True" Padding="5,0">
+                                <TextBlock Text="时间" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <Border x:Name="Border" Grid.Column="1"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="0"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Primitives:NumberBox Title="小时" Grid.Column="0" BorderThickness="0" EndNumber="23"
+                                                          SelectedItem="{Binding Hour,
+                                                                                 RelativeSource={RelativeSource TemplatedParent}}"
+                                                          StartNumber="0" />
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Text=":" />
+                                    <Primitives:NumberBox Title="分钟" Grid.Column="2" BorderThickness="0" EndNumber="59"
+                                                          MaxDropDownWidth="280"
+                                                          SelectedItem="{Binding Minute,
+                                                                                 RelativeSource={RelativeSource TemplatedParent}}"
+                                                          ShowShadow="True" StartNumber="0" />
+                                    <TextBlock Grid.Column="3" VerticalAlignment="Center" Text=":" />
+                                    <Primitives:NumberBox Title="秒数" Grid.Column="4" BorderThickness="0" EndNumber="59"
+                                                          MaxDropDownWidth="280"
+                                                          SelectedItem="{Binding Second,
+                                                                                 RelativeSource={RelativeSource TemplatedParent}}"
+                                                          StartNumber="0" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <WPF.UI:FlatDatePicker Width="200" Height="22" />
+        <StackPanel Orientation="Horizontal">
+            <WPF.UI:TimePicker x:Name="timePicker" Width="80" Height="25" Margin="0,10"
+                                    Value="02:01:03" />
+            <Button x:Name="btnGetDate" Height="25" Margin="5,5" Click="btnGetDate_Click"
+                    Content="获取日期" />
+            <Button x:Name="btnSetDate" Height="25" Margin="5,5" Click="btnSetDate_Click"
+                    Content="设置日期" />
+        </StackPanel>
+        <StackPanel>
+            <WPF.UI:TimePicker x:Name="timePicker1" Width="120" Height="25" Margin="0,10"
+                                    HorizontalAlignment="Left"
+                                    Style="{DynamicResource TimePickerStyle1}"
+                                    Value="02:01:03" />
+        </StackPanel>
+        <StackPanel>
+            <WPF.UI:DateTimePicker x:Name="dateTimePicker" Width="200" Height="22" DateFormat="yyyy-MM-dd HH:mm:ss" />
+            <Button x:Name="btnGetDateTimePicker" Height="25" Margin="5,5" Click="btnGetDateTimePicker_Click"
+                    Content="获取日期" />
+            <Button x:Name="btnSetDateTimePicker" Height="25" Margin="5,5" Click="btnSetDateTimePicker_Click"
+                    Content="设置日期" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

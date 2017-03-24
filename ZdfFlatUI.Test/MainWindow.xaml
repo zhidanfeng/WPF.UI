@@ -1,0 +1,178 @@
+﻿<Window x:Class="ZdfFlatUI.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:My="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        xmlns:UITest="clr-namespace:ZdfFlatUI.Test.UITest"
+        xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        xmlns:ZUI.Editor="clr-namespace:WPFRichTextEditor.Veiws;assembly=ZEditor"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:ZdfFlatUI.Test"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Title="主窗体" Width="1000"
+        Height="750" Background="#FAFAFA" WindowState="Maximized" mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/WPF.UI;component/Resources/DefaultStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+
+        <TabControl BorderBrush="Transparent" SelectedIndex="12">
+            <TabItem Header="控件1">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <WPF.UI:SegmentButton x:Name="segmentButton" Margin="10,10" BorderBrush="#ED5565" FontSize="12"
+                                              SelectedIndex="0" SelectedValue="住院医生" />
+                        <WPF.UI:SegmentButton x:Name="segmentButton2" Margin="10,10" BorderBrush="#28557E" FontSize="14"
+                                              SelectedIndex="0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <WPF.UI:IconTextBox Width="200" Height="28" Margin="10,0" BorderThickness="1,1,1,1"
+                                            CornerRadius="0" EnterKeyClick="IconTextBox_EnterKeyClick" IconPlacement="Left" IconWidth="11"
+                                            PathData="{StaticResource Icon_password}"
+                                            UseLayoutRounding="False" />
+                            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="15"
+                                            IconPlacement="Left" Padding="0,0,10,0" Watermark="请输入密码" />
+                            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="15"
+                                            IconColor="#6C86F4" IconPlacement="Right" Padding="10,0,0,0" />
+                            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="15"
+                                            IconColor="#6C86F4" IconPlacement="Right" Padding="10,0,0,0" Watermark="请输入用户名" />
+                            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="0"
+                                            IconColor="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
+                            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="0"
+                                            IconColor="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <WPF.UI:ZTextBox Width="200" Height="25" Margin="10,10" />
+                            <WPF.UI:ZTextBox Width="200" Height="25" Margin="10,10" CornerRadius="3" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--  InputMethod.IsInputMethodEnabled="False" 只能输入英文  -->
+                    <WPF.UI:TagTextBox x:Name="TagTextBox" MinHeight="30" Margin="10,10" AddItem="TagTextBox_AddItem"
+                                       BorderThickness="1" FontSize="12" IsReadOnly="False"
+                                       ItemsSource="{Binding TagList}"
+                                       Text="{Binding TagTextBoxContent,
+                                                      Mode=TwoWay,
+                                                      UpdateSourceTrigger=PropertyChanged}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="RemoveItem">
+                                <i:InvokeCommandAction Command="{Binding RemoveCommand}" CommandParameter="{Binding RemoveIndex, ElementName=TagTextBox}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </WPF.UI:TagTextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <WPF.UI:ValidateTextBox Width="200" Height="28" Margin="10" HorizontalAlignment="Left" />
+                        <WPF.UI:ValidateTextBox x:Name="validateTextBox1" Width="200" Height="28" Margin="10"
+                                                HorizontalAlignment="Left" IsNumber="False" IsPhoneNumber="False" IsRequired="True"
+                                                NumberMessage="输入的不是数字" PhoneNumberMessage="手机号码格式不正确" RequiredMessage="该项必填" />
+                        <WPF.UI:ValidateTextBox x:Name="validateTextBox4" Width="200" Height="28" Margin="10"
+                                                HorizontalAlignment="Left" IsNumber="True" IsRequired="True" NumberMessage="输入的不是数字"
+                                                RequiredMessage="该项必填" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <WPF.UI:ValidateTextBox x:Name="validateTextBox2" Width="200" Height="28" Margin="10"
+                                                HorizontalAlignment="Left" IsNumber="True" IsRequired="True" NumberMessage="输入的不是数字"
+                                                RequiredMessage="该项必填" />
+                        <WPF.UI:ValidateTextBox x:Name="validateTextBox3" Width="200" Height="28" Margin="10"
+                                                HorizontalAlignment="Left" IsPhoneNumber="True" IsRequired="True" PhoneNumberMessage="手机号码格式不正确"
+                                                RequiredMessage="该项必填" />
+                        <Button x:Name="beginValidate" Click="beginValidate_Click" Content="开始校验" />
+                        <Button x:Name="button1" Click="button1_Click" Content="开始校验" />
+                    </StackPanel>
+                    <StackPanel Margin="0,10" Orientation="Horizontal">
+                        <Button x:Name="ShowInfo" Width="80" Height="28" Margin="10,0"
+                                Click="Show_Click" Content="Info" />
+                        <Button x:Name="ShowWarn" Width="80" Height="28" Margin="10,0"
+                                Click="Show_Click" Content="Warn" />
+                        <Button x:Name="ShowError" Width="80" Height="28" Margin="10,0"
+                                Click="Show_Click" Content="Error" />
+                        <Button x:Name="ShowSuccess" Width="80" Height="28" Margin="10,0"
+                                Click="Show_Click" Content="Success">
+                            <Button.ContextMenu>
+                                <ContextMenu Style="{StaticResource DefaultContextMenuStyle}">
+                                    <MenuItem Header="转发" />
+                                    <MenuItem Header="收藏" />
+                                    <MenuItem Header="删除">
+                                        <MenuItem Header="转发" />
+                                        <MenuItem Header="收藏" />
+                                        <MenuItem Header="删除" />
+                                        <MenuItem Header="复制链接地址" />
+                                        <MenuItem Header="用默认浏览器打开" />
+                                    </MenuItem>
+                                    <MenuItem Header="复制链接地址" />
+                                    <MenuItem Header="用默认浏览器打开" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
+                        <ComboBox Width="150" Style="{StaticResource DefaultComboBoxStyle}">
+                            <ComboBoxItem>转发</ComboBoxItem>
+                            <ComboBoxItem>收藏</ComboBoxItem>
+                            <ComboBoxItem>删除</ComboBoxItem>
+                            <ComboBoxItem>复制链接地址</ComboBoxItem>
+                            <ComboBoxItem>用默认浏览器打开</ComboBoxItem>
+                            <ComboBoxItem>转发</ComboBoxItem>
+                            <ComboBoxItem>收藏</ComboBoxItem>
+                            <ComboBoxItem>删除</ComboBoxItem>
+                            <ComboBoxItem>复制链接地址</ComboBoxItem>
+                            <ComboBoxItem>用默认浏览器打开</ComboBoxItem>
+                            <ComboBoxItem>转发</ComboBoxItem>
+                            <ComboBoxItem>收藏</ComboBoxItem>
+                            <ComboBoxItem>删除</ComboBoxItem>
+                            <ComboBoxItem>复制链接地址</ComboBoxItem>
+                            <ComboBoxItem>用默认浏览器打开</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="控件2">
+                <UITest:UCTNumericUpDownTest />
+            </TabItem>
+            <TabItem Header="控件3">
+                <UITest:UCTButtonTest />
+            </TabItem>
+            <TabItem Header="控件4">
+                <UITest:UCTNavigationBarTest />
+            </TabItem>
+            <TabItem Header="控件5">
+                <UITest:UCTTextBoxTest />
+            </TabItem>
+            <TabItem Header="控件6">
+                <UITest:UCTDateControl />
+            </TabItem>
+            <TabItem Header="控件7">
+                <UITest:UCTTreeView Width="300" />
+            </TabItem>
+            <TabItem Header="控件8">
+                <UITest:UCTTreeView Width="300" />
+            </TabItem>
+            <TabItem Header="控件9">
+                <UITest:UCTNumberBoxTest />
+            </TabItem>
+            <TabItem Header="控件10">
+                <ZUI.Editor:RichTextEditor />
+            </TabItem>
+            <TabItem Header="控件11">
+                <UITest:UCTMultiComboBoxTest />
+            </TabItem>
+            <TabItem Header="控件12">
+                <UITest:UCTDashboardTest />
+            </TabItem>
+            <TabItem Header="控件13">
+                <UITest:UCTProgressBarTest />
+            </TabItem>
+            <TabItem Header="控件14">
+                <UITest:UCTTreeViewTest />
+            </TabItem>
+            <TabItem Header="控件14">
+                <UITest:UCTNavigateMenuTest />
+            </TabItem>
+        </TabControl>
+        <WPF.UI:NoticeMessage x:Name="noticeMessage" Margin="0,0,0,0" VerticalAlignment="Top" Content="设置已更新"
+                              CornerRadius="5" Duration="1000" Padding="30,30" />
+
+    </Grid>
+</Window>

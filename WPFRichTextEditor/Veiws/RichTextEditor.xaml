@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="WPFRichTextEditor.Veiws.RichTextEditor" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:extensions="clr-namespace:WPFRichTextEditor.Extensions" xmlns:local="clr-namespace:WPFRichTextEditor.Command"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:views="clr-namespace:WPFRichTextEditor.Veiws" d:DesignHeight="200" d:DesignWidth="700"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/RichTextEditorStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings />
+    <Grid>
+        <Border Margin="0" BorderBrush="#C2C3C9" BorderThickness="1" SnapsToDevicePixels="True"
+                UseLayoutRounding="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Margin="0,0,-1,0" BorderBrush="#C2C3C9" BorderThickness="0,0,0,1" SnapsToDevicePixels="True"
+                        UseLayoutRounding="True">
+                    <ToolBarTray VerticalAlignment="Center" Background="Transparent" IsLocked="True">
+                        <ToolBar x:Name="toolbar" Style="{StaticResource ToolBarStyle}">
+                            <Button x:Name="ButtonAddAttachment" Width="50"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="添加附件">
+                                <StackPanel Orientation="Horizontal">
+                                    <Path Width="15"
+                                          Data="M86 534c0-130 104-236 234-236h448c94 0 170 78 170 172s-76 170-170 170h-362c-58 0-108-48-108-106s50-108 108-108h320v86h-324c-24 0-24 42 0 42h366c46 0 86-38 86-84s-40-86-86-86h-448c-82 0-150 68-150 150s68 148 150 148h406v86h-406c-130 0-234-104-234-234z"
+                                          Fill="#FF9B38" Stretch="Uniform" />
+                                    <TextBlock Margin="5,0,0,0" Text="附件" />
+                                </StackPanel>
+                            </Button>
+                            <extensions:FontFormatComboBox x:Name="FontFamilyList" Title="将当前字体设为默认" Width="100" PopupWidth="160"
+                                                           ToolTip="选择字体" />
+                            <extensions:FontFormatComboBox x:Name="FontSizeList" Title="将当前字号设为默认" Width="50" ToolTip="选择字号" />
+                            <Button x:Name="ToggleFontForeground"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="字体颜色">
+                                <Button.ContextMenu>
+                                    <ContextMenu x:Name="FontForegroundMenu" Style="{StaticResource ToggleContextMenuStyle}">
+                                        <views:ColorPicker x:Name="FontForegroundPicker" />
+                                    </ContextMenu>
+                                </Button.ContextMenu>
+                                <Path Width="15" Data="M410 512h204l-102-270zM470 128h84l234 598h-96l-46-128h-268l-48 128h-96zM0 854h1024v170h-1024v-170z" Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <Button x:Name="ToggleFontBackground"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="背景色">
+                                <Button.ContextMenu>
+                                    <ContextMenu x:Name="FontBackgroundMenu" Style="{StaticResource ToggleContextMenuStyle}">
+                                        <views:ColorPicker x:Name="FontBackgroundPicker" />
+                                    </ContextMenu>
+                                </Button.ContextMenu>
+                                <Path Width="15"
+                                      Data="M680 790h90l-218-556h-80l-218 556h90l48-128h240zM854 86c46 0 84 38 84 84v684c0 46-38 84-84 84h-684c-46 0-84-38-84-84v-684c0-46 38-84 84-84h684zM424 576l88-236 88 236h-176z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <ToggleButton x:Name="ToggleBold"
+                                          Style="{StaticResource ToggleButtonStyle}"
+                                          ToolTip="粗体">
+                                <Path Width="10"
+                                      Data="M576 662c36 0 64-28 64-64s-28-64-64-64h-150v128h150zM426 278v128h128c36 0 64-28 64-64s-28-64-64-64h-128zM666 460c56 26 92 82 92 146 0 90-68 162-158 162h-302v-598h268c96 0 170 76 170 172 0 44-28 90-70 118z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </ToggleButton>
+                            <ToggleButton x:Name="ToggleItalic"
+                                          Style="{StaticResource ToggleButtonStyle}"
+                                          ToolTip="斜体">
+                                <Path Width="11" Data="M426 170h342v128h-120l-144 342h94v128h-342v-128h120l144-342h-94v-128z" Fill="#808080" Stretch="Uniform" />
+                            </ToggleButton>
+                            <ToggleButton x:Name="ToggleUnderline"
+                                          Style="{StaticResource ToggleButtonStyle}"
+                                          ToolTip="下划线">
+                                <Path Width="11" Data="M214 810h596v86h-596v-86zM512 726c-142 0-256-114-256-256v-342h106v342c0 82 68 148 150 148s150-66 150-148v-342h106v342c0 142-114 256-256 256z" Fill="#808080"
+                                      Stretch="Uniform" />
+                            </ToggleButton>
+                            <ToggleButton x:Name="ToggleStrikethrough"
+                                          Style="{StaticResource ToggleButtonStyle}"
+                                          ToolTip="删除线">
+                                <Path Width="15" Data="M128 598v-86h768v86h-768zM214 170h596v128h-212v128h-172v-128h-212v-128zM426 810v-128h172v128h-172z" Fill="#808080" Stretch="Uniform" />
+                            </ToggleButton>
+                            <Button x:Name="ToggleBullets"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="符号列表">
+                                <Path Width="16"
+                                      Data="M298 214h598v84h-598v-84zM298 554v-84h598v84h-598zM298 810v-84h598v84h-598zM170 704c36 0 64 30 64 64s-30 64-64 64-64-30-64-64 28-64 64-64zM170 192c36 0 64 28 64 64s-28 64-64 64-64-28-64-64 28-64 64-64zM170 448c36 0 64 28 64 64s-28 64-64 64-64-28-64-64 28-64 64-64z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <Button x:Name="ToggleNumbering"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="数字列表">
+                                <Path Width="16"
+                                      Data="M298 554v-84h598v84h-598zM298 810v-84h598v84h-598zM298 214h598v84h-598v-84zM86 470v-44h128v40l-78 88h78v44h-128v-40l76-88h-76zM128 342v-128h-42v-44h84v172h-42zM86 726v-44h128v172h-128v-44h84v-20h-42v-44h42v-20h-84z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <Button x:Name="ToggleIncreaseIndentation" IsEnabled="True"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="增加缩进">
+                                <Path Width="12" Data="M470 554v-84h426v84h-426zM470 384v-86h426v86h-426zM128 128h768v86h-768v-86zM470 726v-86h426v86h-426zM128 342l170 170-170 170v-340zM128 896v-86h768v86h-768z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <Button x:Name="ToggleDecreaseIndentation"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="减少缩进">
+                                <Path Width="14" Data="M470 554v-84h426v84h-426zM470 384v-86h426v86h-426zM128 128h768v86h-768v-86zM128 896v-86h768v86h-768zM128 512l170-170v340zM470 726v-86h426v86h-426z" Fill="#808080"
+                                      Stretch="Uniform" />
+                            </Button>
+
+                            <RadioButton x:Name="ToggleAlignLeft" GroupName="AlignType"
+                                         Style="{StaticResource RadioButtonStyle}"
+                                         ToolTip="左对齐">
+                                <Path Width="14" Data="M128 128h768v86h-768v-86zM128 896v-86h768v86h-768zM128 554v-84h768v84h-768zM640 298v86h-512v-86h512zM640 640v86h-512v-86h512z" Fill="#808080" Stretch="Uniform" />
+                            </RadioButton>
+                            <RadioButton x:Name="ToggleAlignCenter" GroupName="AlignType"
+                                         Style="{StaticResource RadioButtonStyle}"
+                                         ToolTip="居中">
+                                <Path Width="14" Data="M128 128h768v86h-768v-86zM298 298h428v86h-428v-86zM128 554v-84h768v84h-768zM128 896v-86h768v86h-768zM298 640h428v86h-428v-86z" Fill="#808080" Stretch="Uniform" />
+                            </RadioButton>
+                            <RadioButton x:Name="ToggleAlignRight" GroupName="AlignType"
+                                         Style="{StaticResource RadioButtonStyle}"
+                                         ToolTip="右对齐">
+                                <Path Width="14" Data="M128 128h768v86h-768v-86zM384 384v-86h512v86h-512zM128 554v-84h768v84h-768zM384 726v-86h512v86h-512zM128 896v-86h768v86h-768z" Fill="#808080" Stretch="Uniform" />
+                            </RadioButton>
+
+                            <Button x:Name="ButtonAddHyperLink"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="超链接">
+                                <Path Width="17"
+                                      Data="M726 298c118 0 212 96 212 214s-94 214-212 214h-172v-82h172c72 0 132-60 132-132s-60-132-132-132h-172v-82h172zM342 554v-84h340v84h-340zM166 512c0 72 60 132 132 132h172v82h-172c-118 0-212-96-212-214s94-214 212-214h172v82h-172c-72 0-132 60-132 132z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                            <Button x:Name="ButtonAddImage"
+                                    Style="{StaticResource ButtonStyle}"
+                                    ToolTip="添加图片">
+                                <Path Width="16"
+                                      Data="M170 554v300h300v84h-300c-46 0-84-38-84-84v-300h84zM854 854v-300h84v300c0 46-38 84-84 84h-300v-84h300zM854 86c46 0 84 38 84 84v300h-84v-300h-300v-84h300zM726 362c0 36-28 64-64 64s-64-28-64-64 28-64 64-64 64 28 64 64zM426 554l128 158 86-114 128 170h-512zM170 170v300h-84v-300c0-46 38-84 84-84h300v84h-300z"
+                                      Fill="#808080" Stretch="Uniform" />
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                </Border>
+
+                <RichTextBox x:Name="richTextBox" Grid.Row="1" SelectionChanged="richTextBox_SelectionChanged"
+                             Style="{StaticResource RichTextBoxStyle}">
+                    <RichTextBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="ApplicationCommands.Cut" Header="剪切" />
+                            <MenuItem Command="ApplicationCommands.Copy" Header="复制" />
+                            <MenuItem Command="ApplicationCommands.Paste" Header="粘贴" />
+                        </ContextMenu>
+                    </RichTextBox.ContextMenu>
+                </RichTextBox>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

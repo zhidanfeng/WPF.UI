@@ -1,0 +1,234 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI"
+                    xmlns:Converters="clr-namespace:ZdfFlatUI.Converters"
+                    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
+
+    <Converters:WordAngleConverter x:Key="WordAngleConverter" />
+
+    <!--  单独提出作为资源引用，并且加上x:Shared="False"是为了防止出现“指定的元素已经是另一个元素的逻辑子元素。请先将其断开连接”  -->
+    <Border x:Key="DefaultLabelPanel" Width="70" Margin="0,0,0,20" HorizontalAlignment="Center"
+            VerticalAlignment="Bottom" x:Shared="False" BorderBrush="#00A0FB" BorderThickness="1"
+            CornerRadius="3" Padding="0,2" SnapsToDevicePixels="True" UseLayoutRounding="True">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Agency FB" Foreground="White"
+                   Text="{Binding Path=Value,
+                                  StringFormat={}{0:N1}KW,
+                                  RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                 AncestorType={x:Type ZUI:Dashboard}}}" />
+    </Border>
+
+    <!--速度盘-->
+    <ControlTemplate x:Key="Speed" TargetType="{x:Type ZUI:Dashboard}">
+        <Grid>
+            <Ellipse Fill="#190E1C" />
+            <Grid Margin="20">
+                <!--  刻度盘当前值对应的圆弧  -->
+                <ed:Arc x:Name="PART_IncreaseCircle" ArcThickness="8" ArcThicknessUnit="Pixel" Fill="#BB0104"
+                        RenderTransformOrigin="0.5,0.5"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+                <!--  刻度盘完整圆弧  -->
+                <ed:Arc x:Name="DoubleCircle" ArcThickness="8" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" Stroke="#00A0FB" StrokeThickness="1">
+
+                </ed:Arc>
+
+                <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding ShortTicks}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="1" Height="8" Background="White" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=ShortTickPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding LongTicks}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="1" Height="13" Background="White" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=LongTickPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding NumberList}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=NumberPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ed:Arc x:Name="LongTickPath" Margin="0" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <ed:Arc x:Name="ShortTickPath" Margin="5" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <ed:Arc x:Name="NumberPath" Margin="20" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <Ellipse Width="15" Height="15" Stroke="Black">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#FF2C2C2C" />
+                            <GradientStop Offset="0.997" Color="Black" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="10" Height="10" Stroke="#FFFFCA02" />
+                <ed:RegularPolygon x:Name="Finger" Width="4" Height="50" Fill="#FFFFCA02"
+                                   PointCount="3" RenderTransformOrigin="0.5,1.118" Stretch="Fill">
+                    <ed:RegularPolygon.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="{Binding EndAngle, ElementName=PART_IncreaseCircle}" />
+                            <TranslateTransform Y="-31" />
+                        </TransformGroup>
+                    </ed:RegularPolygon.RenderTransform>
+                </ed:RegularPolygon>
+            </Grid>
+            <Grid x:Name="PART_LabelPanel" />
+        </Grid>
+    </ControlTemplate>
+
+    <!--流量盘-->
+    <ControlTemplate x:Key="Flow" TargetType="{x:Type ZUI:Dashboard}">
+        <Grid>
+            <Grid>
+                <!--  刻度盘完整圆弧  -->
+                <ed:Arc x:Name="DoubleCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        SnapsToDevicePixels="True"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" Stroke="#746E7A" StrokeThickness="1" UseLayoutRounding="True" />
+
+                <!--  刻度盘当前值对应的圆弧  -->
+                <ed:Arc x:Name="PART_IncreaseCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
+                        RenderTransformOrigin="0.5,0.5"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" Stroke="Red" StrokeThickness="1" />
+
+                <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding ShortTicks}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="1" Height="8" Background="#746E7A" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=ShortTickPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding LongTicks}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="1" Height="13" Background="#746E7A" SnapsToDevicePixels="True"
+                                    UseLayoutRounding="True" />
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=LongTickPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
+                                ItemsSource="{TemplateBinding NumberList}">
+                    <ec:PathListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock RenderTransformOrigin="0.5,0.5" Text="{Binding}">
+                                <!--<TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform Angle="{Binding}" />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>-->
+                            </TextBlock>
+                        </DataTemplate>
+                    </ec:PathListBox.ItemTemplate>
+                    <ec:PathListBox.LayoutPaths>
+                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                       SourceElement="{Binding ElementName=NumberPath}" />
+                    </ec:PathListBox.LayoutPaths>
+                </ec:PathListBox>
+
+                <ed:Arc x:Name="LongTickPath" Margin="0" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <ed:Arc x:Name="ShortTickPath" Margin="5" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <ed:Arc x:Name="NumberPath" Margin="20" ArcThickness="0" ArcThicknessUnit="Pixel"
+                        EndAngle="{TemplateBinding EndAngle}"
+                        StartAngle="{TemplateBinding StartAngle}"
+                        Stretch="None" />
+
+                <!--<Border Width="5" Height="5" Background="Red" CornerRadius="100" RenderTransformOrigin="0.5,0.5"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="{Binding EndAngle, ElementName=PART_IncreaseCircle}" />
+                            <TranslateTransform Y="-100"  />
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                </Border>-->
+            </Grid>
+            <Grid x:Name="PART_LabelPanel" />
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type ZUI:Dashboard}">
+        <Setter Property="StartAngle" Value="-130" />
+        <Setter Property="EndAngle" Value="130" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template" Value="{StaticResource Speed}" />
+        <Setter Property="LabelStyle" Value="{StaticResource DefaultLabelPanel}" />
+        <Style.Triggers>
+            <Trigger Property="Skin" Value="Flow">
+                <Setter Property="StartAngle" Value="-120" />
+                <Setter Property="EndAngle" Value="120" />
+                <Setter Property="Foreground" Value="#929093" />
+                <Setter Property="Template" Value="{StaticResource Flow}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

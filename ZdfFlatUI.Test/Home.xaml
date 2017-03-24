@@ -1,0 +1,78 @@
+﻿<Window x:Class="ZdfFlatUI.Test.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdfFlatUI.Test"
+        xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        mc:Ignorable="d" WindowState="Maximized"
+        Title="Home" Height="700" Width="1200">
+    <Window.Resources>
+        <PathGeometry x:Key="Icon_Logo" Figures="M542.960941 8.613647C310.753882 8.613647 122.337882 188.054588 122.337882 409.238588 122.337882 630.603294 434.236235 963.764706 542.960941 963.764706 651.866353 963.764706 963.764706 630.603294 963.764706 409.238588 963.764706 188.054588 775.408941 8.613647 542.960941 8.613647L542.960941 8.613647ZM475.557647 656.263529C456.523294 675.418353 390.384941 639.939765 328.101647 576.692706 265.697882 513.686588 230.640941 446.945882 249.675294 427.670588 268.649412 408.335059 334.727529 443.873882 397.071059 507.000471 459.294118 570.127059 494.592 636.807529 475.557647 656.263529L475.557647 656.263529ZM609.219765 655.781647C589.944471 636.506353 625.483294 569.886118 688.790588 506.819765 751.977412 443.753412 818.778353 408.274824 838.174118 427.670588 857.449412 446.825412 821.850353 513.445647 758.663529 576.451765 695.416471 639.518118 628.495059 674.876235 609.219765 655.781647L609.219765 655.781647Z" />
+    </Window.Resources>
+    <Grid Background="#EEEEEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Background="White">
+            <StackPanel Orientation="Horizontal" Margin="70,0,0,0">
+                <Path Data="{StaticResource Icon_Logo}" Stretch="Uniform" Width="30" Fill="#00CC99" />
+                <TextBlock Text="ZUI" VerticalAlignment="Center" Foreground="#68B3FF" Margin="15,0,0,0"
+                           FontSize="18"/>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="1" Margin="70,30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.ColumnSpan="2" CornerRadius="8" Background="White" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+            <Border Grid.ColumnSpan="2">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" Opacity="1" ShadowDepth="1" Color="Brown" />
+                </Border.Effect>
+            </Border>
+
+            <WPF.UI:NavigateMenu x:Name="menu" FontSize="13" Margin="0,20" SelectionChanged="menu_SelectionChanged">
+                <WPF.UI:NavigateMenu.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </WPF.UI:NavigateMenu.ItemTemplate>
+                <WPF.UI:NavigateMenu.GroupStyle>
+                    <GroupStyle>
+                        <!--可伸缩的-->
+                        <!--<GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                            <WPF.UI:ZExpander Header="{Binding Name}" IsExpanded="True">
+                                                <WPF.UI:ZExpander.Content>
+                                                    <ItemsPresenter />
+                                                </WPF.UI:ZExpander.Content>
+                                            </WPF.UI:ZExpander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>-->
+                        <!--固定展示-->
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </WPF.UI:NavigateMenu.GroupStyle>
+            </WPF.UI:NavigateMenu>
+
+            <ContentControl x:Name="ControlPanel" Grid.Column="1" Margin="20" />
+        </Grid>
+    </Grid>
+</Window>

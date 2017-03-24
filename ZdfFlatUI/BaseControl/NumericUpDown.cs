@@ -1,0 +1,207 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using ZdfFlatUI.Utils;
+
+namespace ZdfFlatUI.BaseControl
+{
+    [TemplatePart(Name = "PART_ContentHost", Type = typeof(ScrollViewer))]
+    [TemplatePart(Name = "PART_UP", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_DOWN", Type = typeof(Button))]
+    public class NumericUpDown<T> : NumericUpDownBase
+    {
+        private Button PART_UP;
+        private Button PART_DOWN;
+
+        #region 委托
+
+        public delegate void UpButtonClickHandler();
+        public UpButtonClickHandler UpButtonClick;
+
+        public delegate void DownButtonClickHandler();
+        public DownButtonClickHandler DownButtonClick;
+
+        public delegate void ValueChangedHandler(object newValue);
+        public ValueChangedHandler ValueChanged;
+
+        #endregion
+
+        #region 依赖属性
+        public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register("Maximum"
+            , typeof(T), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 最大值
+        /// </summary>
+        public T Maximum
+        {
+            get { return (T)GetValue(MaximumProperty); }
+            set { SetValue(MaximumProperty, value); }
+        }
+
+        public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register("Minimum"
+            , typeof(T), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 最小值
+        /// </summary>
+        public T Minimum
+        {
+            get { return (T)GetValue(MinimumProperty); }
+            set { SetValue(MinimumProperty, value); }
+        }
+
+        public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register("Increment"
+            , typeof(T), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 增减量
+        /// </summary>
+        public T Increment
+        {
+            get { return (T)GetValue(IncrementProperty); }
+            set { SetValue(IncrementProperty, value); }
+        }
+
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register("Value"
+            , typeof(T), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 当前值
+        /// </summary>
+        public T Value
+        {
+            get { return (T)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsShowTipProperty = DependencyProperty.Register("IsShowTip"
+            , typeof(bool), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 是否显示异常提示
+        /// </summary>
+        public bool IsShowTip
+        {
+            get { return (bool)GetValue(IsShowTipProperty); }
+            set { SetValue(IsShowTipProperty, value); }
+        }
+
+        public static readonly DependencyProperty TipTextProperty = DependencyProperty.Register("TipText"
+            , typeof(string), typeof(NumericUpDown<T>));
+        /// <summary>
+        /// 提示内容
+        /// </summary>
+        public string TipText
+        {
+            get { return (string)GetValue(TipTextProperty); }
+            set { SetValue(TipTextProperty, value); }
+        }
+
+        public static readonly DependencyProperty TipBackgroundProperty = DependencyProperty.Register("TipBackground"
+            , typeof(Brush), typeof(NumericUpDown<T>), new FrameworkPropertyMetadata(new SolidColorBrush(Color.FromRgb(252, 110, 81))));
+        /// <summary>
+        /// 提示内容
+        /// </summary>
+        public Brush TipBackground
+        {
+            get { return (Brush)GetValue(TipBackgroundProperty); }
+            set { SetValue(TipBackgroundProperty, value); }
+        }
+        #endregion
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            this.PART_UP = VisualHelper.FindVisualElement<Button>(this, "PART_UP");
+            this.PART_DOWN = VisualHelper.FindVisualElement<Button>(this, "PART_DOWN");
+
+            if(this.PART_UP != null)
+            {
+                this.PART_UP.Click += BtnUp_Click;
+            }
+
+            if(this.PART_DOWN != null)
+            {
+                this.PART_DOWN.Click += BtnDown_Click;
+            }
+            
+            this.TextChanged += NumericUpDown_TextChanged;
+            this.KeyDown += NumericUpDown_KeyDown;
+
+            this.SetBtnEnabled(this.Value.ToString());
+            this.MoveCursorToEnd();
+        }
+
+        private void NumericUpDown_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (!this.IsFocused) return;
+
+            switch (e.Key)
+            {
+                case System.Windows.Input.Key.Up:
+                    if (this.UpButtonClick != null)
+                    {
+                        this.UpButtonClick();
+                    }
+                    break;
+                case System.Windows.Input.Key.Down:
+                    if (this.DownButtonClick != null)
+                    {
+                        this.DownButtonClick();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void NumericUpDown_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string newValue = ((TextBox)sender).Text;
+            if (this.ValueChanged != null)
+            {
+                ValueChanged(newValue);
+            }
+            this.SetBtnEnabled(newValue);
+            this.MoveCursorToEnd();
+        }
+
+        private void BtnUp_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.UpButtonClick != null)
+            {
+                this.UpButtonClick();
+            }
+
+            this.MoveCursorToEnd();
+        }
+
+        private void BtnDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.DownButtonClick != null)
+            {
+                this.DownButtonClick();
+            }
+
+            this.MoveCursorToEnd();
+        }
+
+        private void SetBtnEnabled(string value)
+        {
+            if (this.PART_UP != null)
+            {
+                this.PART_UP.IsEnabled = this.Maximum.ToString() != value;
+            }
+            if (this.PART_DOWN != null)
+            {
+                this.PART_DOWN.IsEnabled = this.Minimum.ToString() != value;
+            }
+        }
+
+        /// <summary>
+        /// 将光标移动到数字最后面
+        /// </summary>
+        private void MoveCursorToEnd()
+        {
+            this.SelectionStart = Convert.ToString(this.Value).Length;
+        }
+    }
+}

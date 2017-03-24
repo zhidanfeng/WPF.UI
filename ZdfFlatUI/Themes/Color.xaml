@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="Color.Light.Border.Normal">#D7DDE4</Color>
+    <Color x:Key="Color.Light.Border.MouseOver">#5CADFF</Color>
+    
+    <SolidColorBrush x:Key="Light.Border.Normal" Color="#D7DDE4" />
+    <SolidColorBrush x:Key="Light.Border.MouseOver" Color="#5CADFF" />
+    <SolidColorBrush x:Key="Light.Border.Pressed" Color="#5CADFF" />
+    <SolidColorBrush x:Key="Light.Border.Disabled" Color="#D7DDE4" />
+
+    <SolidColorBrush x:Key="Brush.Item.MouseOver.Background" Color="#E2E2E2" />
+    <SolidColorBrush x:Key="Brush.Item.Selected.Background" Color="#47A3FF" />
+    <SolidColorBrush x:Key="Brush.Item.MouseOver.Foreground" Color="#000000" />
+    <SolidColorBrush x:Key="Brush.Item.Selected.Foreground" Color="#FFFFFF" />
+
+    <!--三角形填充颜色-->
+    <SolidColorBrush x:Key="Light.Triangle.Fill" Color="#9EA7B4" />
+</ResourceDictionary>
