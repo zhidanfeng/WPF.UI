@@ -1,0 +1,8 @@
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\Styles\ContextMenuStyle.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\Styles\RichTextEditorStyle.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\Styles\ScorllViewerStyle.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\Veiws\ColorPicker.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\Veiws\RichTextEditor.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\WPFRichTextEditor_MarkupCompile.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF版富文本编辑器\WPFRichTextEditor\obj\x86\Debug\WPFRichTextEditor_MarkupCompile.lref
