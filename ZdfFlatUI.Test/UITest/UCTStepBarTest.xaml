@@ -10,15 +10,14 @@
     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
         <TextBlock x:Name="text" Text="{Binding ., StringFormat=当前正在进行 {0} 步}" Foreground="#957180" FontSize="14" Margin="0,0,0,20" />
         <WPF.UI:StepBar x:Name="stepBar" Width="900">
-            <!--<WPF.UI:StepBar.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding .}" />
-                        <TextBlock Text="fadfadsfdsafdasfds" Margin="0,0,-100,0" />
-                    </StackPanel>
-                </DataTemplate>
-            </WPF.UI:StepBar.ItemTemplate>-->
+            <WPF.UI:StepBarItem>1</WPF.UI:StepBarItem>
+            <WPF.UI:StepBarItem>2</WPF.UI:StepBarItem>
+            <WPF.UI:StepBarItem>3</WPF.UI:StepBarItem>
+            <WPF.UI:StepBarItem>4</WPF.UI:StepBarItem>
         </WPF.UI:StepBar>
+
+        <WPF.UI:StepBar x:Name="stepBar1" Width="900" Margin="0,20,0,0" />
+
         <StackPanel Orientation="Horizontal">
             <WPF.UI:FlatButton Width="70" Height="28" CornerRadius="3" Click="FlatButton_Click1" Content="Previous" Margin="10,20" />
             <WPF.UI:FlatButton Width="70" Height="28" CornerRadius="3" Click="FlatButton_Click" Content="Next" Margin="10,10" />

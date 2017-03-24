@@ -16,5 +16,5 @@ DEBUG;TRACE
 13-1829996574
 Properties\DesignTimeResources.xaml;Styles\AutoDisappearScrollViewerStyle.xaml;Styles\ContextMenuStyle.xaml;Styles\FontComboBox.xaml;Styles\RichTextEditorStyle.xaml;Styles\ScorllViewerStyle.xaml;Veiws\ColorPicker.xaml;Veiws\RichTextEditor.xaml;
 
-True
+False
 

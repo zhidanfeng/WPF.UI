@@ -42,19 +42,21 @@ namespace ZdfFlatUI.Test.UITest
             list.Add("已完成");
             list.Add("进行中");
 
-            this.stepBar.ItemsSource = list;
+            this.stepBar1.ItemsSource = list;
             this.text.DataContext = Step;
         }
 
         private void FlatButton_Click(object sender, RoutedEventArgs e)
         {
             //list.Add("进行中");
+            this.stepBar1.Progress++;
             this.stepBar.Progress++;
             this.text.DataContext = Step;
         }
 
         private void FlatButton_Click1(object sender, RoutedEventArgs e)
         {
+            this.stepBar1.Progress--;
             this.stepBar.Progress--;
             this.text.DataContext = Step;
         }

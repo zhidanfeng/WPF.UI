@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace ZdfFlatUI
 {
@@ -12,6 +16,8 @@ namespace ZdfFlatUI
     {
         #region Private属性
         private Button PART_CloseButton;
+        private Storyboard openStoryboard;
+        private Storyboard closedStoryboard;
         #endregion
 
         #region 依赖属性定义
@@ -105,6 +111,17 @@ namespace ZdfFlatUI
             this.ShowInTaskbar = false;
             this.Topmost = false;
             this.ButtonCollection = new ObservableCollection<Button>();
+
+            this.Loaded += MessageBoxModule_Loaded;
+        }
+
+        
+
+        private void MessageBoxModule_Loaded(object sender, RoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(this, "Loaded", true);
+
+
         }
         #endregion
 
@@ -114,6 +131,9 @@ namespace ZdfFlatUI
             base.OnApplyTemplate();
 
             this.PART_CloseButton = this.GetTemplateChild("PART_CloseButton") as Button;
+            Grid  s  = this.GetTemplateChild("grid") as Grid;
+
+            
             if (this.PART_CloseButton != null)
             {
                 this.PART_CloseButton.Click += CloseWindow;
@@ -185,15 +205,28 @@ namespace ZdfFlatUI
             , MessageBoxButton button, MessageBoxResult defaultResult, EnumPromptType type)
         {
             MessageBoxModule messageBox = new MessageBoxModule();
-            messageBox.Owner = owner;
+            
             if(owner != null)
             {
+                //蒙板
+                Grid layer = new Grid() { Background = new SolidColorBrush(Color.FromArgb(128, 0, 0, 0)) };
+                //父级窗体原来的内容
+                UIElement original = owner.Content as UIElement;
+                owner.Content = null;
+                //容器Grid
+                Grid container = new Grid();
+                container.Children.Add(original);//放入原来的内容
+                container.Children.Add(layer);//在上面放一层蒙板
+                                              //将装有原来内容和蒙板的容器赋给父级窗体
+                owner.Content = container;
                 messageBox.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             }
             else
             {
                 messageBox.ShowInTaskbar = true;
             }
+
+            messageBox.Owner = owner;
             messageBox.Title = caption;
             messageBox.MessageText = messageBoxText;
             messageBox.Type = type;
@@ -325,6 +358,24 @@ namespace ZdfFlatUI
             };
 
             return button;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if(this.Owner != null)
+            {
+                //容器Grid
+                Grid grid = this.Owner.Content as Grid;
+                //父级窗体原来的内容
+                UIElement original = VisualTreeHelper.GetChild(grid, 0) as UIElement;
+                //将父级窗体原来的内容在容器Grid中移除
+                grid.Children.Remove(original);
+                //赋给父级窗体
+                this.Owner.Content = original;
+            }
+            
+            VisualStateManager.GoToState(this, "Closed", true);
+            //e.Cancel = true;
         }
     }
 

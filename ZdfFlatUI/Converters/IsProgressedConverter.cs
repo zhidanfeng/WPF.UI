@@ -16,7 +16,6 @@ namespace ZdfFlatUI.Converters
             {
                 return EnumCompare.None;
             }
-            //bool checkNextItem = System.Convert.ToBoolean(parameter.ToString());
 
             ContentControl contentControl = values[0] as ContentControl;
             int progress = (int)values[1];
