@@ -23,6 +23,9 @@ namespace ZdfFlatUI
         Normal,
     }
 
+    /// <summary>
+    /// 角标装饰器
+    /// </summary>
     public class BadgeAdorner : Adorner
     {
         private Badge badge;

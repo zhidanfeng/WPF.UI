@@ -358,7 +358,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Text" Value="{Binding Value, RelativeSource={RelativeSource Mode=Self}}" />
-        <Setter Property="Height" Value="25" />
+        <Setter Property="MinHeight" Value="25" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template" Value="{StaticResource ResourceKey=VerticalUpDown}" />
         <Style.Triggers>

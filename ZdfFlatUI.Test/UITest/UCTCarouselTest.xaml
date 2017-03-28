@@ -40,7 +40,7 @@
                 </Grid.RowDefinitions>
                 
                 <TextBlock Text="自动切换" VerticalAlignment="Center" HorizontalAlignment="Right" />
-                <WPF.UI:DefaultToggleButton x:Name="toggleBtnAutoPlay" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                <WPF.UI:FlatToggleButton x:Name="toggleBtnAutoPlay" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" />
 
                 <TextBlock Text="自动切换速度" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" />
                 <WPF.UI:FlatSilder x:Name="FlatSilder" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"

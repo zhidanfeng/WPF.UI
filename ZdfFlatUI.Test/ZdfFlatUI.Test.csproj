@@ -113,6 +113,9 @@
     <Compile Include="UITest\UCTBadgeTest.xaml.cs">
       <DependentUpon>UCTBadgeTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTBusyIndicatorTest.xaml.cs">
+      <DependentUpon>UCTBusyIndicatorTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTButtonTest.xaml.cs">
       <DependentUpon>UCTButtonTest.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,9 @@
     </Compile>
     <Compile Include="UITest\UCTDateControl.xaml.cs">
       <DependentUpon>UCTDateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTLoadingTest.xaml.cs">
+      <DependentUpon>UCTLoadingTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTMessageBoxTest.xaml.cs">
       <DependentUpon>UCTMessageBoxTest.xaml</DependentUpon>
@@ -223,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTBusyIndicatorTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTButtonTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -244,6 +254,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTDateControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTLoadingTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,6 +22,9 @@ namespace ZdfFlatUI
             this.UpButtonClick = new UpButtonClickHandler(BtnUp_Click);
             this.DownButtonClick = new DownButtonClickHandler(BtnDown_Click);
             this.ValueChanged = new NumericUpDown<double>.ValueChangedHandler(CurrValueChanged);
+
+            this.Value = this.Value < this.Minimum ? this.Minimum : this.Value;
+            this.Value = this.Value > this.Maximum ? this.Maximum : this.Value;
         }
 
         private void BtnUp_Click()

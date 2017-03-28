@@ -10,16 +10,16 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Margin="0,2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Margin="20,0" VerticalAlignment="Center" Text="启用动画" />
-                <ZUI:DefaultToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <ZUI:FlatToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Margin="0,2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Margin="20,0" VerticalAlignment="Center" Text="启用动画" />
-                <ZUI:DefaultToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <ZUI:FlatToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
                                          IsChecked="True" />
             </StackPanel>
             <StackPanel Margin="0,2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Margin="20,0" VerticalAlignment="Center" Text="启用动画" />
-                <ZUI:DefaultToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                <ZUI:FlatToggleButton Width="43" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
                                          Background="Blue" IsChecked="False" />
             </StackPanel>
         </StackPanel>

@@ -13,7 +13,7 @@
 
     <SolidColorBrush x:Key="Button.Checked.Foreground" Color="#FF76E8A6" />
 
-    <Style TargetType="{x:Type WPF.UI:DefaultToggleButton}">
+    <Style TargetType="{x:Type WPF.UI:FlatToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Background" Value="{StaticResource Button.Pressed.Background}" />
         <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
@@ -26,7 +26,7 @@
         <Setter Property="Height" Value="20" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type WPF.UI:DefaultToggleButton}">
+                <ControlTemplate TargetType="{x:Type WPF.UI:FlatToggleButton}">
                     <Grid>
                         <Border x:Name="border"
                                 Background="{StaticResource Button.Pressed.Background}"

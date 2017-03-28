@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 仪表盘类型
+    /// </summary>
     public enum DashboardSkinEnum
     {
         /// <summary>
@@ -17,6 +20,9 @@ namespace ZdfFlatUI
         Flow,
     }
 
+    /// <summary>
+    /// 进度条类型
+    /// </summary>
     public enum ProgressBarSkinEnum
     {
         /// <summary>
@@ -110,5 +116,32 @@ namespace ZdfFlatUI
         Equal,
         Large,
         None,
+    }
+
+    public enum EnumLoadingType
+    {
+        /// <summary>
+        /// 两个环形
+        /// </summary>
+        DoubleArc,
+        /// <summary>
+        /// 两个圆
+        /// </summary>
+        DoubleRound,
+        /// <summary>
+        /// 一个圆
+        /// </summary>
+        SingleRound,
+        /// <summary>
+        /// 仿Win10加载条
+        /// </summary>
+        Win10,
+        /// <summary>
+        /// 仿Android加载条
+        /// </summary>
+        Android,
+        Apple,
+        Cogs,
+        Normal,
     }
 }

@@ -164,6 +164,16 @@ namespace ZdfFlatUI.Test
                 Name = "StepBar步骤条",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Loading加载中",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "BusyIndicator遮罩层",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -248,6 +258,12 @@ namespace ZdfFlatUI.Test
                         break;
                     case "StepBar步骤条":
                         this.ControlPanel.Content = new UITest.UCTStepBarTest();
+                        break;
+                    case "Loading加载中":
+                        this.ControlPanel.Content = new UITest.UCTLoadingTest();
+                        break;
+                    case "BusyIndicator遮罩层":
+                        this.ControlPanel.Content = new UITest.UCTBusyIndicatorTest();
                         break;
                     #endregion
 

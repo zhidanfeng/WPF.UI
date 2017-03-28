@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\App.xaml
-301156443820
+32-738368383
 5-1580796573
-451394023516
+47-1995542352
 192144813289
-Home.xaml;MainWindow.xaml;Styles\ContextMenuStyle.xaml;UITestWindow.xaml;UITest\BaseWindowTest.xaml;UITest\Base\Color.xaml;UITest\UCTBadgeTest.xaml;UITest\UCTButtonTest.xaml;UITest\UCTCarouselTest.xaml;UITest\UCTCascaderBoxTest.xaml;UITest\UCTCheckBoxTest.xaml;UITest\UCTDashboardTest.xaml;UITest\UCTDateControl.xaml;UITest\UCTMessageBoxTest.xaml;UITest\UCTMultiComboBoxTest.xaml;UITest\UCTNavigateMenuTest.xaml;UITest\UCTNavigationBarTest.xaml;UITest\UCTNoticeTest.xaml;UITest\UCTNumberBoxTest.xaml;UITest\UCTNumericUpDownTest.xaml;UITest\UCTProgressBarTest.xaml;UITest\UCTRadioButtonTest.xaml;UITest\UCTSilderTest.xaml;UITest\UCTStepBarTest.xaml;UITest\UCTTextBoxTest.xaml;UITest\UCTToggleButtonTest.xaml;UITest\UCTToolTipTest.xaml;UITest\UCTTreeView.xaml;UITest\UCTTreeViewTest.xaml;UITest\UCTUploadTest.xaml;
+Home.xaml;MainWindow.xaml;Styles\ContextMenuStyle.xaml;UITestWindow.xaml;UITest\BaseWindowTest.xaml;UITest\Base\Color.xaml;UITest\UCTBadgeTest.xaml;UITest\UCTBusyIndicatorTest.xaml;UITest\UCTButtonTest.xaml;UITest\UCTCarouselTest.xaml;UITest\UCTCascaderBoxTest.xaml;UITest\UCTCheckBoxTest.xaml;UITest\UCTDashboardTest.xaml;UITest\UCTDateControl.xaml;UITest\UCTLoadingTest.xaml;UITest\UCTMessageBoxTest.xaml;UITest\UCTMultiComboBoxTest.xaml;UITest\UCTNavigateMenuTest.xaml;UITest\UCTNavigationBarTest.xaml;UITest\UCTNoticeTest.xaml;UITest\UCTNumberBoxTest.xaml;UITest\UCTNumericUpDownTest.xaml;UITest\UCTProgressBarTest.xaml;UITest\UCTRadioButtonTest.xaml;UITest\UCTSilderTest.xaml;UITest\UCTStepBarTest.xaml;UITest\UCTTextBoxTest.xaml;UITest\UCTToggleButtonTest.xaml;UITest\UCTToolTipTest.xaml;UITest\UCTTreeView.xaml;UITest\UCTTreeViewTest.xaml;UITest\UCTUploadTest.xaml;
 
-True
+False
 

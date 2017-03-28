@@ -21,7 +21,7 @@
     <PathGeometry x:Key="Icon_Checked" Figures="M403.738809 825.236074c-10.027377 0-20.049638-4.052293-27.698852-12.156878L80.563362 500.022201c-15.300474-16.20917-15.300474-42.484603 0-58.69275 15.297404-16.208147 40.098253-16.208147 55.395658 0l267.779789 283.711644 489.358327-518.445806c15.298428-16.210193 40.10337-16.210193 55.402821 0 15.292288 16.207124 15.292288 42.484603-0.00614 58.690704l-517.056156 547.793204C423.788447 821.183781 413.76107 825.236074 403.738809 825.236074L403.738809 825.236074zM403.738809 825.236074" />
     <PathGeometry x:Key="Icon_对勾" Figures="M498.337684 793.195789 194.937263 479.797895 256 498.526316l215.578947 80.842105c71.895579-86.824421 183.996632-240.235789 404.210526-377.263158l53.894737-26.947368C727.552 363.708632 550.777263 657.515789 498.337684 793.195789L498.337684 793.195789 498.337684 793.195789zM881.448421 450.991158c3.233684 19.860211 4.985263 40.232421 4.985263 61.008842 0 206.794105-167.639579 374.433684-374.433684 374.433684-206.767158 0-374.406737-167.639579-374.406737-374.433684 0-206.767158 167.639579-374.406737 374.406737-374.406737 49.960421 0 97.549474 9.781895 141.096421 27.540211l0-74.913684C607.797895 75.048421 560.478316 67.368421 512 67.368421c-59.984842 0-118.218105 11.776-173.082947 34.950737-52.951579 22.420211-100.486737 54.487579-141.312 95.258947-40.798316 40.825263-72.865684 88.333474-95.258947 141.338947C79.144421 393.781895 67.368421 451.988211 67.368421 512s11.776 118.245053 34.977684 173.109895c22.420211 52.951579 54.460632 100.486737 95.258947 141.312 40.825263 40.798316 88.360421 72.838737 141.312 95.258947C393.781895 944.855579 452.015158 956.631579 512 956.631579c60.011789 0 118.272-11.776 173.109895-34.950737 52.951579-22.420211 100.486737-54.460632 141.285053-95.258947 40.825263-40.825263 72.865684-88.360421 95.258947-141.312C944.882526 630.245053 956.631579 572.011789 956.631579 512c0-20.560842-1.374316-40.906105-4.122947-61.008842L881.448421 450.991158 881.448421 450.991158z" />
 
-    <ControlTemplate x:Key="DefaultSquare" TargetType="{x:Type WPF.UI:DefaultCheckBox}">
+    <ControlTemplate x:Key="DefaultSquare" TargetType="{x:Type WPF.UI:FlatCheckBox}">
         <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -154,7 +154,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="DefaultEllipse" TargetType="{x:Type WPF.UI:DefaultCheckBox}">
+    <ControlTemplate x:Key="DefaultEllipse" TargetType="{x:Type WPF.UI:FlatCheckBox}">
         <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -277,7 +277,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="EllipseSkin1" TargetType="{x:Type WPF.UI:DefaultCheckBox}">
+    <ControlTemplate x:Key="EllipseSkin1" TargetType="{x:Type WPF.UI:FlatCheckBox}">
         <!--  使用BulletDecorator可以解决CheckBox样式重写后只能点击文字或者边缘才能选中CheckBox的问题  -->
         <BulletDecorator VerticalAlignment="Center" Background="Transparent">
             <BulletDecorator.Bullet>
@@ -301,7 +301,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type WPF.UI:DefaultCheckBox}">
+    <Style TargetType="{x:Type WPF.UI:FlatCheckBox}">
         <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}" />
         <Setter Property="BorderBrush" Value="{StaticResource OptionMark.Static.Border}" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />

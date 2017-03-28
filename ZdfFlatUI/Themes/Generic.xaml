@@ -44,5 +44,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/MessageBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CascaderBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/StepBar/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Loading/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/BusyIndicator/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

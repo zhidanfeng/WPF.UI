@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:WPF.UI="clr-namespace:ZdfFlatUI">
 
-    <Style TargetType="{x:Type WPF.UI:DefaultRadionButton}">
+    <Style TargetType="{x:Type WPF.UI:FlatRadionButton}">
         <Setter Property="Tag">
             <Setter.Value>
                 <SolidColorBrush Color="Red"/>
@@ -10,7 +10,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type WPF.UI:DefaultRadionButton}">
+                <ControlTemplate TargetType="{x:Type WPF.UI:FlatRadionButton}">
                     <!--使用BulletDecorator可以解决RadionButton样式重写后只能点击文字或者边缘才能选中CheckBox的问题-->
                     <BulletDecorator Background="Transparent" VerticalAlignment="Center" >
                         <BulletDecorator.Bullet>

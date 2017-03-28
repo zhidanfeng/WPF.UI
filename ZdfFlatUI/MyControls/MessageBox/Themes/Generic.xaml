@@ -25,7 +25,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:MessageBoxModule}">
-                    <Grid x:Name="grid" Width="300" Height="200" RenderTransformOrigin="0.5, 0.5">
+                    <Grid x:Name="grid" Width="300" Height="200" RenderTransformOrigin="0.5,0.5" Margin="15">
                         <Grid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform />
@@ -43,10 +43,10 @@
                         </Grid.RowDefinitions>
                         <Border Grid.RowSpan="5" Background="#FFF" BorderBrush="Black" CornerRadius="5">
                             <Border.Effect>
-                                <DropShadowEffect BlurRadius="8" Opacity="0.2" ShadowDepth="0" Color="Brown" />
+                                <DropShadowEffect BlurRadius="8" Opacity="0.4" ShadowDepth="0" Color="Brown" />
                             </Border.Effect>
                         </Border>
-                        <Border Grid.Row="0" Grid.RowSpan="5" Background="#FFFFFF" BorderBrush="#CCCEDB"
+                        <Border Grid.Row="0" Grid.RowSpan="5" Background="#FFFFFF" BorderBrush="#3D9EFF" Margin="-1,-1,0,0"
                                 BorderThickness="1" CornerRadius="5" SnapsToDevicePixels="True" UseLayoutRounding="True" />
 
                         <!--#region 图标-->

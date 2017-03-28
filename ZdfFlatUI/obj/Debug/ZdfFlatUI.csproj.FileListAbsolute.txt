@@ -141,4 +141,11 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.Pr
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csproj.GenerateResource.Cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\WPF.UI.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\WPF.UI.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csprojResolveAssemblyReference.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\Apple.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\Cogs.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\DoubleArc.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\DoubleRound.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\SingleRound.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Loading\Themes\Normal.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\BusyIndicator\Themes\Generic.baml

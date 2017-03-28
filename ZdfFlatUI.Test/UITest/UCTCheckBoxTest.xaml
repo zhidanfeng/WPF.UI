@@ -9,9 +9,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ZUI:DefaultCheckBox Content="未处理" Margin="0,5" UnCheckedColor="Gray" />
-            <ZUI:DefaultCheckBox Content="未处理" Skins="DefaultEllipse" Margin="0,5" CheckedColor="Black" />
-            <ZUI:DefaultCheckBox Content="未处理" Skins="EllipseSkin1" Margin="0,5" />
+            <ZUI:FlatCheckBox Content="未处理" Margin="0,5" UnCheckedColor="Gray" />
+            <ZUI:FlatCheckBox Content="未处理" Skins="DefaultEllipse" Margin="0,5" CheckedColor="Black" />
+            <ZUI:FlatCheckBox Content="未处理" Skins="EllipseSkin1" Margin="0,5" />
         </StackPanel>
     </Grid>
 </UserControl>

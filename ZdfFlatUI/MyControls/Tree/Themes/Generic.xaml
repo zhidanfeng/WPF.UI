@@ -92,7 +92,7 @@
                                                           RelativeSource={RelativeSource TemplatedParent}}"
                                       Style="{StaticResource ExpandCollapseToggleStyle}" />
                         
-                        <ZUI:DefaultCheckBox x:Name="PART_CheckBox" Grid.Column="1" Margin="5,0,5,0"
+                        <ZUI:FlatCheckBox x:Name="PART_CheckBox" Grid.Column="1" Margin="5,0,5,0"
                                              Visibility="{Binding IsShowCheckBox, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ZUI:ZTreeView}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
                         <Border x:Name="Bd" Grid.Column="2"
