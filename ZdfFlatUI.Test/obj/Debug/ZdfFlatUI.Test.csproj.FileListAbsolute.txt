@@ -169,3 +169,7 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTLoadingTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTBusyIndicatorTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTBusyIndicatorTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTGroupPanelTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTGroupPanelTest.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDropDownTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDropDownTest.baml

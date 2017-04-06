@@ -49,6 +49,8 @@ namespace ZdfFlatUI.Test
             InitializeComponent();
 
             this.MenuList = new ObservableCollection<MenuInfo>();
+
+            #region Base
             this.MenuList.Add(new MenuInfo()
             {
                 Name = "Color色彩",
@@ -59,6 +61,7 @@ namespace ZdfFlatUI.Test
                 Name = "Button按钮",
                 GroupName = ControlType.Basic.ToString(),
             });
+            #endregion
 
             #region Form
             this.MenuList.Add(new MenuInfo()
@@ -174,6 +177,26 @@ namespace ZdfFlatUI.Test
                 Name = "BusyIndicator遮罩层",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "分组面板",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "DropDown下拉",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Flayout悬浮面板",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Flayout悬浮面板",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -187,9 +210,11 @@ namespace ZdfFlatUI.Test
                 MenuInfo info = this.menu.SelectedItem as MenuInfo;
                 switch (info.Name)
                 {
+                    #region Base
                     case "Color色彩":
                         this.ControlPanel.Content = new UITest.Base.Color();
                         break;
+                    #endregion
 
                     #region Form
                     case "Button按钮":
@@ -265,10 +290,13 @@ namespace ZdfFlatUI.Test
                     case "BusyIndicator遮罩层":
                         this.ControlPanel.Content = new UITest.UCTBusyIndicatorTest();
                         break;
-                    #endregion
-
-                    default:
+                    case "分组面板":
+                        this.ControlPanel.Content = new UITest.UCTGroupPanelTest();
                         break;
+                    case "DropDown下拉":
+                        this.ControlPanel.Content = new UITest.UCTDropDownTest();
+                        break;
+                    #endregion
                 }
             }
         }

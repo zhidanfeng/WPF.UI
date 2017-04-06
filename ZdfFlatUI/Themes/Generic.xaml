@@ -16,7 +16,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/Popup/NoticeMessageStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/ListBox/NavigationBarStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/Window/BaseWindowStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/BaseWindowStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/ToggleButton/DefaultToggleButton.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/DefaultCheckBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/RadionButton/DefaultRadionButtonStyle.xaml" />
@@ -46,5 +46,8 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/StepBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Loading/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/BusyIndicator/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TitleBar/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/GroupBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Dropdown/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -15,7 +15,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:ZToolTip}">
-                    <Grid Margin="10">
+                    <Grid x:Name="Root" Margin="10">
                         <Border x:Name="ShadowBorder" BorderBrush="Black" Background="#FFF" CornerRadius="4" Margin="0,0,0,7">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="8" Opacity="0.4" ShadowDepth="0" Color="Brown" />

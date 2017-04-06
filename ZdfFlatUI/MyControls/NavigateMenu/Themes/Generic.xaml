@@ -11,8 +11,7 @@
     <GroupStyle x:Key="NoExpandGroupStyle">
         <GroupStyle.HeaderTemplate>
             <DataTemplate>
-                <TextBlock FontSize="15" FontWeight="Bold"
-                           Text="{Binding Path=Name}" />
+                <TextBlock FontSize="15" FontWeight="Bold" Text="{Binding Path=Name}" />
             </DataTemplate>
         </GroupStyle.HeaderTemplate>
     </GroupStyle>
@@ -119,15 +118,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:NavigateMenu}">
-                    <Border Name="Bd" Margin="0,0"
-                            Background="{TemplateBinding Control.Background}"
+                    <Border Name="Bd" Background="{TemplateBinding Control.Background}"
                             BorderBrush="{TemplateBinding Control.BorderBrush}"
                             BorderThickness="{TemplateBinding Control.BorderThickness}"
-                            Padding="0" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                            SnapsToDevicePixels="True" UseLayoutRounding="True">
                         <ZUI:ZScrollViewer Focusable="False" HorizontalScrollBarVisibility="Hidden"
-                                           Padding="{TemplateBinding Control.Padding}"
+                                           Padding="{TemplateBinding Padding}"
                                            VerticalScrollBarVisibility="Auto">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                            Margin="-5,0,0,0"/>
                         </ZUI:ZScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>

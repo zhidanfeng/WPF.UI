@@ -144,4 +144,16 @@ namespace ZdfFlatUI
         Cogs,
         Normal,
     }
+
+    public enum CloseBoxTypeEnum
+    {
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        Close,
+        /// <summary>
+        /// 隐藏窗口
+        /// </summary>
+        Hide,
+    }
 }

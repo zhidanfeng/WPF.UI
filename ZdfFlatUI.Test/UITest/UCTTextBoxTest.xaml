@@ -34,8 +34,8 @@
                                       IsShowTitle="True"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <WPF.UI:ZTextBox Width="200" Height="65" Margin="5,10" MultiRow="True" />
-            <WPF.UI:ZTextBox Width="200" Height="25" Margin="10,10" CornerRadius="3" />
+            <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" MultiRow="True" />
+            <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" CornerRadius="3" />
         </StackPanel>
     </StackPanel>
 </UserControl>

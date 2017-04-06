@@ -134,6 +134,12 @@
     <Compile Include="UITest\UCTDateControl.xaml.cs">
       <DependentUpon>UCTDateControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTDropDownTest.xaml.cs">
+      <DependentUpon>UCTDropDownTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTGroupPanelTest.xaml.cs">
+      <DependentUpon>UCTGroupPanelTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTLoadingTest.xaml.cs">
       <DependentUpon>UCTLoadingTest.xaml</DependentUpon>
     </Compile>
@@ -257,6 +263,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTDropDownTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTGroupPanelTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTLoadingTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,6 +387,7 @@
     <Content Include="DLL\Microsoft.Expression.Drawing.dll" />
     <Content Include="DLL\Microsoft.Expression.Interactions.dll" />
     <Content Include="DLL\System.Windows.Interactivity.dll" />
+    <Resource Include="Images\OH.gif" />
     <Resource Include="Images\img1.png" />
     <Resource Include="Images\img2.png" />
     <Resource Include="Images\img3.png" />

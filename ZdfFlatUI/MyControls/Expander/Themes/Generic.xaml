@@ -33,8 +33,10 @@
                                                                      Mode=TwoWay,
                                                                      RelativeSource={RelativeSource TemplatedParent}}" />
 
-                            <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Header}"
-                                       VerticalAlignment="Center" Margin="20,0,0,0"/>
+                            <ContentPresenter IsHitTestVisible="False" Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                              VerticalAlignment="Center" Margin="20,0,0,0"/>
                             
                             <ContentPresenter x:Name="ExpandSite" Grid.Row="1" Grid.ColumnSpan="2"
                                               Margin="{TemplateBinding Padding}"

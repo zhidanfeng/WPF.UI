@@ -77,6 +77,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -118,8 +119,12 @@
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
+    <Compile Include="MyControls\Dropdown\Implementation\DropDownButton.cs" />
+    <Compile Include="MyControls\Dropdown\Implementation\DropdownButtonItem.cs" />
     <Compile Include="MyControls\Expander\Implementation\ZExpander.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderBox.cs" />
+    <Compile Include="MyControls\GroupBox\Implementation\ZGroupBox.cs" />
+    <Compile Include="MyControls\Image\Implementation\GifImage.cs" />
     <Compile Include="MyControls\Loading\Implementation\Loading.cs" />
     <Compile Include="MyControls\MessageBox\Implementation\ZMessageBox.cs" />
     <Compile Include="MyControls\MultiComboBox\Implementation\MultiComboBox.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="MyControls\TextBox\TagTextBox.cs" />
     <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
     <Compile Include="MyControls\TextBox\ValidateTextBox.cs" />
+    <Compile Include="MyControls\TitleBar\Implementation\TitleBar.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\AnimationButton.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\FlatToggleButton.cs" />
     <Compile Include="MyControls\ToolTipHelper.cs" />
@@ -177,7 +183,8 @@
     <Compile Include="MyControls\UserControls\Notifiaction.xaml.cs">
       <DependentUpon>Notifiaction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyControls\Window\BaseWindow.cs" />
+    <Compile Include="MyControls\Window\Implementation\AutoCloseWindow.cs" />
+    <Compile Include="MyControls\Window\Implementation\BaseWindow.cs" />
     <Compile Include="StyleSelectors\NavigateBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateMenuGroupStyleSelector.cs" />
     <Compile Include="Utils\DialogHelper.cs" />
@@ -206,11 +213,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\Dropdown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Expander\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\CascaderBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\GroupBox\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\TextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TitleBar\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,7 +453,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Window\BaseWindowStyle.xaml">
+    <Page Include="MyControls\Window\Themes\BaseWindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -474,6 +493,7 @@
     <Folder Include="MyControls\Page\" />
     <Folder Include="MyControls\Validate\" />
     <Folder Include="Themes\CheckBox\" />
+    <Folder Include="Themes\Window\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLL\CalcBinding.dll" />

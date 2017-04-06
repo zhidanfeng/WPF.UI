@@ -47,27 +47,31 @@
                 <WPF.UI:NavigateMenu.GroupStyle>
                     <GroupStyle>
                         <!--可伸缩的-->
-                        <!--<GroupStyle.ContainerStyle>
+                        <GroupStyle.ContainerStyle>
                             <Style TargetType="{x:Type GroupItem}">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="{x:Type GroupItem}">
-                                            <WPF.UI:ZExpander Header="{Binding Name}" IsExpanded="True">
+                                            <WPF.UI:ZExpander IsExpanded="True">
                                                 <WPF.UI:ZExpander.Content>
                                                     <ItemsPresenter />
                                                 </WPF.UI:ZExpander.Content>
+                                                <WPF.UI:ZExpander.Header>
+                                                    <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}"/>
+                                                </WPF.UI:ZExpander.Header>
                                             </WPF.UI:ZExpander>
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
                             </Style>
-                        </GroupStyle.ContainerStyle>-->
+                        </GroupStyle.ContainerStyle>
                         <!--固定展示-->
-                        <GroupStyle.HeaderTemplate>
+                        <!--<GroupStyle.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
+                                <T
+                        extBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
                             </DataTemplate>
-                        </GroupStyle.HeaderTemplate>
+                        </GroupStyle.HeaderTemplate>-->
                     </GroupStyle>
                 </WPF.UI:NavigateMenu.GroupStyle>
             </WPF.UI:NavigateMenu>
