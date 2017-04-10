@@ -137,6 +137,9 @@
     <Compile Include="UITest\UCTDropDownTest.xaml.cs">
       <DependentUpon>UCTDropDownTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTFlyoutTest.xaml.cs">
+      <DependentUpon>UCTFlyoutTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTGroupPanelTest.xaml.cs">
       <DependentUpon>UCTGroupPanelTest.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,9 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigationBarTestViewModel.cs" />
+    <Compile Include="Windows\FlyoutWindow.xaml.cs">
+      <DependentUpon>FlyoutWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -264,6 +270,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTDropDownTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTFlyoutTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTUploadTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FlyoutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

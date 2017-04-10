@@ -14,7 +14,7 @@
             <WPF.UI:DropdownButtonItem Content="111" />
             <WPF.UI:DropdownButtonItem Content="2222222222" />
             <WPF.UI:DropdownButtonItem Content="3333333333" />
-            <WPF.UI:DropdownButtonItem Content="4444444444" />
+            <WPF.UI:DropdownButtonItem Content="44444444444444444444" />
         </WPF.UI:DropDownButton>
     </Grid>
 </UserControl>

@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <PathGeometry x:Key="Refresh-Off" Figures="M20,4L14,4 14,10 16.24,7.76C17.32,8.85 18,10.34 18,12 18,13 17.75,13.94 17.32,14.77L18.78,16.23C19.55,15 20,13.56 20,12 20,9.79 19.09,7.8 17.64,6.36L20,4 M2.86,5.41L5.22,7.77C4.45,9 4,10.44 4,12 4,14.21 4.91,16.2 6.36,17.64L4,20 10,20 10,14 7.76,16.24C6.68,15.15 6,13.66 6,12 6,11 6.25,10.06 6.68,9.23L14.76,17.31C14.5,17.44,14.26,17.56,14,17.65L14,19.74C14.79,19.53,15.54,19.2,16.22,18.78L18.58,21.14 19.85,19.87 4.14,4.14 2.86,5.41 M10,6.35L10,4.26C9.2,4.47,8.45,4.8,7.77,5.22L9.23,6.68C9.5,6.56,9.73,6.44,10,6.35z" />
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel VerticalAlignment="Center">
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <My:PathButton Width="65" Height="30" Margin="10,10" Content="测试"
                            PathWidth="12" />
@@ -36,14 +36,22 @@
                                PathWidth="15" PressedBackground="Transparent" PressedPathColor="Black" />
             
         </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <My:SegmentButton x:Name="segmentButton" Margin="10,10" BorderBrush="#ED5565" FontSize="12"
+                              SelectedIndex="0" SelectedValue="住院医生" />
+
+            <My:SegmentButton x:Name="segmentButton1" Margin="10,10" BorderBrush="#3399FF" FontSize="12"
+                              SelectedIndex="0" SelectedValue="住院医生" />
+        </StackPanel>
+        
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <My:FlatButton Width="95" Height="30" Margin="10,10" Background="#DA4453"
                            Content="力量调度" CornerRadius="15" Foreground="White" MouseOverBackground="#ED5565"
                            PressedBackground="#DA4453" MouseOverBackground1="#ED5565" />
             <My:FlatButton Width="95" Height="30" Margin="10,10"
                            Content="力量调度" CornerRadius="2" Type="No" />
-            <My:SegmentButton x:Name="segmentButton" Margin="10,10" BorderBrush="#ED5565" FontSize="12"
-                              SelectedIndex="0" SelectedValue="住院医生" />
+            
             <My:FlatButton Width="95" Height="32" Margin="10,10" Click="FlatButton_Click_1"
                            Content="力量调度" CornerRadius="3" Foreground="White">
                 <My:FlatButton.Background>
@@ -89,7 +97,7 @@
             </My:FlatButton>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
             <My:FlatButton Width="70" Height="28" Content="Default" Type="Default" CornerRadius="3" Margin="2,0" />
             <My:FlatButton Width="70" Height="28" Content="Primary" Type="primary" CornerRadius="3" Margin="2,0" />
             <My:FlatButton Width="70" Height="28" Content="ghost" Type="ghost" CornerRadius="3" Margin="2,0" />

@@ -68,8 +68,7 @@
                         <!--固定展示-->
                         <!--<GroupStyle.HeaderTemplate>
                             <DataTemplate>
-                                <T
-                        extBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
+                                <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
                             </DataTemplate>
                         </GroupStyle.HeaderTemplate>-->
                     </GroupStyle>

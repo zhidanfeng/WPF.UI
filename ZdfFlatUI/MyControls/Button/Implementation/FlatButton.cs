@@ -9,21 +9,6 @@ using System.Windows.Media;
 
 namespace ZdfFlatUI
 {
-    public enum FlatButtonSkinEnum
-    {
-        Yes,
-        No,
-        Default,
-        primary,
-        ghost,
-        dashed,
-        text,
-        info,
-        success,
-        error,
-        warning,
-    }
-
     public class FlatButton : Button
     {
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register("Type"

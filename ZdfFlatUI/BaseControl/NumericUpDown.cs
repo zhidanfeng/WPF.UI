@@ -29,7 +29,28 @@ namespace ZdfFlatUI.BaseControl
 
         #region 依赖属性
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register("Maximum"
-            , typeof(T), typeof(NumericUpDown<T>));
+            , typeof(T), typeof(NumericUpDown<T>), new UIPropertyMetadata(default(T)));
+
+        private static object OnCoerceMaximum(DependencyObject d, object baseValue)
+        {
+            NumericUpDown<T> numericUpDown = d as NumericUpDown<T>;
+            if(numericUpDown != null)
+            {
+                return numericUpDown.OnCoerceMaximum((T)((object)baseValue));
+            }
+            return baseValue;
+        }
+
+        protected virtual T OnCoerceMaximum(T baseValue)
+        {
+            return baseValue;
+        }
+
+        private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            
+        }
+
         /// <summary>
         /// 最大值
         /// </summary>
@@ -40,7 +61,7 @@ namespace ZdfFlatUI.BaseControl
         }
 
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register("Minimum"
-            , typeof(T), typeof(NumericUpDown<T>));
+            , typeof(T), typeof(NumericUpDown<T>), new UIPropertyMetadata(default(T)));
         /// <summary>
         /// 最小值
         /// </summary>
@@ -51,7 +72,7 @@ namespace ZdfFlatUI.BaseControl
         }
 
         public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register("Increment"
-            , typeof(T), typeof(NumericUpDown<T>));
+            , typeof(T), typeof(NumericUpDown<T>), new UIPropertyMetadata(default(T)));
         /// <summary>
         /// 增减量
         /// </summary>
@@ -124,13 +145,13 @@ namespace ZdfFlatUI.BaseControl
             }
             
             this.TextChanged += NumericUpDown_TextChanged;
-            this.KeyDown += NumericUpDown_KeyDown;
+            this.KeyUp += NumericUpDown_KeyUp;
 
             this.SetBtnEnabled(this.Value.ToString());
             this.MoveCursorToEnd();
         }
 
-        private void NumericUpDown_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void NumericUpDown_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (!this.IsFocused) return;
 

@@ -296,6 +296,9 @@ namespace ZdfFlatUI.Test
                     case "DropDown下拉":
                         this.ControlPanel.Content = new UITest.UCTDropDownTest();
                         break;
+                    case "Flayout悬浮面板":
+                        this.ControlPanel.Content = new UITest.UCTFlyoutTest();
+                        break;
                     #endregion
                 }
             }

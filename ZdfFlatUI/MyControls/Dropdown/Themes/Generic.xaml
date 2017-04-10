@@ -43,7 +43,7 @@
 
     <Style TargetType="{x:Type ZUI:DropdownButtonItem}">
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Padding" Value="0,5" />
+        <Setter Property="Padding" Value="3" />
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="Background" Value="#FFFFFF" />
@@ -61,7 +61,8 @@
                             SnapsToDevicePixels="true" UseLayoutRounding="True">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          Margin="{TemplateBinding Padding}"/>
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -88,12 +89,12 @@
     </Style>
     
     <Style TargetType="{x:Type ZUI:DropDownButton}">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="BorderBrush" Value="#3399FF" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="#3399FF" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -115,7 +116,7 @@
                                        HorizontalAlignment="Center" VerticalAlignment="Center" />
                             
                             <Border Grid.Column="1" Background="{TemplateBinding BorderBrush}"
-                                    Width="1" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                                    Width="1" />
 
                             <ToggleButton x:Name="toggleButton" Grid.Column="2" Style="{StaticResource ToggleButtonStyle}"
                                           Padding="3,0" IsChecked="{Binding Path=IsDropDownOpen,
@@ -127,12 +128,14 @@
                                    IsOpen="{Binding IsChecked, ElementName=toggleButton}"
                                    MinWidth="{Binding ActualWidth, ElementName=Root}"
                                    VerticalOffset="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
-                                <Border BorderBrush="Black" BorderThickness="1" SnapsToDevicePixels="True" 
+                                <Border BorderBrush="Black" BorderThickness="1"
                                         UseLayoutRounding="True" Background="Transparent">
                                     <ZUI:ZScrollViewer Focusable="False" HorizontalScrollBarVisibility="Hidden"
                                                        Padding="{TemplateBinding Control.Padding}"
-                                                       VerticalScrollBarVisibility="Auto">
-                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                                       VerticalScrollBarVisibility="Auto"
+                                                       UseLayoutRounding="True">
+                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                                        UseLayoutRounding="True"/>
                                     </ZUI:ZScrollViewer>
                                 </Border>
                             </Popup>

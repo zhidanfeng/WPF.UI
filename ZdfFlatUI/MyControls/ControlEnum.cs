@@ -156,4 +156,22 @@ namespace ZdfFlatUI
         /// </summary>
         Hide,
     }
+
+    /// <summary>
+    /// Button类型
+    /// </summary>
+    public enum FlatButtonSkinEnum
+    {
+        Yes,
+        No,
+        Default,
+        primary,
+        ghost,
+        dashed,
+        text,
+        info,
+        success,
+        error,
+        warning,
+    }
 }

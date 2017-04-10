@@ -123,6 +123,8 @@
     <Compile Include="MyControls\Dropdown\Implementation\DropdownButtonItem.cs" />
     <Compile Include="MyControls\Expander\Implementation\ZExpander.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderBox.cs" />
+    <Compile Include="MyControls\FlyoutControl\Implementation\Flyout.cs" />
+    <Compile Include="MyControls\FlyoutControl\Implementation\FlyoutControl.cs" />
     <Compile Include="MyControls\GroupBox\Implementation\ZGroupBox.cs" />
     <Compile Include="MyControls\Image\Implementation\GifImage.cs" />
     <Compile Include="MyControls\Loading\Implementation\Loading.cs" />
@@ -162,13 +164,13 @@
     <Compile Include="MyControls\RadionButton\FlatRadionButton.cs" />
     <Compile Include="MyControls\ScrollViewer\Implementation\ZScrollViewer.cs" />
     <Compile Include="MyControls\Slider\Implementation\FlatSilder.cs" />
-    <Compile Include="MyControls\InputNumber\DoubleUpDown.cs" />
+    <Compile Include="MyControls\NumericUpDown\DoubleUpDown.cs" />
     <Compile Include="MyControls\SlideSwitch\Implementation\Carousel.cs" />
     <Compile Include="MyControls\SlideSwitch\Implementation\SlideSwitchPanel.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBarItem.cs" />
     <Compile Include="MyControls\TextBox\IconTextBox.cs" />
-    <Compile Include="MyControls\InputNumber\IntegerUpDown.cs" />
+    <Compile Include="MyControls\NumericUpDown\IntegerUpDown.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZTextBox.cs" />
     <Compile Include="MyControls\TextBox\TagTextBox.cs" />
     <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
@@ -222,6 +224,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\CascaderBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\FlyoutControl\Themes\Flyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\FlyoutControl\Themes\FlyoutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,6 +326,10 @@
     <Page Include="MyControls\ToolTip\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\Tree\Themes\Generic - 复制.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MyControls\Tree\Themes\Generic.xaml">
       <SubType>Designer</SubType>

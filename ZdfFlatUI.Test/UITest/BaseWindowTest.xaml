@@ -4,9 +4,8 @@
                         xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
-                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-                   
-                        Title="BaseWindowTest" ShowMore="True" TitleBackground="#76E8A6"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        Title="窗口" ShowMore="True" TitleBackground="#BC2F2E" Foreground="White"
                         Width="800" Height="550" mc:Ignorable="d">
     <WPF.UI:BaseWindow.MenuPanel>
         <Grid Margin="10">

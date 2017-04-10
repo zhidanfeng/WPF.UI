@@ -49,5 +49,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TitleBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/GroupBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Dropdown/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/FlyoutControl/Themes/Flyout.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/FlyoutControl/Themes/FlyoutControl.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

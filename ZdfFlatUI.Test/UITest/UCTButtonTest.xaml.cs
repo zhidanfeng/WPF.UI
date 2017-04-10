@@ -35,8 +35,9 @@ namespace ZdfFlatUI.Test.UITest
             list.Add("其他");
             //哈哈放大师傅
             this.segmentButton.ItemsSource = list;
+            this.segmentButton1.ItemsSource = list;
 
-            
+
             dt.Columns.Add("ID");
             dt.Columns.Add("NAME");
             DataRow dr = dt.NewRow();

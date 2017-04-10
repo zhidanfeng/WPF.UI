@@ -12,6 +12,10 @@ namespace ZdfFlatUI
     {
         public DoubleUpDown() : base()
         {
+            this.Minimum = 0d;
+            this.Maximum = 100d;
+            this.Value = this.Minimum;
+            this.Increment = 1d;
             this.Value = 0d;
         }
 
@@ -71,7 +75,6 @@ namespace ZdfFlatUI
                         IsShowTip = true;
                         TipText = string.Format("您输入的数值为{0}，大于最大值{1}", newValue, this.Maximum);
                     }
-
 
                     if (this.Value < this.Minimum)
                     {

@@ -10,15 +10,15 @@
         <WPF.UI:ZTreeView x:Name="treeView" Grid.Row="1" IsShowCheckBox="True">
             <WPF.UI:ZTreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock Text="{Binding .}" Margin="5,0,0,0" />
-                    </StackPanel>-->
-                    <TextBlock Text="{Binding Key}"/>
+                    </StackPanel>
+                    <!--<TextBlock Text="{Binding Key}"/>
                     <HierarchicalDataTemplate.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}"/>
                         </DataTemplate>
-                    </HierarchicalDataTemplate.ItemTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>-->
                 </HierarchicalDataTemplate>
             </WPF.UI:ZTreeView.ItemTemplate>
         </WPF.UI:ZTreeView>

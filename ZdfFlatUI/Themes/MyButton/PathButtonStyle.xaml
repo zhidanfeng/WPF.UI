@@ -19,7 +19,7 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="0" />
+        <Setter Property="Padding" Value="8,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type My:PathButton}">
@@ -29,14 +29,8 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}" 
                             SnapsToDevicePixels="true" UseLayoutRounding="True">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Path x:Name="path" Width="{TemplateBinding PathWidth}" 
-                                  Margin="10,0,0,0" 
                                   VerticalAlignment="Center"
                                   Data="{TemplateBinding PathData}"
                                   Fill="{TemplateBinding Foreground}"
@@ -48,7 +42,7 @@
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Focusable="False" RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Grid>
+                        </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDefaulted" Value="true">

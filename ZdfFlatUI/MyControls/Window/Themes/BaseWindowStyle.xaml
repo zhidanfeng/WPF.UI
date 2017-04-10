@@ -17,7 +17,8 @@
     <SolidColorBrush x:Key="Window_Title_Background" Color="#21A7ED" />
     <SolidColorBrush x:Key="Window_Button_Over_Background" Color="#A021A7ED" />
 
-    <!--菜单图标-->
+    <PathGeometry x:Key="Icon_Max" Figures="M4,4L20,4 20,20 4,20 4,4 M6,8L6,18 18,18 18,8 6,8z" />
+    <!--菜单图标--> 
     <PathGeometry x:Key="Icon_ShowMore" Figures="M934.48936 203.517183 89.511663 203.517183c-14.813381 0-26.824949-11.998265-26.824949-26.824949s12.010545-26.824949 26.824949-26.824949l844.977697 0c14.813381 0 26.824949 11.998265 26.824949 26.824949S949.302741 203.517183 934.48936 203.517183zM934.48936 538.824949 89.511663 538.824949c-14.813381 0-26.824949-11.997242-26.824949-26.824949 0-14.826684 12.010545-26.824949 26.824949-26.824949l844.977697 0c14.813381 0 26.824949 11.998265 26.824949 26.824949C961.313286 526.826684 949.302741 538.824949 934.48936 538.824949zM934.48936 874.132714 89.511663 874.132714c-14.813381 0-26.824949-11.997242-26.824949-26.824949s12.010545-26.824949 26.824949-26.824949l844.977697 0c14.813381 0 26.824949 11.997242 26.824949 26.824949S949.302741 874.132714 934.48936 874.132714z" />
 
     <!--最大化按钮样式-->
@@ -25,17 +26,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="bg" Width="32" Background="Transparent">
-                        <Path Data="M4,4L20,4 20,20 4,20 4,4 M6,8L6,18 18,18 18,8 6,8z" 
-                              Fill="{StaticResource StrokeColor}" Width="11" SnapsToDevicePixels="True"
-                              UseLayoutRounding="True"
-                              Stroke="Transparent" StrokeThickness="0" Stretch="Uniform" 
+                    <Grid x:Name="bg" Width="40" Background="Transparent">
+                        <Path Data="M128 160v704h768v-704H128z m722.56 657.984H174.72V206.08h675.84v611.904z" 
+                              Fill="{TemplateBinding Background}" Width="11" SnapsToDevicePixels="True"
+                              UseLayoutRounding="True" Stretch="Uniform" 
                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="bg" Property="Background" Value="{StaticResource MouseOverBgColor}" />
+                            <Setter TargetName="bg" Property="Background" Value="#22000000" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -48,17 +47,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="bg" Width="32" Background="Transparent">
+                    <Grid x:Name="bg" Width="40" Background="Transparent">
                         <Path x:Name="PathMin" SnapsToDevicePixels="True"
                               Width="12" UseLayoutRounding="True"
                               Data="M4,8L8,8 8,4 20,4 20,16 16,16 16,20 4,20 4,8 M16,8L16,14 18,14 18,6 10,6 10,8 16,8 M6,12L6,18 14,18 14,12 6,12z" 
-                              Stretch="Uniform" Fill="{StaticResource StrokeColor}" 
+                              Stretch="Uniform" Fill="{TemplateBinding Background}" 
                               HorizontalAlignment="Center" 
                               VerticalAlignment="Center" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="bg" Property="Background" Value="{StaticResource MouseOverBgColor}" />
+                            <Setter TargetName="bg" Property="Background" Value="#22000000" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -71,17 +70,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="bg" Width="32" Background="Transparent">
+                    <Grid x:Name="bg" Width="40" Background="Transparent">
                         <Path x:Name="PathMin" SnapsToDevicePixels="True"
-                              Width="12" UseLayoutRounding="True"
-                              Data="M0,9 10,9 10,10 0,10Z"
-                              Fill="Gray" Stretch="Uniform" Stroke="{StaticResource StrokeColor}"
-                              StrokeThickness="1" HorizontalAlignment="Center"
+                              UseLayoutRounding="True"
+                              Data="M0,9 13,9 13,10 0,10Z" Height="1"
+                              Fill="{TemplateBinding Background}" Stretch="Uniform"
+                              HorizontalAlignment="Center"
                               VerticalAlignment="Center" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="bg" Property="Background" Value="{StaticResource MouseOverBgColor}" />
+                            <Setter TargetName="bg" Property="Background" Value="#22000000" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -94,18 +93,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="bg" Width="32" Background="Transparent">
+                    <Grid x:Name="bg" Width="40" Background="Transparent">
                         <Path x:Name="PathMin" SnapsToDevicePixels="True"
-                              Width="12" UseLayoutRounding="True"
-                              Data="M6,6 L6,6 10,10 M10,6 L10,6 6,10"
-                              Fill="Gray" Stretch="Uniform" Stroke="{StaticResource StrokeColor}"
-                              StrokeThickness="2" HorizontalAlignment="Center"
+                              Width="11" UseLayoutRounding="True"
+                              Data="M548.178991 512 815.105343 245.073648c9.990538-9.990538 9.990538-26.188452 0-36.178991-9.991562-9.990538-26.188452-9.990538-36.178991 0L512 475.819986 245.073648 208.894657c-9.991562-9.990538-26.188452-9.990538-36.178991 0-9.990538 9.990538-9.990538 26.188452 0 36.178991l266.926352 266.926352L208.894657 778.926352c-9.990538 9.991562-9.990538 26.188452 0 36.178991 4.995781 4.995781 11.542894 7.492648 18.090007 7.492648s13.094226-2.496867 18.090007-7.492648l266.926352-266.926352 266.926352 266.926352c4.995781 4.995781 11.541871 7.492648 18.090007 7.492648s13.094226-2.496867 18.090007-7.492648c9.990538-9.991562 9.990538-26.188452 0-36.178991L548.178991 512z"
+                              Fill="{TemplateBinding Background}" Stretch="Uniform"
+                              HorizontalAlignment="Center"
                               VerticalAlignment="Center" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="bg" Property="Background" Value="{StaticResource CloseMouseOverBgColor}" />
-                            <Setter TargetName="PathMin" Property="Stroke" Value="#FFFFFF" />
+                            <Setter TargetName="PathMin" Property="Fill" Value="#FFFFFF" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -118,7 +117,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid x:Name="bg" Width="32" Background="Transparent">
+                    <Grid x:Name="bg" Width="40" Background="Transparent">
                         <Path x:Name="PathMin" SnapsToDevicePixels="True"
                               Width="12" UseLayoutRounding="True"
                               Data="{StaticResource Icon_ShowMore}"
@@ -177,7 +176,7 @@
 
                                     <!--#region 窗体标题-->
                                     <TextBlock Text="{TemplateBinding Title}" VerticalAlignment="Center" Margin="10,0,0,0"
-                                               Foreground="#FFFFFF" FontSize="12"/>
+                                               Foreground="{TemplateBinding Foreground}" FontSize="12"/>
                                     <!--#endregion-->
 
                                     <!--#region 最大化、最小化按钮-->
@@ -185,7 +184,7 @@
                                                 VerticalAlignment="Top">
 
                                         <Button x:Name="PART_Btn_More" Style="{StaticResource MoreStyle}"
-                                                Height="30"
+                                                Height="30" Background="{TemplateBinding Foreground}"
                                                 Visibility="{TemplateBinding ShowMore, Converter={StaticResource BooleanToVisibilityConverter}}">
 
                                         </Button>
@@ -197,7 +196,7 @@
                                         </Popup>
 
                                         <Button x:Name="PART_Btn_Minimized" Style="{StaticResource MinimizedStyle}"
-                                                Height="30"
+                                                Height="30" Background="{TemplateBinding Foreground}"
                                                 Visibility="{TemplateBinding MinimizeBox, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <Button.ToolTip>
                                                 <ZUI:ZToolTip Content="最小化" PlacementEx="BottomCenter" IsShowShadow="False" />
@@ -209,7 +208,8 @@
                                             </i:Interaction.Triggers>
                                         </Button>
                                         <Grid Visibility="{TemplateBinding MaximizeBox, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                            <Button x:Name="PART_Btn_Maximized" Style="{StaticResource MaximizedStyle}" Height="30">
+                                            <Button x:Name="PART_Btn_Maximized" Style="{StaticResource MaximizedStyle}" Height="30"
+                                                     Background="{TemplateBinding Foreground}">
                                                 <Button.ToolTip>
                                                     <ZUI:ZToolTip Content="最大化" PlacementEx="BottomCenter" IsShowShadow="False" />
                                                 </Button.ToolTip>
@@ -222,6 +222,7 @@
                                                 </i:Interaction.Triggers>
                                             </Button>
                                             <Button x:Name="PART_Btn_Restore" Style="{StaticResource RestoreStyle}" Height="30"
+                                                     Background="{TemplateBinding Foreground}"
                                                     Visibility="{Binding Path=Visibility, ElementName=PART_Btn_Maximized, Converter={StaticResource InverseVisibilityConverter}}">
                                                 <Button.ToolTip>
                                                     <ZUI:ZToolTip Content="还原" PlacementEx="BottomCenter" IsShowShadow="False" />
@@ -236,6 +237,7 @@
                                             </Button>
                                         </Grid>
                                         <Button x:Name="PART_Btn_Close" Style="{StaticResource CloseStyle}" Height="30"
+                                                 Background="{TemplateBinding Foreground}" Margin="0,0,-1,0"
                                                 Visibility="{TemplateBinding CloseBox, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <Button.ToolTip>
                                                 <ZUI:ZToolTip Content="关闭" PlacementEx="BottomCenter" IsShowShadow="False" />
