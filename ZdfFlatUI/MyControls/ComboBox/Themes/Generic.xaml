@@ -87,22 +87,6 @@
             </Border>
 
             <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <!--<VisualState x:Name="Normal">
-                        <Storyboard>
-                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="Border"
-                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource Color.Light.Border.Normal}" />
-                        </Storyboard>
-                    </VisualState>-->
-                    <!--<VisualState x:Name="MouseOver">
-                        <Storyboard>
-                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="Border"
-                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            To="{StaticResource Color.Light.Border.MouseOver}" />
-                        </Storyboard>
-                    </VisualState>-->
-                </VisualStateGroup>
                 <VisualStateGroup x:Name="CheckStates">
                     <VisualState x:Name="Checked">
                         <Storyboard>
@@ -241,7 +225,7 @@
                                                                    RelativeSource={RelativeSource TemplatedParent},
                                                                    Mode=TwoWay}"
                                                Template="{StaticResource ComboBoxToggleButtonTemplate}" />
-                            <ContentPresenter Name="ContentSite" Margin="5, 3, 23, 3" HorizontalAlignment="Left"
+                            <ContentPresenter Name="ContentSite" Margin="5, 3, 25, 3" HorizontalAlignment="Left"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding ComboBox.SelectionBoxItem}"
                                               ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
@@ -279,14 +263,13 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <TextBox Name="PART_EditableTextBox" Margin="5, 3, 5, 3" HorizontalAlignment="Left"
+                            <TextBox Name="PART_EditableTextBox" Margin="5, 3, 25, 3" HorizontalAlignment="Stretch"
                                      VerticalAlignment="Center" Background="Transparent" Focusable="True" IsReadOnly="False"
-                                     Visibility="Hidden">
+                                     Visibility="Hidden" Text="{TemplateBinding ComboBox.SelectionBoxItem}">
                                 <TextBox.Template>
                                     <ControlTemplate TargetType="TextBox">
-                                        <Border x:Name="OuterBorder" Grid.Column="1" Width="100" HorizontalAlignment="Left"
-                                                Background="Transparent" BorderBrush="#C8C8C8" BorderThickness="0" CornerRadius="0">
-                                            <ScrollViewer x:Name="PART_ContentHost" Margin="0,0" VerticalAlignment="Center" />
+                                        <Border x:Name="OuterBorder" Background="Transparent">
+                                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </TextBox.Template>

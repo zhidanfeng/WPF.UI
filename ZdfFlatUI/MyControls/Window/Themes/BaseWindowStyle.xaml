@@ -50,7 +50,7 @@
                     <Grid x:Name="bg" Width="40" Background="Transparent">
                         <Path x:Name="PathMin" SnapsToDevicePixels="True"
                               Width="12" UseLayoutRounding="True"
-                              Data="M4,8L8,8 8,4 20,4 20,16 16,16 16,20 4,20 4,8 M16,8L16,14 18,14 18,6 10,6 10,8 16,8 M6,12L6,18 14,18 14,12 6,12z" 
+                              Data="M896 704.96h-128v-448H320V128h576c20.672 0 0 0 0 0v576.96z m-192 192H128l-0.384-577.92L704 320v576.96z m-448-832v192H64l0.32 702.08L768 960v-192l185.344-1.344L960 64.96H256z" 
                               Stretch="Uniform" Fill="{TemplateBinding Background}" 
                               HorizontalAlignment="Center" 
                               VerticalAlignment="Center" />

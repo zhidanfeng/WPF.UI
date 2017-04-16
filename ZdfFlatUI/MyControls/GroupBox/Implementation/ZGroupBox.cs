@@ -34,10 +34,6 @@ namespace ZdfFlatUI
         public static readonly DependencyProperty CornerRadiusProperty =
             DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ZGroupBox));
 
-
-
-
-
         #endregion
 
         #region 依赖属性set get

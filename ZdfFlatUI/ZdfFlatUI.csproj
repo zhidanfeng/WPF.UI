@@ -109,6 +109,7 @@
     <Compile Include="Converters\StringIsEmptyConverter.cs" />
     <Compile Include="Converters\WordAngleConverter.cs" />
     <Compile Include="Converters\HourConvert.cs" />
+    <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
     <Compile Include="MyControls\Badge\Implementation\BadgeAdorner.cs" />
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
@@ -119,8 +120,10 @@
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
-    <Compile Include="MyControls\Dropdown\Implementation\DropDownButton.cs" />
-    <Compile Include="MyControls\Dropdown\Implementation\DropdownButtonItem.cs" />
+    <Compile Include="MyControls\DropDownButton\Implementation\DropDownButton.cs" />
+    <Compile Include="MyControls\Icon\Implementation\Icon.cs" />
+    <Compile Include="MyControls\SplitButton\Implementation\SplitButton.cs" />
+    <Compile Include="MyControls\SplitButton\Implementation\SplitButtonItem.cs" />
     <Compile Include="MyControls\Expander\Implementation\ZExpander.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderBox.cs" />
     <Compile Include="MyControls\FlyoutControl\Implementation\Flyout.cs" />
@@ -169,6 +172,7 @@
     <Compile Include="MyControls\SlideSwitch\Implementation\SlideSwitchPanel.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBarItem.cs" />
+    <Compile Include="MyControls\TabControl\Implementation\ZTabControl.cs" />
     <Compile Include="MyControls\TextBox\IconTextBox.cs" />
     <Compile Include="MyControls\NumericUpDown\IntegerUpDown.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZTextBox.cs" />
@@ -195,6 +199,10 @@
     <Compile Include="Utils\MyVisualTreeHelper.cs" />
     <Compile Include="Utils\UIElementEx.cs" />
     <Compile Include="Utils\VisualHelper.cs" />
+    <Page Include="MyControls\Alert\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Badge\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,7 +223,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyControls\Dropdown\Themes\Generic.xaml">
+    <Page Include="MyControls\DropDownButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\Icon\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\SplitButton\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -304,6 +320,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\StepBar\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TabControl\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

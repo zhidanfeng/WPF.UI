@@ -223,25 +223,6 @@ namespace ZdfFlatUI
             this.SwitchToNext();
         }
 
-        private void SwitchToNext()
-        {
-            if (this.PART_SlideSwitchPanel == null)
-            {
-                return;
-            }
-
-            int index = this.PART_SlideSwitchPanel.Index;
-            index++;
-
-            //当索引超过最大值时，回到第一个
-            if (index > this.ChildCount)
-            {
-                index = 1;
-            }
-
-            this.PART_SlideSwitchPanel.Index = index;
-        }
-
         private void PART_LastButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.PART_SlideSwitchPanel == null)
@@ -312,6 +293,25 @@ namespace ZdfFlatUI
             {
                 this.SwitchToNext();
             }));
+        }
+
+        private void SwitchToNext()
+        {
+            if (this.PART_SlideSwitchPanel == null)
+            {
+                return;
+            }
+
+            int index = this.PART_SlideSwitchPanel.Index;
+            index++;
+
+            //当索引超过最大值时，回到第一个
+            if (index > this.ChildCount)
+            {
+                index = 1;
+            }
+
+            this.PART_SlideSwitchPanel.Index = index;
         }
         #endregion
     }

@@ -10,8 +10,25 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <ZUI:ZComboBox x:Name="MultiComboBox" Width="200" Height="25" DisplayMemberPath="Name"
-                           SelectedValuePath="ID" />
+            <ZUI:ZComboBox x:Name="MultiComboBox" Width="200" Height="25"
+                           SelectedValuePath="ID" IsEditable="True">
+                <ZUI:ZComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DMZ}" Value="zhi1">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <!--<Setter Property="Foreground" Value="#C4CCD6" />-->
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </DataTemplate>
+                </ZUI:ZComboBox.ItemTemplate>
+            </ZUI:ZComboBox>
             <ZUI:ZComboBox x:Name="MultiComboBox1" Width="200" Height="25" Margin="10,0" CornerRadius="0"
                            DisplayMemberPath="Name" IsEditable="True" SelectedValuePath="ID" />
         </StackPanel>

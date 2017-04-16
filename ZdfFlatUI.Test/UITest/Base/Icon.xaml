@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.Base.Icon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest.Base"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UniformGrid Columns="10">
+        <WPF.UI:Icon Type="Info" />
+        <WPF.UI:Icon Type="Error" />
+        <WPF.UI:Icon Data="M15.41,16.58L10.83,12 15.41,7.41 14,6 8,12 14,18 15.41,16.58z" />
+        <WPF.UI:Icon Type="MacOS" />
+        <WPF.UI:Icon Type="Windows" />
+        <WPF.UI:Icon Type="Linux" />
+        <WPF.UI:Icon Type="Android" />
+    </UniformGrid>
+</UserControl>

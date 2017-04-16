@@ -198,18 +198,6 @@
                         EndAngle="{TemplateBinding EndAngle}"
                         StartAngle="{TemplateBinding StartAngle}"
                         Stretch="None" />
-
-                <!--<Border Width="5" Height="5" Background="Red" CornerRadius="100" RenderTransformOrigin="0.5,0.5"
-                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Border.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="{Binding EndAngle, ElementName=PART_IncreaseCircle}" />
-                            <TranslateTransform Y="-100"  />
-                        </TransformGroup>
-                    </Border.RenderTransform>
-                </Border>-->
             </Grid>
             <Grid x:Name="PART_LabelPanel" />
         </Grid>

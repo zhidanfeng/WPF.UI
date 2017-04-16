@@ -78,13 +78,15 @@
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}"
                 SnapsToDevicePixels="true" UseLayoutRounding="True">
+            <Border.OpacityMask>
+                <SolidColorBrush Color="#000000" />
+            </Border.OpacityMask>
             <ContentPresenter x:Name="contentPresenter" Grid.Column="1"
                               Margin="{TemplateBinding Padding}"
                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                               Focusable="False" RecognizesAccessKey="True"
                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal">
@@ -92,7 +94,7 @@
                             <ColorAnimation Duration="00:00:0.2" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)"
                                             To="#D7DDE4" />
                             <ColorAnimation Duration="00:00:0.2" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
-                                            To="#000000" />
+                                            To="#657180" />
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="MouseOver">
@@ -109,6 +111,9 @@
                                             To="#3091F2" />
                             <ColorAnimation Duration="00:00:0.3" Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
                                             To="#3091F2" />
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF000000" />
+                            </ColorAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>
                 </VisualStateGroup>
@@ -120,9 +125,6 @@
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
                 <Setter Property="Cursor" Value="Hand" />
-            </Trigger>
-            <Trigger Property="IsPressed" Value="true">
-                <Setter TargetName="contentPresenter" Property="Margin" Value="0,3,0,0" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
@@ -148,7 +150,6 @@
                                   Focusable="False" RecognizesAccessKey="True"
                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
             </AdornerDecorator>
-
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal">
@@ -183,8 +184,6 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
         </Border>
-
-
         <ControlTemplate.Triggers>
             <Trigger Property="IsDefaulted" Value="true">
                 <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
@@ -209,7 +208,7 @@
         <Setter Property="Height" Value="28" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="#ffffff" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="Background" Value="#3399FF" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -226,7 +225,7 @@
             </Trigger>
             <Trigger Property="Type" Value="ghost">
                 <Setter Property="BorderBrush" Value="#C3C6C9" />
-                <Setter Property="Foreground" Value="#000000" />
+                <Setter Property="Foreground" Value="#657180" />
                 <Setter Property="Background" Value="#FFFFFF" />
                 <Setter Property="BorderThickness" Value="1" />
                 <Setter Property="Template" Value="{StaticResource Ghost}" />

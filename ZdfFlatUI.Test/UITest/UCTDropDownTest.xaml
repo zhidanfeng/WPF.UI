@@ -6,15 +6,78 @@
              xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <WPF.UI:DropDownButton x:Name="DropDownButton" Width="80" Height="25" 
-                               MouseLeftButtonUp="DropDownButton_MouseLeftButtonUp"
-                               ItemClick="DropDownButton_ItemClick">
-            <WPF.UI:DropdownButtonItem Content="111" />
-            <WPF.UI:DropdownButtonItem Content="2222222222" />
-            <WPF.UI:DropdownButtonItem Content="3333333333" />
-            <WPF.UI:DropdownButtonItem Content="44444444444444444444" />
+             d:DesignHeight="300" d:DesignWidth="800">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Margin="0,10">
+            <WPF.UI:SplitButton x:Name="DropDownButton" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" />
+            <WPF.UI:SplitButton x:Name="SplitButton2" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" 
+                                Background="#3278B3" BorderBrush="#2C6B9F" BorderThickness="0" Foreground="White" />
+            <WPF.UI:SplitButton x:Name="SplitButton3" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" 
+                                Background="#23B7E5" BorderBrush="#19A9D5" BorderThickness="0" Foreground="White" />
+            <WPF.UI:SplitButton x:Name="SplitButton4" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" 
+                                Background="#2BAAB1" BorderBrush="#26969C" BorderThickness="0" Foreground="White" />
+            <WPF.UI:SplitButton x:Name="SplitButton5" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" 
+                                Background="#EDBC6C" BorderBrush="#EAB255" BorderThickness="0" Foreground="White" />
+            <WPF.UI:SplitButton x:Name="SplitButton6" Width="80" Height="28" Content="升级"
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0" 
+                                Background="#E36159" BorderBrush="#DF4C43" BorderThickness="0" Foreground="White" />
+        </StackPanel>
+        <WPF.UI:DropDownButton Content="下拉控件" Width="80" Height="30" Margin="0,5">
+            <WPF.UI:DropDownButton.DropDownContent>
+                <StackPanel HorizontalAlignment="Center">
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                </StackPanel>
+            </WPF.UI:DropDownButton.DropDownContent>
         </WPF.UI:DropDownButton>
-    </Grid>
+
+        <WPF.UI:DropDownButton Content="下拉控件" Width="80" Height="30" Margin="0,5" Trigger="Hover">
+            <WPF.UI:DropDownButton.DropDownContent>
+                <StackPanel HorizontalAlignment="Center" Width="100">
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button1" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button2" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button3" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button4" Width="70" Height="25" Margin="0,2" />
+                    <WPF.UI:FlatButton Content="Button5" Width="70" Height="25" Margin="0,2" />
+                </StackPanel>
+            </WPF.UI:DropDownButton.DropDownContent>
+        </WPF.UI:DropDownButton>
+
+        <WPF.UI:DropDownButton x:Name="DropDownButton3" Content="下拉控件" Width="80" Height="30" Margin="0,5" Trigger="Custom">
+            <WPF.UI:DropDownButton.DropDownContent>
+                <StackPanel HorizontalAlignment="Center" Margin="10">
+                    <TextBlock Text="常用于各种自定义下拉内容的场景。" Foreground="Black" Margin="0,0,0,10"/>
+                    <WPF.UI:FlatButton Content="关闭" HorizontalAlignment="Right" Width="50" Height="28" Click="FlatButton_Click" />
+                </StackPanel>
+            </WPF.UI:DropDownButton.DropDownContent>
+        </WPF.UI:DropDownButton>
+    </StackPanel>
 </UserControl>

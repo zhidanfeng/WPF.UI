@@ -110,6 +110,9 @@
     <Compile Include="UITest\Base\Color.xaml.cs">
       <DependentUpon>Color.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\Base\Icon.xaml.cs">
+      <DependentUpon>Icon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTBadgeTest.xaml.cs">
       <DependentUpon>UCTBadgeTest.xaml</DependentUpon>
     </Compile>
@@ -173,11 +176,17 @@
     <Compile Include="UITest\UCTRadioButtonTest.xaml.cs">
       <DependentUpon>UCTRadioButtonTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTRichTextEditor.xaml.cs">
+      <DependentUpon>UCTRichTextEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTSilderTest.xaml.cs">
       <DependentUpon>UCTSilderTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTStepBarTest.xaml.cs">
       <DependentUpon>UCTStepBarTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTTabControlTest.xaml.cs">
+      <DependentUpon>UCTTabControlTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTTextBoxTest.xaml.cs">
       <DependentUpon>UCTTextBoxTest.xaml</DependentUpon>
@@ -234,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\Base\Color.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\Base\Icon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -321,11 +334,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTRichTextEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTSilderTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTStepBarTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTTabControlTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

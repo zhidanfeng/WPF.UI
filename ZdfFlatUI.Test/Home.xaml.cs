@@ -58,6 +58,11 @@ namespace ZdfFlatUI.Test
             });
             this.MenuList.Add(new MenuInfo()
             {
+                Name = "Icon图标",
+                GroupName = ControlType.Basic.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
                 Name = "Button按钮",
                 GroupName = ControlType.Basic.ToString(),
             });
@@ -189,12 +194,17 @@ namespace ZdfFlatUI.Test
             });
             this.MenuList.Add(new MenuInfo()
             {
-                Name = "Flayout悬浮面板",
+                Name = "TabControl页签",
                 GroupName = ControlType.View.ToString(),
             });
             this.MenuList.Add(new MenuInfo()
             {
                 Name = "Flayout悬浮面板",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Editor富文本编辑器",
                 GroupName = ControlType.View.ToString(),
             });
             #endregion
@@ -213,6 +223,9 @@ namespace ZdfFlatUI.Test
                     #region Base
                     case "Color色彩":
                         this.ControlPanel.Content = new UITest.Base.Color();
+                        break;
+                    case "Icon图标":
+                        this.ControlPanel.Content = new UITest.Base.Icon();
                         break;
                     #endregion
 
@@ -296,8 +309,14 @@ namespace ZdfFlatUI.Test
                     case "DropDown下拉":
                         this.ControlPanel.Content = new UITest.UCTDropDownTest();
                         break;
+                    case "TabControl页签":
+                        this.ControlPanel.Content = new UITest.UCTTabControlTest();
+                        break;
                     case "Flayout悬浮面板":
                         this.ControlPanel.Content = new UITest.UCTFlyoutTest();
+                        break;
+                    case "Editor富文本编辑器":
+                        this.ControlPanel.Content = new UITest.UCTRichTextEditor();
                         break;
                     #endregion
                 }

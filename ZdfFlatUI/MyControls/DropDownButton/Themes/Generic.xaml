@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI">
+
+    <PathGeometry x:Key="Arrow" Figures="M517.436772 598.65255l148.743683-148.775664c9.17855-9.17855 11.896936-22.866423 6.939879-34.859302-4.957057-11.960898-16.630126-19.732284-29.550454-19.732284L346.050532 395.285299c-12.920329 0-24.593398 7.803367-29.550454 19.732284-1.631032 3.965645-2.430557 8.123177-2.430557 12.248727 0 8.315063 3.262063 16.502202 9.370436 22.610575l148.775664 148.775664c6.01243 6.01243 14.135607 9.370436 22.610575 9.370436S511.456323 604.632999 517.436772 598.65255z" />
+
+    <Style TargetType="{x:Type ZUI:DropDownButton}">
+        <Setter Property="BorderBrush" Value="#3399FF" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="#3399FF" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:DropDownButton}">
+                    <Border x:Name="Root" Background="{TemplateBinding Background}"
+						    BorderThickness="{TemplateBinding BorderThickness}"
+						    BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="3"
+						    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+						    UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Border.OpacityMask>
+                            <SolidColorBrush Color="#000000" />
+                        </Border.OpacityMask>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Path x:Name="path" Width="8" Height="8"
+                                  Margin="3,0,0,0"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Data="{StaticResource Arrow}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Stretch="Uniform" />
+
+                            <Popup x:Name="Popup" AllowsTransparency="True" Focusable="False"
+                                   MinWidth="{Binding ActualWidth, ElementName=Root}"
+                                   IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                   Placement="Bottom" MaxHeight="{TemplateBinding DropDownHeight}"
+                                   PlacementTarget="{Binding ElementName=Root}"
+                                   VerticalOffset="1" PopupAnimation="Slide">
+                                <Border Background="#FFFFFF"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="1,1,1,1" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                                    <ZUI:ZScrollViewer Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                                                       Padding="{TemplateBinding Control.Padding}"
+                                                       VerticalScrollBarVisibility="Auto">
+                                        <ContentPresenter Content="{TemplateBinding DropDownContent}" />
+                                    </ZUI:ZScrollViewer>
+                                </Border>
+                            </Popup>
+                        </StackPanel>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Root" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="00:00:0.3" Value="#FF000000" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Root" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="00:00:0.3" Value="#AA000000" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Root" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF000000" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Trigger, RelativeSource={RelativeSource Mode=Self}}" Value="Click">
+                            <Setter TargetName="Popup" Property="StaysOpen" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Trigger, RelativeSource={RelativeSource Mode=Self}}" Value="Hover">
+                            <Setter TargetName="Popup" Property="StaysOpen" Value="True" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Trigger, RelativeSource={RelativeSource Mode=Self}}" Value="Custom">
+                            <Setter TargetName="Popup" Property="StaysOpen" Value="True" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

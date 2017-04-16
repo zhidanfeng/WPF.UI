@@ -112,8 +112,17 @@ namespace ZdfFlatUI
 
     public enum EnumCompare
     {
+        /// <summary>
+        /// 小于
+        /// </summary>
         Less,
+        /// <summary>
+        /// 等于
+        /// </summary>
         Equal,
+        /// <summary>
+        /// 大于
+        /// </summary>
         Large,
         None,
     }
@@ -140,6 +149,9 @@ namespace ZdfFlatUI
         /// 仿Android加载条
         /// </summary>
         Android,
+        /// <summary>
+        /// 仿苹果加载条
+        /// </summary>
         Apple,
         Cogs,
         Normal,
@@ -174,4 +186,40 @@ namespace ZdfFlatUI
         error,
         warning,
     }
+
+    public enum EnumTrigger
+    {
+        /// <summary>
+        /// 悬浮
+        /// </summary>
+        Hover,
+        /// <summary>
+        /// 点击
+        /// </summary>
+        Click,
+        /// <summary>
+        /// 自定义
+        /// </summary>
+        Custom,
+    }
+
+    public enum EnumTabControlType
+    {
+        Line,
+        Card,
+    }
+
+    #region IconType
+    public enum EnumIconType
+    {
+        Info,
+        Error,
+        Warning,
+        Success,
+        MacOS,
+        Windows,
+        Linux,
+        Android,
+    }
+    #endregion
 }

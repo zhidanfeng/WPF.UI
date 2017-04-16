@@ -48,8 +48,12 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/BusyIndicator/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TitleBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/GroupBox/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/MyControls/Dropdown/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/SplitButton/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/FlyoutControl/Themes/Flyout.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/FlyoutControl/Themes/FlyoutControl.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Alert/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/DropDownButton/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TabControl/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Icon/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -3,7 +3,15 @@
 
     <Color x:Key="Color.Light.Border.Normal">#D7DDE4</Color>
     <Color x:Key="Color.Light.Border.MouseOver">#5CADFF</Color>
-    
+
+    <SolidColorBrush x:Key="Brush.Primary" Color="#3399FF" />
+    <SolidColorBrush x:Key="Brush.LightPrimary" Color="#5CADFF" />
+    <SolidColorBrush x:Key="Brush.DarkPrimary" Color="#3091F2" />
+    <SolidColorBrush x:Key="Brush.Info" Color="#3399FF" />
+    <SolidColorBrush x:Key="Brush.Success" Color="#00CC66" />
+    <SolidColorBrush x:Key="Brush.Error" Color="#FF9900" />
+    <SolidColorBrush x:Key="Brush.Warning" Color="#FF3300" />
+
     <SolidColorBrush x:Key="Light.Border.Normal" Color="#D7DDE4" />
     <SolidColorBrush x:Key="Light.Border.MouseOver" Color="#5CADFF" />
     <SolidColorBrush x:Key="Light.Border.Pressed" Color="#5CADFF" />

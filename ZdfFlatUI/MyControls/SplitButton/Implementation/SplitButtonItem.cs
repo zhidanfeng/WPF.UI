@@ -7,17 +7,17 @@ using System.Windows.Controls;
 
 namespace ZdfFlatUI
 {
-    public class DropdownButtonItem : ContentControl
+    public class SplitButtonItem : ContentControl
     {
         #region Private属性
-        private UIElement PART_Root;
+        
         #endregion
 
-        private DropDownButton ParentListBox
+        private SplitButton ParentListBox
         {
             get
             {
-                return ItemsControl.ItemsControlFromItemContainer(this) as DropDownButton;
+                return ItemsControl.ItemsControlFromItemContainer(this) as SplitButton;
             }
         }
 
@@ -30,12 +30,12 @@ namespace ZdfFlatUI
         #endregion
 
         #region Constructors
-        static DropdownButtonItem()
+        static SplitButtonItem()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(DropdownButtonItem), new FrameworkPropertyMetadata(typeof(DropdownButtonItem)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(SplitButtonItem), new FrameworkPropertyMetadata(typeof(SplitButtonItem)));
         }
 
-        public DropdownButtonItem()
+        public SplitButtonItem()
         {
             this.MouseEnter += DropdownButtonItem_MouseEnter;
             this.MouseLeave += DropdownButtonItem_MouseLeave;
@@ -44,8 +44,8 @@ namespace ZdfFlatUI
 
         private void DropdownButtonItem_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DropdownButtonItem item = sender as DropdownButtonItem;
-            this.ParentListBox.OnItemClick(item, item);
+            SplitButtonItem item = sender as SplitButtonItem;
+            this.ParentListBox.OnItemClick(item.Content, item.Content);
             this.ParentListBox.IsDropDownOpen = false;
             e.Handled = true;
         }
@@ -57,27 +57,12 @@ namespace ZdfFlatUI
 
         private void DropdownButtonItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if(base.IsMouseOver)
-            {
-
-            }
             VisualStateManager.GoToState(this, "MouseOver", false);
         }
         #endregion
 
         #region Override方法
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
 
-            //this.PART_Root = this.GetTemplateChild("PART_Root") as UIElement;
-            //if(this.PART_Root != null)
-            //{
-            //    this.PART_Root.MouseEnter += DropdownButtonItem_MouseEnter;
-            //    this.PART_Root.MouseLeave += DropdownButtonItem_MouseLeave;
-            //    this.PART_Root.MouseLeftButtonUp += DropdownButtonItem_MouseLeftButtonUp;
-            //}
-        }
         #endregion
 
         #region Private方法

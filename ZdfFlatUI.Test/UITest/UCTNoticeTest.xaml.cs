@@ -57,7 +57,7 @@ namespace ZdfFlatUI.Test.UITest
             //    Content = "这条通知不会自动关闭，需要点击关闭按钮才4",
             //    Type = "Error",
             //});
-            this.notice.ItemsSource = this.NoticeList;
+            //this.notice.ItemsSource = this.NoticeList;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

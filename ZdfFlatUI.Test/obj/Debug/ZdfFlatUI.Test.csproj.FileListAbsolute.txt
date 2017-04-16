@@ -177,3 +177,9 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTFlyoutTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\Windows\FlyoutWindow.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\Windows\FlyoutWindow.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTabControlTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTabControlTest.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Icon.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Icon.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRichTextEditor.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRichTextEditor.baml

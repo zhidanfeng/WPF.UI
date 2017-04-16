@@ -13,13 +13,16 @@ namespace ZdfFlatUI
     /// <summary>
     /// 刻度盘控件
     /// </summary>
-    /// <remarks>add by zhiddanfeng 2017.2.19</remarks>
+    /// <remarks>add by zhidanfeng 2017.2.19</remarks>
     [TemplatePart(Name = "PART_IncreaseCircle", Type = typeof(Arc))]
     [TemplatePart(Name = "PART_LabelPanel", Type = typeof(Panel))]
     public class Dashboard : Control
     {
         private Arc PART_IncreaseCircle;
         private Panel PART_LabelPanel;
+        /// <summary>
+        /// 保存角度变化前的角度值(用于动画)
+        /// </summary>
         private double OldAngle;
 
         #region Constructors
@@ -30,27 +33,6 @@ namespace ZdfFlatUI
         #endregion
 
         #region 依赖属性
-
-        #region Angle 刻度盘当前值所对应的角度
-        /// <summary>
-        /// 刻度盘当前值所对应的角度依赖属性
-        /// </summary>
-        public static readonly DependencyProperty AngleProperty =
-            DependencyProperty.Register(
-                "Angle",
-                typeof(double),
-                typeof(Dashboard),
-                new PropertyMetadata(0d));
-
-        /// <summary>
-        /// 刻度盘当前值所对应的角度
-        /// </summary>
-        public double Angle
-        {
-            get { return (double)GetValue(AngleProperty); }
-            private set { SetValue(AngleProperty, value); }
-        }
-        #endregion
 
         #region Angle 刻度盘起始角度
         /// <summary>
@@ -167,72 +149,6 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region ShortTicks 短刻度线
-        /// <summary>
-        /// 短刻度线依赖属性,用于Binding
-        /// </summary>
-        public static readonly DependencyProperty ShortTicksProperty =
-            DependencyProperty.Register(
-                "ShortTicks",
-                typeof(IList<object>),
-                typeof(Dashboard),
-                new PropertyMetadata(null));
-
-        /// <summary>
-        /// 获取或设置短刻度线，用于绑定PathListBox的ItemsSource
-        /// </summary>
-        /// <value>短刻度线.</value>
-        public IList<object> ShortTicks
-        {
-            get { return (IList<object>)GetValue(ShortTicksProperty); }
-            private set { SetValue(ShortTicksProperty, value); }
-        }
-        #endregion
-
-        #region LongTicks 长刻度线
-        /// <summary>
-        /// 长刻度线依赖属性,用于Binding
-        /// </summary>
-        public static readonly DependencyProperty LongTicksProperty =
-            DependencyProperty.Register(
-                "LongTicks",
-                typeof(IList<object>),
-                typeof(Dashboard),
-                new PropertyMetadata(null));
-
-        /// <summary>
-        /// 获取或设置长刻度线，用于绑定PathListBox的ItemsSource
-        /// </summary>
-        /// <value>长刻度线.</value>
-        public IList<object> LongTicks
-        {
-            get { return (IList<object>)GetValue(LongTicksProperty); }
-            private set { SetValue(LongTicksProperty, value); }
-        }
-        #endregion
-
-        #region LongTicks 长刻度线上显示的数字
-        /// <summary>
-        /// 长刻度线依赖属性,用于Binding
-        /// </summary>
-        public static readonly DependencyProperty NumberListProperty =
-            DependencyProperty.Register(
-                "NumberList",
-                typeof(IList<object>),
-                typeof(Dashboard),
-                new PropertyMetadata(null));
-
-        /// <summary>
-        /// 获取或设置长刻度线，用于绑定PathListBox的ItemsSource
-        /// </summary>
-        /// <value>长刻度线.</value>
-        public IList<object> NumberList
-        {
-            get { return (IList<object>)GetValue(NumberListProperty); }
-            private set { SetValue(NumberListProperty, value); }
-        }
-        #endregion
-
         #region LongTickCount 长刻度个数
         public static readonly DependencyProperty LongTickCountProperty =
             DependencyProperty.Register(
@@ -327,7 +243,7 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region LabelStyle 文本显示样式
+        #region LabelStyle 短刻度颜色
         public static readonly DependencyProperty ShortTicksBrushProperty = DependencyProperty.Register("ShortTicksBrush"
             , typeof(Brush)
             , typeof(Dashboard));
@@ -355,6 +271,97 @@ namespace ZdfFlatUI
         }
         #endregion
 
+        #endregion
+
+        #region Private依赖属性
+
+        #region Angle 刻度盘当前值所对应的角度
+        /// <summary>
+        /// 刻度盘当前值所对应的角度依赖属性
+        /// </summary>
+        public static readonly DependencyProperty AngleProperty =
+            DependencyProperty.Register(
+                "Angle",
+                typeof(double),
+                typeof(Dashboard),
+                new PropertyMetadata(0d));
+
+        /// <summary>
+        /// 刻度盘当前值所对应的角度
+        /// </summary>
+        public double Angle
+        {
+            get { return (double)GetValue(AngleProperty); }
+            private set { SetValue(AngleProperty, value); }
+        }
+        #endregion
+
+        #region ShortTicks 短刻度线
+        /// <summary>
+        /// 短刻度线依赖属性,用于Binding
+        /// </summary>
+        public static readonly DependencyProperty ShortTicksProperty =
+            DependencyProperty.Register(
+                "ShortTicks",
+                typeof(IList<object>),
+                typeof(Dashboard),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// 获取或设置短刻度线，用于绑定PathListBox的ItemsSource
+        /// </summary>
+        /// <value>短刻度线.</value>
+        public IList<object> ShortTicks
+        {
+            get { return (IList<object>)GetValue(ShortTicksProperty); }
+            private set { SetValue(ShortTicksProperty, value); }
+        }
+        #endregion
+
+        #region LongTicks 长刻度线
+        /// <summary>
+        /// 长刻度线依赖属性,用于Binding
+        /// </summary>
+        public static readonly DependencyProperty LongTicksProperty =
+            DependencyProperty.Register(
+                "LongTicks",
+                typeof(IList<object>),
+                typeof(Dashboard),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// 获取或设置长刻度线，用于绑定PathListBox的ItemsSource
+        /// </summary>
+        /// <value>长刻度线.</value>
+        public IList<object> LongTicks
+        {
+            get { return (IList<object>)GetValue(LongTicksProperty); }
+            private set { SetValue(LongTicksProperty, value); }
+        }
+        #endregion
+
+        #region LongTicks 长刻度线上显示的数字
+        /// <summary>
+        /// 长刻度线依赖属性,用于Binding
+        /// </summary>
+        public static readonly DependencyProperty NumberListProperty =
+            DependencyProperty.Register(
+                "NumberList",
+                typeof(IList<object>),
+                typeof(Dashboard),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// 获取或设置长刻度线，用于绑定PathListBox的ItemsSource
+        /// </summary>
+        /// <value>长刻度线.</value>
+        public IList<object> NumberList
+        {
+            get { return (IList<object>)GetValue(NumberListProperty); }
+            private set { SetValue(NumberListProperty, value); }
+        }
+        #endregion
+        
         #endregion
 
         #region 重载
@@ -389,7 +396,7 @@ namespace ZdfFlatUI
 
             for (int i = 0; i < this.LongTickCount; i++)
             {
-                numbers.Add(Math.Round(this.Minimum + (this.Maximum - this.Minimum) / (this.LongTickCount - 1) * (i)));
+                numbers.Add(Math.Round(this.Minimum + (this.Maximum - this.Minimum) / (this.LongTickCount - 1) * i));
                 longticks.Add(new object());
             }
 
