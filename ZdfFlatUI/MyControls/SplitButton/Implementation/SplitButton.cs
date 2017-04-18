@@ -15,9 +15,11 @@ namespace ZdfFlatUI
     /// <remarks>add by zhidanfeng 2017.4.14</remarks>
     public class SplitButton : ItemsControl
     {
-        private Button PART_Button;
-
         #region Private属性
+        private Button PART_Button;
+        #endregion
+
+        #region 路由事件定义
         public static readonly RoutedEvent ItemClickEvent = EventManager.RegisterRoutedEvent("ItemClick",
             RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<object>), typeof(SplitButton));
 

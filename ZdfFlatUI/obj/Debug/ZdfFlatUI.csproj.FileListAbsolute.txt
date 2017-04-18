@@ -159,3 +159,5 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\S
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\DropDownButton\Themes\Generic.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\TabControl\Themes\Generic.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Icon\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\RatingBar\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\RatingBar\Themes\RatingBarButton.baml

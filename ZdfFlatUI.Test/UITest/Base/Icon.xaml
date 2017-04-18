@@ -15,5 +15,8 @@
         <WPF.UI:Icon Type="Windows" />
         <WPF.UI:Icon Type="Linux" />
         <WPF.UI:Icon Type="Android" />
+        <WPF.UI:Icon Type="Star_Empty" Width="20" />
+        <WPF.UI:Icon Type="Star_Half" Width="20" />
+        <WPF.UI:Icon Type="Star_Full" Width="20" />
     </UniformGrid>
 </UserControl>

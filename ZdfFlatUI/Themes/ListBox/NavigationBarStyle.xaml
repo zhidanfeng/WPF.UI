@@ -259,7 +259,6 @@
     </Style>
     <!--#endregion-->
 
-
     <Style x:Key="PathListBoxItemStyle1" TargetType="{x:Type ec:PathListBoxItem}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />

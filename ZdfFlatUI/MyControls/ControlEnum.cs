@@ -220,6 +220,9 @@ namespace ZdfFlatUI
         Windows,
         Linux,
         Android,
+        Star_Empty,
+        Star_Half,
+        Star_Full,
     }
     #endregion
 }

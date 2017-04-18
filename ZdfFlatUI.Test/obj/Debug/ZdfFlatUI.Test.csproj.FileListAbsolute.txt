@@ -183,3 +183,9 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Icon.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRichTextEditor.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRichTextEditor.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Data.v10.1.dll
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Xpf.Core.v10.1.dll
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Data.v10.1.xml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Xpf.Core.v10.1.xml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRate.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTRate.baml

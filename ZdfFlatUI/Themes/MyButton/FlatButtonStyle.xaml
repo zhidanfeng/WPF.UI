@@ -15,7 +15,7 @@
                 CornerRadius="{TemplateBinding CornerRadius}"
                 SnapsToDevicePixels="true" UseLayoutRounding="True">
             <Border.OpacityMask>
-                <SolidColorBrush Color="#ED5565" />
+                <SolidColorBrush Color="#000000" />
             </Border.OpacityMask>
             <AdornerDecorator>
                 <ContentPresenter x:Name="contentPresenter" Grid.Column="1"

@@ -122,6 +122,8 @@
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
     <Compile Include="MyControls\DropDownButton\Implementation\DropDownButton.cs" />
     <Compile Include="MyControls\Icon\Implementation\Icon.cs" />
+    <Compile Include="MyControls\RatingBar\Implementation\RatingBar.cs" />
+    <Compile Include="MyControls\RatingBar\Implementation\RatingBarButton.cs" />
     <Compile Include="MyControls\SplitButton\Implementation\SplitButton.cs" />
     <Compile Include="MyControls\SplitButton\Implementation\SplitButtonItem.cs" />
     <Compile Include="MyControls\Expander\Implementation\ZExpander.cs" />
@@ -191,6 +193,7 @@
     </Compile>
     <Compile Include="MyControls\Window\Implementation\AutoCloseWindow.cs" />
     <Compile Include="MyControls\Window\Implementation\BaseWindow.cs" />
+    <Compile Include="StyleSelectors\RatingBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateMenuGroupStyleSelector.cs" />
     <Compile Include="Utils\DialogHelper.cs" />
@@ -228,6 +231,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\Icon\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\RatingBar\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\RatingBar\Themes\RatingBarButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -532,6 +543,7 @@
   <ItemGroup>
     <Content Include="DLL\CalcBinding.dll" />
     <Content Include="DLL\DynamicExpresso.Core.dll" />
+    <Content Include="Utils\WCF的使用.sln" />
     <Resource Include="DLL\DynamicExpresso.Core.xml" />
     <Content Include="DLL\Microsoft.Expression.Controls.dll" />
     <Content Include="DLL\Microsoft.Expression.Drawing.dll" />
