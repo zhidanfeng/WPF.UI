@@ -20,20 +20,19 @@ namespace ZdfFlatUI.Test.UITest
     /// </summary>
     public partial class UCTRate : UserControl
     {
-        public ObservableCollection<RatingBarButton> Datas { get; set; }
 
         public UCTRate()
         {
             InitializeComponent();
 
-            this.Datas = new ObservableCollection<RatingBarButton>();
+            //this.Datas = new ObservableCollection<RatingBarButton>();
 
-            this.Datas.Add(new RatingBarButton());
-            this.Datas.Add(new RatingBarButton());
-            this.Datas.Add(new RatingBarButton());
-            this.Datas.Add(new RatingBarButton());
+            //this.Datas.Add(new RatingBarButton());
+            //this.Datas.Add(new RatingBarButton());
+            //this.Datas.Add(new RatingBarButton());
+            //this.Datas.Add(new RatingBarButton());
 
-            this.ItemsControl.ItemsSource = this.Datas;
+            //this.ItemsControl.ItemsSource = this.Datas;
         }
     }
 }

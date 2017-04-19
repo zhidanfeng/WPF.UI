@@ -1,24 +1,26 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:Converters="clr-namespace:ZdfFlatUI.Converters" 
                     xmlns:ZUI="clr-namespace:ZdfFlatUI"
-                    xmlns:Converters="clr-namespace:ZdfFlatUI.Converters"
-                    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+                    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
                     xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
 
     <Converters:WordAngleConverter x:Key="WordAngleConverter" />
 
     <!--  单独提出作为资源引用，并且加上x:Shared="False"是为了防止出现“指定的元素已经是另一个元素的逻辑子元素。请先将其断开连接”  -->
-    <Border x:Key="DefaultLabelPanel" Width="70" Margin="0,0,0,20" HorizontalAlignment="Center"
-            VerticalAlignment="Bottom" x:Shared="False" BorderBrush="#00A0FB" BorderThickness="1"
-            CornerRadius="3" Padding="0,2" SnapsToDevicePixels="True" UseLayoutRounding="True">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Agency FB" Foreground="White"
-                   Text="{Binding Path=Value,
-                                  StringFormat={}{0:N1}KW,
-                                  RelativeSource={RelativeSource Mode=FindAncestor,
-                                                                 AncestorType={x:Type ZUI:Dashboard}}}" />
-    </Border>
+    <DataTemplate x:Key="DefaultLabelPanel" x:Shared="False">
+        <Border Width="70" Margin="0,0,0,20" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                BorderBrush="#00A0FB" BorderThickness="1" CornerRadius="3" Padding="0,2"
+                SnapsToDevicePixels="True" UseLayoutRounding="True">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Agency FB" Foreground="White"
+                       Text="{Binding Path=Value,
+                                      StringFormat={}{0:N1}KW,
+                                      RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                     AncestorType={x:Type ZUI:Dashboard}}}" />
+        </Border>
+    </DataTemplate>
 
-    <!--速度盘-->
+    <!--  速度盘  -->
     <ControlTemplate x:Key="Speed" TargetType="{x:Type ZUI:Dashboard}">
         <Grid>
             <Ellipse Fill="#190E1C" />
@@ -32,9 +34,7 @@
                 <ed:Arc x:Name="DoubleCircle" ArcThickness="8" ArcThicknessUnit="Pixel"
                         EndAngle="{TemplateBinding EndAngle}"
                         StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" Stroke="#00A0FB" StrokeThickness="1">
-
-                </ed:Arc>
+                        Stretch="None" Stroke="#00A0FB" StrokeThickness="1" />
 
                 <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
                                 ItemsSource="{TemplateBinding ShortTicks}">
@@ -113,11 +113,11 @@
                     </ed:RegularPolygon.RenderTransform>
                 </ed:RegularPolygon>
             </Grid>
-            <Grid x:Name="PART_LabelPanel" />
+            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
         </Grid>
     </ControlTemplate>
 
-    <!--流量盘-->
+    <!--  流量盘  -->
     <ControlTemplate x:Key="Flow" TargetType="{x:Type ZUI:Dashboard}">
         <Grid>
             <Grid>
@@ -138,8 +138,10 @@
                                 ItemsSource="{TemplateBinding ShortTicks}">
                     <ec:PathListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="1" Height="8" Background="#746E7A" SnapsToDevicePixels="True"
-                                    UseLayoutRounding="True" />
+                            <Border Width="1" Height="8"
+                                    Background="{Binding ShortTicksBrush,
+                                                         RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
+                                    SnapsToDevicePixels="True" UseLayoutRounding="False" />
                         </DataTemplate>
                     </ec:PathListBox.ItemTemplate>
                     <ec:PathListBox.LayoutPaths>
@@ -152,8 +154,10 @@
                                 ItemsSource="{TemplateBinding LongTicks}">
                     <ec:PathListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="1" Height="13" Background="#746E7A" SnapsToDevicePixels="True"
-                                    UseLayoutRounding="True" />
+                            <Border Width="1" Height="13"
+                                    Background="{Binding LongTicksBrush,
+                                                         RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
+                                    SnapsToDevicePixels="True" UseLayoutRounding="False" />
                         </DataTemplate>
                     </ec:PathListBox.ItemTemplate>
                     <ec:PathListBox.LayoutPaths>
@@ -199,7 +203,7 @@
                         StartAngle="{TemplateBinding StartAngle}"
                         Stretch="None" />
             </Grid>
-            <Grid x:Name="PART_LabelPanel" />
+            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
         </Grid>
     </ControlTemplate>
 
@@ -209,12 +213,15 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="Template" Value="{StaticResource Speed}" />
-        <Setter Property="LabelStyle" Value="{StaticResource DefaultLabelPanel}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource DefaultLabelPanel}" />
         <Style.Triggers>
             <Trigger Property="Skin" Value="Flow">
                 <Setter Property="StartAngle" Value="-120" />
                 <Setter Property="EndAngle" Value="120" />
                 <Setter Property="Foreground" Value="#929093" />
+                <Setter Property="BorderBrush" Value="#746E7A" />
+                <Setter Property="ShortTicksBrush" Value="#746E7A" />
+                <Setter Property="LongTicksBrush" Value="#746E7A" />
                 <Setter Property="Template" Value="{StaticResource Flow}" />
             </Trigger>
         </Style.Triggers>

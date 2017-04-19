@@ -15,11 +15,9 @@ namespace ZdfFlatUI
     /// </summary>
     /// <remarks>add by zhidanfeng 2017.2.19</remarks>
     [TemplatePart(Name = "PART_IncreaseCircle", Type = typeof(Arc))]
-    [TemplatePart(Name = "PART_LabelPanel", Type = typeof(Panel))]
     public class Dashboard : Control
     {
         private Arc PART_IncreaseCircle;
-        private Panel PART_LabelPanel;
         /// <summary>
         /// 保存角度变化前的角度值(用于动画)
         /// </summary>
@@ -185,32 +183,6 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region LabelStyle 文本显示样式
-        public static readonly DependencyProperty LabelStyleProperty = DependencyProperty.Register("LabelStyle"
-            , typeof(UIElement)
-            , typeof(Dashboard),
-            new PropertyMetadata(new PropertyChangedCallback(OnLabelPanelPropertyChanged)));
-
-        /// <summary>
-        /// 文本显示样式
-        /// </summary>
-        public UIElement LabelStyle
-        {
-            get { return (UIElement)GetValue(LabelStyleProperty); }
-            set { SetValue(LabelStyleProperty, value); }
-        }
-
-        private static void OnLabelPanelPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            Dashboard dashboard = d as Dashboard;
-            if (dashboard.PART_LabelPanel != null)
-            {
-                dashboard.PART_LabelPanel.Children.Clear();
-                dashboard.PART_LabelPanel.Children.Add(dashboard.LabelStyle);
-            }
-        }
-        #endregion
-
         #region TickDurtion 刻度改变时的动画显示时长
         public static readonly DependencyProperty TickDurtionProperty = DependencyProperty.Register("TickDurtion"
             , typeof(Duration)
@@ -243,7 +215,7 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region LabelStyle 短刻度颜色
+        #region ShortTicksBrush 短刻度颜色
         public static readonly DependencyProperty ShortTicksBrushProperty = DependencyProperty.Register("ShortTicksBrush"
             , typeof(Brush)
             , typeof(Dashboard));
@@ -251,12 +223,14 @@ namespace ZdfFlatUI
         /// <summary>
         /// 短刻度颜色
         /// </summary>
-        public UIElement ShortTicksBrush
+        public Brush ShortTicksBrush
         {
-            get { return (UIElement)GetValue(ShortTicksBrushProperty); }
+            get { return (Brush)GetValue(ShortTicksBrushProperty); }
             set { SetValue(ShortTicksBrushProperty, value); }
         }
+        #endregion
 
+        #region LongTicksBrush 长刻度颜色
         public static readonly DependencyProperty LongTicksBrushProperty = DependencyProperty.Register("LongTicksBrush"
             , typeof(Brush)
             , typeof(Dashboard));
@@ -264,11 +238,33 @@ namespace ZdfFlatUI
         /// <summary>
         /// 长刻度颜色
         /// </summary>
-        public UIElement LongTicksBrush
+        public Brush LongTicksBrush
         {
-            get { return (UIElement)GetValue(LongTicksBrushProperty); }
+            get { return (Brush)GetValue(LongTicksBrushProperty); }
             set { SetValue(LongTicksBrushProperty, value); }
         }
+        #endregion
+
+        #region Content
+        public object Content
+        {
+            get { return (object)GetValue(ContentProperty); }
+            set { SetValue(ContentProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentProperty =
+            DependencyProperty.Register("Content", typeof(object), typeof(Dashboard));
+        #endregion
+
+        #region ContentTemplate
+        public DataTemplate ContentTemplate
+        {
+            get { return (DataTemplate)GetValue(ContentTemplateProperty); }
+            set { SetValue(ContentTemplateProperty, value); }
+        }
+        
+        public static readonly DependencyProperty ContentTemplateProperty =
+            DependencyProperty.Register("ContentTemplate", typeof(DataTemplate), typeof(Dashboard));
         #endregion
 
         #endregion
@@ -296,7 +292,7 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region ShortTicks 短刻度线
+        #region ShortTicks 短刻度线集合
         /// <summary>
         /// 短刻度线依赖属性,用于Binding
         /// </summary>
@@ -318,7 +314,7 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        #region LongTicks 长刻度线
+        #region LongTicks 长刻度线集合
         /// <summary>
         /// 长刻度线依赖属性,用于Binding
         /// </summary>
@@ -370,17 +366,10 @@ namespace ZdfFlatUI
             base.OnApplyTemplate();
 
             this.PART_IncreaseCircle = GetTemplateChild("PART_IncreaseCircle") as Arc;
-            this.PART_LabelPanel = GetTemplateChild("PART_LabelPanel") as Panel;
 
             this.SetTicks();
             this.SetAngle();
             this.TransformAngle();
-
-            if (this.PART_LabelPanel != null)
-            {
-                this.PART_LabelPanel.Children.Clear();
-                this.PART_LabelPanel.Children.Add(this.LabelStyle);
-            }
         }
         #endregion
 

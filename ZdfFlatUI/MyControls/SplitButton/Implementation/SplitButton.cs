@@ -40,6 +40,7 @@ namespace ZdfFlatUI
             RoutedPropertyChangedEventArgs<object> arg = new RoutedPropertyChangedEventArgs<object>(oldValue, newValue, ItemClickEvent);
             this.RaiseEvent(arg);
         }
+
         #endregion
 
         #region 依赖属性定义

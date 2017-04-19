@@ -75,7 +75,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Cursor" Value="Hand" />
-                            <Setter Property="Background" Value="#20FFFFFF" />
+                            <Setter Property="Background" Value="#10000000" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Cursor" Value="Hand" />
@@ -92,7 +92,7 @@
         <Setter Property="Padding" Value="3" />
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-        <Setter Property="Background" Value="#FFFFFF" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="#000000" />

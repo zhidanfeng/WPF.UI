@@ -10,7 +10,8 @@
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
         <StackPanel Orientation="Horizontal" Margin="0,10">
             <WPF.UI:SplitButton x:Name="DropDownButton" Width="80" Height="28" Content="升级"
-                                ItemClick="DropDownButton_ItemClick" Margin="5,0" />
+                                ItemClick="DropDownButton_ItemClick" Margin="5,0"
+                                />
             <WPF.UI:SplitButton x:Name="SplitButton2" Width="80" Height="28" Content="升级"
                                 ItemClick="DropDownButton_ItemClick" Margin="5,0" 
                                 Background="#3278B3" BorderBrush="#2C6B9F" BorderThickness="0" Foreground="White" />

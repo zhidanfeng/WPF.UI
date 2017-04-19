@@ -8,10 +8,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UniformGrid Columns="1">
-        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="4" SelectedColor="#FEDF32" />
-        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="2.7" SelectedColor="#FEDF32" />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="4" SelectedColor="#FEDF32">
+            <WPF.UI:RatingBar.Content>
+                <TextBlock Text="{Binding Value, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:RatingBar}}, StringFormat={}{0}分}" />
+            </WPF.UI:RatingBar.Content>
+        </WPF.UI:RatingBar>
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="2.3" SelectedColor="#FEDF32" />
         <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3.7" SelectedColor="#FEDF32" IsReadOnly="True" />
-        <WPF.UI:RatingBarButton />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="-3.7" SelectedColor="#FEDF32" />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="6" SelectedColor="#FEDF32" IsShowContent="False" />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3" SelectedColor="#FEDF32" IsShowContent="True"
+                          ContentStringFormat="{}{0}星" />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3" SelectedColor="#FEDF32" IsShowContent="True">
+            <WPF.UI:RatingBar.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="你得了 " />
+                        <TextBlock Text="{Binding Value, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:RatingBar}}, StringFormat={}{0}分}" />
+                    </StackPanel>
+                </DataTemplate>
+            </WPF.UI:RatingBar.ContentTemplate>
+        </WPF.UI:RatingBar>
         <ItemsControl x:Name="ItemsControl">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

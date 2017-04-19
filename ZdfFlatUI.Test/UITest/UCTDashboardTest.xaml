@@ -25,20 +25,22 @@
                                    LongTickCount="9" Maximum="2000" ShortTickCount="5" Skin="Flow"
                                    Value="{Binding Path=Value,
                                                    ElementName=slider1}">
-                        <ZUI:Dashboard.LabelStyle>
-                            <StackPanel Margin="0,110,0,0" HorizontalAlignment="Center" Orientation="Vertical">
-                                <TextBlock Margin="0,4" Text="DOWNLOAD" />
-                                <TextBlock Margin="0,4" HorizontalAlignment="Center" FontSize="26" Foreground="White"
+                        <ZUI:Dashboard.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,110,0,0" HorizontalAlignment="Center" Orientation="Vertical">
+                                    <TextBlock Margin="0,4" Text="DOWNLOAD" />
+                                    <TextBlock Margin="0,4" HorizontalAlignment="Center" FontSize="26" Foreground="White"
                                            Text="{Binding Path=Value,
                                                           StringFormat={}{0:N0},
                                                           ElementName=dashboard1}" />
-                                <TextBlock Margin="0,4" HorizontalAlignment="Center" Text="Mbps" />
-                                <Border Margin="0,30,0,0" BorderBrush="#929093" BorderThickness="1" CornerRadius="12"
+                                    <TextBlock Margin="0,4" HorizontalAlignment="Center" Text="Mbps" />
+                                    <Border Margin="0,30,0,0" BorderBrush="#929093" BorderThickness="1" CornerRadius="12"
                                         Padding="0,3">
-                                    <TextBlock HorizontalAlignment="Center" Text="RETRY" />
-                                </Border>
-                            </StackPanel>
-                        </ZUI:Dashboard.LabelStyle>
+                                        <TextBlock HorizontalAlignment="Center" Text="RETRY" />
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ZUI:Dashboard.ContentTemplate>
                     </ZUI:Dashboard>
                 </Border>
                 <Slider x:Name="slider1" Width="300" VerticalAlignment="Bottom" IsMoveToPointEnabled="True"

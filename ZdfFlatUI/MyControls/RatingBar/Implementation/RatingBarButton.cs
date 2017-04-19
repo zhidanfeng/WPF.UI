@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 
 namespace ZdfFlatUI
 {
-    public class RatingBarButton : ButtonBase
+    sealed class RatingBarButton : ButtonBase
     {
         #region Private属性
 
@@ -19,7 +19,7 @@ namespace ZdfFlatUI
 
         #region 依赖属性set get
 
-        #region IsSelected
+        #region IsSelected 是否选中
         public bool IsSelected
         {
             get { return (bool)GetValue(IsSelectedProperty); }
@@ -30,7 +30,7 @@ namespace ZdfFlatUI
             DependencyProperty.Register("IsSelected", typeof(bool), typeof(RatingBarButton), new PropertyMetadata(false));
         #endregion
 
-        #region IsHalf
+        #region IsHalf 是否显示半颗星
         public bool IsHalf
         {
             get { return (bool)GetValue(IsHalfProperty); }
@@ -41,7 +41,7 @@ namespace ZdfFlatUI
             DependencyProperty.Register("IsHalf", typeof(bool), typeof(RatingBarButton), new PropertyMetadata(false));
         #endregion
 
-        #region Value
+        #region Value 当前值
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
@@ -58,22 +58,6 @@ namespace ZdfFlatUI
         static RatingBarButton()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(RatingBarButton), new FrameworkPropertyMetadata(typeof(RatingBarButton)));
-        }
-
-        public RatingBarButton()
-        {
-            this.MouseEnter += RatingBarButton_MouseEnter;
-            this.MouseLeave += RatingBarButton_MouseLeave;
-        }
-
-        private void RatingBarButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            //this.IsSelected = false;
-        }
-
-        private void RatingBarButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            //this.IsSelected = true;
         }
         #endregion
 
