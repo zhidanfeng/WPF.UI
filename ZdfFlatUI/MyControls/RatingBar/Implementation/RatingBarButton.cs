@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 
 namespace ZdfFlatUI
 {
-    sealed class RatingBarButton : ButtonBase
+    public class RatingBarButton : ButtonBase
     {
         #region Private属性
 

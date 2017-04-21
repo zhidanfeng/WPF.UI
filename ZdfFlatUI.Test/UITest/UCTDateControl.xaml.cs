@@ -32,6 +32,8 @@ namespace ZdfFlatUI.Test.UITest
         private void btnGetDate_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(this.timePicker.Value.Value.ToString());
+            MessageBox.Show(DateTime.DaysInMonth(2017, 4).ToString());
+            MessageBox.Show(DateTime.Now.DayOfWeek.ToString());
         }
 
         private void btnGetDateTimePicker_Click(object sender, RoutedEventArgs e)

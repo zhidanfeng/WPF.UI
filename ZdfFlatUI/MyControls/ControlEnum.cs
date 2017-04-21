@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ZdfFlatUI
 {
+    #region DashboardSkinEnum
     /// <summary>
     /// 仪表盘类型
     /// </summary>
@@ -19,7 +20,9 @@ namespace ZdfFlatUI
         /// </summary>
         Flow,
     }
+    #endregion
 
+    #region ProgressBarSkinEnum
     /// <summary>
     /// 进度条类型
     /// </summary>
@@ -34,7 +37,9 @@ namespace ZdfFlatUI
         /// </summary>
         Circle,
     }
+    #endregion
 
+    #region EnumPlacement
     public enum EnumPlacement
     {
         /// <summary>
@@ -86,7 +91,9 @@ namespace ZdfFlatUI
         /// </summary>
         BottomRight,
     }
+    #endregion
 
+    #region EnumPromptType
     /// <summary>
     /// 提示类型
     /// </summary>
@@ -109,7 +116,9 @@ namespace ZdfFlatUI
         /// </summary>
         Success,
     }
+    #endregion
 
+    #region EnumCompare
     public enum EnumCompare
     {
         /// <summary>
@@ -126,7 +135,9 @@ namespace ZdfFlatUI
         Large,
         None,
     }
+    #endregion
 
+    #region EnumLoadingType
     public enum EnumLoadingType
     {
         /// <summary>
@@ -156,7 +167,9 @@ namespace ZdfFlatUI
         Cogs,
         Normal,
     }
+    #endregion
 
+    #region CloseBoxTypeEnum
     public enum CloseBoxTypeEnum
     {
         /// <summary>
@@ -168,7 +181,9 @@ namespace ZdfFlatUI
         /// </summary>
         Hide,
     }
+    #endregion
 
+    #region FlatButtonSkinEnum
     /// <summary>
     /// Button类型
     /// </summary>
@@ -186,7 +201,9 @@ namespace ZdfFlatUI
         error,
         warning,
     }
+    #endregion
 
+    #region EnumTrigger
     public enum EnumTrigger
     {
         /// <summary>
@@ -202,12 +219,15 @@ namespace ZdfFlatUI
         /// </summary>
         Custom,
     }
+    #endregion
 
+    #region EnumTabControlType
     public enum EnumTabControlType
     {
         Line,
         Card,
     }
+    #endregion
 
     #region IconType
     public enum EnumIconType
@@ -225,4 +245,34 @@ namespace ZdfFlatUI
         Star_Full,
     }
     #endregion
-}
+
+    #region EnumDatePickerType
+    public enum EnumDatePickerType
+    {
+        /// <summary>
+        /// 单个日期
+        /// </summary>
+        SingleDate,
+        /// <summary>
+        /// 连续的多个日期
+        /// </summary>
+        SingleDateRange,
+        /// <summary>
+        /// 只显示年份
+        /// </summary>
+        Year,
+        /// <summary>
+        /// 只显示月份
+        /// </summary>
+        Month,
+        /// <summary>
+        /// 显示一个日期和时间
+        /// </summary>
+        DateTime,
+        /// <summary>
+        /// 显示连续的日期和时间
+        /// </summary>
+        DateTimeRange,
+    }
+    #endregion
+    }

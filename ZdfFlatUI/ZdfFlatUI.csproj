@@ -101,6 +101,7 @@
     <Compile Include="BaseControl\NumericUpDown.cs" />
     <Compile Include="BaseControl\NumericUpDownBase.cs" />
     <Compile Include="BaseControl\TextBoxBase.cs" />
+    <Compile Include="Converters\CalendarDayButtonTypeConverter.cs" />
     <Compile Include="Converters\IsLastItemConverter.cs" />
     <Compile Include="Converters\IsProgressedConverter.cs" />
     <Compile Include="Converters\MathMultipleConverter.cs" />
@@ -119,6 +120,8 @@
     <Compile Include="MyControls\ComboBox\Implementation\ZComboBox.cs" />
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
+    <Compile Include="MyControls\DateControl\Implementation\ZCalendar.cs" />
+    <Compile Include="MyControls\DateControl\Implementation\ZDatePicker.cs" />
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
     <Compile Include="MyControls\DropDownButton\Implementation\DropDownButton.cs" />
     <Compile Include="MyControls\Icon\Implementation\Icon.cs" />
@@ -223,6 +226,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MyControls\Dashboard\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\DateControl\Themes\ZCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\DateControl\Themes\ZDatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -543,7 +554,6 @@
   <ItemGroup>
     <Content Include="DLL\CalcBinding.dll" />
     <Content Include="DLL\DynamicExpresso.Core.dll" />
-    <Content Include="Utils\WCF的使用.sln" />
     <Resource Include="DLL\DynamicExpresso.Core.xml" />
     <Content Include="DLL\Microsoft.Expression.Controls.dll" />
     <Content Include="DLL\Microsoft.Expression.Drawing.dll" />

@@ -86,6 +86,27 @@ namespace ZdfFlatUI.Utils
             return null;
         }
 
+        public static T FindParent<T>(DependencyObject i_dp, string elementName) where T : DependencyObject
+        {
+            DependencyObject dobj = (DependencyObject)VisualTreeHelper.GetParent(i_dp);
+            if (dobj != null)
+            {
+                if (dobj is T && ((System.Windows.FrameworkElement)(dobj)).Name.Equals(elementName))
+                {
+                    return (T)dobj;
+                }
+                else
+                {
+                    dobj = FindParent<T>(dobj);
+                    if (dobj != null && dobj is T)
+                    {
+                        return (T)dobj;
+                    }
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// 查找指定名称的元素
         /// </summary>
@@ -120,6 +141,17 @@ namespace ZdfFlatUI.Utils
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// 命中测试。根据当前选中元素，查找视觉树父节点与子节点，看是否存在指定类型的元素
+        /// </summary>
+        /// <typeparam name="T">想命中的元素类型</typeparam>
+        /// <param name="dp">当前选中元素</param>
+        /// <returns>true：命中成功</returns>
+        public static bool HitTest<T>(DependencyObject dp) where T : DependencyObject
+        {
+            return FindParent<T>(dp) != null || FindVisualChild<T>(dp) != null;
         }
     }
 }

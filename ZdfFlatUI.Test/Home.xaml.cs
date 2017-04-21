@@ -212,6 +212,11 @@ namespace ZdfFlatUI.Test
                 Name = "Rate评分",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Date日历控件",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -325,6 +330,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "Rate评分":
                         this.ControlPanel.Content = new UITest.UCTRate();
+                        break;
+                    case "Date日历控件":
+                        this.ControlPanel.Content = new UITest.UCTDateControl();
                         break;
                     #endregion
                 }

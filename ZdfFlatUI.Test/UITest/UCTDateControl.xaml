@@ -70,28 +70,52 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <WPF.UI:FlatDatePicker Width="200" Height="22" />
-        <StackPanel Orientation="Horizontal">
-            <WPF.UI:TimePicker x:Name="timePicker" Width="80" Height="25" Margin="0,10"
-                                    Value="02:01:03" />
-            <Button x:Name="btnGetDate" Height="25" Margin="5,5" Click="btnGetDate_Click"
-                    Content="获取日期" />
-            <Button x:Name="btnSetDate" Height="25" Margin="5,5" Click="btnSetDate_Click"
-                    Content="设置日期" />
-        </StackPanel>
-        <StackPanel>
-            <WPF.UI:TimePicker x:Name="timePicker1" Width="120" Height="25" Margin="0,10"
-                                    HorizontalAlignment="Left"
-                                    Style="{DynamicResource TimePickerStyle1}"
-                                    Value="02:01:03" />
-        </StackPanel>
-        <StackPanel>
-            <WPF.UI:DateTimePicker x:Name="dateTimePicker" Width="200" Height="22" DateFormat="yyyy-MM-dd HH:mm:ss" />
-            <Button x:Name="btnGetDateTimePicker" Height="25" Margin="5,5" Click="btnGetDateTimePicker_Click"
-                    Content="获取日期" />
-            <Button x:Name="btnSetDateTimePicker" Height="25" Margin="5,5" Click="btnSetDateTimePicker_Click"
-                    Content="设置日期" />
-        </StackPanel>
-    </StackPanel>
+    <WPF.UI:ZTabControl Type="Card">
+        <TabItem Header="DateTimePicker">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <WPF.UI:FlatDatePicker Width="200" Height="22" />
+                <StackPanel Orientation="Horizontal">
+                    <WPF.UI:TimePicker x:Name="timePicker" Width="80" Height="25" Margin="0,10"
+                                        Value="02:01:03" />
+                    <Button x:Name="btnGetDate" Height="25" Margin="5,5" Click="btnGetDate_Click"
+                            Content="获取日期" />
+                    <Button x:Name="btnSetDate" Height="25" Margin="5,5" Click="btnSetDate_Click"
+                            Content="设置日期" />
+                </StackPanel>
+                <StackPanel>
+                    <WPF.UI:TimePicker x:Name="timePicker1" Width="120" Height="25" Margin="0,10"
+                                        HorizontalAlignment="Left"
+                                        Style="{DynamicResource TimePickerStyle1}"
+                                        Value="02:01:03" />
+                </StackPanel>
+                <StackPanel>
+                    <WPF.UI:DateTimePicker x:Name="dateTimePicker" Width="200" Height="22" DateFormat="yyyy-MM-dd HH:mm:ss" />
+                    <Button x:Name="btnGetDateTimePicker" Height="25" Margin="5,5" Click="btnGetDateTimePicker_Click"
+                            Content="获取日期" />
+                    <Button x:Name="btnSetDateTimePicker" Height="25" Margin="5,5" Click="btnSetDateTimePicker_Click"
+                            Content="设置日期" />
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="ZCalendar日历">
+            <WPF.UI:ZCalendar HorizontalAlignment="Center" VerticalAlignment="Center" SelectionMode="SingleRange" />
+        </TabItem>
+        <TabItem Header="ZDatePicker">
+            <UniformGrid Columns="3">
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25" />
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
+                                    IsShowShortCuts="True"/>
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
+                                    Type="SingleDateRange"/>
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
+                                    Type="SingleDateRange" IsShowShortCuts="True"/>
+            </UniformGrid>
+        </TabItem>
+        <TabItem Header="Calendar日历">
+            <UniformGrid Columns="2">
+                <Calendar HorizontalAlignment="Center" VerticalAlignment="Center" SelectionMode="MultipleRange" />
+                
+            </UniformGrid>
+        </TabItem>
+    </WPF.UI:ZTabControl>
 </UserControl>

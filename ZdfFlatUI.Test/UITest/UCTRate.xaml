@@ -7,6 +7,10 @@
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <PathFigureCollection x:Key="Smile">M20,12A8,8,0,0,0,12,4A8,8,0,0,0,4,12A8,8,0,0,0,12,20A8,8,0,0,0,20,12 M22,12A10,10,0,0,1,12,22A10,10,0,0,1,2,12A10,10,0,0,1,12,2A10,10,0,0,1,22,12 M10,9.5C10,10.3 9.3,11 8.5,11 7.7,11 7,10.3 7,9.5 7,8.7 7.7,8 8.5,8 9.3,8 10,8.7 10,9.5 M17,9.5C17,10.3 16.3,11 15.5,11 14.7,11 14,10.3 14,9.5 14,8.7 14.7,8 15.5,8 16.3,8 17,8.7 17,9.5 M12,17.23C10.25,17.23,8.71,16.5,7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23 13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5,13.75,17.23,12,17.23z</PathFigureCollection>
+        <PathFigureCollection x:Key="Smile_1">M1.5,2.09C2.4,3 3.87,3.73 5.69,4.25 7.41,2.84 9.61,2 12,2 14.39,2 16.59,2.84 18.31,4.25 20.13,3.73 21.6,3 22.5,2.09 22.47,3.72 21.65,5.21 20.28,6.4 21.37,8 22,9.92 22,12A10,10,0,0,1,12,22A10,10,0,0,1,2,12C2,9.92 2.63,8 3.72,6.4 2.35,5.21 1.53,3.72 1.5,2.09 M20,12A8,8,0,0,0,12,4A8,8,0,0,0,4,12A8,8,0,0,0,12,20A8,8,0,0,0,20,12 M10.5,10C10.5,10.8 9.8,11.5 9,11.5 8.2,11.5 7.5,10.8 7.5,10L7.5,8.5 10.5,10 M16.5,10C16.5,10.8 15.8,11.5 15,11.5 14.2,11.5 13.5,10.8 13.5,10L16.5,8.5 16.5,10 M12,17.23C10.25,17.23,8.71,16.5,7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23 13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5,13.75,17.23,12,17.23z</PathFigureCollection>
+    </UserControl.Resources>
     <UniformGrid Columns="1">
         <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="4" SelectedColor="#FEDF32">
             <WPF.UI:RatingBar.Content>
@@ -28,6 +32,44 @@
                     </StackPanel>
                 </DataTemplate>
             </WPF.UI:RatingBar.ContentTemplate>
+        </WPF.UI:RatingBar>
+        <WPF.UI:RatingBar Height="30" Value="3" SelectedColor="#5C6B77">
+            <WPF.UI:RatingBar.ValueItemStyle>
+                <Style TargetType="{x:Type WPF.UI:RatingBarButton}">
+                    <Setter Property="Command" Value="{x:Static WPF.UI:RatingBar.ValueChangedCommand}" />
+                    <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Value}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type WPF.UI:RatingBarButton}">
+                                <Border Background="Transparent">
+                                    <WPF.UI:Icon x:Name="icon" Width="20" Margin="2,0"
+                                                 Foreground="{Binding UnSelectedColor,
+                                                                      RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:RatingBar}}}"
+                                                 Data="{StaticResource Smile}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsHalf" Value="False" />
+                                            <Condition Property="IsSelected" Value="True" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="icon" Property="Data" Value="{StaticResource Smile_1}" />
+                                        <Setter TargetName="icon" Property="Foreground" Value="{Binding SelectedColor, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:RatingBar}}}" />
+                                    </MultiTrigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsHalf" Value="True" />
+                                            <Condition Property="IsSelected" Value="True" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="icon" Property="Data" Value="{StaticResource Smile_1}" />
+                                        <Setter TargetName="icon" Property="Foreground" Value="{Binding SelectedColor, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:RatingBar}}}" />
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </WPF.UI:RatingBar.ValueItemStyle>
         </WPF.UI:RatingBar>
         <ItemsControl x:Name="ItemsControl">
             <ItemsControl.ItemsPanel>

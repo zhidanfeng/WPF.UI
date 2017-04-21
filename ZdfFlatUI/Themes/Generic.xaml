@@ -57,5 +57,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Icon/Themes/Generic.xaml" /> 
         <ResourceDictionary Source="/WPF.UI;component/MyControls/RatingBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/RatingBar/Themes/RatingBarButton.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/DateControl/Themes/ZCalendar.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/DateControl/Themes/ZDatePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

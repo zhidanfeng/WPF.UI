@@ -23,6 +23,7 @@
     <!--  速度盘  -->
     <ControlTemplate x:Key="Speed" TargetType="{x:Type ZUI:Dashboard}">
         <Grid>
+            <!--  背景圆盘  -->
             <Ellipse Fill="#190E1C" />
             <Grid Margin="20">
                 <!--  刻度盘当前值对应的圆弧  -->
@@ -36,6 +37,7 @@
                         StartAngle="{TemplateBinding StartAngle}"
                         Stretch="None" Stroke="#00A0FB" StrokeThickness="1" />
 
+                <!--  短刻度  -->
                 <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
                                 ItemsSource="{TemplateBinding ShortTicks}">
                     <ec:PathListBox.ItemTemplate>
@@ -50,6 +52,7 @@
                     </ec:PathListBox.LayoutPaths>
                 </ec:PathListBox>
 
+                <!--  长刻度  -->
                 <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
                                 ItemsSource="{TemplateBinding LongTicks}">
                     <ec:PathListBox.ItemTemplate>
@@ -64,6 +67,7 @@
                     </ec:PathListBox.LayoutPaths>
                 </ec:PathListBox>
 
+                <!--  刻度上显示的数字  -->
                 <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
                                 ItemsSource="{TemplateBinding NumberList}">
                     <ec:PathListBox.ItemTemplate>
@@ -92,6 +96,7 @@
                         StartAngle="{TemplateBinding StartAngle}"
                         Stretch="None" />
 
+                <!--#region 表盘指针-->
                 <Ellipse Width="15" Height="15" Stroke="Black">
                     <Ellipse.Fill>
                         <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -112,6 +117,7 @@
                         </TransformGroup>
                     </ed:RegularPolygon.RenderTransform>
                 </ed:RegularPolygon>
+                <!--#endregion-->
             </Grid>
             <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
         </Grid>
@@ -120,58 +126,60 @@
     <!--  流量盘  -->
     <ControlTemplate x:Key="Flow" TargetType="{x:Type ZUI:Dashboard}">
         <Grid>
-            <Grid>
-                <!--  刻度盘完整圆弧  -->
-                <ed:Arc x:Name="DoubleCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
-                        EndAngle="{TemplateBinding EndAngle}"
-                        SnapsToDevicePixels="True"
-                        StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" Stroke="#746E7A" StrokeThickness="1" UseLayoutRounding="True" />
+            <!--  刻度盘完整圆弧  -->
+            <ed:Arc x:Name="DoubleCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
+                    EndAngle="{TemplateBinding EndAngle}"
+                    SnapsToDevicePixels="True"
+                    StartAngle="{TemplateBinding StartAngle}"
+                    Stretch="None" Stroke="#746E7A" StrokeThickness="1" UseLayoutRounding="True" />
 
-                <!--  刻度盘当前值对应的圆弧  -->
-                <ed:Arc x:Name="PART_IncreaseCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
-                        RenderTransformOrigin="0.5,0.5"
-                        StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" Stroke="Red" StrokeThickness="1" />
+            <!--  刻度盘当前值对应的圆弧  -->
+            <ed:Arc x:Name="PART_IncreaseCircle" Margin="50" ArcThickness="1" ArcThicknessUnit="Pixel"
+                    RenderTransformOrigin="0.5,0.5"
+                    StartAngle="{TemplateBinding StartAngle}"
+                    Stretch="None" Stroke="Red" StrokeThickness="1" />
 
-                <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
-                                ItemsSource="{TemplateBinding ShortTicks}">
-                    <ec:PathListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Width="1" Height="8"
-                                    Background="{Binding ShortTicksBrush,
-                                                         RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
-                                    SnapsToDevicePixels="True" UseLayoutRounding="False" />
-                        </DataTemplate>
-                    </ec:PathListBox.ItemTemplate>
-                    <ec:PathListBox.LayoutPaths>
-                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
-                                       SourceElement="{Binding ElementName=ShortTickPath}" />
-                    </ec:PathListBox.LayoutPaths>
-                </ec:PathListBox>
+            <!--  短刻度  -->
+            <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
+                            ItemsSource="{TemplateBinding ShortTicks}">
+                <ec:PathListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="1" Height="8"
+                                Background="{Binding ShortTicksBrush,
+                                                     RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
+                                SnapsToDevicePixels="True" UseLayoutRounding="False" />
+                    </DataTemplate>
+                </ec:PathListBox.ItemTemplate>
+                <ec:PathListBox.LayoutPaths>
+                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                   SourceElement="{Binding ElementName=ShortTickPath}" />
+                </ec:PathListBox.LayoutPaths>
+            </ec:PathListBox>
 
-                <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
-                                ItemsSource="{TemplateBinding LongTicks}">
-                    <ec:PathListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Width="1" Height="13"
-                                    Background="{Binding LongTicksBrush,
-                                                         RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
-                                    SnapsToDevicePixels="True" UseLayoutRounding="False" />
-                        </DataTemplate>
-                    </ec:PathListBox.ItemTemplate>
-                    <ec:PathListBox.LayoutPaths>
-                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
-                                       SourceElement="{Binding ElementName=LongTickPath}" />
-                    </ec:PathListBox.LayoutPaths>
-                </ec:PathListBox>
+            <!--  长刻度  -->
+            <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
+                            ItemsSource="{TemplateBinding LongTicks}">
+                <ec:PathListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="1" Height="13"
+                                Background="{Binding LongTicksBrush,
+                                                     RelativeSource={RelativeSource AncestorType={x:Type ZUI:Dashboard}}}"
+                                SnapsToDevicePixels="True" UseLayoutRounding="False" />
+                    </DataTemplate>
+                </ec:PathListBox.ItemTemplate>
+                <ec:PathListBox.LayoutPaths>
+                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                   SourceElement="{Binding ElementName=LongTickPath}" />
+                </ec:PathListBox.LayoutPaths>
+            </ec:PathListBox>
 
-                <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
-                                ItemsSource="{TemplateBinding NumberList}">
-                    <ec:PathListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock RenderTransformOrigin="0.5,0.5" Text="{Binding}">
-                                <!--<TextBlock.RenderTransform>
+            <!--  刻度上显示的数字  -->
+            <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
+                            ItemsSource="{TemplateBinding NumberList}">
+                <ec:PathListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock RenderTransformOrigin="0.5,0.5" Text="{Binding}">
+                            <!--<TextBlock.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform />
                                         <SkewTransform />
@@ -179,30 +187,32 @@
                                         <TranslateTransform />
                                     </TransformGroup>
                                 </TextBlock.RenderTransform>-->
-                            </TextBlock>
-                        </DataTemplate>
-                    </ec:PathListBox.ItemTemplate>
-                    <ec:PathListBox.LayoutPaths>
-                        <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
-                                       SourceElement="{Binding ElementName=NumberPath}" />
-                    </ec:PathListBox.LayoutPaths>
-                </ec:PathListBox>
+                        </TextBlock>
+                    </DataTemplate>
+                </ec:PathListBox.ItemTemplate>
+                <ec:PathListBox.LayoutPaths>
+                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                   SourceElement="{Binding ElementName=NumberPath}" />
+                </ec:PathListBox.LayoutPaths>
+            </ec:PathListBox>
 
-                <ed:Arc x:Name="LongTickPath" Margin="0" ArcThickness="0" ArcThicknessUnit="Pixel"
-                        EndAngle="{TemplateBinding EndAngle}"
-                        StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" />
+            <!--#region 路径-->
+            <ed:Arc x:Name="LongTickPath" Margin="0" ArcThickness="0" ArcThicknessUnit="Pixel"
+                    EndAngle="{TemplateBinding EndAngle}"
+                    StartAngle="{TemplateBinding StartAngle}"
+                    Stretch="None" />
 
-                <ed:Arc x:Name="ShortTickPath" Margin="5" ArcThickness="0" ArcThicknessUnit="Pixel"
-                        EndAngle="{TemplateBinding EndAngle}"
-                        StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" />
+            <ed:Arc x:Name="ShortTickPath" Margin="5" ArcThickness="0" ArcThicknessUnit="Pixel"
+                    EndAngle="{TemplateBinding EndAngle}"
+                    StartAngle="{TemplateBinding StartAngle}"
+                    Stretch="None" />
 
-                <ed:Arc x:Name="NumberPath" Margin="20" ArcThickness="0" ArcThicknessUnit="Pixel"
-                        EndAngle="{TemplateBinding EndAngle}"
-                        StartAngle="{TemplateBinding StartAngle}"
-                        Stretch="None" />
-            </Grid>
+            <ed:Arc x:Name="NumberPath" Margin="20" ArcThickness="0" ArcThicknessUnit="Pixel"
+                    EndAngle="{TemplateBinding EndAngle}"
+                    StartAngle="{TemplateBinding StartAngle}"
+                    Stretch="None" />
+            <!--#endregion-->
+
             <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
         </Grid>
     </ControlTemplate>

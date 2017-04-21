@@ -15,7 +15,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="BorderThickness" Value="0,0,0,2" />
         <Setter Property="Background" Value="#FFFFFF" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -79,7 +79,7 @@
                             <Setter Property="Background" Value="#FFFFFF" />
                             <Setter Property="BorderThickness" Value="1,1,1,0" />
                             <Setter Property="Foreground" Value="#64778D" />
-                            <Setter Property="Margin" Value="0,0,5,-1" />
+                            <Setter Property="Margin" Value="0,0,5,-1.3" />
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
