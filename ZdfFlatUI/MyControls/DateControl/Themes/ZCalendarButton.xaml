@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI.Primitives">
+    <Style TargetType="{x:Type ZUI:ZCalendarButton}">
+        <Setter Property="Background" Value="#3399FF" />
+        <Setter Property="FontSize" Value="{StaticResource CalendarButton.FontSize}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:ZCalendarButton}">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
+                        <Border x:Name="border" CornerRadius="3" />
+                        <Border x:Name="SelectedBackground" CornerRadius="3" />
+                        <ContentPresenter x:Name="NormalText" Margin="10,6"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#E1F0FE" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#3399FF" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                        </Trigger>
+                        <Trigger Property="HasSelectedDates" Value="True">
+                            <Setter TargetName="SelectedBackground" Property="Background" Value="#3399FF" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

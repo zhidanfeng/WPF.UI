@@ -32,9 +32,9 @@
         
         <Button x:Name="ChangeSource" Content="Change" Command="{Binding AddCommand}" HorizontalAlignment="Right" />
 
-        <ScrollViewer x:Name="scrollViewer" Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center"
+        <WPF.UI:ZScrollViewer x:Name="scrollViewer" Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center"
                       Style="{StaticResource AutoDisappearScrollViewerStyle}">
-            <ScrollViewer.Content>
+            <WPF.UI:ZScrollViewer.Content>
                 <StackPanel x:Name="AnchorPointPanel" MouseEnter="AnchorPointPanel_MouseEnter"
                             MouseLeave="AnchorPointPanel_MouseLeave" Width="300">
                     <ListBox x:Name="PointInputResource" ItemsSource="{Binding data1}" PreviewMouseWheel="PointInputResource_PreviewMouseWheel" />
@@ -42,7 +42,7 @@
                     <ListBox x:Name="PointCommand" ItemsSource="{Binding data1}" PreviewMouseWheel="PointInputResource_PreviewMouseWheel" />
                     <ListBox x:Name="PointProcess" ItemsSource="{Binding data1}" PreviewMouseWheel="PointInputResource_PreviewMouseWheel" />
                 </StackPanel>
-            </ScrollViewer.Content>
-        </ScrollViewer>
+            </WPF.UI:ZScrollViewer.Content>
+        </WPF.UI:ZScrollViewer>
     </Grid>
 </UserControl>

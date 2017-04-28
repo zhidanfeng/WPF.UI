@@ -275,4 +275,17 @@ namespace ZdfFlatUI
         DateTimeRange,
     }
     #endregion
+
+    #region DayTitle
+    public enum DayTitle
+    {
+        日 = 0,
+        一,
+        二,
+        三,
+        四,
+        五,
+        六,
     }
+    #endregion
+}

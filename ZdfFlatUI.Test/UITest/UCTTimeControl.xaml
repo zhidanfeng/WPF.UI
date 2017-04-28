@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTTimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1000">
+    <UniformGrid Columns="4">
+        <WPF.UI:TimeSelector Height="200" Width="160" SelectedTimeChanged="TimeSelector_SelectedTimeChanged" />
+        <WPF.UI:ZTimePicker Width="200" Height="29" />
+        <StackPanel Orientation="Horizontal">
+            <WPF.UI:ZTimePicker x:Name="TimePicker2" Width="201" Height="29" TimeStringFormat="HH点mm分ss秒" />
+            <WPF.UI:FlatButton Content="设置事件" Margin="10,0,0,0" Click="SetTimePicker2_Click" />
+        </StackPanel>
+    </UniformGrid>
+</UserControl>

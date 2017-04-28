@@ -19,6 +19,21 @@ namespace ZdfFlatUI
 
         #region 依赖属性set get
 
+        public double VerticalOffsetEx
+        {
+            get { return (double)GetValue(VerticalOffsetExProperty); }
+            set { SetValue(VerticalOffsetExProperty, value); }
+        }
+        
+        public static readonly DependencyProperty VerticalOffsetExProperty =
+            DependencyProperty.Register("VerticalOffsetEx", typeof(double), typeof(ZScrollViewer), new PropertyMetadata(0d, VerticalOffsetExChangedCallback));
+
+        private static void VerticalOffsetExChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ZScrollViewer scrollViewer = d as ZScrollViewer;
+            scrollViewer.ScrollToVerticalOffset((double)e.NewValue);
+        }
+
         #endregion
 
         #region Constructors
@@ -29,11 +44,14 @@ namespace ZdfFlatUI
         #endregion
 
         #region Override方法
-
+        
         #endregion
 
         #region Private方法
-
+        public void aa()
+        {
+            
+        }
         #endregion
     }
 }

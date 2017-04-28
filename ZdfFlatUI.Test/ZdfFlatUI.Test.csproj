@@ -200,6 +200,9 @@
     <Compile Include="UITest\UCTTextBoxTest.xaml.cs">
       <DependentUpon>UCTTextBoxTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTTimeControl.xaml.cs">
+      <DependentUpon>UCTTimeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTToggleButtonTest.xaml.cs">
       <DependentUpon>UCTToggleButtonTest.xaml</DependentUpon>
     </Compile>
@@ -364,6 +367,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTTextBoxTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTTimeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

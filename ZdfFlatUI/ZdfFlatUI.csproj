@@ -110,6 +110,8 @@
     <Compile Include="Converters\StringIsEmptyConverter.cs" />
     <Compile Include="Converters\WordAngleConverter.cs" />
     <Compile Include="Converters\HourConvert.cs" />
+    <Compile Include="ExtensionFunc\ItemsControlExtensions.cs" />
+    <Compile Include="ExtensionFunc\ScrollViewerBehavior.cs" />
     <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
     <Compile Include="MyControls\Badge\Implementation\BadgeAdorner.cs" />
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
@@ -121,6 +123,9 @@
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
     <Compile Include="MyControls\DateControl\Implementation\ZCalendar.cs" />
+    <Compile Include="MyControls\DateControl\Implementation\ZCalendarButton.cs" />
+    <Compile Include="MyControls\DateControl\Implementation\ZCalendarDayButton.cs" />
+    <Compile Include="MyControls\DateControl\Implementation\ZCalendarItem.cs" />
     <Compile Include="MyControls\DateControl\Implementation\ZDatePicker.cs" />
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
     <Compile Include="MyControls\DropDownButton\Implementation\DropDownButton.cs" />
@@ -184,6 +189,9 @@
     <Compile Include="MyControls\TextBox\TagTextBox.cs" />
     <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
     <Compile Include="MyControls\TextBox\ValidateTextBox.cs" />
+    <Compile Include="MyControls\TimePicker\Implementation\TimeButton.cs" />
+    <Compile Include="MyControls\TimePicker\Implementation\TimeSelector.cs" />
+    <Compile Include="MyControls\TimePicker\Implementation\ZTimePicker.cs" />
     <Compile Include="MyControls\TitleBar\Implementation\TitleBar.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\AnimationButton.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\FlatToggleButton.cs" />
@@ -199,6 +207,7 @@
     <Compile Include="StyleSelectors\RatingBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateMenuGroupStyleSelector.cs" />
+    <Compile Include="Utils\DateTimeHelper.cs" />
     <Compile Include="Utils\DialogHelper.cs" />
     <Compile Include="Utils\DoubleUtil.cs" />
     <Compile Include="Utils\EnumCommon.cs" />
@@ -230,6 +239,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\DateControl\Themes\ZCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\DateControl\Themes\ZCalendarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\DateControl\Themes\ZCalendarDayButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\DateControl\Themes\ZCalendarItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -350,6 +371,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\TextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TimePicker\Themes\TimeSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TimePicker\Themes\ZTimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

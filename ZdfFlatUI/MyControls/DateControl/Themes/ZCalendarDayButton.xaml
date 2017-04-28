@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI.Primitives">
+    
+    <Style TargetType="{x:Type ZUI:ZCalendarDayButton}">
+        <Setter Property="MinWidth" Value="27" />
+        <Setter Property="MinHeight" Value="27" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Foreground" Value="#657180" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:ZCalendarDayButton}">
+                    <Grid MinHeight="{TemplateBinding MinHeight}" MinWidth="{TemplateBinding MinWidth}" 
+                          Background="{TemplateBinding Background}"
+                          HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="HighlightBackground" Margin="-1,1" />
+                        
+                        <Border x:Name="border" CornerRadius="3" Margin="{TemplateBinding Margin}"
+                                 SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                        <Border x:Name="SelectedBackground" CornerRadius="3" Margin="{TemplateBinding Margin}" />
+                        
+                        <Border x:Name="TodayBackground" Width="6" Height="6" HorizontalAlignment="Right"
+                                VerticalAlignment="Top" Margin="0,2,2,0" CornerRadius="100" SnapsToDevicePixels="True"
+                                UseLayoutRounding="True"/>
+                        <ContentPresenter x:Name="NormalText" Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#E1F0FE" />
+                            <Setter Property="Foreground" Value="#657180" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <!--<Setter TargetName="border" Property="Background" Value="#3399FF" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                            <Setter TargetName="TodayBackground" Property="Background" Value="#FFFFFF" />-->
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="SelectedBackground" Property="Background" Value="#3399FF" />
+                            <Setter Property="Foreground" Value="#FFFFFF" />
+                        </Trigger>
+                        <Trigger Property="IsBelongCurrentMonth" Value="False">
+                            <Setter Property="Foreground" Value="#C6CBD8" />
+                        </Trigger>
+                        <Trigger Property="IsHighlight" Value="True">
+                            <Setter TargetName="HighlightBackground" Property="Background" Value="#E1F0FE" />
+                            <Setter Property="Foreground" Value="#657180" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="False" />
+                                <Condition Property="IsToday" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="TodayBackground" Property="Background" Value="#3399FF" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True" />
+                                <Condition Property="IsToday" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="TodayBackground" Property="Background" Value="#FFFFFF" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

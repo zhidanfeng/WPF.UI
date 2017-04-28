@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using ZdfFlatUI.StyleSelectors;
 using ZdfFlatUI.Utils;
 
@@ -28,14 +29,14 @@ namespace ZdfFlatUI
 
         #region 依赖属性
         public static readonly DependencyProperty BindScrollViewerProperty = DependencyProperty.Register("BindScrollViewer"
-            , typeof(ScrollViewer), typeof(NavigationBar));
+            , typeof(ZScrollViewer), typeof(NavigationBar));
 
         /// <summary>
         /// 待导航区域所在的ScrollViewer
         /// </summary>
-        public ScrollViewer BindScrollViewer
+        public ZScrollViewer BindScrollViewer
         {
-            get { return (ScrollViewer)GetValue(BindScrollViewerProperty); }
+            get { return (ZScrollViewer)GetValue(BindScrollViewerProperty); }
             set { SetValue(BindScrollViewerProperty, value); }
         }
 
@@ -167,7 +168,9 @@ namespace ZdfFlatUI
                     if (i < this.BindNavigationControl.Children.Count)
                     {
                         var vector = VisualTreeHelper.GetOffset(this.BindNavigationControl.Children[i]);
-                        this.BindScrollViewer.ScrollToVerticalOffset(vector.Y);
+                        DoubleAnimation doubleAnimation = new DoubleAnimation(0, vector.Y, new Duration(TimeSpan.FromMilliseconds(500)));
+                        this.BindScrollViewer.BeginAnimation(ZScrollViewer.VerticalOffsetExProperty, doubleAnimation);
+                        //this.BindScrollViewer.ScrollToVerticalOffset(vector.Y);
                     }
                 }
             }

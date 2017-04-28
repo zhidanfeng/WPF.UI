@@ -217,6 +217,16 @@ namespace ZdfFlatUI.Test
                 Name = "Date日历控件",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "TimePicker时间选择器",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "锚点定位",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -334,7 +344,13 @@ namespace ZdfFlatUI.Test
                     case "Date日历控件":
                         this.ControlPanel.Content = new UITest.UCTDateControl();
                         break;
-                    #endregion
+                    case "TimePicker时间选择器":
+                        this.ControlPanel.Content = new UITest.UCTTimeControl();
+                        break;
+                    case "锚点定位":
+                        this.ControlPanel.Content = new UITest.UCTNavigationBarTest();
+                        break;
+                        #endregion
                 }
             }
         }

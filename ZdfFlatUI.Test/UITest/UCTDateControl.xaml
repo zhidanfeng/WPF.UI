@@ -98,17 +98,26 @@
             </StackPanel>
         </TabItem>
         <TabItem Header="ZCalendar日历">
-            <WPF.UI:ZCalendar HorizontalAlignment="Center" VerticalAlignment="Center" SelectionMode="SingleRange" />
+            <WPF.UI:ZCalendar HorizontalAlignment="Center" VerticalAlignment="Center" SelectedDateChanged="ZCalendar_SelectedDateChanged" />
         </TabItem>
         <TabItem Header="ZDatePicker">
             <UniformGrid Columns="3">
-                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25" />
-                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
-                                    IsShowShortCuts="True"/>
-                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
-                                    Type="SingleDateRange"/>
-                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="25"
-                                    Type="SingleDateRange" IsShowShortCuts="True"/>
+                <WPF.UI:ZDatePicker x:Name="dateControl1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="25" />
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="25"
+                                    IsShowConfirm="True"/>
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="25"
+                                    IsShowShortCuts="True" />
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="25"
+                                    Type="SingleDateRange" />
+                <WPF.UI:ZDatePicker x:Name="dateControl5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="25"
+                                    Type="SingleDateRange" IsShowConfirm="True"/>
+                <WPF.UI:ZDatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="28"
+                                    Type="SingleDateRange" IsShowShortCuts="True" CornerRadius="3"
+                                    DateStringFormat="yyyy/MM/dd"/>
+
+                <WPF.UI:ZDatePicker x:Name="dateControl7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="28"
+                                    Type="DateTime" IsShowShortCuts="True" CornerRadius="3"
+                                    DateStringFormat="yyyy/MM/dd"/>
             </UniformGrid>
         </TabItem>
         <TabItem Header="Calendar日历">
