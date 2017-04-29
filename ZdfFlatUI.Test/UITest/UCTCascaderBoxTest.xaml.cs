@@ -32,8 +32,8 @@ namespace ZdfFlatUI.Test.UITest
                 Dept dept = new Dept();
                 dept.ID = i.ToString();
                 dept.Name = "第一级" + i;
-                //if (i % 2 == 0)
-                //{
+                if (i % 2 == 0)
+                {
                     dept.Children = new ObservableCollection<Dept>();
                     for (int j = 0; j < 5; j++)
                     {
@@ -41,8 +41,8 @@ namespace ZdfFlatUI.Test.UITest
                         child.ID = i.ToString() + j.ToString();
                         child.Name = "第二级" + i.ToString() + j.ToString();
 
-                        //if (j % 2 == 0)
-                        //{
+                        if (j % 2 == 0)
+                        {
                             child.Children = new ObservableCollection<Dept>();
                             for (int k = 0; k < 2; k++)
                             {
@@ -51,16 +51,18 @@ namespace ZdfFlatUI.Test.UITest
                                 three.Name = "第二级" + i.ToString() + j.ToString() + k.ToString();
                                 child.Children.Add(three);
                             }
-                        //}
+                        }
 
                         dept.Children.Add(child);
                     }
-                //}
+                }
 
                 datas.Add(dept);
             }
 
             this.treeView.ItemsSource = datas;
+            this.treeView.ChildMemberPath = "Children";
+            this.treeView.DisplayMemberPath = "Name";
         }
     }
 }

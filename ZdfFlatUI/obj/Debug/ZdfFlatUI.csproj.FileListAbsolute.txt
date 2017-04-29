@@ -168,4 +168,3 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\D
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\DateControl\Themes\ZCalendarItem.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\TimePicker\Themes\TimeSelector.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\TimePicker\Themes\ZTimePicker.baml
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csprojResolveAssemblyReference.cache

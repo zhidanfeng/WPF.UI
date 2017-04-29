@@ -47,14 +47,8 @@
 
     </UserControl.Resources>
     <Grid>
-        <WPF.UI:CascaderBox x:Name="treeView">
-            <WPF.UI:CascaderBox.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Path=Name}" Margin="5,0,0,0" />
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </WPF.UI:CascaderBox.ItemTemplate>
+        <WPF.UI:CascaderBox x:Name="treeView" VerticalAlignment="Center" Height="28" Width="200">
+            
         </WPF.UI:CascaderBox>
     </Grid>
 </UserControl>

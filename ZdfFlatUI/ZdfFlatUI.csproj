@@ -118,7 +118,6 @@
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
     <Compile Include="MyControls\Button\Implementation\ZToggleButton.cs" />
-    <Compile Include="MyControls\CascaderBox\Implementation\CascaderBoxItem.cs" />
     <Compile Include="MyControls\ComboBox\Implementation\ZComboBox.cs" />
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
