@@ -82,6 +82,7 @@ D:\WorkSpace\MySources\MyWPFSource\Zhidanfeng的个人控件库\WPFRichTextEdito
 D:\WorkSpace\MySources\MyWPFSource\Zhidanfeng的个人控件库\WPFRichTextEditor\obj\Debug\ZEditor.pdb
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\bin\Debug\ZEditor.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\bin\Debug\ZEditor.pdb
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\WPFRichTextEditor.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\Styles\AutoDisappearScrollViewerStyle.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\Styles\ContextMenuStyle.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\Styles\RichTextEditorStyle.baml

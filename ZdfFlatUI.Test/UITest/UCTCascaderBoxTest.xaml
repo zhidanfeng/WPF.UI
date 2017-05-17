@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="300"
-             d:DesignWidth="300" mc:Ignorable="d">
+             d:DesignWidth="600" mc:Ignorable="d">
     <UserControl.Resources>
         <PathGeometry x:Key="Icon_Right" Figures="M8.59,16.58L13.17,12 8.59,7.41 10,6 16,12 10,18 8.59,16.58z" />
         <Style TargetType="{x:Type RadioButton}">
@@ -46,9 +46,10 @@
 
 
     </UserControl.Resources>
-    <Grid>
-        <WPF.UI:CascaderBox x:Name="treeView" VerticalAlignment="Center" Height="28" Width="200">
-            
-        </WPF.UI:CascaderBox>
-    </Grid>
+    <UniformGrid Columns="1">
+        <WPF.UI:Cascader x:Name="treeView" VerticalAlignment="Center" Height="28" Width="400" />
+
+        <WPF.UI:Cascader x:Name="treeView1" VerticalAlignment="Center" Height="28" Width="400"
+                         Separator=" - "/>
+    </UniformGrid>
 </UserControl>

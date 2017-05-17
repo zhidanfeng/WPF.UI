@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/WPF.UI;component/Resources/TooltipStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/SegmentButtonStyle.xaml" />
@@ -11,7 +10,7 @@
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/IconTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TagTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/ValidateTextBoxStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/NumericUpDownStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/NumericUpDown/Themes/NumericUpDownStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TitleTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/Popup/NoticeMessageStyle.xaml" />
@@ -25,7 +24,6 @@
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/TimePickerStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/Primitives/NumberBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/MultiComboBox/Themes/Generic.xaml" />
-        <!--仪表盘-->
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Dashboard/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ProgressBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Slider/Themes/Generic.xaml" />
@@ -64,5 +62,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/DateControl/Themes/ZDatePicker.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TimePicker/Themes/TimeSelector.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TimePicker/Themes/ZTimePicker.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorSelector.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

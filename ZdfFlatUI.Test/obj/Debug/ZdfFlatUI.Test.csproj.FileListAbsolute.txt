@@ -86,8 +86,6 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库1\ZdfFlatUI.Test\obj\Debug\ZdfFla
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZdfFlatUI.Test.exe.config
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZdfFlatUI.Test.exe
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZdfFlatUI.Test.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Data.v10.1.dll
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Xpf.Core.v10.1.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\GalaSoft.MvvmLight.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\Microsoft.Expression.Controls.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\Microsoft.Expression.Drawing.dll
@@ -97,8 +95,6 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\WPF.UI.
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZEditor.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZEditor.pdb
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\WPF.UI.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Data.v10.1.xml
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\DevExpress.Xpf.Core.v10.1.xml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\Styles\ContextMenuStyle.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Color.baml
@@ -112,12 +108,14 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITestW
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\BaseWindowTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Color.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Icon.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\ChangeTheme\UCTChangeTheme.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTBadgeTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTBusyIndicatorTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTButtonTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCarouselTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCascaderBoxTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCheckBoxTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTColorSelectorTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDashboardTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDateControl.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDropDownTest.g.cs
@@ -139,6 +137,7 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTStepBarTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTabControlTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTextBoxTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTimeControl.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTToggleButtonTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTToolTipTest.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTreeView.g.cs
@@ -155,10 +154,12 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\MainWin
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITestWindow.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\BaseWindowTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Icon.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\ChangeTheme\UCTChangeTheme.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTBadgeTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTButtonTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCascaderBoxTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCheckBoxTest.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTColorSelectorTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDateControl.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTDropDownTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTFlyoutTest.baml
@@ -178,6 +179,7 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTStepBarTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTabControlTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTextBoxTest.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTimeControl.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTToggleButtonTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTToolTipTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTreeView.baml
@@ -189,5 +191,3 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlat
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csproj.GenerateResource.Cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.exe
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTimeControl.g.cs
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTTimeControl.baml

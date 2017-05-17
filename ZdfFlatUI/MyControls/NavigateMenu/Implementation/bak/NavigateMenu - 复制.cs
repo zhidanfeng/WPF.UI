@@ -65,57 +65,6 @@ namespace ZdfFlatUI.bak
             }
             //this.UpdateAnchorAndActionItem(base.ItemInfoFromContainer(item));
             return;
-
-            //switch (this.SelectionMode)
-            //{
-            //    case SelectionMode.Single:
-            //        if (!item.IsSelected)
-            //        {
-            //            item.SetCurrentValue(Selector.IsSelectedProperty, true);
-            //        }
-            //        else if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-            //        {
-            //            item.SetCurrentValue(Selector.IsSelectedProperty, false);
-            //        }
-            //        //this.UpdateAnchorAndActionItem(base.ItemInfoFromContainer(item));
-            //        return;
-            //case SelectionMode.Multiple:
-            //    this.MakeToggleSelection(item);
-            //    return;
-            //case SelectionMode.Extended:
-            //    if (mouseButton != MouseButton.Left)
-            //    {
-            //        if (mouseButton == MouseButton.Right && (Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == ModifierKeys.None)
-            //        {
-            //            if (item.IsSelected)
-            //            {
-            //                this.UpdateAnchorAndActionItem(base.ItemInfoFromContainer(item));
-            //                return;
-            //            }
-            //            this.MakeSingleSelection(item);
-            //        }
-            //        return;
-            //    }
-            //    if ((Keyboard.Modifiers & (ModifierKeys.Control | ModifierKeys.Shift)) == (ModifierKeys.Control | ModifierKeys.Shift))
-            //    {
-            //        this.MakeAnchorSelection(item, false);
-            //        return;
-            //    }
-            //    if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-            //    {
-            //        this.MakeToggleSelection(item);
-            //        return;
-            //    }
-            //    if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
-            //    {
-            //        this.MakeAnchorSelection(item, true);
-            //        return;
-            //    }
-            //    this.MakeSingleSelection(item);
-            //    return;
-            //default:
-            //    return;
-            //}
         }
         #endregion
     }

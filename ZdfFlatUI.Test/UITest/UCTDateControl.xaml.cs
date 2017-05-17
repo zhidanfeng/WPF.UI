@@ -55,5 +55,22 @@ namespace ZdfFlatUI.Test.UITest
         {
 
         }
+
+        private void FlatToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if((bool)this.tgTheme.IsChecked)
+            {
+                Utils.PaletteHelper.SetLightDarkTheme(true);
+            }
+            else
+            {
+                Utils.PaletteHelper.SetLightDarkTheme(false);
+            }
+        }
+
+        private void FlatToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

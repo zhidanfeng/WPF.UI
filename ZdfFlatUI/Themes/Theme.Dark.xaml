@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Global.Background" Color="#130F26" />
+    <SolidColorBrush x:Key="Control.Static.Foreground" Color="#DCDCDE" />
+    <SolidColorBrush x:Key="Control.Static.Background" Color="#2C2C3A" />
+    <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#393947" />
+    <SolidColorBrush x:Key="Item.MouseOver.Foreground" Color="#DCDCDE" />
+    <SolidColorBrush x:Key="Item.Selected.Background" Color="#C54955" />
+    <SolidColorBrush x:Key="Item.Selected.Foreground" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="Item.Disabled.Foreground" Color="#7D7D85" />
+    <SolidColorBrush x:Key="Divider" Color="#3E3E4A" />
+    <SolidColorBrush x:Key="Calendar.WeekHeader.Foreground" Color="#76767E" />
+</ResourceDictionary>

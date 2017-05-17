@@ -274,7 +274,7 @@ namespace ZdfFlatUI
             {
                 return;
             }
-            calendar.PART_CalendarItem.SetSelectedDateHighlight(calendar.SelectedDates);
+            calendar.PART_CalendarItem.SetSelectedDatesHighlight(calendar.SelectedDates);
         }
         #endregion
 
@@ -369,7 +369,7 @@ namespace ZdfFlatUI
             {
                 return;
             }
-            this.PART_CalendarItem.SetSelectedDateHighlight(this.SelectedDates);
+            this.PART_CalendarItem.SetSelectedDatesHighlight(this.SelectedDates);
         }
 
         private void ZCalendar_PreviewMouseUp(object sender, MouseButtonEventArgs e)

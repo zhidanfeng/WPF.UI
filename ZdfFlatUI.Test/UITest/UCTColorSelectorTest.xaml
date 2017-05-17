@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTColorSelectorTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <WPF.UI:ColorSelector x:Name="ColorSelector">
+            <!--<WPF.UI:ColorItem Width="30" Height="30" Color="#383838" />
+            <WPF.UI:ColorItem Width="30" Height="30" Color="#E42929" />
+            <WPF.UI:ColorItem Width="30" Height="30" Color="#279AD4"/>-->
+        </WPF.UI:ColorSelector>
+        <TextBlock>
+            <Run Text="颜色值：" />
+            <Run Text="{Binding SelectedValue, ElementName=ColorSelector}" />
+        </TextBlock>
+    </StackPanel>
+</UserControl>

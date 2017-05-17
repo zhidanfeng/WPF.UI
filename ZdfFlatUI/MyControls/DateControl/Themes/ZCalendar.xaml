@@ -11,9 +11,9 @@
     <Converters:CalendarDayButtonTypeConverter x:Key="CalendarDayButtonTypeConverter" />
 
     <Style TargetType="{x:Type ZUI:ZCalendar}">
-        <Setter Property="Foreground" Value="#FF333333" />
-        <Setter Property="Background" Value="#FFFFFF" />
-        <Setter Property="BorderBrush" Value="#E3E8EE" />
+        <Setter Property="Foreground" Value="{DynamicResource Control.Static.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource Control.Static.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Divider}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="UseLayoutRounding" Value="True" />
@@ -38,7 +38,7 @@
         <Setter Property="DayTitleTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}" Foreground="Blue" />
+                    <TextBlock Text="{Binding}" Foreground="{DynamicResource Calendar.WeekHeader.Foreground}" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>

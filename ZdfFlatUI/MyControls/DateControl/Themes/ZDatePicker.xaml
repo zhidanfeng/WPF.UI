@@ -70,7 +70,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#E3E8EE" />
+                            <Setter Property="Background" Value="{DynamicResource Item.MouseOver.Background}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Item.MouseOver.Foreground}" />
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -181,7 +182,7 @@
                                                 <DropShadowEffect BlurRadius="10" Opacity="0.2" ShadowDepth="0" Color="Brown" />
                                             </Border.Effect>
                                         </Border>
-                                        <Border Grid.ColumnSpan="3" Background="#F5F7F9" BorderBrush="#C2C3C9" BorderThickness="1"
+                                        <Border Background="{DynamicResource Control.Static.Background}" Grid.ColumnSpan="3" BorderBrush="#C2C3C9" BorderThickness="1"
                                                 ClipToBounds="True" CornerRadius="0" SnapsToDevicePixels="True" UseLayoutRounding="True">
                                             <Grid x:Name="Calendar_Layout">
                                                 <Grid.RowDefinitions>
@@ -194,7 +195,7 @@
                                                     <ColumnDefinition Width="auto" />
                                                 </Grid.ColumnDefinitions>
 
-                                                <ItemsControl x:Name="SingleDateShortCuts" Grid.RowSpan="2" Width="100" BorderBrush="#E3E8EE"
+                                                <ItemsControl x:Name="SingleDateShortCuts" Grid.RowSpan="2" Width="100" BorderBrush="{DynamicResource Divider}"
                                                               BorderThickness="0,0,1,0" SnapsToDevicePixels="True" Tag="快捷菜单" Visibility="Collapsed">
                                                     <Button x:Name="PART_Btn_Today" Content="今天"
                                                             Style="{StaticResource ShortCutButtonStyle}" />
@@ -209,7 +210,7 @@
                                                     </ItemsControl.ItemsPanel>
                                                 </ItemsControl>
 
-                                                <ItemsControl x:Name="SingleDateRangeShortCuts" Grid.RowSpan="2" Width="100" BorderBrush="#E3E8EE"
+                                                <ItemsControl x:Name="SingleDateRangeShortCuts" Grid.RowSpan="2" Width="100" BorderBrush="{DynamicResource Divider}"
                                                               BorderThickness="0,0,1,0" SnapsToDevicePixels="True" Tag="快捷菜单" Visibility="Collapsed">
                                                     <Button x:Name="PART_Btn_RecentlyAWeek" Content="最近一周"
                                                             Style="{StaticResource ShortCutButtonStyle}" />
@@ -229,7 +230,7 @@
                                                                Type="Second" Visibility="Collapsed" />
 
                                                 <Border x:Name="ButtonLayout" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                                                        Background="#FFFFFF" BorderBrush="#E3E8EE" BorderThickness="0,1,0,0" Padding="0,7"
+                                                        BorderBrush="{DynamicResource Divider}" BorderThickness="0,1,0,0" Padding="0,7"
                                                         Visibility="Collapsed">
                                                     <DockPanel>
                                                         <ToggleButton x:Name="ChooseTime" Margin="7,0,0,0" 

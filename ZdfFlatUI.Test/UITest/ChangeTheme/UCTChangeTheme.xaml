@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.ChangeTheme.UCTChangeTheme"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest.ChangeTheme"
+             xmlns:WPFUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WPFUI:ColorSelector>
+            <WPFUI:ColorItem Color="#58B957" />
+            <WPFUI:ColorItem Color="#8C0076" />
+            <WPFUI:ColorItem Color="#DD3399FF" />
+            <WPFUI:ColorItem Color="#AA3399FF" />
+            <WPFUI:ColorItem Color="#FF3399FF" />
+        </WPFUI:ColorSelector>
+
+        <UniformGrid Grid.Row="1" Columns="2">
+            <Grid Height="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="链接" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="链接文字" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="选择器" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:ZComboBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Height="25">
+
+                </WPFUI:ZComboBox>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="日期控件" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:ZDatePicker VerticalAlignment="Center" Height="25" Width="160"/>
+                    <TextBlock Text="~" VerticalAlignment="Center" Margin="6,0" />
+                    <WPFUI:ZTimePicker VerticalAlignment="Center" Height="25" Width="160"/>
+                </StackPanel>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="单选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatRadionButton Content="男" GroupName="Sex" IsChecked="True" />
+                    <WPFUI:FlatRadionButton Content="女" GroupName="Sex" Margin="10,0,0,0" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatCheckBox Content="吃饭" IsChecked="True" />
+                    <WPFUI:FlatCheckBox Content="睡觉" Margin="10,0,0,0" />
+                    <WPFUI:FlatCheckBox Content="跑步" Margin="10,0,0,0" IsChecked="True" />
+                    <WPFUI:FlatCheckBox Content="看电影" Margin="10,0,0,0" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:FlatToggleButton Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" IsChecked="True" />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="滑块" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:FlatSilder Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Maximum="100" Value="40" />
+
+                <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatButton Content="确定" Width="60" Height="28" CornerRadius="3" />
+                    <WPFUI:FlatButton Content="确定" Width="60" Height="28" CornerRadius="3" Margin="10,0,0,0" Type="ghost" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Height="400" Margin="50,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="链接" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="链接文字" VerticalAlignment="Center" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="选择器" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:ZComboBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Height="25">
+
+                </WPFUI:ZComboBox>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="日期控件" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:ZDatePicker VerticalAlignment="Center" Height="25" Width="160"/>
+                    <TextBlock Text="~" VerticalAlignment="Center" Margin="6,0" />
+                    <WPFUI:ZTimePicker VerticalAlignment="Center" Height="25" Width="160"/>
+                </StackPanel>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="单选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatRadionButton Content="男" GroupName="Sex1" IsChecked="True" />
+                    <WPFUI:FlatRadionButton Content="女" GroupName="Sex1" Margin="10,0,0,0" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatCheckBox Content="吃饭" IsChecked="True" />
+                    <WPFUI:FlatCheckBox Content="睡觉" Margin="10,0,0,0" />
+                    <WPFUI:FlatCheckBox Content="跑步" Margin="10,0,0,0" IsChecked="True" />
+                    <WPFUI:FlatCheckBox Content="看电影" Margin="10,0,0,0" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:FlatToggleButton Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" IsChecked="True" />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="滑块" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <WPFUI:FlatSilder Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Maximum="100" Value="40" />
+
+                <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+                    <WPFUI:FlatButton Content="确定" Width="60" Height="28" CornerRadius="3" />
+                    <WPFUI:FlatButton Content="确定" Width="60" Height="28" CornerRadius="3" Margin="10,0,0,0" Type="ghost" />
+                </StackPanel>
+            </Grid>
+        </UniformGrid>
+    </Grid>
+    
+</UserControl>

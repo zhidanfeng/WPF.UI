@@ -48,6 +48,8 @@ namespace ZdfFlatUI.Test
         {
             InitializeComponent();
 
+            Utils.PaletteHelper.SetLightDarkTheme(false);
+
             this.MenuList = new ObservableCollection<MenuInfo>();
 
             #region Base
@@ -227,6 +229,16 @@ namespace ZdfFlatUI.Test
                 Name = "锚点定位",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "ColorSelector颜色选择",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "定制主题",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -349,6 +361,12 @@ namespace ZdfFlatUI.Test
                         break;
                     case "锚点定位":
                         this.ControlPanel.Content = new UITest.UCTNavigationBarTest();
+                        break;
+                    case "ColorSelector颜色选择":
+                        this.ControlPanel.Content = new UITest.UCTColorSelectorTest();
+                        break;
+                    case "定制主题":
+                        this.ControlPanel.Content = new UITest.ChangeTheme.UCTChangeTheme();
                         break;
                         #endregion
                 }

@@ -118,7 +118,12 @@
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
     <Compile Include="MyControls\Button\Implementation\ZToggleButton.cs" />
+    <Compile Include="MyControls\CascaderBox\Implementation\CascaderItem.cs" />
+    <Compile Include="MyControls\CascaderBox\Implementation\CascaderListBox.cs" />
+    <Compile Include="MyControls\ColorSelector\Implementation\ColorItem.cs" />
+    <Compile Include="MyControls\ColorSelector\Implementation\ColorSelector.cs" />
     <Compile Include="MyControls\ComboBox\Implementation\ZComboBox.cs" />
+    <Compile Include="MyControls\ComboTree\Implementation\ComboTree.cs" />
     <Compile Include="MyControls\ControlEnum.cs" />
     <Compile Include="MyControls\Dashboard\Implementation\Dashboard.cs" />
     <Compile Include="MyControls\DateControl\Implementation\ZCalendar.cs" />
@@ -134,7 +139,7 @@
     <Compile Include="MyControls\SplitButton\Implementation\SplitButton.cs" />
     <Compile Include="MyControls\SplitButton\Implementation\SplitButtonItem.cs" />
     <Compile Include="MyControls\Expander\Implementation\ZExpander.cs" />
-    <Compile Include="MyControls\CascaderBox\Implementation\CascaderBox.cs" />
+    <Compile Include="MyControls\CascaderBox\Implementation\Cascader.cs" />
     <Compile Include="MyControls\FlyoutControl\Implementation\Flyout.cs" />
     <Compile Include="MyControls\FlyoutControl\Implementation\FlyoutControl.cs" />
     <Compile Include="MyControls\GroupBox\Implementation\ZGroupBox.cs" />
@@ -176,14 +181,14 @@
     <Compile Include="MyControls\RadionButton\FlatRadionButton.cs" />
     <Compile Include="MyControls\ScrollViewer\Implementation\ZScrollViewer.cs" />
     <Compile Include="MyControls\Slider\Implementation\FlatSilder.cs" />
-    <Compile Include="MyControls\NumericUpDown\DoubleUpDown.cs" />
+    <Compile Include="MyControls\NumericUpDown\Implementation\DoubleUpDown.cs" />
     <Compile Include="MyControls\SlideSwitch\Implementation\Carousel.cs" />
     <Compile Include="MyControls\SlideSwitch\Implementation\SlideSwitchPanel.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBarItem.cs" />
     <Compile Include="MyControls\TabControl\Implementation\ZTabControl.cs" />
     <Compile Include="MyControls\TextBox\IconTextBox.cs" />
-    <Compile Include="MyControls\NumericUpDown\IntegerUpDown.cs" />
+    <Compile Include="MyControls\NumericUpDown\Implementation\IntegerUpDown.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZTextBox.cs" />
     <Compile Include="MyControls\TextBox\TagTextBox.cs" />
     <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
@@ -211,6 +216,7 @@
     <Compile Include="Utils\DoubleUtil.cs" />
     <Compile Include="Utils\EnumCommon.cs" />
     <Compile Include="Utils\MyVisualTreeHelper.cs" />
+    <Compile Include="Utils\PaletteHelper.cs" />
     <Compile Include="Utils\UIElementEx.cs" />
     <Compile Include="Utils\VisualHelper.cs" />
     <Page Include="MyControls\Alert\Themes\Generic.xaml">
@@ -229,9 +235,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\ColorSelector\Themes\ColorItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ColorSelector\Themes\ColorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\ComboBox\Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyControls\ComboTree\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\Dashboard\Themes\Generic.xaml">
       <SubType>Designer</SubType>
@@ -417,6 +435,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Brushs\ZUIBrush.Dark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Brushs\ZUIBrush.Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Colors\ZUIColor.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Colors\ZUIColor.Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\ComboBoxStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -505,7 +539,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyTextBox\NumericUpDownStyle.xaml">
+    <Page Include="MyControls\NumericUpDown\Themes\NumericUpDownStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -530,6 +564,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\RadionButton\DefaultRadionButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Theme.Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Theme.Light.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -568,15 +610,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MyControls\ComboTree\Implementation\" />
-    <Folder Include="MyControls\ComboTree\Themes\" />
+    <Folder Include="MyControls\ColorPicker\Implementation\" />
+    <Folder Include="MyControls\ColorPicker\Themes\" />
     <Folder Include="MyControls\DataGrid\Implementation\" />
     <Folder Include="MyControls\DataGrid\Themes\" />
     <Folder Include="MyControls\ListView\Implementation\" />
     <Folder Include="MyControls\ListView\Themes\" />
     <Folder Include="MyControls\Page\" />
     <Folder Include="MyControls\Validate\" />
-    <Folder Include="Themes\CheckBox\" />
     <Folder Include="Themes\Window\" />
   </ItemGroup>
   <ItemGroup>

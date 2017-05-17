@@ -18,7 +18,8 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#E1F0FE" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource Item.MouseOver.Background}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Item.MouseOver.Foreground}" />
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">

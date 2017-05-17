@@ -9,6 +9,13 @@ using System.Windows.Data;
 
 namespace ZdfFlatUI.Primitives
 {
+    [TemplatePart(Name = "PART_MonthView", Type = typeof(Grid))]
+    [TemplatePart(Name = "PART_YearView", Type = typeof(Grid))]
+    [TemplatePart(Name = "PART_PreviousYearButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_PreviousMonthButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_NextMonthButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_NextYearButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_HeaderButton", Type = typeof(Button))]
     public class ZCalendarItem : Control
     {
         #region 枚举
@@ -68,7 +75,23 @@ namespace ZdfFlatUI.Primitives
         {
             if(this.PART_PreviousYearButton != null)
             {
-
+                this.PART_PreviousYearButton.Click -= PART_PreviousYearButton_Click;
+            }
+            if (this.PART_PreviousMonthButton != null)
+            {
+                this.PART_PreviousMonthButton.Click -= PART_PreviousMonthButton_Click;
+            }
+            if (this.PART_NextMonthButton != null)
+            {
+                this.PART_NextMonthButton.Click -= PART_NextMonthButton_Click;
+            }
+            if (this.PART_NextYearButton != null)
+            {
+                this.PART_NextYearButton.Click -= PART_NextYearButton_Click;
+            }
+            if (this.PART_HeaderButton != null)
+            {
+                this.PART_HeaderButton.Click -= PART_HeaderButton_Click;
             }
 
             base.OnApplyTemplate();
@@ -444,39 +467,6 @@ namespace ZdfFlatUI.Primitives
                     this.CalendarDayButtons[row, column].DataContext = date;
                     this.CalendarDayButtons[row, column].Content = day.ToString();
                     this.CalendarDayButtons[row, column].IsHighlight = false;
-
-                    switch (this.Owner.SelectionMode)
-                    {
-                        case CalendarSelectionMode.SingleDate:
-                            //if (selectedDate.HasValue && date == selectedDate.Value.Date)
-                            //{
-                            //    this.CalendarDayButtons[row, column].IsSelected = true;
-                            //}
-                            break;
-                        case CalendarSelectionMode.SingleRange:
-                            //if (selectedDate.HasValue && date == selectedDate.Value.Date)
-                            //{
-                            //    this.CalendarDayButtons[row, column].IsSelected = true;
-                            //}
-                            //if(this.Owner.SelectedDates.Contains(date))
-                            //{
-                            //    if(date == this.Owner.Owner.SelectedDateStart || date == this.Owner.Owner.SelectedDateEnd)
-                            //    {
-                            //        this.CalendarDayButtons[row, column].IsSelected = true;
-                            //    }
-                            //    else
-                            //    {
-                            //        this.CalendarDayButtons[row, column].IsHighlight = true;
-                            //    }
-                            //}
-                            break;
-                        case CalendarSelectionMode.MultipleRange:
-                            break;
-                        case CalendarSelectionMode.None:
-                            break;
-                        default:
-                            break;
-                    }
                 }
             }
 
@@ -492,7 +482,12 @@ namespace ZdfFlatUI.Primitives
 
             if(this.Owner.Owner != null)
             {
-                this.SetSelectedDateHighlight(this.Owner.Owner.SelectedDates);
+                this.SetSelectedDatesHighlight(this.Owner.Owner.SelectedDates);
+            }
+
+            if (this.Owner != null)
+            {
+                this.SetSelectedDateHighlight();
             }
         }
         
@@ -504,7 +499,7 @@ namespace ZdfFlatUI.Primitives
         /// <summary>
         /// 高亮选中的日期段
         /// </summary>
-        public void SetSelectedDateHighlight(ObservableCollection<DateTime> selectedDates)
+        public void SetSelectedDatesHighlight(ObservableCollection<DateTime> selectedDates)
         {
             foreach (object item in this.PART_MonthView.Children)
             {
@@ -515,7 +510,7 @@ namespace ZdfFlatUI.Primitives
                 }
             
                 DateTime dt = (DateTime)dayButton.DataContext;
-                if(selectedDates.Contains(dt))
+                if(selectedDates != null && selectedDates.Contains(dt))
                 {
                     if(dt == this.Owner.Owner.SelectedDateStart || dt == this.Owner.Owner.SelectedDateEnd)
                     {
@@ -531,10 +526,24 @@ namespace ZdfFlatUI.Primitives
                     dayButton.IsSelected = false;
                     dayButton.IsHighlight = false;
                 }
+            }
+        }
 
+        public void SetSelectedDateHighlight()
+        {
+            foreach (object item in this.PART_MonthView.Children)
+            {
+                ZCalendarDayButton dayButton = item as ZCalendarDayButton;
+                if (!(dayButton.DataContext is DateTime) || !dayButton.IsBelongCurrentMonth)
+                {
+                    continue;
+                }
+
+                DateTime dt = (DateTime)dayButton.DataContext;
                 if (this.Owner.SelectedDate.HasValue && dt == this.Owner.SelectedDate.Value.Date)
                 {
                     dayButton.IsSelected = true;
+                    break;
                 }
             }
         }
@@ -715,7 +724,6 @@ namespace ZdfFlatUI.Primitives
                 day++;
             }
         }
-        #endregion
 
         /// <summary>
         /// 获取该月的第一天所在Grid中的位置
@@ -737,5 +745,6 @@ namespace ZdfFlatUI.Primitives
         {
             return new DateTime(year, month, 1);
         }
+        #endregion
     }
 }

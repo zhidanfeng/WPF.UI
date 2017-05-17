@@ -119,6 +119,9 @@
     <Compile Include="UITest\Base\Icon.xaml.cs">
       <DependentUpon>Icon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\ChangeTheme\UCTChangeTheme.xaml.cs">
+      <DependentUpon>UCTChangeTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTBadgeTest.xaml.cs">
       <DependentUpon>UCTBadgeTest.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,9 @@
     </Compile>
     <Compile Include="UITest\UCTCheckBoxTest.xaml.cs">
       <DependentUpon>UCTCheckBoxTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTColorSelectorTest.xaml.cs">
+      <DependentUpon>UCTColorSelectorTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTDashboardTest.xaml.cs">
       <DependentUpon>UCTDashboardTest.xaml</DependentUpon>
@@ -262,6 +268,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\ChangeTheme\UCTChangeTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTBadgeTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,6 +293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTCheckBoxTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTColorSelectorTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

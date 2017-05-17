@@ -19,7 +19,7 @@
         <Grid Background="White">
             <StackPanel Orientation="Horizontal" Margin="70,0,0,0">
                 <Path Data="{StaticResource Icon_Logo}" Stretch="Uniform" Width="30" Fill="#00CC99" />
-                <TextBlock Text="ZUI" VerticalAlignment="Center" Foreground="#68B3FF" Margin="15,0,0,0"
+                <TextBlock Text="仿iView" VerticalAlignment="Center" Foreground="#68B3FF" Margin="15,0,0,0"
                            FontSize="18"/>
             </StackPanel>
         </Grid>
@@ -47,7 +47,7 @@
                 <WPF.UI:NavigateMenu.GroupStyle>
                     <GroupStyle>
                         <!--可伸缩的-->
-                        <GroupStyle.ContainerStyle>
+                        <!--<GroupStyle.ContainerStyle>
                             <Style TargetType="{x:Type GroupItem}">
                                 <Setter Property="Template">
                                     <Setter.Value>
@@ -64,13 +64,16 @@
                                     </Setter.Value>
                                 </Setter>
                             </Style>
-                        </GroupStyle.ContainerStyle>
+                        </GroupStyle.ContainerStyle>-->
                         <!--固定展示-->
-                        <!--<GroupStyle.HeaderTemplate>
+                        <GroupStyle.HeaderTemplate>
                             <DataTemplate>
-                                <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="20,10"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <WPF.UI:Icon Margin="20,10,0,10"/>
+                                    <TextBlock Foreground="#999999" FontSize="16" Text="{Binding Path=Name}" Margin="5,10,0,10"/>
+                                </StackPanel>
                             </DataTemplate>
-                        </GroupStyle.HeaderTemplate>-->
+                        </GroupStyle.HeaderTemplate>
                     </GroupStyle>
                 </WPF.UI:NavigateMenu.GroupStyle>
             </WPF.UI:NavigateMenu>
