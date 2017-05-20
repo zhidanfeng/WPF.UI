@@ -14,6 +14,7 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateContro
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateControl\Themes\ZCalendarItem.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateControl\Themes\ZDatePicker.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DropDownButton\Themes\Generic.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\FloatingActionControls\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Icon\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\RatingBar\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\RatingBar\Themes\RatingBarButton.xaml;;
@@ -45,6 +46,7 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TimePicker
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TimePicker\Themes\ZTimePicker.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TitleBar\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ToggleButton\Themes\AnimationButton.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ToolTip\Themes\FlatToolTipStyle.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ToolTip\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Tree\Themes\Generic - 复制.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Tree\Themes\Generic.xaml;;

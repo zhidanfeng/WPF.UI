@@ -28,8 +28,7 @@ namespace ZdfFlatUI
             get { return (bool)GetValue(IsDropDownOpenProperty); }
             set { SetValue(IsDropDownOpenProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for IsDropDownOpen.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty IsDropDownOpenProperty =
             DependencyProperty.Register("IsDropDownOpen", typeof(bool), typeof(DropDownButton), new PropertyMetadata(false));
 
@@ -38,8 +37,7 @@ namespace ZdfFlatUI
             get { return (double)GetValue(DropDownHeightProperty); }
             set { SetValue(DropDownHeightProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for DropDownHeight.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty DropDownHeightProperty =
             DependencyProperty.Register("DropDownHeight", typeof(double), typeof(DropDownButton), new PropertyMetadata(200d));
 
@@ -48,12 +46,9 @@ namespace ZdfFlatUI
             get { return (EnumTrigger)GetValue(TriggerProperty); }
             set { SetValue(TriggerProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Trigger.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty TriggerProperty =
             DependencyProperty.Register("Trigger", typeof(EnumTrigger), typeof(DropDownButton), new PropertyMetadata(EnumTrigger.Click));
-
-
 
         #endregion
 

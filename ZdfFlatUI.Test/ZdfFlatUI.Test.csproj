@@ -152,6 +152,9 @@
     <Compile Include="UITest\UCTDropDownTest.xaml.cs">
       <DependentUpon>UCTDropDownTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTFloatingActionControl.xaml.cs">
+      <DependentUpon>UCTFloatingActionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTFlyoutTest.xaml.cs">
       <DependentUpon>UCTFlyoutTest.xaml</DependentUpon>
     </Compile>
@@ -309,6 +312,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTDropDownTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTFloatingActionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

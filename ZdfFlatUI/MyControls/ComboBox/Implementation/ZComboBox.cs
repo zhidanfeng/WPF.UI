@@ -49,7 +49,11 @@ namespace ZdfFlatUI
         #endregion
 
         #region Override方法
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
+        }
         #endregion
 
         #region Private方法

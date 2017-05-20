@@ -38,6 +38,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Badge/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Notice/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ToolTip/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ToolTip/Themes/FlatToolTipStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/SlideSwitch/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/MessageBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CascaderBox/Themes/Generic.xaml" />
@@ -64,5 +65,6 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TimePicker/Themes/ZTimePicker.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorSelector.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorItem.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/FloatingActionControls/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

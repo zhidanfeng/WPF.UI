@@ -239,6 +239,11 @@ namespace ZdfFlatUI.Test
                 Name = "定制主题",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "悬浮按钮",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -367,6 +372,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "定制主题":
                         this.ControlPanel.Content = new UITest.ChangeTheme.UCTChangeTheme();
+                        break;
+                    case "悬浮按钮":
+                        this.ControlPanel.Content = new UITest.UCTFloatingActionControl();
                         break;
                         #endregion
                 }

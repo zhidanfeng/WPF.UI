@@ -133,6 +133,8 @@
     <Compile Include="MyControls\DateControl\Implementation\ZDatePicker.cs" />
     <Compile Include="MyControls\Decorator\AngleBorder.cs" />
     <Compile Include="MyControls\DropDownButton\Implementation\DropDownButton.cs" />
+    <Compile Include="MyControls\FloatingActionControls\Implementation\FloatingActionButton.cs" />
+    <Compile Include="MyControls\FloatingActionControls\Implementation\FloatingActionMenu.cs" />
     <Compile Include="MyControls\Icon\Implementation\Icon.cs" />
     <Compile Include="MyControls\RatingBar\Implementation\RatingBar.cs" />
     <Compile Include="MyControls\RatingBar\Implementation\RatingBarButton.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="MyControls\ToggleButton\Implementation\AnimationButton.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\FlatToggleButton.cs" />
     <Compile Include="MyControls\ToolTipHelper.cs" />
+    <Compile Include="MyControls\ToolTip\Implementation\FlatToolTip.cs" />
     <Compile Include="MyControls\ToolTip\Implementation\ZToolTip.cs" />
     <Compile Include="MyControls\Tree\Implementation\ZTreeView.cs" />
     <Compile Include="MyControls\Upload\Implementation\Upload.cs" />
@@ -215,6 +218,7 @@
     <Compile Include="Utils\DialogHelper.cs" />
     <Compile Include="Utils\DoubleUtil.cs" />
     <Compile Include="Utils\EnumCommon.cs" />
+    <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\MyVisualTreeHelper.cs" />
     <Compile Include="Utils\PaletteHelper.cs" />
     <Compile Include="Utils\UIElementEx.cs" />
@@ -276,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\DropDownButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\FloatingActionControls\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -410,6 +418,10 @@
     <Page Include="MyControls\ToggleButton\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ToolTip\Themes\FlatToolTipStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MyControls\ToolTip\Themes\Generic.xaml">
       <SubType>Designer</SubType>

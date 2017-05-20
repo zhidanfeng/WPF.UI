@@ -85,8 +85,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <!--<Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedInactive.Background}" />
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedInactive.Border}" />-->
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.MouseOver.Background}" />
                             <Setter TargetName="markline" Property="Background" Value="#3399FF" />
                         </MultiTrigger>
                         <MultiTrigger>
@@ -95,6 +94,7 @@
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="markline" Property="Background" Value="#3399FF" />
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.MouseOver.Background}" />
                             <Setter Property="Foreground" Value="#3399FF" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
