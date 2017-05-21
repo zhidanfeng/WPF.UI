@@ -57,6 +57,9 @@ namespace ZdfFlatUI
 
         #region DisplayTipContentMemberPath
 
+        /// <summary>
+        /// 获取或者设置浮动按钮的提示内容的属性名称
+        /// </summary>
         public string DisplayTipContentMemberPath
         {
             get { return (string)GetValue(DisplayTipContentMemberPathProperty); }
@@ -70,6 +73,9 @@ namespace ZdfFlatUI
 
         #region Trigger
 
+        /// <summary>
+        /// 获取或者设置按钮组的弹出方式
+        /// </summary>
         public EnumTrigger Trigger
         {
             get { return (EnumTrigger)GetValue(TriggerProperty); }
@@ -78,6 +84,34 @@ namespace ZdfFlatUI
         
         public static readonly DependencyProperty TriggerProperty =
             DependencyProperty.Register("Trigger", typeof(EnumTrigger), typeof(FloatingActionMenu), new PropertyMetadata(EnumTrigger.Click));
+
+        #endregion
+
+        #region PlacementDirection
+        /// <summary>
+        /// 获取或者设置按钮组的弹出位置(共有左、上、右、下四个方向)
+        /// </summary>
+        public EnumPlacementDirection PlacementDirection
+        {
+            get { return (EnumPlacementDirection)GetValue(PlacementDirectionProperty); }
+            set { SetValue(PlacementDirectionProperty, value); }
+        }
+        
+        public static readonly DependencyProperty PlacementDirectionProperty =
+            DependencyProperty.Register("PlacementDirection", typeof(EnumPlacementDirection), typeof(FloatingActionMenu), new PropertyMetadata(EnumPlacementDirection.Top));
+
+        #endregion
+
+        #region ItemOrientation
+
+        public Orientation ItemOrientation
+        {
+            get { return (Orientation)GetValue(ItemOrientationProperty); }
+            set { SetValue(ItemOrientationProperty, value); }
+        }
+        
+        public static readonly DependencyProperty ItemOrientationProperty =
+            DependencyProperty.Register("ItemOrientation", typeof(Orientation), typeof(FloatingActionMenu), new PropertyMetadata(Orientation.Vertical));
 
         #endregion
 
@@ -126,10 +160,10 @@ namespace ZdfFlatUI
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            
+
             this.PART_Popup = this.GetTemplateChild(PopupPartName) as Popup;
             this.PART_ToggleButton = this.GetTemplateChild("PART_ToggleButton") as ToggleButton;
-            if(this.PART_ToggleButton != null && this.Trigger == EnumTrigger.Hover)
+            if (this.PART_ToggleButton != null && this.Trigger == EnumTrigger.Hover)
             {
                 this.MouseEnter += (o, e) =>
                 {
@@ -140,6 +174,8 @@ namespace ZdfFlatUI
                     this.PART_ToggleButton.IsChecked = false;
                 };
             }
+
+            SetPopupPosition();
 
             this.ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
         }
@@ -165,15 +201,31 @@ namespace ZdfFlatUI
         #region private function
         private void AnimateChild(bool reverse)
         {
-            if(this.PART_Popup == null)
-            {
-                return;
-            }
-
             var sineEase = new SineEase();
-            double translateCoordinateFrom = -80;
+            double translateCoordinateFrom = 0d;
 
-            var translateCoordinatePath = "(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)";
+            string direction = string.Empty;
+            switch (this.PlacementDirection)
+            {
+                case EnumPlacementDirection.Left:
+                    direction = "X";
+                    translateCoordinateFrom = 80;
+                    break;
+                case EnumPlacementDirection.Right:
+                    direction = "X";
+                    translateCoordinateFrom = -80;
+                    break;
+                case EnumPlacementDirection.Top:
+                    translateCoordinateFrom = 80;
+                    direction = "Y";
+                    break;
+                case EnumPlacementDirection.Bottom:
+                    translateCoordinateFrom = -80;
+                    direction = "Y";
+                    break;
+            }
+            
+            var translateCoordinatePath = string.Format("(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.{0})", direction);
 
             for (int i = 0; i < this.Items.Count; i++)
             {
@@ -185,7 +237,9 @@ namespace ZdfFlatUI
                 }
 
                 var elementTranslateCoordinateFrom = translateCoordinateFrom * i;
-                var translateTransform = new TranslateTransform(0, translateCoordinateFrom);
+                var translateTransform = new TranslateTransform(
+                    this.ItemOrientation == Orientation.Horizontal ? translateCoordinateFrom : 0, 
+                    this.ItemOrientation == Orientation.Horizontal ? 0 : translateCoordinateFrom);
 
                 var transformGroup = new TransformGroup
                 {
@@ -269,6 +323,41 @@ namespace ZdfFlatUI
             if (this.ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
             {
                 this.AnimateChild(false);
+            }
+        }
+
+        private void SetPopupPosition()
+        {
+            if (this.PART_Popup != null)
+            {
+                switch (this.PlacementDirection)
+                {
+                    case EnumPlacementDirection.Left:
+                        this.PART_Popup.Placement = PlacementMode.Left;
+                        this.PART_Popup.HorizontalOffset = 0;
+                        this.PART_Popup.VerticalOffset = -10;
+                        this.ItemOrientation = Orientation.Horizontal;
+                        break;
+                    case EnumPlacementDirection.Top:
+                        this.PART_Popup.Placement = PlacementMode.Top;
+                        this.ItemOrientation = Orientation.Vertical;
+                        this.PART_Popup.HorizontalOffset = -10;
+                        break;
+                    case EnumPlacementDirection.Right:
+                        this.PART_Popup.Placement = PlacementMode.Right;
+                        this.PART_Popup.HorizontalOffset = 0;
+                        this.PART_Popup.VerticalOffset = -10;
+                        this.ItemOrientation = Orientation.Horizontal;
+                        break;
+                    case EnumPlacementDirection.Bottom:
+                        this.PART_Popup.Placement = PlacementMode.Bottom;
+                        this.ItemOrientation = Orientation.Vertical;
+                        this.PART_Popup.HorizontalOffset = -10;
+                        this.PART_Popup.VerticalOffset = 0;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         #endregion

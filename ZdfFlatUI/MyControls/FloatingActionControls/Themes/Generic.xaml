@@ -51,7 +51,7 @@
         <Setter Property="Background" Value="Blue" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type ZUI:FloatingActionMenu}}}" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -62,7 +62,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:FloatingActionButton}">
-                    <Grid Width="40" Height="40" Margin="5,5">
+                    <Grid Width="40" Height="40" Margin="5,5" Background="Transparent">
                         <Border Background="#FFFFFF" CornerRadius="100" IsHitTestVisible="False" SnapsToDevicePixels="True"
                                 UseLayoutRounding="True">
                             <Border.Effect>
@@ -80,7 +80,7 @@
                             </Border>
                         </Border>
                         <Grid.ToolTip>
-                            <ZUI:FlatToolTip Content="{TemplateBinding TipContent}" PlacementEx="LeftCenter" />
+                            <ZUI:FlatToolTip x:Name="ToolTip" Content="{TemplateBinding TipContent}" PlacementEx="LeftCenter" />
                         </Grid.ToolTip>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -88,6 +88,9 @@
                             <Setter Property="Cursor" Value="Hand" />
                             <Setter TargetName="Border" Property="Background" Value="#50FFFFFF" />
                         </Trigger>
+                        <DataTrigger Binding="{Binding ItemOrientation, RelativeSource={RelativeSource AncestorType={x:Type ZUI:FloatingActionMenu}}}" Value="Horizontal">
+                            <Setter TargetName="ToolTip" Property="PlacementEx" Value="TopCenter" />
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -106,15 +109,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:FloatingActionMenu}">
-                    <Grid>
+                    <Grid Background="Transparent">
                         <ToggleButton x:Name="PART_ToggleButton" Width="40" Height="40"
                                       IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                       Style="{StaticResource ToggleButtonStyle}" />
                         <Popup x:Name="PART_Popup" AllowsTransparency="True" IsOpen="True" Placement="Bottom"
                                PlacementTarget="{Binding ElementName=PART_ToggleButton}"
                                HorizontalOffset="-5"
+                               ZUI:PopopHelper.PopupPlacementTarget="{Binding ElementName=PART_ToggleButton}"
                                StaysOpen="True">
-                            <Border x:Name="ItemsPresenter" Background="Transparent">
+                            <Border x:Name="border" Background="Transparent" Padding="5">
                                 <ItemsPresenter />
                             </Border>
                         </Popup>
@@ -122,7 +126,7 @@
                             <VisualStateGroup x:Name="PopupStates">
                                 <VisualState x:Name="PopupOpen">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsPresenter" Storyboard.TargetProperty="Visibility" Duration="0:0:0">
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="Visibility" Duration="0:0:0">
                                             <ObjectAnimationUsingKeyFrames.KeyFrames>
                                                 <DiscreteObjectKeyFrame>
                                                     <DiscreteObjectKeyFrame.Value>
@@ -138,10 +142,17 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDropDownOpen" Value="False">
-                            <Setter TargetName="ItemsPresenter" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="border" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="{Binding ItemOrientation, RelativeSource={RelativeSource AncestorType={x:Type ZUI:FloatingActionMenu}}}" />
+                </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
     </Style>

@@ -5,26 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UniformGrid Columns="4">
         <!--<WPF.UI:FlatButton Content="Click Me" Margin="0,20,0,0" />
         <WPF.UI:FlatButton Content="Click Me" Margin="0,10,0,0" />
         <WPF.UI:FlatButton Content="Click Me" Margin="0,10,0,0" />-->
-        <StackPanel>
-            <WPF.UI:FloatingActionMenu x:Name="FloatingActionMenu" ItemClick="FloatingActionMenu_ItemClick">
+        <StackPanel VerticalAlignment="Center">
+            <WPF.UI:FloatingActionMenu x:Name="FloatingActionMenu" ItemClick="FloatingActionMenu_ItemClick" PlacementDirection="Top">
                 <!--<WPF.UI:FloatingActionButton />
             <WPF.UI:FloatingActionButton TipContent="fdasfadsfads" />
             <WPF.UI:FloatingActionButton />-->
             </WPF.UI:FloatingActionMenu>
-            <WPF.UI:FlatButton Content="Click Me" Margin="0,20,0,0" />
+            <!--<WPF.UI:FlatButton Content="Click Me" Margin="0,20,0,0" />
             <WPF.UI:FlatButton Content="Click Me" Margin="0,10,0,0" />
-            <WPF.UI:FlatButton Content="Click Me" Margin="0,10,0,0" />
+            <WPF.UI:FlatButton Content="Click Me" Margin="0,10,0,0" />-->
         </StackPanel>
-        <WPF.UI:FloatingActionMenu Margin="40,0,0,0" Trigger="Hover">
-            <WPF.UI:FloatingActionButton />
-            <WPF.UI:FloatingActionButton TipContent="fdasfadsfads" />
-            <WPF.UI:FloatingActionButton />
+        
+        <WPF.UI:FloatingActionMenu Margin="40,0,0,0" Trigger="Click" Foreground="White" PlacementDirection="Bottom" VerticalAlignment="Center">
+            <WPF.UI:FloatingActionButton Content="1" Background="#00CC66" />
+            <WPF.UI:FloatingActionButton Content="2" TipContent="fdasfadsfads" Background="#2DB7F5" />
+            <WPF.UI:FloatingActionButton Content="3" Background="#FF9900" />
+            <WPF.UI:FloatingActionButton Content="4" TipContent="fdasfadsfads" Background="#FF3300" />
+            <WPF.UI:FloatingActionButton Content="5" />
         </WPF.UI:FloatingActionMenu>
         
-    </StackPanel>
+        <WPF.UI:FloatingActionMenu Margin="40,0,0,0" Trigger="Hover" Foreground="White" PlacementDirection="Left" VerticalAlignment="Center">
+            <WPF.UI:FloatingActionButton Content="1" />
+            <WPF.UI:FloatingActionButton Content="2" TipContent="fdasfadsfads" />
+            <WPF.UI:FloatingActionButton Content="3" />
+            <WPF.UI:FloatingActionButton Content="4" TipContent="fdasfadsfads" />
+            <WPF.UI:FloatingActionButton Content="5" />
+        </WPF.UI:FloatingActionMenu>
+        <WPF.UI:FloatingActionMenu Margin="40,0,0,0" Trigger="Hover" Foreground="White" PlacementDirection="Right" VerticalAlignment="Center">
+            <WPF.UI:FloatingActionButton Content="1" />
+            <WPF.UI:FloatingActionButton Content="2" TipContent="fdasfadsfads" />
+            <WPF.UI:FloatingActionButton Content="3" />
+            <WPF.UI:FloatingActionButton Content="4" TipContent="fdasfadsfads" />
+            <WPF.UI:FloatingActionButton Content="5" />
+        </WPF.UI:FloatingActionMenu>
+    </UniformGrid>
 </UserControl>

@@ -29,6 +29,7 @@
                         </DataTrigger>
                         <DataTrigger Binding="{Binding PlacementEx, RelativeSource={RelativeSource Self}}" Value="TopCenter">
                             <Setter Property="Placement" Value="Top" />
+                            <Setter Property="ToolTipService.VerticalOffset" Value="-10" />
                             <Setter Property="ToolTipService.HorizontalOffset">
                                 <Setter.Value>
                                     <MultiBinding Converter="{StaticResource OffsetConverter}">

@@ -93,6 +93,16 @@ namespace ZdfFlatUI
     }
     #endregion
 
+    #region PlacementDirection
+    public enum EnumPlacementDirection
+    {
+        Left,
+        Top,
+        Right,
+        Bottom,
+    }
+    #endregion
+
     #region EnumPromptType
     /// <summary>
     /// 提示类型
