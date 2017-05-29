@@ -66,5 +66,9 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorSelector.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ColorSelector/Themes/ColorItem.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/FloatingActionControls/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TagControls/Themes/TagStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TagControls/Themes/TagBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TagControls/Themes/TagInputBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Timeline/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

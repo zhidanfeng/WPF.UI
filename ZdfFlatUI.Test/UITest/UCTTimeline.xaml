@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTTimeline"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="300" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+            <WPF.UI:FlatButton Content="Add First" Tag="First" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+            <WPF.UI:FlatButton Content="Add Middle" Tag="Middle" Width="90" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+            <WPF.UI:FlatButton Content="Add Last" Tag="Last" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+            <WPF.UI:FlatButton Content="RemoveFirst" Width="90" Tag="RemoveFirst" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+            <WPF.UI:FlatButton Content="RemoveLast" Width="90" Tag="RemoveLast" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+            <WPF.UI:FlatButton Content="RemoveMiddle" Width="90" Tag="RemoveLast" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
+        </StackPanel>
+        <UniformGrid Columns="2">
+            <WPF.UI:Timeline x:Name="timeline">
+                <WPF.UI:TimelineItem Content="1" Height="50" />
+                <!--<WPF.UI:TimelineItem Content="2" Height="50" />
+                <WPF.UI:TimelineItem Content="3" Height="50" />
+                <WPF.UI:TimelineItem Content="4" Height="50" />-->
+            </WPF.UI:Timeline>
+
+            <WPF.UI:Timeline x:Name="timeline2">
+                <WPF.UI:Timeline.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="timePart" Text="{Binding Item1}" Foreground="Black" />
+                            <TextBlock Text="{Binding Item2}" Margin="0,10,0,30" />
+                        </StackPanel>
+                    </DataTemplate>
+                </WPF.UI:Timeline.ItemTemplate>
+            </WPF.UI:Timeline>
+        </UniformGrid>
+    </Grid>
+</UserControl>

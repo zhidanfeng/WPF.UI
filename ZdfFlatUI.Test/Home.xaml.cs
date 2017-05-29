@@ -244,6 +244,16 @@ namespace ZdfFlatUI.Test
                 Name = "悬浮按钮",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Tag标签",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Timeline时间轴",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -375,6 +385,12 @@ namespace ZdfFlatUI.Test
                         break;
                     case "悬浮按钮":
                         this.ControlPanel.Content = new UITest.UCTFloatingActionControl();
+                        break;
+                    case "Tag标签":
+                        this.ControlPanel.Content = new UITest.UCTTag();
+                        break;
+                    case "Timeline时间轴":
+                        this.ControlPanel.Content = new UITest.UCTTimeline();
                         break;
                         #endregion
                 }

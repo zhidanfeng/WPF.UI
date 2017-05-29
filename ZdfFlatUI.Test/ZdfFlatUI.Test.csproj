@@ -206,11 +206,17 @@
     <Compile Include="UITest\UCTTabControlTest.xaml.cs">
       <DependentUpon>UCTTabControlTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTTag.xaml.cs">
+      <DependentUpon>UCTTag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTTextBoxTest.xaml.cs">
       <DependentUpon>UCTTextBoxTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTTimeControl.xaml.cs">
       <DependentUpon>UCTTimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTTimeline.xaml.cs">
+      <DependentUpon>UCTTimeline.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTToggleButtonTest.xaml.cs">
       <DependentUpon>UCTToggleButtonTest.xaml</DependentUpon>
@@ -387,11 +393,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTTag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTTextBoxTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTTimeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTTimeline.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

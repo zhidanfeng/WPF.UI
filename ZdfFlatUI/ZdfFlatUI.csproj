@@ -102,6 +102,7 @@
     <Compile Include="BaseControl\NumericUpDownBase.cs" />
     <Compile Include="BaseControl\TextBoxBase.cs" />
     <Compile Include="Converters\CalendarDayButtonTypeConverter.cs" />
+    <Compile Include="Converters\IsFirstItemConverter.cs" />
     <Compile Include="Converters\IsLastItemConverter.cs" />
     <Compile Include="Converters\IsProgressedConverter.cs" />
     <Compile Include="Converters\MathMultipleConverter.cs" />
@@ -190,12 +191,17 @@
     <Compile Include="MyControls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBarItem.cs" />
     <Compile Include="MyControls\TabControl\Implementation\ZTabControl.cs" />
+    <Compile Include="MyControls\TagControls\Implementation\Tag.cs" />
+    <Compile Include="MyControls\TagControls\Implementation\TagBox.cs" />
+    <Compile Include="MyControls\TagControls\Implementation\TagInputBox.cs" />
     <Compile Include="MyControls\TextBox\IconTextBox.cs" />
     <Compile Include="MyControls\NumericUpDown\Implementation\IntegerUpDown.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZTextBox.cs" />
     <Compile Include="MyControls\TextBox\TagTextBox.cs" />
     <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
     <Compile Include="MyControls\TextBox\ValidateTextBox.cs" />
+    <Compile Include="MyControls\Timeline\Implementation\Timeline.cs" />
+    <Compile Include="MyControls\Timeline\Implementation\TimelineItem.cs" />
     <Compile Include="MyControls\TimePicker\Implementation\TimeButton.cs" />
     <Compile Include="MyControls\TimePicker\Implementation\TimeSelector.cs" />
     <Compile Include="MyControls\TimePicker\Implementation\ZTimePicker.cs" />
@@ -395,7 +401,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\TagControls\Themes\TagBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TagControls\Themes\TagInputBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TagControls\Themes\TagStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\TextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\Timeline\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
