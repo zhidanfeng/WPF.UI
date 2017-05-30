@@ -20,7 +20,7 @@
             <WPF.UI:FlatButton Content="RemoveLast" Width="90" Tag="RemoveLast" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
             <WPF.UI:FlatButton Content="RemoveMiddle" Width="90" Tag="RemoveLast" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
         </StackPanel>
-        <UniformGrid Columns="2">
+        <UniformGrid Columns="4">
             <WPF.UI:Timeline x:Name="timeline">
                 <WPF.UI:TimelineItem Content="1" Height="50" />
                 <!--<WPF.UI:TimelineItem Content="2" Height="50" />
@@ -32,11 +32,75 @@
                 <WPF.UI:Timeline.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock x:Name="timePart" Text="{Binding Item1}" Foreground="Black" />
-                            <TextBlock Text="{Binding Item2}" Margin="0,10,0,30" />
+                            <TextBlock x:Name="timePart" Text="{Binding Item2}" Foreground="Black" />
+                            <TextBlock Text="{Binding Item3}" Margin="0,10,0,30" />
                         </StackPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsFirstItem, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:TimelineItem}}}" Value="True">
+                                <Setter TargetName="timePart" Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
                     </DataTemplate>
                 </WPF.UI:Timeline.ItemTemplate>
+            </WPF.UI:Timeline>
+
+            <WPF.UI:Timeline x:Name="timeline3">
+                <WPF.UI:Timeline.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="timePart" Text="{Binding Item2}" Foreground="Black" />
+                            <TextBlock Text="{Binding Item3}" Margin="0,10,0,30" />
+                        </StackPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsFirstItem, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:TimelineItem}}}" Value="True">
+                                <Setter TargetName="timePart" Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </WPF.UI:Timeline.ItemTemplate>
+                <WPF.UI:Timeline.FirstSlotTemplate>
+                    <DataTemplate>
+                        <Path Fill="#00CC66" Stretch="Uniform" Width="13" Margin="0,0,0,5"
+                              Data="M907.267 242.458c-0.092-5.003-0.176-9.326-0.176-12.967h-142.726c2.755-61.123 1.069-108.531 1.069-108.531-0.087-2.458-2.171-4.469-4.631-4.469h-247.254c-0.599 0-1.182 0.038-1.766 0.103-0.583-0.065-1.171-0.103-1.766-0.103h-247.897c-2.459 0-4.543 2.011-4.633 4.469 0 0-1.69 47.407 1.067 108.531h-137.178c-2.459 0-4.564 0-4.677 0s-0.204 2.012-0.204 4.471v27.338c0 2.459 0 4.608 0 4.775s0 2.316 0 4.777v10.672c0 2.459 0.128 4.473 0.284 4.473v0c1.43 46.076 8.793 107.703 39.434 170.791 25.986 53.511 63.406 98.282 111.23 133.069 39.588 28.806 84.818 49.551 134.548 61.949 28.72 30.649 57.041 47.551 81.759 54.343v62.898c-3.526 18.687-24.963 81.961-174.384 81.961h-18.893c-2.459 0-4.471 2.012-4.471 4.471v47.554c0 2.459 2.012 4.471 4.471 4.471h443.060c2.459 0 4.473-2.012 4.473-4.471v-47.553c0-2.459-2.012-4.471-4.473-4.471h-18.794c-175.299 0-174.524-82.638-174.524-82.638 0.023-2.459 0.042-6.484 0.042-8.944v-53.287c24.714-6.784 52.489-23.618 81.061-54.106 50.091-12.368 95.472-33.195 135.312-62.176 47.811-34.791 85.212-79.561 111.194-133.076 41.814-86.092 40.259-169.508 39.449-214.322zM207.005 432.093c-25.534-52.579-32.218-105.489-33.682-146.095h89.141c1.537 15.738 3.473 31.253 5.93 45.868 15.028 89.535 35.683 168.611 74.78 238.382-59.743-30.263-106.669-77.403-136.169-138.155zM816.993 432.093c-29.675 61.108-76.983 108.454-137.242 138.693 39.226-69.905 59.708-149.15 74.781-238.919 2.453-14.615 4.39-30.13 5.926-45.868h90.221c-1.47 40.605-8.151 93.517-33.686 146.094zM816.993 432.093z"/>
+                    </DataTemplate>
+                </WPF.UI:Timeline.FirstSlotTemplate>
+            </WPF.UI:Timeline>
+
+            <WPF.UI:Timeline x:Name="timeline4" IsCustomEverySlot="True">
+                <WPF.UI:Timeline.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="timePart" Text="{Binding Item2}" Foreground="Black" />
+                            <TextBlock Text="{Binding Item3}" Margin="0,10,0,30" />
+                        </StackPanel>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsFirstItem, RelativeSource={RelativeSource AncestorType={x:Type WPF.UI:TimelineItem}}}" Value="True">
+                                <Setter TargetName="timePart" Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </WPF.UI:Timeline.ItemTemplate>
+                <WPF.UI:Timeline.SlotTemplate>
+                    <DataTemplate>
+                        <Border x:Name="border" Width="15" Height="15" CornerRadius="100" 
+                                BorderBrush="Blue" BorderThickness="1" 
+                                SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Item1}" Value="1">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#09CD6B" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Item1}" Value="2">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FD4416" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Item1}" Value="3">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#46A2FF" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Item1}" Value="4">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#06CD6A" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </WPF.UI:Timeline.SlotTemplate>
             </WPF.UI:Timeline>
         </UniformGrid>
     </Grid>

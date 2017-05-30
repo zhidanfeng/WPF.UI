@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZdfFlatUI.Test", "ZdfFlatUI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFRichTextEditor", "WPFRichTextEditor\WPFRichTextEditor.csproj", "{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZUIColors.Wpf", "ZUIColors.Wpf\ZUIColors.Wpf.csproj", "{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,14 +41,6 @@ Global
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|x86.ActiveCfg = Release|x86
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|x86.Build.0 = Release|x86
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Debug|x86.Build.0 = Debug|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Release|Any CPU.Build.0 = Release|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Release|x86.ActiveCfg = Release|Any CPU
-		{028BD8DA-F309-4F29-AC6D-8C30BEBD6999}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

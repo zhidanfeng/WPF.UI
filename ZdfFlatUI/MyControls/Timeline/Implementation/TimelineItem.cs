@@ -14,8 +14,9 @@ namespace ZdfFlatUI
 
         #region IsFirstItem
         /// <summary>
-        /// 获取或者设置项是否是第一个
+        /// 获取或者设置该项在列表中是否是第一个
         /// </summary>
+        [Bindable(true), Description("获取或者设置该项在列表中是否是第一个")]
         public bool IsFirstItem
         {
             get { return (bool)GetValue(IsFirstItemProperty); }
@@ -27,10 +28,28 @@ namespace ZdfFlatUI
 
         #endregion
 
+        #region IsMiddleItem
+
+        /// <summary>
+        /// 获取或者设置该项在列表中是否是中间的一个
+        /// </summary>
+        [Bindable(true), Description("获取或者设置该项在列表中是否是中间的一个")]
+        public bool IsMiddleItem
+        {
+            get { return (bool)GetValue(IsMiddleItemProperty); }
+            set { SetValue(IsMiddleItemProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsMiddleItemProperty =
+            DependencyProperty.Register("IsMiddleItem", typeof(bool), typeof(TimelineItem), new PropertyMetadata(false));
+
+        #endregion
+
         #region IsLastItem
         /// <summary>
-        /// 获取或者设置项是否是最后一个
+        /// 获取或者设置该项在列表中是否是最后一个
         /// </summary>
+        [Bindable(true), Description("获取或者设置该项在列表中是否是最后一个")]
         public bool IsLastItem
         {
             get { return (bool)GetValue(IsLastItemProperty); }
@@ -39,23 +58,6 @@ namespace ZdfFlatUI
         
         public static readonly DependencyProperty IsLastItemProperty =
             DependencyProperty.Register("IsLastItem", typeof(bool), typeof(TimelineItem), new PropertyMetadata(false));
-
-        #endregion
-
-        #region IsMiddleItem
-
-        /// <summary>
-        /// 获取或者设置项是否是中间的一个
-        /// </summary>
-        //[Bindable(true), Category("")]
-        public bool IsMiddleItem
-        {
-            get { return (bool)GetValue(IsMiddleItemProperty); }
-            set { SetValue(IsMiddleItemProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IsMiddleItemProperty =
-            DependencyProperty.Register("IsMiddleItem", typeof(bool), typeof(TimelineItem), new PropertyMetadata(false));
 
         #endregion
 

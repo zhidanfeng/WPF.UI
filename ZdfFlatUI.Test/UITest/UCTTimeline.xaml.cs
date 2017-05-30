@@ -29,14 +29,16 @@ namespace ZdfFlatUI.Test.UITest
 
         private void InitTimeline2()
         {
-            ObservableCollection<Tuple<string, string>> list = new ObservableCollection<Tuple<string, string>>();
+            ObservableCollection<Tuple<int, string, string>> list = new ObservableCollection<Tuple<int, string, string>>();
             for (int i = 0; i < 5; i++)
             {
                 //System.Threading.Thread.Sleep(1000);
-                list.Add(new Tuple<string, string>(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "哈哈哈哈"));
+                list.Add(new Tuple<int, string, string>(i, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "哈哈哈哈"));
             }
 
             this.timeline2.ItemsSource = list;
+            this.timeline3.ItemsSource = list;
+            this.timeline4.ItemsSource = list;
         }
 
         private void add_Click(object sender, RoutedEventArgs e)

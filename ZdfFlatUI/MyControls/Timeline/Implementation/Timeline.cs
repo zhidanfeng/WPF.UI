@@ -5,9 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 时间轴
+    /// </summary>
+    /// <remarks>add by zhidanfeng 2017.5.29</remarks>
     public class Timeline : ItemsControl
     {
         #region private fields
@@ -16,16 +21,88 @@ namespace ZdfFlatUI
 
         #region DependencyProperty
 
-        #region FirstItemStyle
+        #region FirstSlotTemplate
 
-        public Style FirstItemStyle
+        /// <summary>
+        /// 获取或者设置第一个时间轴点的样子
+        /// </summary>
+        [Bindable(true), Description("获取或者设置第一个时间轴点的样子")]
+        public DataTemplate FirstSlotTemplate
         {
-            get { return (Style)GetValue(FirstItemStyleProperty); }
-            set { SetValue(FirstItemStyleProperty, value); }
+            get { return (DataTemplate)GetValue(FirstSlotTemplateProperty); }
+            set { SetValue(FirstSlotTemplateProperty, value); }
         }
         
-        public static readonly DependencyProperty FirstItemStyleProperty =
-            DependencyProperty.Register("FirstItemStyle", typeof(Style), typeof(Timeline), new PropertyMetadata(null));
+        public static readonly DependencyProperty FirstSlotTemplateProperty =
+            DependencyProperty.Register("FirstSlotTemplate", typeof(DataTemplate), typeof(Timeline));
+
+        #endregion
+
+        #region MiddleSlotTemplate
+
+        /// <summary>
+        /// 获取或者设置中间的时间轴点的样子
+        /// </summary>
+        [Bindable(true), Description("获取或者设置中间的时间轴点的样子")]
+        public DataTemplate MiddleSlotTemplate
+        {
+            get { return (DataTemplate)GetValue(MiddleSlotTemplateProperty); }
+            set { SetValue(MiddleSlotTemplateProperty, value); }
+        }
+        
+        public static readonly DependencyProperty MiddleSlotTemplateProperty =
+            DependencyProperty.Register("MiddleSlotTemplate", typeof(DataTemplate), typeof(Timeline));
+
+        #endregion
+
+        #region LastItemTemplate
+
+        /// <summary>
+        /// 获取或者设置最后一个时间轴点的样子
+        /// </summary>
+        [Bindable(true), Description("获取或者设置最后一个时间轴点的样子")]
+        public DataTemplate LastSlotTemplate
+        {
+            get { return (DataTemplate)GetValue(LastSlotTemplateProperty); }
+            set { SetValue(LastSlotTemplateProperty, value); }
+        }
+        
+        public static readonly DependencyProperty LastSlotTemplateProperty =
+            DependencyProperty.Register("LastSlotTemplate", typeof(DataTemplate), typeof(Timeline));
+
+        #endregion
+
+        #region IsCustomEverySlot
+
+        /// <summary>
+        /// 获取或者设置是否自定义每一个时间轴点的外观。
+        /// </summary>
+        [Bindable(true), Description("获取或者设置是否自定义每一个时间轴点的外观。当属性值为True时，FirstSlotTemplate、MiddleSlotTemplate、LastSlotTemplate属性都将失效，只能设置SlotTemplate来定义每一个时间轴点的样式")]
+        public bool IsCustomEverySlot
+        {
+            get { return (bool)GetValue(IsCustomEverySlotProperty); }
+            set { SetValue(IsCustomEverySlotProperty, value); }
+        }
+        
+        public static readonly DependencyProperty IsCustomEverySlotProperty =
+            DependencyProperty.Register("IsCustomEverySlot", typeof(bool), typeof(Timeline), new PropertyMetadata(false));
+
+        #endregion
+
+        #region SlotTemplate
+
+        /// <summary>
+        /// 获取或者设置每个时间轴点的外观
+        /// </summary>
+        [Bindable(true), Description("获取或者设置每个时间轴点的外观。只有当IsCustomEverySlot属性为True时，该属性才生效")]
+        public DataTemplate SlotTemplate
+        {
+            get { return (DataTemplate)GetValue(SlotTemplateProperty); }
+            set { SetValue(SlotTemplateProperty, value); }
+        }
+        
+        public static readonly DependencyProperty SlotTemplateProperty =
+            DependencyProperty.Register("SlotTemplate", typeof(DataTemplate), typeof(Timeline));
 
         #endregion
 
@@ -46,6 +123,11 @@ namespace ZdfFlatUI
         {
             int index = this.ItemContainerGenerator.IndexFromContainer(element);
             TimelineItem timelineItem = element as TimelineItem;
+            if(timelineItem == null)
+            {
+                return;
+            }
+
             if(index == 0)
             {
                 timelineItem.IsFirstItem = true;
@@ -71,9 +153,9 @@ namespace ZdfFlatUI
 
         protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(this.Items.Count.ToString() + e.NewStartingIndex);
             base.OnItemsChanged(e);
 
+            //以下代码是为了新增项或者移除项时，正确设置每个Item的外观
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
@@ -123,10 +205,6 @@ namespace ZdfFlatUI
             timelineItem.IsLastItem = index == this.Items.Count - 1;
             timelineItem.IsMiddleItem = index > 0 && index < this.Items.Count - 1;
         }
-        #endregion
-
-        #region Event Implement Function
-
         #endregion
     }
 }
