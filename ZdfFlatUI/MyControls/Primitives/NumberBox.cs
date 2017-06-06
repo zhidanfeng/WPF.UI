@@ -10,6 +10,9 @@ using ZdfFlatUI.Utils;
 
 namespace ZdfFlatUI.MyControls.Primitives
 {
+    /// <summary>
+    /// 用于日历显示时分秒的控件
+    /// </summary>
     public class NumberBox : ComboBox
     {
         static NumberBox()

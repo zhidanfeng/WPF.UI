@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTAccordion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UniformGrid Columns="1">
+        <WPF.UI:Accordion Width="200" HorizontalAlignment="Center">
+            <WPF.UI:AccordionItem Header="AccordionItem1">
+                <WPF.UI:AccordionItem.Content>
+                    <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut." 
+                               TextWrapping="Wrap" Width="180" />
+                </WPF.UI:AccordionItem.Content>
+            </WPF.UI:AccordionItem>
+            <WPF.UI:AccordionItem Header="AccordionItem2" Content="1" />
+            <WPF.UI:AccordionItem Header="AccordionItem3" Content="1" />
+        </WPF.UI:Accordion>
+
+        <WPF.UI:GridLineDecorator GridLineBrush="Black">
+            <WPF.UI:FlatListView x:Name="FlatListView">
+                <WPF.UI:FlatListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Item1}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Item2}"/>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Item3}"/>
+                    </GridView>
+                </WPF.UI:FlatListView.View>
+            </WPF.UI:FlatListView>
+        </WPF.UI:GridLineDecorator>
+    </UniformGrid>
+</UserControl>

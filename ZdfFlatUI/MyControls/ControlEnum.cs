@@ -298,4 +298,22 @@ namespace ZdfFlatUI
         六,
     }
     #endregion
-}
+
+    #region EnumPlayState 音视频播放状态枚举
+    public enum EnumPlayState
+    {
+        /// <summary>
+        /// 播放
+        /// </summary>
+        Play,
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        Pause,
+        /// <summary>
+        /// 停止
+        /// </summary>
+        Stop,
+    }
+    #endregion
+    }

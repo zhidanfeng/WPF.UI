@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="AnimationButton.xaml" />
+        <ResourceDictionary Source="DefaultToggleButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
 </ResourceDictionary>

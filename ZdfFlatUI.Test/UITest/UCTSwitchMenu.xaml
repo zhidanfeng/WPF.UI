@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTSwitchMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <UniformGrid Rows="2">
+        <WPF.UI:SwitchMenu HorizontalAlignment="Center">
+            <Button Content="1000" />
+            <Button Content="2000" />
+            <Button Content="3000" />
+            <Button Content="4000" />
+            <Button Content="5000" />
+            <Button Content="6000" />
+        </WPF.UI:SwitchMenu>
+
+        <WPF.UI:SwitchMenu Height="200" Orientation="Vertical" HorizontalAlignment="Center">
+            <Button Content="1000" />
+            <Button Content="2000" />
+            <Button Content="3000" />
+            <Button Content="4000" />
+            <Button Content="5000" />
+            <Button Content="6000" />
+        </WPF.UI:SwitchMenu>
+    </UniformGrid>
+</UserControl>

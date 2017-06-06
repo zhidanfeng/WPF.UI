@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:MyControls="clr-namespace:ZdfFlatUI">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WPF.UI;component/Resources/PathGeometry.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type MyControls:NoticeMessage}">
+        <Setter Property="PathData" Value="{StaticResource SelectedIcon}" />
+        <Setter Property="IconWidth" Value="21" />
+        <Setter Property="IconColor" Value="#F5F5F5" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="#303131" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MyControls:NoticeMessage}">
+                    <Grid Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="#FFFFFF" CornerRadius="{TemplateBinding CornerRadius}" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="12" Opacity="0.3" ShadowDepth="0" Color="Brown" />
+                            </Border.Effect>
+                        </Border>
+
+                        <Border HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Background="{TemplateBinding Background}" Margin="0,-2,0,0"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                SnapsToDevicePixels="True" UseLayoutRounding="True">
+                            <StackPanel Margin="{TemplateBinding Padding}"
+                                        Background="{TemplateBinding Background}"
+                                        Orientation="Horizontal">
+                                <Path Width="{TemplateBinding IconWidth}"
+                                      Margin="0,2,10,0"
+                                      Stretch="Uniform">
+                                    <Path.Style>
+                                        <Style TargetType="Path">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding MessageTypeStr, RelativeSource={RelativeSource Mode=TemplatedParent}}" Value="Info">
+                                                    <Setter Property="Data" Value="{StaticResource InfoIcon}" />
+                                                    <Setter Property="Fill" Value="#FFFFFF" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MessageTypeStr, RelativeSource={RelativeSource Mode=TemplatedParent}}" Value="Warn">
+                                                    <Setter Property="Data" Value="{StaticResource WarnIcon}" />
+                                                    <Setter Property="Fill" Value="#EFBA48" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MessageTypeStr, RelativeSource={RelativeSource Mode=TemplatedParent}}" Value="Error">
+                                                    <Setter Property="Data" Value="{StaticResource ErrorIcon}" />
+                                                    <Setter Property="Fill" Value="#E46363" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MessageTypeStr, RelativeSource={RelativeSource Mode=TemplatedParent}}" Value="Success">
+                                                    <Setter Property="Data" Value="{StaticResource SelectedIcon}" />
+                                                    <Setter Property="Fill" Value="#61B891" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Path.Style>
+                                </Path>
+
+                                <TextBlock Grid.Column="1" VerticalAlignment="Center"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           Text="{TemplateBinding Content}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

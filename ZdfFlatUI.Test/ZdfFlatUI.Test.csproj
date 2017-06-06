@@ -52,6 +52,24 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpf.Core.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -122,6 +140,9 @@
     <Compile Include="UITest\ChangeTheme\UCTChangeTheme.xaml.cs">
       <DependentUpon>UCTChangeTheme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTAccordion.xaml.cs">
+      <DependentUpon>UCTAccordion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTBadgeTest.xaml.cs">
       <DependentUpon>UCTBadgeTest.xaml</DependentUpon>
     </Compile>
@@ -170,6 +191,9 @@
     <Compile Include="UITest\UCTMultiComboBoxTest.xaml.cs">
       <DependentUpon>UCTMultiComboBoxTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTMusicAndVideo.xaml.cs">
+      <DependentUpon>UCTMusicAndVideo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTNavigateMenuTest.xaml.cs">
       <DependentUpon>UCTNavigateMenuTest.xaml</DependentUpon>
     </Compile>
@@ -203,6 +227,9 @@
     <Compile Include="UITest\UCTStepBarTest.xaml.cs">
       <DependentUpon>UCTStepBarTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTSwitchMenu.xaml.cs">
+      <DependentUpon>UCTSwitchMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTTabControlTest.xaml.cs">
       <DependentUpon>UCTTabControlTest.xaml</DependentUpon>
     </Compile>
@@ -232,6 +259,9 @@
     </Compile>
     <Compile Include="UITest\UCTUploadTest.xaml.cs">
       <DependentUpon>UCTUploadTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTWaterfallPanel.xaml.cs">
+      <DependentUpon>UCTWaterfallPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\DialogHelper.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
@@ -278,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\ChangeTheme\UCTChangeTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTAccordion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -345,6 +379,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTMusicAndVideo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTNavigateMenuTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -389,6 +427,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTSwitchMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTTabControlTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,6 +468,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTUploadTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTWaterfallPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

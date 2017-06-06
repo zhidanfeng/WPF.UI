@@ -13,12 +13,11 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NumericUpDown/Themes/NumericUpDownStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TitleTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/Popup/NoticeMessageStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/ListBox/NavigationBarStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Popup/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/BaseWindowStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/ToggleButton/DefaultToggleButton.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/DefaultCheckBoxStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/RadionButton/DefaultRadionButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/RadionButton/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/FlatDatePickerStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/DateTimePickerStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/TimePickerStyle.xaml" />
@@ -70,5 +69,10 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TagControls/Themes/TagBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TagControls/Themes/TagInputBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Timeline/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/SwitchMenu/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Accordion/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ListView/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/MusicPlayer/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/VideoPlayer/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

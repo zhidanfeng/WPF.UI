@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Media;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -13,7 +14,33 @@ namespace ZdfFlatUI
 
         #endregion
 
-        #region 依赖属性定义
+        #region 依赖属性
+
+        #region DecreaseColor
+
+        public Brush DecreaseColor
+        {
+            get { return (Brush)GetValue(DecreaseColorProperty); }
+            set { SetValue(DecreaseColorProperty, value); }
+        }
+        
+        public static readonly DependencyProperty DecreaseColorProperty =
+            DependencyProperty.Register("DecreaseColor", typeof(Brush), typeof(FlatSilder));
+
+        #endregion
+
+        #region IncreaseColor
+
+        public Brush IncreaseColor
+        {
+            get { return (Brush)GetValue(IncreaseColorProperty); }
+            set { SetValue(IncreaseColorProperty, value); }
+        }
+        
+        public static readonly DependencyProperty IncreaseColorProperty =
+            DependencyProperty.Register("IncreaseColor", typeof(Brush), typeof(FlatSilder));
+
+        #endregion
 
         #endregion
 
@@ -22,10 +49,6 @@ namespace ZdfFlatUI
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FlatSilder), new FrameworkPropertyMetadata(typeof(FlatSilder)));
         }
-        #endregion
-
-        #region 依赖属性set get
-
         #endregion
 
         #region Override方法

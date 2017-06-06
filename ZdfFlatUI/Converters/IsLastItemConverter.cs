@@ -9,7 +9,7 @@ using System.Windows.Data;
 namespace ZdfFlatUI.Converters
 {
     /// <summary>
-    /// true则隐藏，false则显示
+    /// 判断是否为最后一项。true则隐藏，false则显示
     /// </summary>
     public class IsLastItemConverter : IMultiValueConverter
     {

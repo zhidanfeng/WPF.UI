@@ -9,6 +9,9 @@ using ZdfFlatUI.Utils;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 带三角形的气泡边框
+    /// </summary>
     public class AngleBorder : Decorator
     {
         #region 依赖属性

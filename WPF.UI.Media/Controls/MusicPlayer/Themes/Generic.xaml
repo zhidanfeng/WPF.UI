@@ -1,0 +1,135 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:WPF.UI.Media="clr-namespace:WPF.UI.Media"
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI;assembly=WPF.UI">
+
+    <!--播放图标-->
+    <PathGeometry x:Key="Play" Figures="M152.717705 79.504752c0-5.52483 2.912329-10.876722 8.035-13.735839 5.193279-2.877537 11.263531-2.508123 15.893992 0.420579l687.300538 432.489108c4.38589 2.789533 7.333012 7.700379 7.333012 13.31526 0 5.631254-2.947122 10.543124-7.333012 13.332656L176.646698 957.813578c-4.630461 2.929726-10.700713 3.28072-15.893992 0.438998-5.122671-2.859118-8.035-8.227382-8.035-13.770632L152.717705 79.504752 152.717705 79.504752z" />
+    <!--暂停图标-->
+    <GeometryGroup x:Key="Pause">
+        <PathGeometry Figures="M647.953392 110.1057l123.517151 0 0 752.718457-123.517151 0 0-752.718457Z" />
+        <PathGeometry Figures="M252.529457 110.1057l123.517151 0 0 752.718457-123.517151 0 0-752.718457Z" />
+    </GeometryGroup>
+    <!--音量图标-->
+    <GeometryGroup x:Key="Volume">
+        <PathGeometry Figures="M563.575144 812.643268c0 78.743412-60.430324 38.455847-60.430324 38.455847l-261.258259-219.748866-40.287565 0c-25.027 0-45.170782-20.753673-45.170782-46.391587l0-184.344518c0-25.63689 20.143783-45.779649 45.170782-45.779649l48.223305 0 253.322519-215.47554c0 0 60.430324-40.898479 60.430324 38.455847L563.575144 812.643268 563.575144 812.643268z" />
+        <PathGeometry Figures="M663.67291 627.021663c-8.513908 0-16.984836-3.51915-23.052019-10.412141-11.20418-12.725836-9.971096-32.124651 2.752694-43.327808 22.735817-20.018939 35.774785-48.607044 35.774785-78.435397 0-29.597085-12.869099-58.033741-35.30918-78.017888-12.661368-11.276834-13.784958-30.680766-2.508123-43.342134s30.68179-13.783934 43.342134-2.508123c35.507702 31.623231 55.873542 76.771501 55.873542 123.869169 0 47.461965-20.629853 92.846618-56.599066 124.516922C678.115853 624.499214 670.878009 627.021663 663.67291 627.021663z" />
+        <PathGeometry Figures="M686.502871 746.240929c-12.114922 0-23.594371-7.219425-28.443819-19.130709-6.393617-15.703657 1.153266-33.616632 16.856923-40.009226 79.480192-32.358989 130.835837-107.639532 130.835837-191.783954 0-84.557838-51.702546-159.977551-131.719974-192.142112-15.731286-6.323009-23.357987-24.201192-17.033955-39.932478s24.201192-23.356964 39.932478-17.033955c49.671283 19.965727 92.00853 53.583382 122.434493 97.221252 31.260981 44.833091 47.784306 97.355305 47.784306 151.888316 0 54.320163-16.404622 106.671485-47.441499 151.395082-30.201859 43.521213-72.263837 77.152171-121.640408 97.253998C694.277952 745.510288 690.357666 746.240929 686.502871 746.240929z" />
+    </GeometryGroup>
+
+    <Style x:Key="PlayAndPauseButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Path x:Name="path" 
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Data="{StaticResource Play}"
+                              Fill="#566574"
+                              Stretch="Uniform" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource Pause}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="VolumeButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Path x:Name="path" 
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Data="{StaticResource Volume}"
+                              Fill="#566574"
+                              Stretch="Uniform" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="path" Property="Fill" Value="#44BFA3" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type WPF.UI.Media:MusicPlayer}">
+        <Setter Property="Background" Value="#FFFFFF" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type WPF.UI.Media:MusicPlayer}">
+                    <Border Background="{TemplateBinding Background}"
+						    BorderBrush="{TemplateBinding BorderBrush}"
+                            Padding="{TemplateBinding Padding}"
+                            CornerRadius="3"
+						    BorderThickness="{TemplateBinding BorderThickness}"
+						    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+						    UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <ToggleButton Grid.Column="0" Style="{StaticResource PlayAndPauseButtonStyle}"
+                                          Width="20" Height="20"/>
+                            <TextBlock Text="0:26" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"
+                                       Foreground="#55606E"/>
+                            <ZUI:FlatSilder Grid.Column="2" VerticalAlignment="Center" />
+                            <TextBlock Text="1:33" Grid.Column="3" Margin="10,0" VerticalAlignment="Center"
+                                       Foreground="#55606E"/>
+                            <ToggleButton Grid.Column="4" Style="{StaticResource VolumeButtonStyle}"
+                                          Width="20" Height="20"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

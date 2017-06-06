@@ -254,6 +254,26 @@ namespace ZdfFlatUI.Test
                 Name = "Timeline时间轴",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Waterfall瀑布流",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "SwitchMenu菜单",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Accordion手风琴",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "音视频播放器",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -391,6 +411,18 @@ namespace ZdfFlatUI.Test
                         break;
                     case "Timeline时间轴":
                         this.ControlPanel.Content = new UITest.UCTTimeline();
+                        break;
+                    case "Waterfall瀑布流":
+                        this.ControlPanel.Content = new UITest.UCTWaterfallPanel();
+                        break;
+                    case "SwitchMenu菜单":
+                        this.ControlPanel.Content = new UITest.UCTSwitchMenu();
+                        break;
+                    case "Accordion手风琴":
+                        this.ControlPanel.Content = new UITest.UCTAccordion();
+                        break;
+                    case "音视频播放器":
+                        this.ControlPanel.Content = new UITest.UCTMusicAndVideo();
                         break;
                         #endregion
                 }

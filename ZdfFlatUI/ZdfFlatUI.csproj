@@ -58,7 +58,31 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bass.Net">
+      <HintPath>DLL\MusicPlayer\Bass.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DoubanFM.Bass">
+      <HintPath>DLL\MusicPlayer\DoubanFM.Bass.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Controls, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\Microsoft.Expression.Controls.dll</HintPath>
@@ -95,6 +119,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFSoundVisualizationLib">
+      <HintPath>DLL\MusicPlayer\WPFSoundVisualizationLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseControl\IUIElement.cs" />
@@ -114,6 +141,8 @@
     <Compile Include="ExtensionFunc\ItemsControlExtensions.cs" />
     <Compile Include="ExtensionFunc\PopupHelper.cs" />
     <Compile Include="ExtensionFunc\ScrollViewerBehavior.cs" />
+    <Compile Include="MyControls\Accordion\Implementation\Accordion.cs" />
+    <Compile Include="MyControls\Accordion\Implementation\AccordionItem.cs" />
     <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
     <Compile Include="MyControls\Badge\Implementation\BadgeAdorner.cs" />
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
@@ -138,6 +167,12 @@
     <Compile Include="MyControls\FloatingActionControls\Implementation\FloatingActionButton.cs" />
     <Compile Include="MyControls\FloatingActionControls\Implementation\FloatingActionMenu.cs" />
     <Compile Include="MyControls\Icon\Implementation\Icon.cs" />
+    <Compile Include="MyControls\ListView\Implementation\FlatListView.cs" />
+    <Compile Include="MyControls\ListView\Implementation\GridLineDecorator.cs" />
+    <Compile Include="MyControls\ListView\Implementation\GridViewColumnHelper.cs" />
+    <Compile Include="MyControls\ListView\Implementation\VisualService.cs" />
+    <Compile Include="MyControls\MusicPlayer\Implementation\MusicPlayer.cs" />
+    <Compile Include="MyControls\Panel\Implementation\WaterfallPanel.cs" />
     <Compile Include="MyControls\RatingBar\Implementation\RatingBar.cs" />
     <Compile Include="MyControls\RatingBar\Implementation\RatingBarButton.cs" />
     <Compile Include="MyControls\SplitButton\Implementation\SplitButton.cs" />
@@ -155,15 +190,13 @@
     <Compile Include="MyControls\DateControl\DateTimePicker.cs" />
     <Compile Include="MyControls\DateControl\FlatDatePicker.cs" />
     <Compile Include="MyControls\DateControl\TimePicker.cs" />
-    <Compile Include="MyControls\ListBox\NavigationBar.cs" />
+    <Compile Include="MyControls\NavigationBar\Implementation\NavigationBar.cs" />
     <Compile Include="MyControls\ListControl\FlatTreeView.cs" />
-    <Compile Include="MyControls\NavigateMenu\Implementation\bak\NavigateMenu - 复制.cs" />
-    <Compile Include="MyControls\NavigateMenu\Implementation\bak\NavigateMenuItem - 复制.cs" />
     <Compile Include="MyControls\NavigateMenu\Implementation\NavigateMenuItem.cs" />
     <Compile Include="MyControls\NavigateMenu\Implementation\NavigateMenu.cs" />
     <Compile Include="MyControls\Notice\Implementation\Notice.cs" />
     <Compile Include="MyControls\Notice\Implementation\NoticeItem.cs" />
-    <Compile Include="MyControls\Popup\NoticeMessage.cs" />
+    <Compile Include="MyControls\Popup\Implementation\NoticeMessage.cs" />
     <Compile Include="Converters\InverseBooleanVisibilityConverter.cs" />
     <Compile Include="Converters\InverseVisibilityConverter.cs" />
     <Compile Include="Converters\ValueIsZeroConverter.cs" />
@@ -182,7 +215,7 @@
     <Compile Include="MyControls\ProgressBar\Implementation\CircleProgressBar.cs" />
     <Compile Include="MyControls\ProgressBar\Implementation\FlatProgressBar.cs" />
     <Compile Include="MyControls\ProgressBar\Implementation\WaveProgressBar.cs" />
-    <Compile Include="MyControls\RadionButton\FlatRadionButton.cs" />
+    <Compile Include="MyControls\RadionButton\Implementation\FlatRadionButton.cs" />
     <Compile Include="MyControls\ScrollViewer\Implementation\ZScrollViewer.cs" />
     <Compile Include="MyControls\Slider\Implementation\FlatSilder.cs" />
     <Compile Include="MyControls\NumericUpDown\Implementation\DoubleUpDown.cs" />
@@ -190,16 +223,17 @@
     <Compile Include="MyControls\SlideSwitch\Implementation\SlideSwitchPanel.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="MyControls\StepBar\Implementation\StepBarItem.cs" />
+    <Compile Include="MyControls\SwitchMenu\Implementation\SwitchMenu.cs" />
     <Compile Include="MyControls\TabControl\Implementation\ZTabControl.cs" />
     <Compile Include="MyControls\TagControls\Implementation\Tag.cs" />
     <Compile Include="MyControls\TagControls\Implementation\TagBox.cs" />
     <Compile Include="MyControls\TagControls\Implementation\TagInputBox.cs" />
-    <Compile Include="MyControls\TextBox\IconTextBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\IconTextBox.cs" />
     <Compile Include="MyControls\NumericUpDown\Implementation\IntegerUpDown.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZTextBox.cs" />
-    <Compile Include="MyControls\TextBox\TagTextBox.cs" />
-    <Compile Include="MyControls\TextBox\TitleTextBox.cs" />
-    <Compile Include="MyControls\TextBox\ValidateTextBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\TagTextBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\TitleTextBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\ValidateTextBox.cs" />
     <Compile Include="MyControls\Timeline\Implementation\Timeline.cs" />
     <Compile Include="MyControls\Timeline\Implementation\TimelineItem.cs" />
     <Compile Include="MyControls\TimePicker\Implementation\TimeButton.cs" />
@@ -229,6 +263,10 @@
     <Compile Include="Utils\PaletteHelper.cs" />
     <Compile Include="Utils\UIElementEx.cs" />
     <Compile Include="Utils\VisualHelper.cs" />
+    <Page Include="MyControls\Accordion\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Alert\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -294,6 +332,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\Icon\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ListView\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\MusicPlayer\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -397,6 +443,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\SwitchMenu\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\TabControl\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -462,6 +512,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MyControls\UserControls\Notifiaction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\VideoPlayer\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -545,7 +599,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\ListBox\NavigationBarStyle.xaml">
+    <Page Include="MyControls\NavigationBar\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -589,7 +643,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Popup\NoticeMessageStyle.xaml">
+    <Page Include="MyControls\Popup\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -597,7 +651,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\RadionButton\DefaultRadionButtonStyle.xaml">
+    <Page Include="MyControls\RadionButton\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -609,7 +663,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\ToggleButton\DefaultToggleButton.xaml">
+    <Page Include="MyControls\ToggleButton\Themes\DefaultToggleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -648,11 +702,10 @@
     <Folder Include="MyControls\ColorPicker\Themes\" />
     <Folder Include="MyControls\DataGrid\Implementation\" />
     <Folder Include="MyControls\DataGrid\Themes\" />
-    <Folder Include="MyControls\ListView\Implementation\" />
-    <Folder Include="MyControls\ListView\Themes\" />
     <Folder Include="MyControls\Page\" />
+    <Folder Include="MyControls\Panel\Themes\" />
     <Folder Include="MyControls\Validate\" />
-    <Folder Include="Themes\Window\" />
+    <Folder Include="MyControls\VideoPlayer\Implementation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLL\CalcBinding.dll" />
