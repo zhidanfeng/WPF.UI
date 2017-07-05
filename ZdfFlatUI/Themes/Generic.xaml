@@ -72,7 +72,11 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/SwitchMenu/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Accordion/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ListView/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/MyControls/MusicPlayer/Themes/Generic.xaml" />
+        <!--<ResourceDictionary Source="/WPF.UI;component/MyControls/MusicPlayer/Themes/Generic.xaml" />-->
         <ResourceDictionary Source="/WPF.UI;component/MyControls/VideoPlayer/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Heading/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ContentNavigation/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ComboTree/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Clock/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

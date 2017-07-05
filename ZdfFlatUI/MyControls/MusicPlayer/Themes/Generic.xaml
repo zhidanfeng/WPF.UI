@@ -16,6 +16,8 @@
     </GeometryGroup>
     <PathGeometry x:Key="PlayList" Figures="M859.802 224.951v75.78h-695.228v-75.78zM859.615 440.288v75.78h-695.228v-75.78zM657.38 655.711v75.78h-492.917v-75.78zM706.421 799.131l153.298-125.14-153.298-125.14z" />
 
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
     <Style x:Key="PlayAndPauseButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -124,16 +126,65 @@
         </Setter>
     </Style>
 
+    <Style x:Key="PlayListStyle" TargetType="ListBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <ZUI:ZScrollViewer>
+                        <ItemsPresenter />
+                    </ZUI:ZScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Padding" Value="5" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border x:Name="Root" Padding="{TemplateBinding Padding}"
+                                        Background="{TemplateBinding Background}">
+                                    <Grid Background="Transparent">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                        <TextBlock x:Name="SoundTotalLength" Grid.Column="1" Text="02:42" />
+                                        <ToggleButton x:Name="PART_PlayAndPauseButton" Grid.Column="1" Width="13" Height="13"
+                                                      Style="{StaticResource PlayAndPauseButtonStyle}"
+                                                      Visibility="Collapsed"
+                                                      HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="PART_PlayAndPauseButton" Property="Visibility" Value="Visible" />
+                                        <Setter TargetName="SoundTotalLength" Property="Visibility" Value="Collapsed" />
+                                        <Setter Property="Background" Value="AliceBlue" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type ZUI:MusicPlayer}">
         <Setter Property="Background" Value="#FFFFFF" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Padding" Value="15" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:MusicPlayer}">
@@ -153,21 +204,42 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
-                            <ToggleButton x:Name="PART_PlayAndPauseButton" Grid.Column="0" Width="20" Height="20"
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <ToggleButton x:Name="PART_PlayAndPauseButton" Grid.Column="0" Width="18" Height="18"
                                           IsChecked="{Binding IsPlayingInner, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                           Style="{StaticResource PlayAndPauseButtonStyle}" />
                             <TextBlock x:Name="PART_CurrentProgress" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"
                                        Foreground="#55606E"
                                        Text="{TemplateBinding CurrentProgress}" />
                             <ZUI:FlatSilder x:Name="PART_MusicProgress" Grid.Column="2" VerticalAlignment="Center"
-                                            DecreaseColor="#44BFA3" IncreaseColor="#D8D8D8" />
+                                            DecreaseColor="#44BFA3" IncreaseColor="#D8D8D8"
+                                            IsMoveToPointEnabled="True" />
                             <TextBlock x:Name="PART_MusicTotalLength" Grid.Column="3" Margin="10,0" VerticalAlignment="Center"
                                        Foreground="#55606E"
                                        Text="{TemplateBinding MusicTotalLength}" />
-                            <ToggleButton x:Name="PART_VolumeButton" Grid.Column="4" Width="20" Height="20"
+                            <ToggleButton x:Name="PART_VolumeButton" Grid.Column="4" Width="18" Height="18"
                                           Style="{StaticResource VolumeButtonStyle}" />
-                            <ToggleButton x:Name="PART_PlayListButton" Grid.Column="5" Width="21" Height="21"
+                            <ToggleButton x:Name="PART_PlayListButton" Grid.Column="5" Width="18" Height="18"
                                           Style="{StaticResource PlayListButtonStyle}" Margin="10,0,0,0" />
+
+                            <Popup AllowsTransparency="True"
+                                   StaysOpen="True"
+                                   Placement="Bottom"
+                                   MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                   PlacementTarget="{Binding ElementName=Root}"
+                                   IsOpen="{Binding IsChecked, ElementName=PART_PlayListButton, Mode=OneWay}">
+                                <ListBox Grid.Row="1" Grid.ColumnSpan="6" BorderThickness="0"
+                                         Style="{StaticResource PlayListStyle}">
+                                    <ListBoxItem>111111111</ListBoxItem>
+                                    <ListBoxItem>111111111</ListBoxItem>
+                                    <ListBoxItem>111111111</ListBoxItem>
+                                    <ListBoxItem>111111111</ListBoxItem>
+                                    <ListBoxItem>111111111</ListBoxItem>
+                                </ListBox>
+                            </Popup>
 
                             <Popup AllowsTransparency="True"
                                    StaysOpen="True"

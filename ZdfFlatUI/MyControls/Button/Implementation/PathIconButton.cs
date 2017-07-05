@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 只有图标的按钮（不显示按钮文本）
+    /// </summary>
     public class PathIconButton : Button
     {
         #region 依赖属性

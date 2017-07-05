@@ -27,7 +27,7 @@ namespace ZdfFlatUI
 
         #region 依赖属性set get
         /// <summary>
-        /// 鼠标按下时按钮的背景色
+        /// 获取或者设置角标中显示的数字
         /// </summary>
         public int Number
         {
@@ -35,6 +35,9 @@ namespace ZdfFlatUI
             set { SetValue(NumberProperty, value); }
         }
 
+        /// <summary>
+        /// 获取或者设置角标的样式是否显示成一个圆点
+        /// </summary>
         public bool IsDot
         {
             get { return (bool)GetValue(IsDotProperty); }

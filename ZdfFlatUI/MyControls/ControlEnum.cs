@@ -316,4 +316,16 @@ namespace ZdfFlatUI
         Stop,
     }
     #endregion
+
+    #region EnumHeadingType 标题类型
+    public enum EnumHeadingType
+    {
+        H1,
+        H2,
+        H3,
+        H4,
+        H5,
+        H6,
     }
+    #endregion
+}

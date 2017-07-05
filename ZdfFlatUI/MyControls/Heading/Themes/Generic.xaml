@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI">
+    <Style TargetType="{x:Type ZUI:Heading}">
+        <Setter Property="Foreground" Value="Black" />
+        <Style.Triggers>
+            <Trigger Property="HeaderType" Value="H1">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+            <Trigger Property="HeaderType" Value="H2">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+            <Trigger Property="HeaderType" Value="H3">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+            <Trigger Property="HeaderType" Value="H4">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+            <Trigger Property="HeaderType" Value="H5">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+            <Trigger Property="HeaderType" Value="H6">
+                <Setter Property="FontSize" Value="22" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

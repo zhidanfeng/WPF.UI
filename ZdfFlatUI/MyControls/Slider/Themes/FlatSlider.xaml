@@ -168,7 +168,7 @@
                                           Style="{StaticResource RepeatButtonTransparent}" />
                         </Track.IncreaseRepeatButton>
                         <Track.Thumb>
-                            <Thumb x:Name="Thumb" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False"
+                            <Thumb x:Name="PART_Thumb" HorizontalAlignment="Left" VerticalAlignment="Center" Focusable="False"
                                    OverridesDefaultStyle="True"
                                    Template="{StaticResource SliderThumbHorizontalDefault}" />
                         </Track.Thumb>
@@ -182,12 +182,12 @@
         <ControlTemplate.Triggers>
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter TargetName="TopTick" Property="Visibility" Value="Visible" />
-                <Setter TargetName="Thumb" Property="Template" Value="{StaticResource SliderThumbHorizontalTop}" />
+                <Setter TargetName="PART_Thumb" Property="Template" Value="{StaticResource SliderThumbHorizontalTop}" />
                 <Setter TargetName="TrackBackground" Property="Margin" Value="5,2,5,0" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="BottomRight">
                 <Setter TargetName="BottomTick" Property="Visibility" Value="Visible" />
-                <Setter TargetName="Thumb" Property="Template" Value="{StaticResource SliderThumbHorizontalBottom}" />
+                <Setter TargetName="PART_Thumb" Property="Template" Value="{StaticResource SliderThumbHorizontalBottom}" />
                 <Setter TargetName="TrackBackground" Property="Margin" Value="5,0,5,2" />
             </Trigger>
             <Trigger Property="TickPlacement" Value="Both">
@@ -198,7 +198,7 @@
                 <Setter TargetName="PART_SelectionRange" Property="Visibility" Value="Visible" />
             </Trigger>
             <Trigger Property="IsKeyboardFocused" Value="true">
-                <Setter TargetName="Thumb" Property="Foreground" Value="Blue" />
+                <Setter TargetName="PART_Thumb" Property="Foreground" Value="Blue" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -348,6 +348,7 @@
         <Setter Property="Foreground" Value="{StaticResource SliderThumb.Static.Foreground}" />
         <Setter Property="DecreaseColor" Value="#5CADFF" />
         <Setter Property="IncreaseColor" Value="#E3E8EE" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template" Value="{StaticResource SliderHorizontal}" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">

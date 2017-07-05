@@ -135,7 +135,7 @@
                                               Focusable="False" Visibility="Visible">
                                 <ContentPresenter.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform />
+                                        <ScaleTransform ScaleY="0" />
                                         <SkewTransform />
                                         <RotateTransform />
                                         <TranslateTransform />
@@ -171,9 +171,9 @@
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <!--<EventTrigger RoutedEvent="FrameworkElement.Loaded">
                             <BeginStoryboard Storyboard="{StaticResource Storyboard_Collapsed}" />
-                        </EventTrigger>
+                        </EventTrigger>-->
                         <EventTrigger RoutedEvent="Expander.Expanded">
                             <BeginStoryboard x:Name="STShow_BeginStoryboard"
                                              Storyboard="{StaticResource Storyboard_Expanded}" />

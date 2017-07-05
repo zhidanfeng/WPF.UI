@@ -136,11 +136,13 @@
     <Compile Include="Converters\NumberConverter.cs" />
     <Compile Include="Converters\OffsetConverter.cs" />
     <Compile Include="Converters\StringIsEmptyConverter.cs" />
+    <Compile Include="Converters\TreeViewItemIndentConverter.cs" />
     <Compile Include="Converters\WordAngleConverter.cs" />
     <Compile Include="Converters\HourConvert.cs" />
     <Compile Include="ExtensionFunc\ItemsControlExtensions.cs" />
     <Compile Include="ExtensionFunc\PopupHelper.cs" />
     <Compile Include="ExtensionFunc\ScrollViewerBehavior.cs" />
+    <Compile Include="ExtensionFunc\TreeViewExtension.cs" />
     <Compile Include="MyControls\Accordion\Implementation\Accordion.cs" />
     <Compile Include="MyControls\Accordion\Implementation\AccordionItem.cs" />
     <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
@@ -148,7 +150,11 @@
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
-    <Compile Include="MyControls\Button\Implementation\ZToggleButton.cs" />
+    <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
+    <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
+    <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\SearchBox.cs" />
+    <Compile Include="MyControls\ToggleButton\Implementation\ZToggleButton.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderItem.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderListBox.cs" />
     <Compile Include="MyControls\ColorSelector\Implementation\ColorItem.cs" />
@@ -245,10 +251,12 @@
     <Compile Include="MyControls\ToolTip\Implementation\FlatToolTip.cs" />
     <Compile Include="MyControls\ToolTip\Implementation\ZToolTip.cs" />
     <Compile Include="MyControls\Tree\Implementation\ZTreeView.cs" />
+    <Compile Include="MyControls\Tree\Implementation\ZTreeViewItem.cs" />
     <Compile Include="MyControls\Upload\Implementation\Upload.cs" />
     <Compile Include="MyControls\UserControls\Notifiaction.xaml.cs">
       <DependentUpon>Notifiaction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyControls\VideoPlayer\Implementation\VideoPlayer.cs" />
     <Compile Include="MyControls\Window\Implementation\AutoCloseWindow.cs" />
     <Compile Include="MyControls\Window\Implementation\BaseWindow.cs" />
     <Compile Include="StyleSelectors\RatingBarStyleSelector.cs" />
@@ -283,6 +291,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\Clock\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\ColorSelector\Themes\ColorItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -296,6 +308,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MyControls\ComboTree\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ContentNavigation\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,6 +344,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\FloatingActionControls\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\Heading\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -705,7 +725,6 @@
     <Folder Include="MyControls\Page\" />
     <Folder Include="MyControls\Panel\Themes\" />
     <Folder Include="MyControls\Validate\" />
-    <Folder Include="MyControls\VideoPlayer\Implementation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLL\CalcBinding.dll" />

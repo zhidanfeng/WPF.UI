@@ -274,6 +274,21 @@ namespace ZdfFlatUI.Test
                 Name = "音视频播放器",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "内容导航",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "ComboTree下拉树",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Clock时钟",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -423,6 +438,15 @@ namespace ZdfFlatUI.Test
                         break;
                     case "音视频播放器":
                         this.ControlPanel.Content = new UITest.UCTMusicAndVideo();
+                        break;
+                    case "内容导航":
+                        this.ControlPanel.Content = new UITest.UCTContentNavigation();
+                        break;
+                    case "ComboTree下拉树":
+                        this.ControlPanel.Content = new UITest.UCTComboTree();
+                        break;
+                    case "Clock时钟":
+                        this.ControlPanel.Content = new UITest.UCTClock();
                         break;
                         #endregion
                 }

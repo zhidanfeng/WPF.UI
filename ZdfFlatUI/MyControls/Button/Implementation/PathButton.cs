@@ -9,6 +9,9 @@ using System.Windows.Media;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 可以显示图标的按钮
+    /// </summary>
     public class PathButton : Button
     {
         #region 依赖属性

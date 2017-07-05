@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ZUI="clr-namespace:ZdfFlatUI"
+                    xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+                    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing">
+    <Style TargetType="{x:Type ZUI:Clock}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:Clock}">
+                    <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Grid>
+                            <ed:Arc x:Name="PART_IncreaseCircle" ArcThickness="3" ArcThicknessUnit="Pixel" Fill="#424658"
+                                    StartAngle="0"
+                                    EndAngle="360"
+                                    Stretch="None" />
+                            <!--  短刻度  -->
+                            <ec:PathListBox x:Name="ShoartTick" IsHitTestVisible="False"
+                                            ItemsSource="{TemplateBinding ShortTicks}">
+                                <ec:PathListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="1" Height="7" Background="#3B4053" SnapsToDevicePixels="True"
+                                                UseLayoutRounding="True" />
+                                    </DataTemplate>
+                                </ec:PathListBox.ItemTemplate>
+                                <ec:PathListBox.LayoutPaths>
+                                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                                   SourceElement="{Binding ElementName=ShortTickPath}" />
+                                </ec:PathListBox.LayoutPaths>
+                            </ec:PathListBox>
+
+                            <!--  长刻度  -->
+                            <ec:PathListBox x:Name="LongTick" IsHitTestVisible="False"
+                                            ItemsSource="{TemplateBinding LongTicks}">
+                                <ec:PathListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="3" Height="3" Background="White" SnapsToDevicePixels="True"
+                                                UseLayoutRounding="True" CornerRadius="100" />
+                                    </DataTemplate>
+                                </ec:PathListBox.ItemTemplate>
+                                <ec:PathListBox.LayoutPaths>
+                                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                                   SourceElement="{Binding ElementName=LongTickPath}" />
+                                </ec:PathListBox.LayoutPaths>
+                            </ec:PathListBox>
+
+                            <!--  刻度上显示的数字  -->
+                            <ec:PathListBox x:Name="Number" IsHitTestVisible="False"
+                                            ItemsSource="{TemplateBinding NumberList}">
+                                <ec:PathListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Item1}" Foreground="White" RenderTransformOrigin="0.5, 0.5">
+                                            <TextBlock.RenderTransform>
+                                                <RotateTransform Angle="{Binding Item2}" />
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </ec:PathListBox.ItemTemplate>
+                                <ec:PathListBox.LayoutPaths>
+                                    <ec:LayoutPath Distribution="Even" Orientation="OrientToPath"
+                                                   SourceElement="{Binding ElementName=NumberPath}" />
+                                </ec:PathListBox.LayoutPaths>
+                            </ec:PathListBox>
+
+                            <ed:Arc x:Name="LongTickPath" Margin="2" ArcThickness="0" ArcThicknessUnit="Pixel"
+                                    EndAngle="0"
+                                    StartAngle="30"
+                                    Stretch="None" />
+
+                            <ed:Arc x:Name="ShortTickPath" Margin="5" ArcThickness="0" ArcThicknessUnit="Pixel"
+                                    EndAngle="360"
+                                    StartAngle="0"
+                                    Stretch="None" />
+
+                            <ed:Arc x:Name="NumberPath" Margin="20" ArcThickness="0" ArcThicknessUnit="Pixel"
+                                    EndAngle="0"
+                                    StartAngle="30"
+                                    Stretch="None" />
+
+                            <ed:Arc x:Name="PART_SecondCircle" ArcThickness="3" ArcThicknessUnit="Pixel" Fill="#FFF"
+                                    StartAngle="0"
+                                    Stretch="None" />
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

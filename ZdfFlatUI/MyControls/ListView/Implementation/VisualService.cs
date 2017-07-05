@@ -18,6 +18,11 @@ namespace ZdfFlatUI
         public static T GetAncestor<T>(this DependencyObject target)
             where T : DependencyObject
         {            
+            if(target == null)
+            {
+                return null;
+            }
+
             var parent = VisualTreeHelper.GetParent(target);
             if (parent is T)
                 return (T)parent;

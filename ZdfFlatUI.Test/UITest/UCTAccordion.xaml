@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UniformGrid Columns="1">
-        <WPF.UI:Accordion Width="200" HorizontalAlignment="Center">
+        <WPF.UI:Accordion Width="200" HorizontalAlignment="Center" SelectedIndex="1">
             <WPF.UI:AccordionItem Header="AccordionItem1">
                 <WPF.UI:AccordionItem.Content>
                     <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut." 

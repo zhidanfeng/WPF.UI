@@ -161,8 +161,17 @@
     <Compile Include="UITest\UCTCheckBoxTest.xaml.cs">
       <DependentUpon>UCTCheckBoxTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTClock.xaml.cs">
+      <DependentUpon>UCTClock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTColorSelectorTest.xaml.cs">
       <DependentUpon>UCTColorSelectorTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTComboTree.xaml.cs">
+      <DependentUpon>UCTComboTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTContentNavigation.xaml.cs">
+      <DependentUpon>UCTContentNavigation.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTDashboardTest.xaml.cs">
       <DependentUpon>UCTDashboardTest.xaml</DependentUpon>
@@ -339,7 +348,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTColorSelectorTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTComboTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTContentNavigation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

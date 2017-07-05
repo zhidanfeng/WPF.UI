@@ -22,6 +22,9 @@ namespace ZdfFlatUI.Test.UITest
         public UCTMusicAndVideo()
         {
             InitializeComponent();
+
+            string musicPath = @"D:\私人文件夹\Music\林俊杰 - 巴洛克先生 (feat.王力宏 小提琴特别演奏).mp3";
+            //this.musicPlayer.SoundSource = musicPath;
         }
     }
 }

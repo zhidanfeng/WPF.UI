@@ -38,6 +38,21 @@ namespace ZdfFlatUI
         #endregion
 
         #region Override方法
+
+        //protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
+        //{
+        //    base.PrepareContainerForItemOverride(element, item);
+
+        //    ZTreeViewItem treeViewItem = element as ZTreeViewItem;
+
+        //    treeViewItem.TreeNodeType = EnumTreeNodeType.RootNode;
+        //}
+
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new ZTreeViewItem();
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

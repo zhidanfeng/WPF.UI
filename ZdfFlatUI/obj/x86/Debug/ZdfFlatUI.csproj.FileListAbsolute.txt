@@ -155,3 +155,4 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\x86\Debug\ZdfFlatU
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\x86\Debug\ZdfFlatUI.csproj.GenerateResource.Cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\x86\Debug\WPF.UI.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\x86\Debug\WPF.UI.pdb
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\x86\Debug\ZdfFlatUI.csprojResolveAssemblyReference.cache

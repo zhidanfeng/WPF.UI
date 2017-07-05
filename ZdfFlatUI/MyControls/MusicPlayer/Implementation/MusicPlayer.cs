@@ -1,11 +1,13 @@
 ﻿using DoubanFM.Bass;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Threading;
 
 namespace ZdfFlatUI
@@ -18,18 +20,81 @@ namespace ZdfFlatUI
         #region private fields
         private BassEngine bassPlayer = null;
         private DispatcherTimer timer = new DispatcherTimer();
-        private Enum playState = EnumPlayState.Stop;
         #endregion
 
         #region Control Part
         private ToggleButton PART_PlayAndPauseButton;
         private ToggleButton PART_VolumeButton;
-        private Slider PART_MusicProgress;
+        private FlatSilder PART_MusicProgress;
         private TextBlock PART_CurrentProgress;
         private TextBlock PART_MusicTotalLength;
         #endregion
 
         #region DependencyProperty
+
+        #region IsAutoPlay
+
+        /// <summary>
+        /// 获取或者设置是否自动播放音频文件
+        /// </summary>
+        public bool IsAutoPlay
+        {
+            get { return (bool)GetValue(IsAutoPlayProperty); }
+            set { SetValue(IsAutoPlayProperty, value); }
+        }
+        
+        public static readonly DependencyProperty IsAutoPlayProperty =
+            DependencyProperty.Register("IsAutoPlay", typeof(bool), typeof(MusicPlayer), new PropertyMetadata(true));
+
+        #endregion
+
+        #region SoundSource
+
+        /// <summary>
+        /// 获取或者设置音频文件路径
+        /// </summary>
+        public string SoundSource
+        {
+            get { return (string)GetValue(SoundSourceProperty); }
+            set { SetValue(SoundSourceProperty, value); }
+        }
+        
+        public static readonly DependencyProperty SoundSourceProperty =
+            DependencyProperty.Register("SoundSource", typeof(string), typeof(MusicPlayer), new PropertyMetadata(string.Empty));
+
+        #endregion
+
+        #region CurrentProgress
+
+        /// <summary>
+        /// 获取或者设置当前音频的播放进度
+        /// </summary>
+        public string CurrentProgress
+        {
+            get { return (string)GetValue(CurrentProgressProperty); }
+            set { SetValue(CurrentProgressProperty, value); }
+        }
+
+        public static readonly DependencyProperty CurrentProgressProperty =
+            DependencyProperty.Register("CurrentProgress", typeof(string), typeof(MusicPlayer));
+
+        #endregion
+
+        #region PlayState
+
+        /// <summary>
+        /// 获取或者设置播放器的播放状态
+        /// </summary>
+        public EnumPlayState PlayState
+        {
+            get { return (EnumPlayState)GetValue(PlayStateProperty); }
+            set { SetValue(PlayStateProperty, value); }
+        }
+        
+        public static readonly DependencyProperty PlayStateProperty =
+            DependencyProperty.Register("PlayState", typeof(EnumPlayState), typeof(MusicPlayer), new PropertyMetadata(EnumPlayState.Stop));
+
+        #endregion
 
         #endregion
 
@@ -38,45 +103,32 @@ namespace ZdfFlatUI
         #region MusicTotalLength
 
         /// <summary>
-        /// 音频文件时长
+        /// 获取或者设置音频文件时长
         /// </summary>
         public string MusicTotalLength
         {
             get { return (string)GetValue(MusicTotalLengthProperty); }
             private set { SetValue(MusicTotalLengthProperty, value); }
         }
-        
+
         public static readonly DependencyProperty MusicTotalLengthProperty =
             DependencyProperty.Register("MusicTotalLength", typeof(string), typeof(MusicPlayer));
 
         private static object CoreceMusicTotalLength(DependencyObject d, object baseValue)
         {
             DateTime dt = DateTime.MinValue;
-            if(DateTime.TryParse(Convert.ToString(baseValue), out dt))
+            if (DateTime.TryParse(Convert.ToString(baseValue), out dt))
             {
                 return dt.ToString("HH:mm:ss");
             }
-            
+
             return null;
         }
 
         private static void MusicTotalLengthChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            
+
         }
-
-        #endregion
-
-        #region CurrentProgress
-
-        public string CurrentProgress
-        {
-            get { return (string)GetValue(CurrentProgressProperty); }
-            set { SetValue(CurrentProgressProperty, value); }
-        }
-        
-        public static readonly DependencyProperty CurrentProgressProperty =
-            DependencyProperty.Register("CurrentProgress", typeof(string), typeof(MusicPlayer));
 
         #endregion
 
@@ -88,7 +140,7 @@ namespace ZdfFlatUI
         public bool IsPlayingInner
         {
             get { return (bool)GetValue(IsPlayingInnerProperty); }
-            set { SetValue(IsPlayingInnerProperty, value); }
+            private set { SetValue(IsPlayingInnerProperty, value); }
         }
         
         public static readonly DependencyProperty IsPlayingInnerProperty =
@@ -97,16 +149,30 @@ namespace ZdfFlatUI
         private static void IsPlayInnerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             MusicPlayer musicPlayer = d as MusicPlayer;
-            if(bool.Parse(e.NewValue.ToString()))
+            bool newValue = bool.Parse(e.NewValue.ToString());
+            if (newValue)
             {
-                musicPlayer.bassPlayer.Play();
-                musicPlayer.playState = EnumPlayState.Play;
+                if(musicPlayer.PlayState == EnumPlayState.Stop)
+                {
+                    musicPlayer.PlayMusic(musicPlayer.SoundSource);
+                }
+                else
+                {
+                    musicPlayer.bassPlayer.Play();
+                }
+                musicPlayer.PlayState = EnumPlayState.Play;
             }
             else
             {
                 musicPlayer.bassPlayer.Pause();
-                musicPlayer.playState = EnumPlayState.Pause;
+                if(musicPlayer.PlayState == EnumPlayState.Play)
+                {
+                    musicPlayer.PlayState = EnumPlayState.Pause;
+                }
             }
+
+            //继续或者停止更新音频播放进度条的进度和当前的播放时长
+            musicPlayer.timer.IsEnabled = newValue;
         }
 
         #endregion
@@ -118,6 +184,18 @@ namespace ZdfFlatUI
         static MusicPlayer()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(MusicPlayer), new FrameworkPropertyMetadata(typeof(MusicPlayer)));
+
+            string targetPath;
+            if (Un4seen.Bass.Utils.Is64Bit)
+            {
+                targetPath = Path.Combine(Path.GetDirectoryName(typeof(BassEngine).Assembly.GetModules()[0].FullyQualifiedName), "x64");
+            }
+            else
+            {
+                targetPath = Path.Combine(Path.GetDirectoryName(typeof(BassEngine).Assembly.GetModules()[0].FullyQualifiedName), "x86");
+            }
+            Un4seen.Bass.Bass.LoadMe(targetPath);
+            DoubanFM.Bass.BassEngine.ExplicitInitialize(null);
         }
 
         #endregion
@@ -130,18 +208,18 @@ namespace ZdfFlatUI
 
             this.Loaded += MusicPlayer_Loaded;
 
-            this.PART_MusicProgress = this.GetTemplateChild("PART_MusicProgress") as Slider;
+            this.PART_MusicProgress = this.GetTemplateChild("PART_MusicProgress") as FlatSilder;
+            this.PART_CurrentProgress = this.GetTemplateChild("PART_CurrentProgress") as TextBlock;
+
+            if (this.PART_MusicProgress != null)
+            {
+                this.PART_MusicProgress.DropValueChanged += PART_MusicProgress_DropValueChanged;
+            }
         }
 
-        private void MusicPlayer_Loaded(object sender, RoutedEventArgs e)
+        private void PART_MusicProgress_DropValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            this.InitPlayer();
-
-            if(this.PART_MusicProgress != null)
-            {
-                this.PART_MusicProgress.Maximum = bassPlayer.ChannelLength.TotalSeconds;
-                this.PART_MusicProgress.Minimum = 0d;
-            }
+            this.bassPlayer.ChannelPosition = TimeSpan.FromSeconds(e.NewValue);
         }
         #endregion
 
@@ -152,29 +230,34 @@ namespace ZdfFlatUI
         /// </summary>
         private void InitPlayer()
         {
-            //if (Un4seen.Bass.Utils.Is64Bit)
-            //    targetPath = Path.Combine(Path.GetDirectoryName(typeof(BassEngine).Assembly.GetModules()[0].FullyQualifiedName), "x64");
-            //else
-            //    targetPath = Path.Combine(Path.GetDirectoryName(typeof(BassEngine).Assembly.GetModules()[0].FullyQualifiedName), "x86");
-
-            DoubanFM.Bass.BassEngine.ExplicitInitialize(null);
             bassPlayer = BassEngine.Instance;
             bassPlayer.Volume = 15 / 100.0;
-            this.PlayMusic(@"D:\私人文件夹\Music\林俊杰 - 巴洛克先生 (feat.王力宏 小提琴特别演奏).mp3");
 
             bassPlayer.TrackEnded += BassPlayer_TrackEnded;
-            bassPlayer.PropertyChanged += BassPlayer_PropertyChanged;
+            bassPlayer.OpenFailed += BassPlayer_OpenFailed;
 
-            timer.Interval = TimeSpan.FromMilliseconds(1000);
+            timer.Interval = new TimeSpan(1000000);
             timer.Tick += Timer_Tick;
 
-            bassPlayer.Play();
+            this.IsPlayingInner = this.IsAutoPlay;
+            this.LoadMusicFile(this.SoundSource);
+        }
 
-            this.Timer_Tick(null, null);
-            timer.Start();
+        private void BassPlayer_OpenFailed(object sender, EventArgs e)
+        {
+            
         }
 
         private void PlayMusic(string filePath)
+        {
+            this.LoadMusicFile(this.SoundSource);
+
+            bassPlayer.Play();
+            
+            timer.Start();
+        }
+
+        private void LoadMusicFile(string filePath)
         {
             bassPlayer.OpenFile(filePath);
 
@@ -189,7 +272,7 @@ namespace ZdfFlatUI
                 , bassPlayer.ChannelPosition.Milliseconds);
         }
 
-        private string GetFormatTime(int hour, int minute, int second, int Milliseconds)
+        private string GetFormatTime(int hour, int minute, int second, int Milliseconds, bool isRound = false)
         {
             string hourInner = "00";
             string minuteInner = "00";
@@ -197,10 +280,6 @@ namespace ZdfFlatUI
             if(hour == 0)
             {
                 minuteInner = (minute < 10) ? "0" + minute : minute.ToString();
-                //if(Milliseconds > 500)
-                //{
-                //    second++;
-                //}
                 secondInner = (second < 10) ? "0" + second : second.ToString();
             }
             else
@@ -220,8 +299,11 @@ namespace ZdfFlatUI
         /// <param name="e"></param>
         private void BassPlayer_TrackEnded(object sender, EventArgs e)
         {
-            this.playState = EnumPlayState.Stop;
+            this.PlayState = EnumPlayState.Stop;
             this.timer.Stop();
+            this.IsPlayingInner = false;
+            this.PART_MusicProgress.Value = 0;
+            this.CurrentProgress = "00:00";
         }
 
         /// <summary>
@@ -234,18 +316,19 @@ namespace ZdfFlatUI
             this.CurrentProgress = this.GetFormatTime(bassPlayer.ChannelPosition.Hours
                 , bassPlayer.ChannelPosition.Minutes
                 , bassPlayer.ChannelPosition.Seconds
-                , bassPlayer.ChannelPosition.Milliseconds);
-            this.PART_MusicProgress.Value = this.bassPlayer.ChannelPosition.TotalSeconds;
+                , bassPlayer.ChannelPosition.Milliseconds, true);
 
-            System.Diagnostics.Debug.WriteLine(this.CurrentProgress + ", " + this.PART_MusicProgress.Value);
+            this.PART_MusicProgress.Value = this.bassPlayer.ChannelPosition.TotalSeconds;
         }
 
-
-        private void BassPlayer_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void MusicPlayer_Loaded(object sender, RoutedEventArgs e)
         {
-            if (e.PropertyName == "IsPlaying")
+            this.InitPlayer();
+
+            if (this.PART_MusicProgress != null)
             {
-                this.IsPlayingInner = bassPlayer.IsPlaying;
+                this.PART_MusicProgress.Maximum = Math.Max(1.0, bassPlayer.ChannelLength.TotalSeconds);
+                this.PART_MusicProgress.Minimum = 0d;
             }
         }
         #endregion

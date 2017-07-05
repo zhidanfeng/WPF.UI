@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
-             mc:Ignorable="d" Background="#81DAAD"
+             mc:Ignorable="d" Background="#0081DAAD"
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-        <WPF.UI:MusicPlayer VerticalAlignment="Center" Width="350" />
+        <!--<WPF.UI:MusicPlayer x:Name="musicPlayer" VerticalAlignment="Center" Width="350" IsAutoPlay="False"
+                            BorderBrush="#657180" BorderThickness="1"/>-->
+        <MediaElement ></MediaElement>
     </Grid>
 </UserControl>

@@ -24,7 +24,7 @@ namespace ZdfFlatUI
     }
 
     /// <summary>
-    /// 角标装饰器
+    /// 角标装饰器，用于给各类控件添加右上角角标显示
     /// </summary>
     public class BadgeAdorner : Adorner
     {

@@ -1,0 +1,145 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ZUI="clr-namespace:ZdfFlatUI">
+
+    <PathGeometry x:Key="Slider" Figures="M992 704l0-384 32 0 0 384-32 0zM704 704l0-384 32 0 0 384-32 0zM416 704l0-384 32 0 0 384-32 0zM1343.84 0l-1279.68 0c-35.392 0-64.16 28.672-64.16 64.064l0 895.872c0 35.616 28.736 64.064 64.16 64.064l1279.68 0c35.392 0 64.16-28.672 64.16-64.064l0-895.872c0-35.616-28.736-64.064-64.16-64.064l0 0z" />
+    <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Padding" Value="2,5" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="19" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Border Width="1" HorizontalAlignment="Center" Background="Black" />
+                        <Border x:Name="dot" Grid.Row="1" Width="5" Height="5"
+                                HorizontalAlignment="Center" Background="Black" CornerRadius="100" />
+                        <Path x:Name="slider" Width="12"
+                              Data="{StaticResource Slider}"
+                              Fill="#5795D4" Stretch="Uniform" Visibility="Collapsed" />
+                        <Border x:Name="Bd" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3" SnapsToDevicePixels="true" UseLayoutRounding="True">
+                            <ContentPresenter x:Name="PART_Header"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              ContentSource="Header"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <Border Grid.Row="2" Width="1" HorizontalAlignment="Center" Background="Black" />
+                        <ItemsPresenter x:Name="ItemsHost" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems" Value="false">
+                            <!--<Setter TargetName="Expander" Property="Visibility" Value="Hidden" />-->
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="#F5F5F5" />
+                            <Setter TargetName="dot" Property="Background" Value="#5795D4" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="dot" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="slider" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TreeViewStyle" TargetType="{x:Type TreeView}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <!--<Setter Property="ItemContainerStyle" Value="{StaticResource TreeViewItemStyle}" />-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeView}">
+                    <Border x:Name="Bd"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                        <ZUI:ZScrollViewer x:Name="_tv_scrollviewer_"
+                                           Padding="{TemplateBinding Padding}"
+                                           Background="{TemplateBinding Background}"
+                                           CanContentScroll="false" Focusable="false"
+                                           HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                           VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                            <ItemsPresenter />
+                        </ZUI:ZScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ZUI:ContentNavigation}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:ContentNavigation}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter />
+                        <TreeView Grid.Column="1" Style="{StaticResource TreeViewStyle}">
+                            <TreeViewItem Header="1 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                            <TreeViewItem Header="2 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                            <TreeViewItem Header="3 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                            <TreeViewItem Header="4 主要作品" Style="{StaticResource TreeViewItemStyle}">
+                                <TreeViewItem Header="4.1 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                                <TreeViewItem Header="4.2 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                                <TreeViewItem Header="4.3 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                                <TreeViewItem Header="4.4 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                                <TreeViewItem Header="4.5 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                                <TreeViewItem Header="4.6 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="5 社会活动" Style="{StaticResource TreeViewItemStyle}" />
+                            <TreeViewItem Header="6 早年经历" Style="{StaticResource TreeViewItemStyle}" />
+                        </TreeView>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
