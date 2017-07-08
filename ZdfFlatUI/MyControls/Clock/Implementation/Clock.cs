@@ -14,10 +14,8 @@ namespace ZdfFlatUI
     public class Clock : ContentControl
     {
         #region private fields
-
-        private Arc PART_SecondCircle;
+        
         private DispatcherTimer mSecondTimer;
-        private double OldAngle;
 
         #endregion
 
@@ -25,43 +23,40 @@ namespace ZdfFlatUI
 
         #region Hour
 
-        public int Hour
+        public string Hour
         {
-            get { return (int)GetValue(HourProperty); }
+            get { return (string)GetValue(HourProperty); }
             set { SetValue(HourProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Hour.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty HourProperty =
-            DependencyProperty.Register("Hour", typeof(int), typeof(Clock), new PropertyMetadata(0));
+            DependencyProperty.Register("Hour", typeof(string), typeof(Clock));
 
         #endregion
 
         #region Minute
 
-        public int Minute
+        public string Minute
         {
-            get { return (int)GetValue(MinuteProperty); }
+            get { return (string)GetValue(MinuteProperty); }
             set { SetValue(MinuteProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Minute.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty MinuteProperty =
-            DependencyProperty.Register("Minute", typeof(int), typeof(Clock), new PropertyMetadata(0));
+            DependencyProperty.Register("Minute", typeof(string), typeof(Clock));
 
         #endregion
 
         #region Second
 
-        public int Second
+        public string Second
         {
-            get { return (int)GetValue(SecondProperty); }
+            get { return (string)GetValue(SecondProperty); }
             set { SetValue(SecondProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Second.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty SecondProperty =
-            DependencyProperty.Register("Second", typeof(int), typeof(Clock), new PropertyMetadata(0));
+            DependencyProperty.Register("Second", typeof(string), typeof(Clock));
 
         #endregion
 
@@ -135,6 +130,45 @@ namespace ZdfFlatUI
         }
         #endregion
 
+        #region HourAngleInner
+
+        public double HourAngleInner
+        {
+            get { return (double)GetValue(HourAngleInnerProperty); }
+            private set { SetValue(HourAngleInnerProperty, value); }
+        }
+        
+        public static readonly DependencyProperty HourAngleInnerProperty =
+            DependencyProperty.Register("HourAngleInner", typeof(double), typeof(Clock), new PropertyMetadata(0d));
+
+        #endregion
+
+        #region MinuteAngleInner
+
+        public double MinuteAngleInner
+        {
+            get { return (double)GetValue(MinuteAngleInnerProperty); }
+            private set { SetValue(MinuteAngleInnerProperty, value); }
+        }
+        
+        public static readonly DependencyProperty MinuteAngleInnerProperty =
+            DependencyProperty.Register("MinuteAngleInner", typeof(double), typeof(Clock), new PropertyMetadata(0d));
+
+        #endregion
+
+        #region SecondAngleInner
+
+        public double SecondAngleInner
+        {
+            get { return (double)GetValue(SecondAngleInnerProperty); }
+            private set { SetValue(SecondAngleInnerProperty, value); }
+        }
+        
+        public static readonly DependencyProperty SecondAngleInnerProperty =
+            DependencyProperty.Register("SecondAngleInner", typeof(double), typeof(Clock), new PropertyMetadata(0d));
+
+        #endregion
+
         #endregion
 
         #region Constructors
@@ -152,8 +186,6 @@ namespace ZdfFlatUI
         {
             base.OnApplyTemplate();
 
-            this.PART_SecondCircle = this.GetTemplateChild("PART_SecondCircle") as Arc;
-
             this.SetTicks();
 
             if(this.mSecondTimer == null)
@@ -163,49 +195,16 @@ namespace ZdfFlatUI
                 this.mSecondTimer.Tick += MSecondTimer_Tick; ;
             }
 
-            this.Loaded += Clock_Loaded;  
-        }
-
-        private void MSecondTimer_Tick(object sender, EventArgs e)
-        {
-            int second = DateTime.Now.Second;
-            if (second == 0)
-            {
-                this.PART_SecondCircle.EndAngle = 360;
-            }
-            else
-            {
-                this.PART_SecondCircle.EndAngle = second * 6;
-            }
-
-            this.Hour = DateTime.Now.Hour;
-            this.Minute = DateTime.Now.Minute;
-            this.Second = DateTime.Now.Second;
-        }
-
-        private void Clock_Loaded(object sender, RoutedEventArgs e)
-        {
+            int millisecond = DateTime.Now.Millisecond;
+            System.Threading.Thread.Sleep(1000 - millisecond);
             this.mSecondTimer.Start();
-            if (this.PART_SecondCircle != null)
-            {
-                int second = DateTime.Now.Second;
-                if(second == 0)
-                {
-                    this.PART_SecondCircle.EndAngle = 360;
-                }
-                else
-                {
-                    this.PART_SecondCircle.EndAngle = second * 6;
-                }
-                this.Hour = DateTime.Now.Hour;
-                this.Minute = DateTime.Now.Minute;
-                this.Second = DateTime.Now.Second;
-            }
+            this.SetAngle();
         }
-
+        
         #endregion
 
         #region private function
+
         private void SetTicks()
         {
             List<Tuple<object, double>> numbers = new List<Tuple<object, double>>();
@@ -227,23 +226,53 @@ namespace ZdfFlatUI
             this.ShortTicks = shortticks;
             this.LongTicks = longticks;
             this.NumberList = numbers;
-
-            
         }
 
-        private void TransformAngle(double oldAngle, double newAngle)
+        private void SetAngle()
         {
-            if (this.PART_SecondCircle != null)
+            int hour = DateTime.Now.Hour;
+            int minute = DateTime.Now.Minute;
+            int second = DateTime.Now.Second;
+            if (hour == 0)
             {
-                Duration TickDurtion = new Duration(new TimeSpan(800));
-                DoubleAnimation doubleAnimation = new DoubleAnimation(oldAngle, newAngle, TickDurtion);
-                this.PART_SecondCircle.BeginAnimation(Arc.EndAngleProperty, doubleAnimation);
+                this.HourAngleInner = 360;
             }
+            else
+            {
+                this.HourAngleInner = hour % 12 * 30 + (double)minute / 60 * 30;
+            }
+
+            if (minute == 0)
+            {
+                this.MinuteAngleInner = 360;
+            }
+            else
+            {
+                this.MinuteAngleInner = minute * 6;
+            }
+
+            if (second == 0)
+            {
+                this.SecondAngleInner = 360;
+            }
+            else
+            {
+                this.SecondAngleInner = second * 6;
+            }
+            this.Hour = hour >= 10 ? hour.ToString() : "0" + hour;
+            this.Minute = minute >= 10 ? minute.ToString() : "0" + minute;
+            this.Second = second >= 10 ? second.ToString() : "0" + second;
+
         }
 
         #endregion
 
         #region Event Implement Function
+
+        private void MSecondTimer_Tick(object sender, EventArgs e)
+        {
+            this.SetAngle();
+        }
 
         #endregion
     }

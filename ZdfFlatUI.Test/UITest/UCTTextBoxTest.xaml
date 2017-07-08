@@ -7,7 +7,7 @@
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="700">
-    <StackPanel Margin="10">
+    <StackPanel Margin="10" DataContext="fdas23">
         <StackPanel Orientation="Horizontal" Margin="0,2">
             <WPF.UI:TitleTextBox Width="240" Height="27" Margin="5,0" Title="灾害地址:" CanClearText="True" />
             <WPF.UI:TitleTextBox Width="240" Height="27" Margin="5,0" Title="灾害地址:" CanClearText="True" />
@@ -36,6 +36,20 @@
         <StackPanel Orientation="Horizontal">
             <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" MultiRow="True" />
             <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" CornerRadius="3" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <WPF.UI:ZPasswordBox x:Name="passwordBox" Width="200" IconForeground="Gray" 
+                                 Height="28" Margin="2"
+                                 IconBackground="AliceBlue"
+                                 Password="{Binding .}"/>
+            <WPF.UI:ZPasswordBox x:Name="passwordBox1" Width="200" IconForeground="Gray" 
+                                 Height="28" Margin="2" IsCanSeePassword="False"
+                                 IconBackground="AliceBlue" Watermark="请输入密码"
+                                 Password="{Binding .}"/>
+            <WPF.UI:ZPasswordBox x:Name="passwordBox2" Width="200" IconForeground="Gray" 
+                                 Height="28" Margin="2" CornerRadius="0" BorderThickness="0,0,0,1"
+                                 IconBackground="Transparent" IconBorderThickness="0" Watermark="请输入密码" />
+            <TextBlock Text="{Binding Password, ElementName=passwordBox, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </StackPanel>
 </UserControl>

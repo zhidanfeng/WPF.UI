@@ -153,7 +153,9 @@
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
+    <Compile Include="MyControls\Primitives\ZTextBoxBase.cs" />
     <Compile Include="MyControls\TextBox\Implementation\SearchBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\ZPasswordBox.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\ZToggleButton.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderItem.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderListBox.cs" />
@@ -484,6 +486,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\TextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TextBox\Themes\ZPasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

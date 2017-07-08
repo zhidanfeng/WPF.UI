@@ -13,6 +13,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NumericUpDown/Themes/NumericUpDownStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TitleTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/ZPasswordBox.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Popup/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/BaseWindowStyle.xaml" />

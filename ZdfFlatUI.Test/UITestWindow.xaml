@@ -49,11 +49,25 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ControlTemplate x:Key="PasswordBoxControlTemplate1" TargetType="{x:Type PasswordBox}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <Grid>
-        <GroupBox Margin="20" Header="GroupBox"
-                  Style="{DynamicResource GroupBoxStyle1}">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="GroupBox" />
-        </GroupBox>
+        <PasswordBox Width="300" Height="30" VerticalContentAlignment="Center" Password="fda" 
+                     Template="{DynamicResource PasswordBoxControlTemplate1}" />
     </Grid>
 </Window>
