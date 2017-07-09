@@ -291,8 +291,18 @@ namespace ZdfFlatUI
             this.TailHeight = 12;
             this.TailWidth = 6;
 
-            //三角形默认居中
-            this.TailVerticalOffset = (this.ActualHeight - this.TailHeight) / 2;
+            switch (this.Placement)
+            {
+                case EnumPlacement.RightTop:
+                    //不做任何处理
+                    break;
+                case EnumPlacement.RightBottom:
+                    this.TailVerticalOffset = this.ActualHeight - this.TailHeight - this.TailVerticalOffset;
+                    break;
+                case EnumPlacement.RightCenter:
+                    this.TailVerticalOffset = (this.ActualHeight - this.TailHeight) / 2;
+                    break;
+            }
 
             #region 绘制三角形
             Point arcPoint1 = new Point(this.ActualWidth - TailWidth, TailVerticalOffset);
@@ -494,9 +504,33 @@ namespace ZdfFlatUI
         /// <param name="e"></param>
         public static void OnDirectionPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            //var self = d as AngleBorder;
-            //self.HorizontalAlignment = ((EnumPlacement)e.NewValue == EnumPlacement.RightCenter) ?
-            //    HorizontalAlignment.Right : HorizontalAlignment.Left;
+            AngleBorder angleBorder = d as AngleBorder;
+            if(angleBorder != null)
+            {
+                switch ((EnumPlacement)e.NewValue)
+                {
+                    case EnumPlacement.LeftTop:
+                    case EnumPlacement.LeftBottom:
+                    case EnumPlacement.LeftCenter:
+                    case EnumPlacement.RightTop:
+                    case EnumPlacement.RightBottom:
+                    case EnumPlacement.RightCenter:
+                        angleBorder.TailWidth = 6;
+                        angleBorder.TailHeight = 12;
+                        break;
+                    case EnumPlacement.TopLeft:
+                    case EnumPlacement.TopCenter:
+                    case EnumPlacement.TopRight:
+                    case EnumPlacement.BottomLeft:
+                    case EnumPlacement.BottomCenter:
+                    case EnumPlacement.BottomRight:
+                        angleBorder.TailWidth = 12;
+                        angleBorder.TailHeight = 6;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
         #endregion
     }

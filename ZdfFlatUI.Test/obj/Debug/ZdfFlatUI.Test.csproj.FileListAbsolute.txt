@@ -214,3 +214,5 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTComboTree.g.cs
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTClock.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTClock.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTPoptip.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTPoptip.g.cs

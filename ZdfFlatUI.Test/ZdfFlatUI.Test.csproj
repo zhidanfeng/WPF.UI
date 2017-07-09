@@ -218,6 +218,9 @@
     <Compile Include="UITest\UCTNumericUpDownTest.xaml.cs">
       <DependentUpon>UCTNumericUpDownTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTPoptip.xaml.cs">
+      <DependentUpon>UCTPoptip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTProgressBarTest.xaml.cs">
       <DependentUpon>UCTProgressBarTest.xaml</DependentUpon>
     </Compile>
@@ -421,6 +424,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTNumericUpDownTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTPoptip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

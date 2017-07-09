@@ -79,5 +79,6 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ContentNavigation/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ComboTree/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Clock/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/SegmentControl/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

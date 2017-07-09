@@ -139,6 +139,23 @@ namespace ZdfFlatUI
 
         #endregion
 
+        #region IconPathData
+
+        /// <summary>
+        /// 获取或者设置密码框图标
+        /// </summary>
+        [Bindable(true), Description("获取或者设置密码框图标")]
+        public PathGeometry IconPathData
+        {
+            get { return (PathGeometry)GetValue(IconPathDataProperty); }
+            set { SetValue(IconPathDataProperty, value); }
+        }
+        
+        public static readonly DependencyProperty IconPathDataProperty =
+            DependencyProperty.Register("IconPathData", typeof(PathGeometry), typeof(ZPasswordBox));
+
+        #endregion
+
         #region IsCanSeePassword
 
         /// <summary>

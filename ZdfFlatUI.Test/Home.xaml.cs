@@ -289,6 +289,11 @@ namespace ZdfFlatUI.Test
                 Name = "Clock时钟",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Poptip气泡提示",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -447,6 +452,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "Clock时钟":
                         this.ControlPanel.Content = new UITest.UCTClock();
+                        break;
+                    case "Poptip气泡提示":
+                        this.ControlPanel.Content = new UITest.UCTPoptip();
                         break;
                         #endregion
                 }

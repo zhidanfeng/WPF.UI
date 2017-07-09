@@ -33,9 +33,6 @@ namespace ZdfFlatUI.Test.UITest
             list.Add("副主任医师");
             list.Add("住院医生");
             list.Add("其他");
-            //哈哈放大师傅
-            this.segmentButton.ItemsSource = list;
-            this.segmentButton1.ItemsSource = list;
 
 
             dt.Columns.Add("ID");

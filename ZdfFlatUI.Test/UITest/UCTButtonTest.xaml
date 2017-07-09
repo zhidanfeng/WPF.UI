@@ -38,14 +38,6 @@
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <My:SegmentButton x:Name="segmentButton" Margin="10,10" BorderBrush="#ED5565" FontSize="12"
-                              SelectedIndex="0" SelectedValue="住院医生" />
-
-            <My:SegmentButton x:Name="segmentButton1" Margin="10,10" BorderBrush="#3399FF" FontSize="12"
-                              SelectedIndex="0" SelectedValue="住院医生" />
-        </StackPanel>
-
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <My:FlatButton Width="95" Height="30" Margin="10,10" Background="#DA4453"
                            Content="力量调度" CornerRadius="15" Foreground="White" MouseOverBackground="#ED5565"
                            MouseOverBackground1="#ED5565" PressedBackground="#DA4453" />
@@ -122,6 +114,20 @@
 
         <StackPanel Orientation="Horizontal">
             <My:AnimationButton Width="200" Height="25" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <My:SegmentControl SelectedIndex="1">
+                <My:SegmentItem Content="全部" />
+                <My:SegmentItem Content="主任医生" />
+                <My:SegmentItem Content="副主任医生" />
+                <My:SegmentItem Content="其他" />
+            </My:SegmentControl>
+
+            <My:SegmentControl Margin="20,0,0,0" CornerRadius="13" IsAllRound="True" SelectedIndex="0" BorderBrush="#ED5565">
+                <My:SegmentItem Content="医生" />
+                <My:SegmentItem Content="护士" />
+            </My:SegmentControl>
         </StackPanel>
     </StackPanel>
 </UserControl>

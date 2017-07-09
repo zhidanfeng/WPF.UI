@@ -1,16 +1,14 @@
-﻿using Microsoft.Expression.Shapes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
 namespace ZdfFlatUI
 {
+    /// <summary>
+    /// 时钟控件
+    /// </summary>
     public class Clock : ContentControl
     {
         #region private fields
@@ -262,7 +260,6 @@ namespace ZdfFlatUI
             this.Hour = hour >= 10 ? hour.ToString() : "0" + hour;
             this.Minute = minute >= 10 ? minute.ToString() : "0" + minute;
             this.Second = second >= 10 ? second.ToString() : "0" + second;
-
         }
 
         #endregion

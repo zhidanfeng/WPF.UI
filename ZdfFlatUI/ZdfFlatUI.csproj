@@ -153,7 +153,11 @@
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
+    <Compile Include="MyControls\Poptip\Implementation\Poptip.cs" />
+    <Compile Include="MyControls\Poptip\Implementation\PoptipAdorner.cs" />
     <Compile Include="MyControls\Primitives\ZTextBoxBase.cs" />
+    <Compile Include="MyControls\SegmentControl\Implementation\SegmentControl.cs" />
+    <Compile Include="MyControls\SegmentControl\Implementation\SegmentItem.cs" />
     <Compile Include="MyControls\TextBox\Implementation\SearchBox.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZPasswordBox.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\ZToggleButton.cs" />
@@ -365,11 +369,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\Poptip\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\RatingBar\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\RatingBar\Themes\RatingBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\SegmentControl\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
