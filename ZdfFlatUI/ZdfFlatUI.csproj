@@ -150,11 +150,14 @@
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
+    <Compile Include="MyControls\ButtonGroup\Implementation\ButtonGroup.cs" />
+    <Compile Include="MyControls\ButtonGroup\Implementation\ButtonGroupItem.cs" />
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
+    <Compile Include="MyControls\Panel\Implementation\WaterfallPanel - 复制.cs" />
     <Compile Include="MyControls\Poptip\Implementation\Poptip.cs" />
-    <Compile Include="MyControls\Poptip\Implementation\PoptipAdorner.cs" />
+    <Compile Include="MyControls\Primitives\IconTextBoxBase.cs" />
     <Compile Include="MyControls\Primitives\ZTextBoxBase.cs" />
     <Compile Include="MyControls\SegmentControl\Implementation\SegmentControl.cs" />
     <Compile Include="MyControls\SegmentControl\Implementation\SegmentItem.cs" />
@@ -293,6 +296,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\ButtonGroup\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Button\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\MusicPlayer\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\Panel\Themes\WaterfallPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -657,10 +668,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyButton\SegmentButtonStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Themes\MyTextBox\IconTextBoxStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -711,7 +718,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyControls\Button\Implementation\SegmentButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -741,7 +747,6 @@
     <Folder Include="MyControls\DataGrid\Implementation\" />
     <Folder Include="MyControls\DataGrid\Themes\" />
     <Folder Include="MyControls\Page\" />
-    <Folder Include="MyControls\Panel\Themes\" />
     <Folder Include="MyControls\Validate\" />
   </ItemGroup>
   <ItemGroup>

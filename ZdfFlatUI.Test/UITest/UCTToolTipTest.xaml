@@ -1,12 +1,11 @@
 ﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTToolTipTest"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="300"
+             d:DesignWidth="600" mc:Ignorable="d">
     <StackPanel Orientation="Vertical">
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
@@ -23,84 +22,102 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="1" Content="上左" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="1" Width="60" Height="30"
+                               Margin="2" Content="上左" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="TopLeft" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="TopLeft" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="2" Content="上中" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="2" Width="60" Height="30"
+                               Margin="2" Content="上中" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="TopCenter" IsShowShadow="False" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" IsShowShadow="False" PlacementEx="TopCenter" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="3" Content="上右" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="0" Grid.Column="3" Width="60" Height="30"
+                               Margin="2" Content="上右" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="TopRight" Content="文字提示文字提示" />
-                </WPF.UI:FlatButton.ToolTip>
-            </WPF.UI:FlatButton>
-
-            <WPF.UI:FlatButton Grid.Row="1" Grid.Column="0" Content="上左" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
-                <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="LeftTop" Content="文字提示文字提示" />
-                </WPF.UI:FlatButton.ToolTip>
-            </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="2" Grid.Column="0" Content="上中" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
-                <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="LeftCenter" IsShowShadow="False" Content="文字提示文字提示" />
-                </WPF.UI:FlatButton.ToolTip>
-            </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="3" Grid.Column="0" Content="上右" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
-                <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="LeftBottom" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" IsShowShadow="False" PlacementEx="TopRight" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
 
-            <WPF.UI:FlatButton Grid.Row="1" Grid.Column="4" Content="上左" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="1" Grid.Column="0" Width="60" Height="30"
+                               Margin="2" Content="左上" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="RightTop" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示文字提示文字提示文字提示文字提示" PlacementEx="LeftTop" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="2" Grid.Column="4" Content="上中" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="2" Grid.Column="0" Width="60" Height="30"
+                               Margin="2" Content="左中" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="RightCenter" IsShowShadow="False">
-                        <TextBlock Text="文字提示文字提示文字提示文字提示文字提示文字提示" Width="140" TextWrapping="Wrap" Foreground="White" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示文字提示文字提示文字提示文字提示" IsShowShadow="False" PlacementEx="LeftCenter" />
+                </WPF.UI:FlatButton.ToolTip>
+            </WPF.UI:FlatButton>
+            <WPF.UI:FlatButton Grid.Row="3" Grid.Column="0" Width="60" Height="30"
+                               Margin="2" Content="左下" CornerRadius="3" Type="Default">
+                <WPF.UI:FlatButton.ToolTip>
+                    <WPF.UI:ZToolTip PlacementEx="LeftBottom">
+                        <WPF.UI:ZToolTip.Content>
+                            <TextBlock Text="文字提示文字提示文字提示文字提示文字提示文字提示" Width="150" TextWrapping="Wrap" />
+                        </WPF.UI:ZToolTip.Content>
                     </WPF.UI:ZToolTip>
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="3" Grid.Column="4" Content="上右" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+
+            <WPF.UI:FlatButton Grid.Row="1" Grid.Column="4" Width="60" Height="30"
+                               Margin="2" Content="右上" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="RightBottom" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="RightTop" />
+                </WPF.UI:FlatButton.ToolTip>
+            </WPF.UI:FlatButton>
+            <WPF.UI:FlatButton Grid.Row="2" Grid.Column="4" Width="60" Height="30"
+                               Margin="2" Content="右中" CornerRadius="3" Type="Default">
+                <WPF.UI:FlatButton.ToolTip>
+                    <WPF.UI:ZToolTip IsShowShadow="False" PlacementEx="RightCenter">
+                        <TextBlock Width="140" Foreground="White" Text="文字提示文字提示文字提示文字提示文字提示文字提示" TextWrapping="Wrap" />
+                    </WPF.UI:ZToolTip>
+                </WPF.UI:FlatButton.ToolTip>
+            </WPF.UI:FlatButton>
+            <WPF.UI:FlatButton Grid.Row="3" Grid.Column="4" Width="60" Height="30"
+                               Margin="2" Content="右下" CornerRadius="3" Type="Default">
+                <WPF.UI:FlatButton.ToolTip>
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="RightBottom" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
 
-            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="1" Content="上左" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="1" Width="60" Height="30"
+                               Margin="2" Content="下左" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="BottomLeft" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="BottomLeft" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="2" Content="上中" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="2" Width="60" Height="30"
+                               Margin="2" Content="下中" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="BottomCenter" IsShowShadow="False" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" IsShowShadow="False" PlacementEx="BottomCenter" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="3" Content="上右" Width="60" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton Grid.Row="4" Grid.Column="3" Width="60" Height="30"
+                               Margin="2" Content="下右" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="BottomRight" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="BottomRight" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
         </Grid>
 
-        <StackPanel Orientation="Horizontal" Margin="0,20" HorizontalAlignment="Center">
-            <WPF.UI:FlatButton x:Name="btn1" Content="文字提示" Width="100" Height="30" CornerRadius="3" Type="Default" Margin="2"
-                               Click="btn1_Click">
+        <StackPanel Margin="0,20" HorizontalAlignment="Center" Orientation="Horizontal">
+            <WPF.UI:FlatButton x:Name="btn1" Width="100" Height="30" Margin="2"
+                               Click="btn1_Click" Content="文字提示" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip PlacementEx="TopLeft" Content="文字提示文字提示" />
+                    <WPF.UI:ZToolTip Content="文字提示文字提示" PlacementEx="TopLeft" />
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton x:Name="btn2" Content="文字提示文字提示" Width="150" Height="30" CornerRadius="3" Type="Default" Margin="2">
+            <WPF.UI:FlatButton x:Name="btn2" Width="150" Height="30" Margin="2"
+                               Content="文字提示文字提示" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
                     <WPF.UI:ZToolTip PlacementEx="BottomCenter">
-                        <TextBlock x:Name="text" Text="{Binding .}" Foreground="White" />
+                        <TextBlock x:Name="text" Foreground="White"
+                                   Text="{Binding .}" />
                     </WPF.UI:ZToolTip>
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>

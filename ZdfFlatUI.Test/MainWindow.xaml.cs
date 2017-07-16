@@ -26,28 +26,9 @@ namespace ZdfFlatUI.Test
         {
             InitializeComponent();
 
-            this.InitSegmentButton();
             this.DataContext = new MainViewModel();
         }
-
-        private void InitSegmentButton()
-        {
-            List<string> list = new List<string>();
-            list.Add("全部");
-            list.Add("主任医师");
-            list.Add("副主任医师");
-            list.Add("住院医生");
-            list.Add("其他");
-            //哈哈放大师傅
-            this.segmentButton.ItemsSource = list;
-
-            List<string> list2 = new List<string>();
-            list2.Add("全部");
-            list2.Add("主任医师");
-            list2.Add("其他");
-            //哈哈放大师傅
-            this.segmentButton2.ItemsSource = list2;
-        }
+        
 
         private void Show_Click(object sender, RoutedEventArgs e)
         {

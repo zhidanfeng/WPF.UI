@@ -10,210 +10,149 @@ namespace ZdfFlatUI
     /// <summary>
     /// 瀑布流容器
     /// </summary>
-    public class WaterfallPanel : Panel
+    public class WaterfallPanel : Canvas
     {
-        /// <summary>  
-        /// 每列的高度  
-        /// </summary>  
-        private static double[] ColumnHeight;
+        int column;
+        double listWidth = 180;
+        public double ListWidth
+        {
+            get { return listWidth; }
+            set
+            {
+                listWidth = value;
+                SetColumn();
+            }
+        }
 
-        #region 构造函数  
-        
+        static WaterfallPanel()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(WaterfallPanel), new FrameworkPropertyMetadata(typeof(WaterfallPanel)));
+        }
+
         public WaterfallPanel()
         {
-            //根据列数，实例化用来存放每列高度的数组  
-            ColumnHeight = new double[ColumnCount];
+            Loaded += delegate
+            {
+                SetColumn();
+                Margin = new Thickness(Margin.Left);
+            };
+            SizeChanged += delegate
+            {
+                SetColumn();
+            };
         }
 
-        #endregion 构造函数  
-
-        #region Dependency Property
-
-        #region ColumnCount
-
-        /// <summary>  
-        /// 列数  
-        /// </summary>
-        public int ColumnCount
+        void SetColumn()
         {
-            get { return (int)this.GetValue(ColumnCountProperty); }
-            set { this.SetValue(ColumnCountProperty, value); }
+            column = (int)(ActualWidth / listWidth);
+            if (column <= 0)
+            {
+                column = 1;
+            }
+                
+            Refresh();
         }
 
-        public static readonly DependencyProperty ColumnCountProperty =
-            DependencyProperty.Register("ColumnCount", typeof(int), typeof(WaterfallPanel)
-                , new PropertyMetadata(3, PropertyChanged));
-
-        public static void PropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public void Add(FrameworkElement element)
         {
-            ColumnHeight = new double[(int)e.NewValue];
-            if (sender == null || e.NewValue == e.OldValue)
+            element.Width = ListWidth;
+            if (element is Grid)
             {
-                return;
-            }
-
-            sender.SetValue(ColumnCountProperty, e.NewValue);
-        }
-
-        #endregion
-
-        #endregion
-
-        #region Override
-
-        /// <summary>  
-        /// 当在派生类中重写时，请测量子元素在布局中所需的大小，然后确定 <see cref="T:System.Windows.FrameworkElement" /> 派生类的大小。  
-        /// 更新当前元素与其子元素的布局，以下处理都属于 测量 处理，并非实际布局  
-        /// </summary>  
-        /// <param name="availableSize">此元素可以赋给子元素的可用大小。可以指定无穷大值，这表示元素的大小将调整为内容的可用大小。</param>  
-        /// <returns>此元素在布局过程中所需的大小，这是由此元素根据对其子元素大小的计算而确定的。</returns>  
-        protected override Size MeasureOverride(Size availableSize)
-        {
-            //清空所有列的高度  
-            for (int i = 0; i < ColumnHeight.Count(); i++)
-            {
-                ColumnHeight[i] = 0;
-            }
-            //计算行数  
-            int indexY = this.Children.Count / ColumnCount;
-
-            //计算行数  
-            if (this.Children.Count % ColumnCount > 0)
-            {
-                indexY++;
-            }
-            
-            //第几行  
-            int flagY = 0;
-            //声明一个尺寸，用来存放测量后面板的尺寸  
-            Size resultSize = new Size(0, 0);
-
-            #region 测量值
-
-            //循环所有行  
-            for (int i = 0; i < indexY; i++)//行  
-            {
-                //计算面板要呈现的宽度  
-                resultSize.Width = Children[i].DesiredSize.Width * ColumnCount;
-                //处理最后一行  
-                if (i == indexY - 1)
+                if ((element as Grid).Children.Count > 0)
                 {
-                    //剩余内容项个数  
-                    int residual = Children.Count - i * ColumnCount;
-                    //如果集合总数小于列数，那么剩余内容项就是集合总数  
-                    if (Children.Count <= ColumnCount)
-                    {
-                        residual = Children.Count;
-                    }
-                    //循环剩余元素，设置元素呈现大小，计算当前列需要的高度  
-                    for (int h = 0; h < residual; h++)
-                    {
-                        //更新当前循环元素的布局  
-                        Children[ColumnCount * flagY + h].Measure(availableSize);
-                        //累加每一列元素的高度  
-                        ColumnHeight[h] += Children[ColumnCount * flagY + h].DesiredSize.Height;
-                    }
+                    ((element as Grid).Children[0] as FrameworkElement).Margin = new Thickness(Margin.Left);
+                }
+            }
+            Children.Add(element);
+            Refresh();
+        }
+
+        public class Point
+        {
+            public int Index { get; set; }
+            public double Buttom { get; set; }
+            public double Height { get; set; }
+            public Point(int index, double height, double buttom) { Index = index; Height = height; Buttom = buttom; }
+        }
+
+        private void Refresh()
+        {
+            // 初始化参数
+            var maxHeight = 0.0;
+            var list = new Dictionary<int, Point>();
+            var nlist = new Dictionary<int, Dictionary<int, Point>>();
+
+            for (int i = 0; i < Children.Count; i++)
+            {
+                (Children[i] as FrameworkElement).UpdateLayout();
+                list.Add(i, new Point(i, (Children[i] as FrameworkElement).ActualHeight, 0.0));
+            }
+
+            for (int i = 0; i < column; i++)
+            {
+                nlist.Add(i, new Dictionary<int, Point>());
+            }
+
+            // 智能排序到 nlist
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (i < column)
+                {
+                    list[i].Buttom = list[i].Height;
+                    nlist[i].Add(nlist[i].Count, list[i]);
                 }
                 else
                 {
-                    for (int y = 0; y < ColumnCount; y++)
+                    var b = 0.0;
+                    var l = 0;
+                    for (int j = 0; j < column; j++)
                     {
-                        Children[ColumnCount * flagY + y].Measure(availableSize);
-                        ColumnHeight[y] += Children[ColumnCount * flagY + y].DesiredSize.Height;
+                        var jh = nlist[j][nlist[j].Count - 1].Buttom + list[i].Height;
+                        if (b == 0.0 || jh < b)
+                        {
+                            b = jh;
+                            l = j;
+                        }
                     }
-                    flagY++;
+                    list[i].Buttom = b;
+                    nlist[l].Add(nlist[l].Count, list[i]);
                 }
             }
 
-            #endregion 测量值  
+            // 开始布局
+            for (int i = 0; i < nlist.Count; i++)
+            {
+                for (int j = 0; j < nlist[i].Count; j++)
+                {
+                    Children[nlist[i][j].Index].SetValue(LeftProperty, i * ActualWidth / column);
+                    Children[nlist[i][j].Index].SetValue(TopProperty, nlist[i][j].Buttom - nlist[i][j].Height);
+                    Children[nlist[i][j].Index].SetValue(WidthProperty, ActualWidth / column);
 
-            //面板的高度等于所有列中最高的值  
-            resultSize.Height = ColumnHeight.Max();
+                    if (Children[nlist[i][j].Index] is Grid)
+                    {
+                        ((Children[nlist[i][j].Index] as Grid).Children[0] as FrameworkElement).Margin = Margin;
+                    }
+                }
 
-            //设置面板呈现的高度  
-            //如果父元素给子元素提供的是一个无穷的宽，则使用计算的宽度，否则使用父元素的宽  
-            resultSize.Width =
-            double.IsPositiveInfinity(availableSize.Width) ?
-            resultSize.Width : availableSize.Width;
-
-            //设置面板呈现的高度  
-            //如果父元素给子元素提供的是一个无穷的高，则使用计算的宽度，否则使用父元素的高  
-            resultSize.Height =
-            double.IsPositiveInfinity(availableSize.Height) ?
-            resultSize.Height : availableSize.Height;
-            //返回测量尺寸  
-            return resultSize;
+                // 不知道为什么如果不写这么一句会出错
+                if (nlist.ContainsKey(i))
+                {
+                    if (nlist[i].ContainsKey(nlist[i].Count - 1))
+                    {
+                        var mh = nlist[i][nlist[i].Count - 1].Buttom;
+                        maxHeight = mh > maxHeight ? mh : maxHeight;
+                    }
+                }
+            }
+            Height = maxHeight;
+            list.Clear();
+            nlist.Clear();
         }
 
-        /// <summary>  
-        /// 在派生类中重写时，请为 <see cref="T:System.Windows.FrameworkElement" /> 派生类定位子元素并确定大小。  
-        /// 更新当前元素与其子元素的布局，以下处理都属于 实际 处理，元素布局都将基于此  
-        /// </summary>  
-        /// <param name="finalSize">父级中此元素应用来排列自身及其子元素的最终区域。</param>  
-        /// <returns>所用的实际大小。</returns>  
-        protected override Size ArrangeOverride(Size finalSize)
+        public void Remove(UIElement element)
         {
-            //清空所有列的高度  
-            for (int i = 0; i < ColumnHeight.Count(); i++)
-            {
-                ColumnHeight[i] = 0;
-            }
-
-            //计算行数  
-            int indexY = this.Children.Count / ColumnCount;
-            if (this.Children.Count % ColumnCount > 0) indexY++;
-
-            //当前行  
-            int flagY = 0;
-
-            //当前行高  
-            double flagX = 0;
-
-            #region 实际值  
-
-            //循环所有行  
-            for (int i = 0; i < indexY; i++)
-            {
-                //元素最终的宽度  
-                finalSize.Width = Children[i].DesiredSize.Width * ColumnCount;
-
-                //处理最后一行  
-                if (i == indexY - 1)
-                {
-                    //列宽  
-                    flagX = 0;
-                    //剩余项个数  
-                    int residual = Children.Count - i * ColumnCount;
-                    if (Children.Count <= ColumnCount)
-                    {
-                        residual = Children.Count;
-                    }
-
-                    for (int h = 0; h < residual; h++)
-                    {
-                        Children[ColumnCount * i + h].Arrange(new Rect(new Point(flagX, ColumnHeight[h]), Children[ColumnCount * i + h].DesiredSize));
-                        ColumnHeight[h] += Children[ColumnCount * i + h].DesiredSize.Height;
-                        flagX += Children[ColumnCount * i + h].DesiredSize.Width;
-                    }
-                }
-                else
-                {
-                    flagX = 0;
-                    for (int y = 0; y < ColumnCount; y++)
-                    {
-                        Children[ColumnCount * flagY + y].Arrange(new Rect(new Point(flagX, ColumnHeight[y]), Children[ColumnCount * i + y].DesiredSize));
-                        ColumnHeight[y] += Children[ColumnCount * flagY + y].DesiredSize.Height;
-                        flagX += Children[ColumnCount * flagY + y].DesiredSize.Width;
-                    }
-                    flagY++;
-                }
-            }
-
-            #endregion 测量值  
-
-            return finalSize;
+            Children.Remove(element);
+            Refresh();
         }
-
-        #endregion
     }
 }

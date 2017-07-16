@@ -40,56 +40,56 @@
         <!--#region 上-->
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton1}"
                        PlacementEx="TopLeft" PlacementTarget="{Binding ElementName=toggleButton1}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton2}"
                        PlacementEx="TopCenter" PlacementTarget="{Binding ElementName=toggleButton2}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton3}"
                        PlacementEx="TopRight" PlacementTarget="{Binding ElementName=toggleButton3}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <!--#endregion-->
 
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton4}"
                        PlacementEx="LeftTop" PlacementTarget="{Binding ElementName=toggleButton4}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton5}"
                        PlacementEx="LeftCenter" PlacementTarget="{Binding ElementName=toggleButton5}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton6}"
                        PlacementEx="LeftBottom" PlacementTarget="{Binding ElementName=toggleButton6}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
 
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton7}"
                        PlacementEx="RightTop" PlacementTarget="{Binding ElementName=toggleButton7}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton8}"
                        PlacementEx="RightCenter" PlacementTarget="{Binding ElementName=toggleButton8}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton9}"
                        PlacementEx="RightBottom" PlacementTarget="{Binding ElementName=toggleButton9}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
 
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton10}"
                        PlacementEx="BottomLeft" PlacementTarget="{Binding ElementName=toggleButton10}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton11}"
                        PlacementEx="BottomCenter" PlacementTarget="{Binding ElementName=toggleButton11}">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="White" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
         </WPF.UI:Poptip>
         <WPF.UI:Poptip IsOpen="{Binding IsChecked, ElementName=toggleButton12}"
                        PlacementEx="BottomRight" PlacementTarget="{Binding ElementName=toggleButton12}"
                        Background="White">
-            <TextBlock Text="fasdfsad" Margin="20" Foreground="Black" />
+            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="Black" />
         </WPF.UI:Poptip>
     </Grid>
 </UserControl>

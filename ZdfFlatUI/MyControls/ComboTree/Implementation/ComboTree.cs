@@ -213,7 +213,7 @@ namespace ZdfFlatUI
                 }
                 else
                 {
-                    SetNodeSelected(treeItem);
+                    //SetNodeSelected(treeItem);
                 }
             }
 
@@ -245,7 +245,6 @@ namespace ZdfFlatUI
 
             TreeViewItem treeViewItem = this.GetNode(this.PART_TreeView);
             this.SetSelected(treeViewItem);
-
 
             //根据参数设置当选择树节点后是否自动关闭Popup
             this.IsDropDownOpen = !this.IsCloseWhenSelected;

@@ -12,7 +12,7 @@ using ZdfFlatUI.MyControls.Primitives;
 
 namespace ZdfFlatUI
 {
-    public class ZPasswordBox : ZTextBoxBase
+    public class ZPasswordBox : IconTextBoxBase
     {
         #region private fields
 
@@ -27,134 +27,6 @@ namespace ZdfFlatUI
         #endregion
 
         #region DependencyProperty
-
-        #region IconBackground
-
-        /// <summary>
-        /// 获取或者设置图标边框背景色
-        /// </summary>
-        [Bindable(true), Description("获取或者设置图标边框背景色")]
-        public Brush IconBackground
-        {
-            get { return (Brush)GetValue(IconBackgroundProperty); }
-            set { SetValue(IconBackgroundProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconBackgroundProperty =
-            DependencyProperty.Register("IconBackground", typeof(Brush), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconForeground
-
-        /// <summary>
-        /// 获取或者设置图标的颜色
-        /// </summary>
-        [Bindable(true), Description("获取或者设置图标的颜色")]
-        public Brush IconForeground
-        {
-            get { return (Brush)GetValue(IconForegroundProperty); }
-            set { SetValue(IconForegroundProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.Register("IconForeground", typeof(Brush), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconBorderBrush
-
-        public Brush IconBorderBrush
-        {
-            get { return (Brush)GetValue(IconBorderBrushProperty); }
-            set { SetValue(IconBorderBrushProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconBorderBrushProperty =
-            DependencyProperty.Register("IconBorderBrush", typeof(Brush), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconBorderThickness
-
-        public Thickness IconBorderThickness
-        {
-            get { return (Thickness)GetValue(IconBorderThicknessProperty); }
-            set { SetValue(IconBorderThicknessProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconBorderThicknessProperty =
-            DependencyProperty.Register("IconBorderThickness", typeof(Thickness), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconWidth
-
-        /// <summary>
-        /// 获取或者设置图标的大小
-        /// </summary>
-        [Bindable(true), Description("获取或者设置图标的大小")]
-        public double IconWidth
-        {
-            get { return (double)GetValue(IconWidthProperty); }
-            set { SetValue(IconWidthProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconWidthProperty =
-            DependencyProperty.Register("IconWidth", typeof(double), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconPadding
-
-        /// <summary>
-        /// 获取或者设置图标的内边距
-        /// </summary>
-        [Bindable(true), Description("获取或者设置图标的内边距")]
-        public Thickness IconPadding
-        {
-            get { return (Thickness)GetValue(IconPaddingProperty); }
-            set { SetValue(IconPaddingProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconPaddingProperty =
-            DependencyProperty.Register("IconPadding", typeof(Thickness), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconCornerRadius
-
-        /// <summary>
-        /// 获取或者设置图标边框的圆角（可以不用手动设置，系统会根据密码框的圆角值自动设置该值）
-        /// </summary>
-        [Bindable(true), Description("获取或者设置图标边框的圆角（可以不用手动设置，系统会根据密码框的圆角值自动设置该值）")]
-        public CornerRadius IconCornerRadius
-        {
-            get { return (CornerRadius)GetValue(IconCornerRadiusProperty); }
-            set { SetValue(IconCornerRadiusProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconCornerRadiusProperty =
-            DependencyProperty.Register("IconCornerRadius", typeof(CornerRadius), typeof(ZPasswordBox));
-
-        #endregion
-
-        #region IconPathData
-
-        /// <summary>
-        /// 获取或者设置密码框图标
-        /// </summary>
-        [Bindable(true), Description("获取或者设置密码框图标")]
-        public PathGeometry IconPathData
-        {
-            get { return (PathGeometry)GetValue(IconPathDataProperty); }
-            set { SetValue(IconPathDataProperty, value); }
-        }
-        
-        public static readonly DependencyProperty IconPathDataProperty =
-            DependencyProperty.Register("IconPathData", typeof(PathGeometry), typeof(ZPasswordBox));
-
-        #endregion
 
         #region IsCanSeePassword
 

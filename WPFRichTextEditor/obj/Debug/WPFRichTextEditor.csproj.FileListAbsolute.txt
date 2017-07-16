@@ -100,4 +100,3 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\WPFR
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\WPFRichTextEditor.csproj.GenerateResource.Cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\ZEditor.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\ZEditor.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\WPFRichTextEditor\obj\Debug\WPFRichTextEditor.csprojResolveAssemblyReference.cache

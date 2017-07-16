@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/WPF.UI;component/Resources/TooltipStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/SegmentButtonStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathButtonStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathTextButtonStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathIconButtonStyle.xaml" />
@@ -80,5 +79,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ComboTree/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Clock/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/SegmentControl/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Panel/Themes/WaterfallPanel.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ButtonGroup/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

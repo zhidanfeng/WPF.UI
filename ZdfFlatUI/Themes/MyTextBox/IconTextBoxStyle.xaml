@@ -71,10 +71,10 @@
                 <Setter TargetName="border" Property="Opacity" Value="0.56" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
             <Trigger Property="IsKeyboardFocused" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -140,10 +140,10 @@
                 <Setter TargetName="border" Property="Opacity" Value="0.56" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
             <Trigger Property="IsKeyboardFocused" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -201,17 +201,17 @@
                 <Setter TargetName="border" Property="Opacity" Value="0.56" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
             <Trigger Property="IsKeyboardFocused" Value="true">
-                <Setter TargetName="border" Property="BorderBrush" Value="#CED5E0" />
+                <Setter TargetName="border" Property="BorderBrush" Value="#5DA9E9" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
     <Style TargetType="{x:Type MyTextBox:IconTextBox}">
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
-        <Setter Property="BorderBrush" Value="#ABADB3" />
+        <Setter Property="BorderBrush" Value="#CCCEDB" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />

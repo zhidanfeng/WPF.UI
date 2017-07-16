@@ -6,17 +6,17 @@
              xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="700">
+             d:DesignHeight="800" d:DesignWidth="1200">
     <Grid>
-        <WPF.UI:WaterfallPanel ColumnCount="4">
-            <Button Content="1" Width="100" Height="100" Margin="10,10" />
-            <Button Content="1" Width="100" Height="150" Margin="10,10" />
-            <Button Content="1" Width="100" Height="120" Margin="10,10" />
-            <Button Content="1" Width="100" Height="160" Margin="10,10" />
-            <Button Content="1" Width="100" Height="160" Margin="10,10" />
-            <Button Content="1" Width="100" Height="160" Margin="10,10" />
-            <Button Content="1" Width="100" Height="160" Margin="10,10" />
-            <Button Content="1" Width="100" Height="160" Margin="10,10" />
+        <WPF.UI:WaterfallPanel ListWidth="300">
+            <Button Content="1" Width="100" Height="100" />
+            <Button Content="1" Width="100" Height="150" />
+            <Button Content="1" Width="100" Height="120" />
+            <Button Content="1" Width="100" Height="160" />
+            <Button Content="1" Width="100" Height="160" />
+            <Button Content="1" Width="100" Height="160" />
+            <Button Content="1" Width="100" Height="160" />
+            <Button Content="1" Width="100" Height="160" />
         </WPF.UI:WaterfallPanel>
     </Grid>
 </UserControl>

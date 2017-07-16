@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace ZdfFlatUI
 {
@@ -85,7 +86,7 @@ namespace ZdfFlatUI
         }
 
         public static readonly DependencyProperty BackgroundProperty =
-            DependencyProperty.Register("Background", typeof(Brush), typeof(Poptip), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(88, 93, 107))));
+            DependencyProperty.Register("Background", typeof(Brush), typeof(Poptip), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(109, 129, 154))));
 
         #endregion
 
@@ -142,6 +143,58 @@ namespace ZdfFlatUI
             UIElement element = this.Child;
             this.Child = null;
 
+            Grid root = new Grid()
+            {
+                Margin = new Thickness(10),
+            };
+
+            #region 阴影
+            Border shadow = new Border()
+            {
+                Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+                SnapsToDevicePixels = true,
+                UseLayoutRounding = true,
+                CornerRadius = new CornerRadius(3),
+            };
+            DropShadowEffect shadowEffect = new DropShadowEffect()
+            {
+                BlurRadius = 10,
+                Opacity = 0.2,
+                ShadowDepth = 0,
+                Color = Color.FromRgb(109, 129, 154),
+            };
+            shadow.SetValue(Border.EffectProperty, shadowEffect);
+            root.Children.Add(shadow);
+            #endregion
+
+            #region 设置阴影的边距，防止出现白边
+            switch (this.PlacementEx)
+            {
+                case EnumPlacement.LeftTop:
+                case EnumPlacement.LeftBottom:
+                case EnumPlacement.LeftCenter:
+                    shadow.Margin = new Thickness(0, 0, 8, 0);
+                    break;
+                case EnumPlacement.RightTop:
+                case EnumPlacement.RightBottom:
+                case EnumPlacement.RightCenter:
+                    shadow.Margin = new Thickness(8, 0, 0, 0);
+                    break;
+                case EnumPlacement.TopLeft:
+                case EnumPlacement.TopCenter:
+                case EnumPlacement.TopRight:
+                    shadow.Margin = new Thickness(0, 0, 0, 8);
+                    break;
+                case EnumPlacement.BottomLeft:
+                case EnumPlacement.BottomCenter:
+                case EnumPlacement.BottomRight:
+                    shadow.Margin = new Thickness(0, 8, 0, 0);
+                    break;
+                default:
+                    break;
+            }
+            #endregion
+
             angleBorder = new AngleBorder()
             {
                 Background = this.Background,
@@ -190,8 +243,12 @@ namespace ZdfFlatUI
                 default:
                     break;
             }
+            //在原有控件基础上，最外层套一个AngleBorder
             angleBorder.Child = element;
-            this.Child = angleBorder;
+
+            root.Children.Add(angleBorder);
+
+            this.Child = root;
         }
 
         protected override void OnOpened(EventArgs e)

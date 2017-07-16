@@ -193,8 +193,8 @@ namespace ZdfFlatUI
                 this.mSecondTimer.Tick += MSecondTimer_Tick; ;
             }
 
-            int millisecond = DateTime.Now.Millisecond;
-            System.Threading.Thread.Sleep(1000 - millisecond);
+            //int millisecond = DateTime.Now.Millisecond;
+            //System.Threading.Thread.Sleep(1000 - millisecond);
             this.mSecondTimer.Start();
             this.SetAngle();
         }

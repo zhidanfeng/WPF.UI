@@ -70,6 +70,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WPFUI.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpf.Core.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -551,6 +554,7 @@
     <Content Include="DLL\Microsoft.Expression.Drawing.dll" />
     <Content Include="DLL\Microsoft.Expression.Interactions.dll" />
     <Content Include="DLL\System.Windows.Interactivity.dll" />
+    <Resource Include="WPFUI.ico" />
     <Resource Include="Images\OH.gif" />
     <Resource Include="Images\img1.png" />
     <Resource Include="Images\img2.png" />

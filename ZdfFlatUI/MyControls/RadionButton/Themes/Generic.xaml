@@ -2,50 +2,41 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:WPF.UI="clr-namespace:ZdfFlatUI">
 
+    <PathGeometry x:Key="Icon_UnChecked" Figures="M12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20 M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2z" />
+    <PathGeometry x:Key="Icon_Checked" Figures="M12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20 M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2 M12,7A5,5,0,0,0,7,12A5,5,0,0,0,12,17A5,5,0,0,0,17,12A5,5,0,0,0,12,7z" />
+
     <Style TargetType="{x:Type WPF.UI:FlatRadionButton}">
-        <Setter Property="Tag">
-            <Setter.Value>
-                <SolidColorBrush Color="Red"/>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="BorderBrush" Value="#D7DDE4" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type WPF.UI:FlatRadionButton}">
-                    <!--使用BulletDecorator可以解决RadionButton样式重写后只能点击文字或者边缘才能选中CheckBox的问题-->
                     <BulletDecorator Background="Transparent" VerticalAlignment="Center" >
                         <BulletDecorator.Bullet>
-                            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Ellipse x:Name="bd" Width="18" Height="18" HorizontalAlignment="Center" 
-                                         VerticalAlignment="Center" Stroke="#BDBEBF" 
-                                         SnapsToDevicePixels="True" 
-                                         UseLayoutRounding="True" />
-                                <Ellipse x:Name="bd1" Width="13" Height="13" HorizontalAlignment="Center" 
-                                         VerticalAlignment="Center" Stroke="Transparent" 
-                                         SnapsToDevicePixels="True" UseLayoutRounding="True" />
-                            </Grid>
+                            <Path x:Name="path" Fill="{TemplateBinding BorderBrush}" 
+                                  Stretch="Uniform" Width="16"
+                                  Data="{StaticResource Icon_UnChecked}"/>
                         </BulletDecorator.Bullet>
                         <ContentPresenter Margin="5,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </BulletDecorator>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Stroke" TargetName="bd" Value="#23AACA"/>
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="bd1" Property="Fill" Value="#23AACA"/>
-                            <Setter TargetName="bd" Property="Stroke" Value="#23AACA"/>
+                            <Setter TargetName="path" Property="Data" Value="{StaticResource Icon_Checked}"/>
+                            <Setter Property="BorderBrush" Value="#2D8CF0" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsEnabled" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
-                            <Setter TargetName="bd1" Property="Fill" Value="#DDDBD5"/>
+                            <!--<Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
+                            <Setter TargetName="bd1" Property="Fill" Value="#DDDBD5"/>-->
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
-                            <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            <!--<Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
+                            <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
