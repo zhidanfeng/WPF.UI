@@ -57,6 +57,11 @@ namespace ZdfFlatUI.Test.UITest
             //{
 
             //}
+            ZWindowTest window = new ZWindowTest();
+            window.Title = "测试窗口";
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Show();
+            //window.WindowState = WindowState.Maximized;
         }
 
         private void FlatButton_Click_1(object sender, RoutedEventArgs e)

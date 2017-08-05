@@ -61,15 +61,14 @@
                                                 </EasingDoubleKeyFrame.EasingFunction>
                                             </EasingDoubleKeyFrame>
                                         </DoubleAnimationUsingKeyFrames>
-                                        <!--<ColorAnimation BeginTime="00:00:00" Duration="0:0:0.2" From="#FFC4E5F6" Storyboard.TargetName="border"
-                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#FFDBB377" />-->
+                                       
                                         <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0:0:0" Value="#FFC4E5F6">
                                                 <EasingColorKeyFrame.EasingFunction>
                                                     <CircleEase EasingMode="EaseOut" />
                                                 </EasingColorKeyFrame.EasingFunction>
                                             </EasingColorKeyFrame>
-                                            <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF76E8A6">
+                                            <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3399FF">
                                                 <EasingColorKeyFrame.EasingFunction>
                                                     <CircleEase EasingMode="EaseOut" />
                                                 </EasingColorKeyFrame.EasingFunction>
@@ -91,7 +90,7 @@
                                                 </EasingDoubleKeyFrame.EasingFunction>
                                             </EasingDoubleKeyFrame>
                                         </DoubleAnimationUsingKeyFrames>
-                                        <ColorAnimation BeginTime="00:00:00" Duration="0:0:0.2" From="#FF76E8A6" 
+                                        <ColorAnimation BeginTime="00:00:00" Duration="0:0:0.2" From="#FF3399FF" 
                                                         Storyboard.TargetName="border"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
                                                         To="#FFC4E5F6" />

@@ -6,19 +6,19 @@
              xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="850">
+             d:DesignHeight="600" d:DesignWidth="850">
     <UniformGrid Columns="2">
         <UniformGrid Columns="1">
             <WPF.UI:ZGroupBox Header="GroupBox" Margin="5">
                 <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="GroupBox" />
             </WPF.UI:ZGroupBox>
 
-            <WPF.UI:ZGroupBox Header="GroupBox" Margin="5" HeadBackground="#3399FF" Foreground="White" BorderBrush="#3399FF"
-                              CornerRadius="3">
+            <WPF.UI:ZGroupBox Header="GroupBox" Margin="5" HeaderBackground="#3399FF" Foreground="White" BorderBrush="#3399FF"
+                              CornerRadius="3" HorizontalHeaderAlignment="Center">
                 <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="GroupBox" />
             </WPF.UI:ZGroupBox>
 
-            <WPF.UI:ZGroupBox Header="GroupBox1" Margin="5" BorderThickness="0" HeadBackground="Transparent">
+            <WPF.UI:ZGroupBox Header="GroupBox1" Margin="5" BorderThickness="0" HeaderBackground="Transparent">
                 <WPF.UI:ZGroupBox.HeaderTemplate>
                     <DataTemplate>
                         <Grid>
@@ -29,6 +29,25 @@
                             <Border Width="3" Background="#3399FF" SnapsToDevicePixels="True" UseLayoutRounding="True" />
                             <TextBlock Grid.Column="1" Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type WPF.UI:ZGroupBox}}}" 
                                        Foreground="Black" Margin="7,3" />
+                        </Grid>
+                    </DataTemplate>
+                </WPF.UI:ZGroupBox.HeaderTemplate>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="GroupBox" />
+            </WPF.UI:ZGroupBox>
+
+            <WPF.UI:ZGroupBox Header="GroupBox1" Margin="5" HeaderPadding="0" HeaderBackground="Transparent"
+                              CornerRadius="3,3,0,0">
+                <WPF.UI:ZGroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border Background="#3399FF" SnapsToDevicePixels="True" UseLayoutRounding="True"
+                                    CornerRadius="3,3,0,0"/>
+                            <TextBlock Grid.Row="1" Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type WPF.UI:ZGroupBox}}}" 
+                                       Foreground="Black" Margin="7,5" />
                         </Grid>
                     </DataTemplate>
                 </WPF.UI:ZGroupBox.HeaderTemplate>

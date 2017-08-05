@@ -1,0 +1,149 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:MyControls="clr-namespace:ZdfFlatUI">
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <PathGeometry x:Key="Icon_IsRequired" Figures="M160.53116 582.580498l304.122509-51.851948L248.997004 310.312488l-1.393743 4.2897c-9.969049-6.334265-20.888749-11.528568-32.640398-15.346523-75.184353-24.429389-155.937538 16.715707-180.366927 91.901083s16.715707 155.937538 91.901083 180.366927c11.751648 3.817955 23.639396 6.034437 35.426861 6.769171L160.53116 582.580498 160.53116 582.580498zM209.606879 725.041094c-9.104355 7.523347-17.418718 16.303314-24.682146 26.299993-46.466288 63.955614-32.289404 153.47137 31.668257 199.938682 63.955614 46.466288 153.47137 32.289404 199.938682-31.667234 7.263427-9.996678 13.044084-20.618597 17.384949-31.601742l3.648087 2.650363 44.663222-305.259402L205.958792 722.390731 209.606879 725.041094 209.606879 725.041094zM812.525588 725.041094l3.648087-2.650363L539.655873 585.582879l44.912909 305.0793 3.648087-2.650363c4.341888 10.984169 10.122545 21.60404 17.385972 31.601742 46.466288 63.955614 135.983067 78.134545 199.938682 31.667234 63.956637-46.466288 78.134545-135.982044 31.668257-199.938682C829.944306 741.345432 821.62892 732.564441 812.525588 725.041094L812.525588 725.041094zM987.535507 391.155724c-24.429389-75.184353-105.182574-116.330472-180.366927-91.901083-11.751648 3.817955-22.672372 9.012258-32.640398 15.346523l-1.393743-4.2897L557.574988 531.019169l304.027341 51.560306-1.393743-4.2897c11.787464-0.735757 23.676236-2.951215 35.426861-6.769171C970.820823 547.093263 1011.965919 466.340077 987.535507 391.155724L987.535507 391.155724zM649.697105 223.903489c2.943029-11.437493 4.50971-23.428595 4.50971-35.785018 0-79.054497-64.085574-143.140071-143.141094-143.140071s-143.140071 64.085574-143.140071 143.140071c0 12.356422 1.566682 24.347524 4.50971 35.785018l-4.50971 0 143.293567 273.213545 142.986575-273.213545L649.697105 223.903489z" />
+
+    <SolidColorBrush x:Key="TextBox.Static.BorderBrush">#9FA5AE</SolidColorBrush>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA" />
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5" />
+    <Style TargetType="{x:Type MyControls:ValidateTextBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.BorderBrush}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MyControls:ValidateTextBox}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                UseLayoutRounding="True" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="false" 
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden" />
+                        </Border>
+                        <Border x:Name="red_border" Width="Auto" Margin="0" HorizontalAlignment="Stretch"
+                                BorderBrush="#FFDB000C" BorderThickness="1" CornerRadius="1" Visibility="Collapsed"
+                                UseLayoutRounding="True" SnapsToDevicePixels="True">
+                            <Grid Width="12" Height="12" Margin="1,-4,-4,0" HorizontalAlignment="Right"
+                                  VerticalAlignment="Top" Background="Transparent">
+                                <Path Margin="1,3,0,0" Data="M 1,0 L6,0 A 2,2 90 0 1 8,2 L8,7 z" Fill="#FFDC000C" />
+                                <Path Margin="1,3,0,0" Data="M 0,0 L2,0 L 8,6 L8,8" Fill="#ffffff" />
+                            </Grid>
+                        </Border>
+                        <Path x:Name="RequireLabel" Grid.Column="1" Data="{StaticResource Icon_IsRequired}" 
+                              Stretch="Uniform" Fill="Red" Width="10"
+                              VerticalAlignment="Center" Margin="5,0,0,0"
+                              Visibility="{Binding IsRequired, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        
+                        <!--<TextBlock x:Name="RequireLabel" Text="*" Grid.Column="1" Foreground="Red" 
+                                   VerticalAlignment="Center" Margin="5,0,0,0"
+                                   Visibility="{Binding IsRequired, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+                        <Popup x:Name="PART_ErrorPopup" Grid.Column="1"
+                               AllowsTransparency="True" IsOpen="False" Placement="Right"
+                               PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                               StaysOpen="True">
+                            <Grid Margin="2,10,10,10" x:Name="border1_Copy" Opacity="0" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform X="10" />
+                                    </TransformGroup>
+                                </Grid.RenderTransform>
+                                <Border Background="#FFFFFF" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="13" Opacity="0.4" ShadowDepth="1" Color="Brown" />
+                                    </Border.Effect>
+                                </Border>
+                                <Border Width="Auto" Height="Auto" Margin="-3" Padding="5,5"
+                                        HorizontalAlignment="Stretch" Background="Red" BorderThickness="1" CornerRadius="2"
+                                        SnapsToDevicePixels="True" UseLayoutRounding="True">
+                                    <TextBlock x:Name="PART_ErrorContent" HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center" Foreground="White"
+                                               TextWrapping="NoWrap" FontSize="12" FontFamily="微软雅黑"/>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="InvalidFocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="red_border" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1_Copy" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
+                                            <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border1_Copy" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="5">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <QuarticEase EasingMode="EaseInOut" />
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <QuarticEase EasingMode="EaseInOut" />
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ErrorPopup" Storyboard.TargetProperty="(Popup.IsOpen)">
+                                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="InvalidUnfocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="red_border" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ErrorPopup" Storyboard.TargetProperty="(Popup.IsOpen)">
+                                            <DiscreteBooleanKeyFrame KeyTime="0" Value="False" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <!--验证通过，并失去焦点-->
+                                <VisualState x:Name="ValidUnfocused">
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ErrorPopup" Storyboard.TargetProperty="(Popup.IsOpen)">
+                                            <DiscreteBooleanKeyFrame KeyTime="0" Value="False" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="border" Property="BorderThickness" Value="0" />
+                            <Setter TargetName="border" Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#888888" />
+                            <Setter TargetName="RequireLabel" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ErrorPopup" Property="IsOpen" Value="False" />
+                            <Setter TargetName="red_border" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.MouseOver.Border}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.Focus.Border}" />
+                            <Setter TargetName="border" Property="Background" Value="#FFFFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

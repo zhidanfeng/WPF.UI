@@ -165,5 +165,10 @@ namespace ZdfFlatUI.MyControls.Primitives
         #endregion
 
         #endregion
+
+        public override void OnCornerRadiusChanged(CornerRadius newValue)
+        {
+            this.SetValue(IconTextBoxBase.IconCornerRadiusProperty, new CornerRadius(newValue.TopLeft, 0, 0, newValue.BottomLeft));
+        }
     }
 }

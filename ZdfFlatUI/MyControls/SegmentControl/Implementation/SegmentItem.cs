@@ -14,8 +14,16 @@ namespace ZdfFlatUI
     /// <remarks>add by zhidf 2017.7.9</remarks>
     public class SegmentItem : ListBoxItem
     {
-        #region private fields
+        #region Property
+        private SegmentControl ParentItemsControl
+        {
+            get { return this.ParentSelector as SegmentControl; }
+        }
 
+        internal ItemsControl ParentSelector
+        {
+            get { return ItemsControl.ItemsControlFromItemContainer(this) as ItemsControl; }
+        }
         #endregion
 
         #region DependencyProperty
@@ -102,6 +110,8 @@ namespace ZdfFlatUI
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+
+            this.MouseLeftButtonUp += ButtonGroupItem_MouseLeftButtonUp;
         }
 
         #endregion
@@ -111,6 +121,11 @@ namespace ZdfFlatUI
         #endregion
 
         #region Event Implement Function
+
+        private void ButtonGroupItem_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.ParentItemsControl.OnItemClick(this, this);
+        }
 
         #endregion
     }

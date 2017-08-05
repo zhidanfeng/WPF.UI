@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:MyControls="clr-namespace:ZdfFlatUI">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/WPF.UI;component/Resources/AutoDisappearScrollViewerStyle.xaml"/>
+        <ResourceDictionary Source="/WPF.UI;component/Resources/PathGeometry.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#DEDEDE" />
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#BEBEBE" />
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#5DA9E9" />
+
+    <ControlTemplate x:Key="TitleIsLeft" TargetType="{x:Type MyControls:TitleTextBox}">
+        <Border x:Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True" UseLayoutRounding="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="PART_Title" Margin="5,0,0,0"
+                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                           FontFamily="{TemplateBinding FontFamily}"
+                           FontSize="{TemplateBinding FontSize}"
+                           Foreground="#9A9A9A"
+                           Text="{TemplateBinding Title}"
+                           Visibility="{Binding IsShowTitle, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1"
+                              Margin="{TemplateBinding Padding}"
+                              Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+
+                <Border Grid.Column="2" Visibility="{Binding CanClearText, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Path x:Name="PART_ClearText" Grid.Column="2" Width="13" Margin="0,0,4,0"
+                          Data="{StaticResource Icon_Delete}"
+                          Fill="#DEDEDE" Stretch="Uniform">
+                        <Path.Style>
+                            <Style TargetType="{x:Type Path}">
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="False" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsKeyboardFocused, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="False" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="True" />
+                                            <Condition Binding="{Binding Text.IsEmpty, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type MyControls:TitleTextBox}}}" Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+                </Border>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="BorderThickness" Value="0" />
+            </Trigger>
+            <Trigger Property="IsReadOnly" Value="True">
+                <Setter TargetName="border" Property="BorderThickness" Value="0" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.MouseOver.Border}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.Focus.Border}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="TitleIsTop" TargetType="{x:Type MyControls:TitleTextBox}">
+        <Border x:Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True" UseLayoutRounding="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="5,3,0,0"
+                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                           FontFamily="{TemplateBinding FontFamily}"
+                           FontSize="{TemplateBinding FontSize}"
+                           Foreground="#9A9A9A"
+                           Text="{TemplateBinding Title}"
+                           Visibility="{Binding IsShowTitle, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                <ScrollViewer x:Name="PART_ContentHost" Grid.Row="1"
+                              Margin="{TemplateBinding Padding}"
+                              Focusable="false" HorizontalScrollBarVisibility="Hidden" 
+                              VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}"
+                              VerticalAlignment="Stretch"
+                              Style="{StaticResource AutoDisappearScrollViewerStyle}"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="BorderThickness" Value="0" />
+            </Trigger>
+            <Trigger Property="IsReadOnly" Value="True">
+                <Setter TargetName="border" Property="BorderThickness" Value="0" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.MouseOver.Border}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.Focus.Border}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type MyControls:TitleTextBox}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Padding" Value="2,0,2,0" />
+        <Setter Property="Title" Value="标题:" />
+        <Setter Property="Template" Value="{StaticResource TitleIsLeft}" />
+        <Style.Triggers>
+            <Trigger Property="TitleOrientation" Value="Vertical">
+                <Setter Property="Template" Value="{StaticResource TitleIsTop}" />
+                <Setter Property="AcceptsReturn" Value="True" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="Padding" Value="2,2,0,2" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

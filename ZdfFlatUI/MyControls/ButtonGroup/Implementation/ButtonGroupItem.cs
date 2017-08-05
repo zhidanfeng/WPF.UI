@@ -106,11 +106,6 @@ namespace ZdfFlatUI
             this.MouseLeftButtonUp += ButtonGroupItem_MouseLeftButtonUp;
         }
 
-        private void ButtonGroupItem_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            this.ParentItemsControl.OnItemClick(this, this);
-        }
-
         #endregion
 
         #region private function
@@ -118,6 +113,11 @@ namespace ZdfFlatUI
         #endregion
 
         #region Event Implement Function
+
+        private void ButtonGroupItem_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.ParentItemsControl.OnItemClick(this, this);
+        }
 
         #endregion
     }

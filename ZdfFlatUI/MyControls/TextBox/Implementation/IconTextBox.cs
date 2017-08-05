@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using ZdfFlatUI.MyControls.Primitives;
 
 namespace ZdfFlatUI
 {
     /// <summary>
     /// 带图标的文本输入框
     /// </summary>
-    public class IconTextBox : TextBox
+    public class IconTextBox : IconTextBoxBase
     {
         public enum IconPlacementEnum
         {
@@ -65,28 +66,6 @@ namespace ZdfFlatUI
             set { SetValue(IconPlacementProperty, value); }
         }
 
-        public static readonly DependencyProperty IconWidthProperty = DependencyProperty.Register("IconWidth"
-            , typeof(double), typeof(IconTextBox), new FrameworkPropertyMetadata(13d));
-        /// <summary>
-        /// 图标的宽度
-        /// </summary>
-        public double IconWidth
-        {
-            get { return (double)GetValue(IconWidthProperty); }
-            set { SetValue(IconWidthProperty, value); }
-        }
-
-        public static readonly DependencyProperty PathDataProperty = DependencyProperty.Register("PathData"
-            , typeof(PathGeometry), typeof(IconTextBox));
-        /// <summary>
-        /// 图标资源，这里使用的Path作为图标
-        /// </summary>
-        public PathGeometry PathData
-        {
-            get { return (PathGeometry)GetValue(PathDataProperty); }
-            set { SetValue(PathDataProperty, value); }
-        }
-
         public static readonly DependencyProperty IconColorProperty = DependencyProperty.Register("IconColor"
             , typeof(Brush), typeof(IconTextBox));
         /// <summary>
@@ -99,38 +78,6 @@ namespace ZdfFlatUI
         }
         #endregion
 
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius"
-            , typeof(System.Windows.CornerRadius), typeof(IconTextBox));
-        /// <summary>
-        /// 边框圆角
-        /// </summary>
-        public System.Windows.CornerRadius CornerRadius
-        {
-            get { return (System.Windows.CornerRadius)GetValue(CornerRadiusProperty); }
-            set { SetValue(CornerRadiusProperty, value); }
-        }
-
-        public static readonly DependencyProperty WatermarkProperty = DependencyProperty.Register("Watermark"
-            , typeof(string), typeof(IconTextBox));
-        /// <summary>
-        /// 文本输入框的水印
-        /// </summary>
-        public string Watermark
-        {
-            get { return (string)GetValue(WatermarkProperty); }
-            set { SetValue(WatermarkProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsShowIconProperty = DependencyProperty.Register("IsShowIcon"
-            , typeof(bool), typeof(IconTextBox), new PropertyMetadata(true));
-        /// <summary>
-        /// 是否显示图标
-        /// </summary>
-        public bool IsShowIcon
-        {
-            get { return (bool)GetValue(IsShowIconProperty); }
-            set { SetValue(IsShowIconProperty, value); }
-        }
         #endregion
 
         public IconTextBox() : base()

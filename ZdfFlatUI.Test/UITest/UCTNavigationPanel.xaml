@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTNavigationPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="300" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Button Content="下一个" Click="Button_Click" />
+        </StackPanel>
+        
+        <WPF.UI:NavigationPanel x:Name="navigationPanel" Grid.Row="1" 
+                                IndicatorMargin="0" IndicatorHorizontalAlignment="Center" 
+                                IndicatorSelectedIndex="3" IndicatorPlacement="Left">
+            <WPF.UI:ZScrollViewer>
+                <StackPanel Margin="5">
+                    <WPF.UI:ZGroupBox Header="常规设置" HeaderBackground="Transparent" BorderThickness="0" 
+                                      BorderBrush="Black" FontSize="14">
+                        <StackPanel>
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                        </StackPanel>
+                    </WPF.UI:ZGroupBox>
+
+                    <WPF.UI:ZGroupBox Header="下载与缓存" HeaderBackground="Transparent" BorderThickness="0" BorderBrush="Black" FontSize="14">
+                        <StackPanel>
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                        </StackPanel>
+                    </WPF.UI:ZGroupBox>
+
+                    <WPF.UI:ZGroupBox Header="桌面歌词" HeaderBackground="Transparent" BorderThickness="0" BorderBrush="Black" FontSize="14">
+                        <StackPanel>
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                        </StackPanel>
+                    </WPF.UI:ZGroupBox>
+
+                    <WPF.UI:ZGroupBox Header="歌词面板" HeaderBackground="Transparent" BorderThickness="0" BorderBrush="Black" FontSize="14">
+                        <StackPanel>
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                        </StackPanel>
+                    </WPF.UI:ZGroupBox>
+
+                    <WPF.UI:ZGroupBox Header="快捷键" HeaderBackground="Transparent" BorderThickness="0" BorderBrush="Black" FontSize="14">
+                        <StackPanel>
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                            <WPF.UI:FlatButton Content="测试" HorizontalAlignment="Left" Margin="0,20" />
+                        </StackPanel>
+                    </WPF.UI:ZGroupBox>
+                </StackPanel>
+            </WPF.UI:ZScrollViewer>
+        </WPF.UI:NavigationPanel>
+    </Grid>
+</UserControl>

@@ -57,7 +57,7 @@
                 <ControlTemplate TargetType="{x:Type ZUI:CircleProgressBar}">
                     <Grid x:Name="TemplateRoot" Width="{TemplateBinding Width}" Height="{TemplateBinding Width}">
                         <ed:Arc Stroke="{TemplateBinding Background}"
-                                StrokeThickness="5" StrokeStartLineCap="Round"
+                                StrokeThickness="3" StrokeStartLineCap="Round"
                                 StrokeEndLineCap="Round"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
@@ -66,11 +66,13 @@
 
                         <ed:Arc x:Name="Indicator" StrokeStartLineCap="Round"
                                 StrokeEndLineCap="Round"
-                                Stroke="{TemplateBinding Foreground}" StrokeThickness="5"
+                                Stroke="{TemplateBinding Foreground}" StrokeThickness="3"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
                                 StartAngle="{TemplateBinding StartAngle}" 
                                 Stretch="None"/>
+                        <!--<Border BorderBrush="#EBEBEB" BorderThickness="1" CornerRadius="10000"
+                                Margin="10"/>-->
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

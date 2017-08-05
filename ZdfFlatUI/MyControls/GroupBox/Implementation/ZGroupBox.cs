@@ -15,14 +15,47 @@ namespace ZdfFlatUI
         #endregion
 
         #region 依赖属性定义
-        public Brush HeadBackground
+
+        #region HeaderBackground
+
+        public Brush HeaderBackground
         {
-            get { return (Brush)GetValue(HeadBackgroundProperty); }
-            set { SetValue(HeadBackgroundProperty, value); }
+            get { return (Brush)GetValue(HeaderBackgroundProperty); }
+            set { SetValue(HeaderBackgroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty HeaderBackgroundProperty =
+            DependencyProperty.Register("HeaderBackground", typeof(Brush), typeof(ZGroupBox));
+
+        #endregion
+
+        #region HorizontalHeaderAlignment
+
+        public HorizontalAlignment HorizontalHeaderAlignment
+        {
+            get { return (HorizontalAlignment)GetValue(HorizontalHeaderAlignmentProperty); }
+            set { SetValue(HorizontalHeaderAlignmentProperty, value); }
         }
         
-        public static readonly DependencyProperty HeadBackgroundProperty =
-            DependencyProperty.Register("HeadBackground", typeof(Brush), typeof(ZGroupBox));
+        public static readonly DependencyProperty HorizontalHeaderAlignmentProperty =
+            DependencyProperty.Register("HorizontalHeaderAlignment", typeof(HorizontalAlignment), typeof(ZGroupBox), new PropertyMetadata(HorizontalAlignment.Stretch));
+
+        #endregion
+
+        #region HeaderPadding
+
+        public Thickness HeaderPadding
+        {
+            get { return (Thickness)GetValue(HeaderPaddingProperty); }
+            set { SetValue(HeaderPaddingProperty, value); }
+        }
+        
+        public static readonly DependencyProperty HeaderPaddingProperty =
+            DependencyProperty.Register("HeaderPadding", typeof(Thickness), typeof(ZGroupBox));
+
+        #endregion
+
+        #region CornerRadius
 
         public CornerRadius CornerRadius
         {
@@ -30,13 +63,37 @@ namespace ZdfFlatUI
             set { SetValue(CornerRadiusProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for CornerRadius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ZGroupBox));
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ZGroupBox), new PropertyMetadata(new CornerRadius(0), CornerRadiusCallback));
+
+        private static void CornerRadiusCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ZGroupBox groupBox = d as ZGroupBox;
+            if(groupBox != null)
+            {
+                CornerRadius radius = (CornerRadius)e.NewValue;
+                groupBox.CornerRadiusInner = new CornerRadius(radius.TopLeft, radius.TopRight, 0, 0);
+            }
+        }
 
         #endregion
 
-        #region 依赖属性set get
+        #endregion
+
+        #region 私有依赖属性
+
+        #region CornerRadiusInner
+
+        public CornerRadius CornerRadiusInner
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusInnerProperty); }
+            private set { SetValue(CornerRadiusInnerProperty, value); }
+        }
+        
+        public static readonly DependencyProperty CornerRadiusInnerProperty =
+            DependencyProperty.Register("CornerRadiusInner", typeof(CornerRadius), typeof(ZGroupBox));
+
+        #endregion
 
         #endregion
 

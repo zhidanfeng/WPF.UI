@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZdfFlatUI.Test", "ZdfFlatUI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFRichTextEditor", "WPFRichTextEditor\WPFRichTextEditor.csproj", "{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UI.Media", "WPF.UI.Media\WPF.UI.Media.csproj", "{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,18 +55,6 @@ Global
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|x64.Build.0 = Release|x64
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|x86.ActiveCfg = Release|x86
 		{6C9F261C-07D9-4562-BDF4-5F0D4A55B5F2}.Release|x86.Build.0 = Release|x86
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|x64.ActiveCfg = Debug|x64
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|x64.Build.0 = Debug|x64
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Debug|x86.Build.0 = Debug|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|x64.ActiveCfg = Release|x64
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|x64.Build.0 = Release|x64
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|x86.ActiveCfg = Release|Any CPU
-		{5CFE0A2E-CA13-49FC-8A19-8538B02627FC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

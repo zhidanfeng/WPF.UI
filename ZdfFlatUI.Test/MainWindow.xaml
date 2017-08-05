@@ -24,7 +24,7 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
-                            <WPF.UI:IconTextBox Width="200" Height="28" Margin="10,0" BorderThickness="1,1,1,1"
+                            <!--<WPF.UI:IconTextBox Width="200" Height="28" Margin="10,0" BorderThickness="1,1,1,1"
                                             CornerRadius="0" EnterKeyClick="IconTextBox_EnterKeyClick" IconPlacement="Left" IconWidth="11"
                                             PathData="{StaticResource Icon_password}"
                                             UseLayoutRounding="False" />
@@ -37,7 +37,7 @@
                             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="0"
                                             IconColor="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
                             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,0" CornerRadius="0"
-                                            IconColor="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
+                                            IconColor="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />-->
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <WPF.UI:ZTextBox Width="200" Height="25" Margin="10,10" />

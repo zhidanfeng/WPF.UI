@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls.Primitives;
@@ -51,10 +52,18 @@ namespace ZdfFlatUI
 
         private static void UpdatePosition(Popup pop)
         {
-            var mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            if(pop == null)
+            {
+                return;
+            }
+
+            MethodInfo mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             try
             {
-                mi.Invoke(pop, null);
+                if(mi != null)
+                {
+                    mi.Invoke(pop, null);
+                }
             }
             catch (Exception ex)
             {

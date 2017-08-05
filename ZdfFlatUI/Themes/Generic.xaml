@@ -2,20 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/WPF.UI;component/Resources/TooltipStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathButtonStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathTextButtonStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/PathIconButtonStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyButton/FlatButtonStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/IconTextBoxStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TagTextBoxStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/ValidateTextBoxStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/MyControls/NumericUpDown/Themes/NumericUpDownStyle.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/Themes/MyTextBox/TitleTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/PathButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/PathTextButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/PathIconButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/FlatButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/IconTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/TagTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/ValidateTextBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/TitleTextBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/TextBox/Themes/ZPasswordBox.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/NumericUpDown/Themes/NumericUpDownStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Popup/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/BaseWindowStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/ZWindow.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/DefaultCheckBoxStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/RadionButton/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/FlatDatePickerStyle.xaml" />
@@ -27,7 +29,6 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ProgressBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Slider/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ComboBox/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/WPF.UI;component/MyControls/Button/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Tree/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Upload/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigateMenu/Themes/Generic.xaml" />
@@ -81,5 +82,6 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/SegmentControl/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Panel/Themes/WaterfallPanel.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ButtonGroup/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationPanel/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

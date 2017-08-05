@@ -38,7 +38,7 @@
                 </Border.Effect>
             </Border>
 
-            <WPF.UI:NavigateMenu x:Name="menu" FontSize="13" Margin="0,20" SelectionChanged="menu_SelectionChanged">
+            <WPF.UI:NavigateMenu x:Name="menu" FontSize="13" Margin="0,5" SelectionChanged="menu_SelectionChanged">
                 <WPF.UI:NavigateMenu.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" />
@@ -78,7 +78,7 @@
                 </WPF.UI:NavigateMenu.GroupStyle>
             </WPF.UI:NavigateMenu>
 
-            <ContentControl x:Name="ControlPanel" Grid.Column="1" Margin="20" />
+            <ContentControl x:Name="ControlPanel" Grid.Column="1" Margin="0" />
         </Grid>
     </Grid>
 </Window>

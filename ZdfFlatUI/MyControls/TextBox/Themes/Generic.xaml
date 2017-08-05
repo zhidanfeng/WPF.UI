@@ -4,6 +4,7 @@
 
     <Color x:Key="Color.Light.Border.Normal">#D7DDE4</Color>
     <Color x:Key="Color.Light.Border.MouseOver">#5CADFF</Color>
+    <Color x:Key="Color.Disabled.Background">#F3F3F3</Color>
 
     <Style TargetType="{x:Type ZUI:ZTextBox}">
         <Setter Property="BorderBrush" Value="#ABADB3" />
@@ -89,6 +90,9 @@
                 <Setter Property="Padding" Value="1,2,0,2" />
                 <Setter Property="TextWrapping" Value="Wrap" />
                 <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource Color.Disabled.Background}" />
             </Trigger>
         </Style.Triggers>
     </Style>

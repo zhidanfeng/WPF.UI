@@ -57,6 +57,35 @@ namespace ZdfFlatUI
 
         #endregion
 
+        #region 路由事件
+
+        #region ItemClickEvent
+
+        public static readonly RoutedEvent ItemClickEvent = EventManager.RegisterRoutedEvent("ItemClick",
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<object>), typeof(SegmentControl));
+
+        public event RoutedPropertyChangedEventHandler<object> ItemClick
+        {
+            add
+            {
+                this.AddHandler(ItemClickEvent, value);
+            }
+            remove
+            {
+                this.RemoveHandler(ItemClickEvent, value);
+            }
+        }
+
+        public virtual void OnItemClick(object oldValue, object newValue)
+        {
+            RoutedPropertyChangedEventArgs<object> arg = new RoutedPropertyChangedEventArgs<object>(oldValue, newValue, ItemClickEvent);
+            this.RaiseEvent(arg);
+        }
+
+        #endregion
+
+        #endregion
+
         #region Constructors
 
         static SegmentControl()

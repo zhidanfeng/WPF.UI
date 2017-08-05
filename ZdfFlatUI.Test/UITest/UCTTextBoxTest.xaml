@@ -69,21 +69,26 @@
 
         <StackPanel Orientation="Horizontal">
             <WPF.UI:IconTextBox Width="200" Height="28" Margin="0,5" BorderThickness="1,1,1,1"
-                                CornerRadius="0" IconPlacement="Left" IconWidth="11"
-                                PathData="{StaticResource Icon_password}"
-                                UseLayoutRounding="False" />
+                                CornerRadius="3" IconPlacement="Left" IconWidth="11"
+                                Watermark="请输入密码"
+                                IconBackground="AliceBlue" IconForeground="Gray"/>
+            <WPF.UI:IconTextBox Width="200" Height="28" Margin="10,5" BorderThickness="0,0,0,1"
+                                IconPlacement="Left" IconWidth="11"
+                                Watermark="请输入密码" IconBorderBrush="Transparent" IconBorderThickness="0"
+                                IconBackground="Transparent" IconForeground="Gray"/>
             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="0,0,10,0"
-                                CornerRadius="15" IconPlacement="Left" Watermark="请输入密码" />
+                                CornerRadius="14" IconPlacement="Left" Watermark="请输入密码"
+                                IconBorderThickness="0" IconPadding="15,0,10,0"/>
             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="10,0,0,0"
-                                CornerRadius="15" IconColor="#6C86F4" IconPlacement="Right" />
+                                CornerRadius="14" IconForeground="#6C86F4" IconPlacement="Right" />
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <WPF.UI:IconTextBox Width="200" Height="30" Margin="0,5" Padding="10,0,0,0"
-                                CornerRadius="15" IconColor="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
+                                CornerRadius="15" IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
-                                IconColor="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
+                                IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
             <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
-                                IconColor="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
+                                IconForeground="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
         </StackPanel>
     </StackPanel>
 </UserControl>

@@ -3,8 +3,10 @@
     <Style TargetType="{x:Type ZUI:ZGroupBox}">
         <Setter Property="BorderBrush" Value="#D7DDE4" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="HeadBackground" Value="#F5F7F9" />
+        <Setter Property="HeaderBackground" Value="#F5F7F9" />
+        <Setter Property="HeaderPadding" Value="5" />
         <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HorizontalHeaderAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:ZGroupBox}">
@@ -21,13 +23,15 @@
                             </Grid.RowDefinitions>
 
                             <Border x:Name="Header" Grid.Row="0"
-                                    Background="{TemplateBinding HeadBackground}"
-                                    Padding="5" Margin="0,0,-1,0">
+                                    CornerRadius="{Binding CornerRadiusInner, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Background="{TemplateBinding HeaderBackground}"
+                                    Padding="{TemplateBinding HeaderPadding}" Margin="0,0,-1,0">
                                 <ContentPresenter Content="{TemplateBinding Header}"
                                                   ContentSource="Header"
                                                   ContentStringFormat="{TemplateBinding HeaderStringFormat}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   RecognizesAccessKey="True"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalHeaderAlignment}"
                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Border>
 

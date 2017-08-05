@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZdfFlatUI</RootNamespace>
     <AssemblyName>WPF.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -48,6 +48,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -57,6 +58,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -66,6 +68,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -75,6 +78,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bass.Net">
@@ -99,6 +103,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -118,7 +123,6 @@
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="WPFSoundVisualizationLib">
       <HintPath>DLL\MusicPlayer\WPFSoundVisualizationLib.dll</HintPath>
     </Reference>
@@ -134,6 +138,7 @@
     <Compile Include="Converters\IsProgressedConverter.cs" />
     <Compile Include="Converters\MathMultipleConverter.cs" />
     <Compile Include="Converters\NumberConverter.cs" />
+    <Compile Include="Converters\ObjectConverter.cs" />
     <Compile Include="Converters\OffsetConverter.cs" />
     <Compile Include="Converters\StringIsEmptyConverter.cs" />
     <Compile Include="Converters\TreeViewItemIndentConverter.cs" />
@@ -146,6 +151,7 @@
     <Compile Include="MyControls\Accordion\Implementation\Accordion.cs" />
     <Compile Include="MyControls\Accordion\Implementation\AccordionItem.cs" />
     <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
+    <Compile Include="MyControls\AutoComplete\Implementation\AutoCompleteBox.cs" />
     <Compile Include="MyControls\Badge\Implementation\BadgeAdorner.cs" />
     <Compile Include="MyControls\Badge\Implementation\Badge.cs" />
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicator.cs" />
@@ -155,6 +161,7 @@
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
+    <Compile Include="MyControls\NavigationPanel\Implementation\NavigationPanel.cs" />
     <Compile Include="MyControls\Panel\Implementation\WaterfallPanel - 复制.cs" />
     <Compile Include="MyControls\Poptip\Implementation\Poptip.cs" />
     <Compile Include="MyControls\Primitives\IconTextBoxBase.cs" />
@@ -225,8 +232,6 @@
     <Compile Include="MyControls\Primitives\MyEventArgs\ItemMouseRightButtonDownEventArgs.cs" />
     <Compile Include="MyControls\Primitives\MyEventArgs\ItemMouseSingleClickEventArgs.cs" />
     <Compile Include="MyControls\Primitives\NumberBox.cs" />
-    <Compile Include="MyControls\Primitives\Selector.cs" />
-    <Compile Include="MyControls\Primitives\SelectorItem.cs" />
     <Compile Include="MyControls\ProgressBar\Implementation\CircleProgressBar.cs" />
     <Compile Include="MyControls\ProgressBar\Implementation\FlatProgressBar.cs" />
     <Compile Include="MyControls\ProgressBar\Implementation\WaveProgressBar.cs" />
@@ -268,6 +273,7 @@
     <Compile Include="MyControls\VideoPlayer\Implementation\VideoPlayer.cs" />
     <Compile Include="MyControls\Window\Implementation\AutoCloseWindow.cs" />
     <Compile Include="MyControls\Window\Implementation\BaseWindow.cs" />
+    <Compile Include="MyControls\Window\Implementation\ZWindow.cs" />
     <Compile Include="StyleSelectors\RatingBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateMenuGroupStyleSelector.cs" />
@@ -373,6 +379,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\MusicPlayer\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\NavigationPanel\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -568,6 +578,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\Window\Themes\ZWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\AutoDisappearScrollViewerStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -624,10 +638,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\DateControl\DateTimePicker_CalendarStyle - 复制.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Themes\DateControl\DateTimePicker_CalendarStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -652,23 +662,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\MyButton\FlatButtonStyle.xaml">
+    <Page Include="MyControls\Button\Themes\FlatButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyButton\PathButtonStyle.xaml">
+    <Page Include="MyControls\Button\Themes\PathButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyButton\PathIconButtonStyle.xaml">
+    <Page Include="MyControls\Button\Themes\PathIconButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyButton\PathTextButtonStyle.xaml">
+    <Page Include="MyControls\Button\Themes\PathTextButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyTextBox\IconTextBoxStyle.xaml">
+    <Page Include="MyControls\TextBox\Themes\IconTextBoxStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -676,15 +686,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\MyTextBox\TagTextBoxStyle.xaml">
+    <Page Include="MyControls\TextBox\Themes\TagTextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\MyTextBox\TitleTextBoxStyle.xaml">
+    <Page Include="MyControls\TextBox\Themes\TitleTextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\MyTextBox\ValidateTextBoxStyle.xaml">
+    <Page Include="MyControls\TextBox\Themes\ValidateTextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -742,6 +752,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MyControls\AutoComplete\Themes\" />
     <Folder Include="MyControls\ColorPicker\Implementation\" />
     <Folder Include="MyControls\ColorPicker\Themes\" />
     <Folder Include="MyControls\DataGrid\Implementation\" />

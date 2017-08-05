@@ -60,6 +60,46 @@ namespace ZdfFlatUI.Utils
         }
 
         /// <summary>
+        /// 利用visualtreehelper寻找对象的子级对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static List<T> FindVisualChildrenEx<T>(DependencyObject obj) where T : DependencyObject
+        {
+            try
+            {
+                List<T> TList = new List<T> { };
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                    if (child != null && child is T)
+                    {
+                        TList.Add((T)child);
+                        List<T> childOfChildren = FindVisualChildrenEx<T>(child);
+                        if (childOfChildren != null)
+                        {
+                            TList.AddRange(childOfChildren);
+                        }
+                    }
+                    else
+                    {
+                        List<T> childOfChildren = FindVisualChildrenEx<T>(child);
+                        if (childOfChildren != null)
+                        {
+                            TList.AddRange(childOfChildren);
+                        }
+                    }
+                }
+                return TList;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// 查找元素的父元素
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -152,6 +192,28 @@ namespace ZdfFlatUI.Utils
         public static bool HitTest<T>(DependencyObject dp) where T : DependencyObject
         {
             return FindParent<T>(dp) != null || FindVisualChild<T>(dp) != null;
+        }
+
+        public static T FindEqualElement<T>(DependencyObject source, DependencyObject element) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(source); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(source, i);
+                if (child != null && child is T && child == element)
+                {
+                    return (T)child;
+                }
+                else
+                {
+                    T childOfChild = FindVisualChild<T>(child);
+                    if (childOfChild != null)
+                    {
+                        return childOfChild;
+                    }
+                        
+                }
+            }
+            return null;
         }
     }
 }

@@ -294,6 +294,11 @@ namespace ZdfFlatUI.Test
                 Name = "Poptip气泡提示",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "NaviationPanel导航容器",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -455,6 +460,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "Poptip气泡提示":
                         this.ControlPanel.Content = new UITest.UCTPoptip();
+                        break;
+                    case "NaviationPanel导航容器":
+                        this.ControlPanel.Content = new UITest.UCTNavigationPanel();
                         break;
                         #endregion
                 }
