@@ -122,7 +122,7 @@
                     <Grid Margin="10">
                         <Border Background="#FFFFFF" SnapsToDevicePixels="True" UseLayoutRounding="True">
                             <Border.Effect>
-                                <DropShadowEffect BlurRadius="10" Opacity="0.4" ShadowDepth="0" Color="Brown" />
+                                <DropShadowEffect BlurRadius="10" Opacity="1" ShadowDepth="0" Color="Yellow" />
                             </Border.Effect>
                         </Border>
                         <Border Background="{TemplateBinding Background}"
@@ -136,7 +136,7 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
-                                <Grid Background="{TemplateBinding TitleBackground}">
+                                <Grid x:Name="titleGrid" Background="{TemplateBinding TitleBackground}" Margin="0,0,-1,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="auto" />
@@ -195,7 +195,7 @@
                                                 </i:Interaction.Triggers>
                                             </Button>
                                         </Grid>
-                                        <Button x:Name="PART_Btn_Close" Height="30" Margin="0,0,-1,0"
+                                        <Button x:Name="PART_Btn_Close" Height="30"
                                                 Background="{TemplateBinding TitleForeground}"
                                                 Style="{StaticResource CloseStyle}"
                                                 Visibility="{TemplateBinding CloseBox, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -217,6 +217,17 @@
                             </Grid>
                         </Border>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="PART_Btn_Maximized" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_Btn_Restore" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="titleGrid" Property="Margin" Value="5" />
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter TargetName="PART_Btn_Maximized" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Btn_Restore" Property="Visibility" Value="Hidden" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -26,7 +26,25 @@ namespace ZdfFlatUI.Test.UITest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.navigationPanel.IndicatorSelectedIndex = 2;
+            //this.navigationPanel.IndicatorSelectedIndex = 2;
+            Button btn = sender as Button;
+            switch (btn.Content.ToString())
+            {
+                case "上":
+                    this.navigationPanel.IndicatorPlacement = Dock.Top;
+                    break;
+                case "下":
+                    this.navigationPanel.IndicatorPlacement = Dock.Bottom;
+                    break;
+                case "左":
+                    this.navigationPanel.IndicatorPlacement = Dock.Left;
+                    break;
+                case "右":
+                    this.navigationPanel.IndicatorPlacement = Dock.Right;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

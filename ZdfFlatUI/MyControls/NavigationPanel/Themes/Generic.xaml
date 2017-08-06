@@ -186,6 +186,7 @@
     </Style>
     <!--#endregion-->
 
+    <!--#region 索引器在左边-->
     <ControlTemplate x:Key="IndicatorIsInLeft" TargetType="{x:Type ZUI:NavigationPanel}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -204,7 +205,9 @@
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
     </ControlTemplate>
+    <!--#endregion-->
     
+    <!--#region 索引器在顶部-->
     <ControlTemplate x:Key="IndicatorIsInTop" TargetType="{x:Type ZUI:NavigationPanel}">
         <Grid>
             <Grid.RowDefinitions>
@@ -223,7 +226,9 @@
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
     </ControlTemplate>
+    <!--#endregion-->
 
+    <!--#region 索引器在右边-->
     <ControlTemplate x:Key="IndicatorIsInRight" TargetType="{x:Type ZUI:NavigationPanel}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -242,7 +247,9 @@
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
     </ControlTemplate>
+    <!--#endregion-->
 
+    <!--#region 索引器在底部-->
     <ControlTemplate x:Key="IndicatorIsInBottom" TargetType="{x:Type ZUI:NavigationPanel}">
         <Grid>
             <Grid.RowDefinitions>
@@ -261,6 +268,7 @@
                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
     </ControlTemplate>
+    <!--#endregion-->
 
     <Style TargetType="{x:Type ZUI:NavigationPanel}">
         <Setter Property="Background" Value="Transparent" />

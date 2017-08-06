@@ -11,8 +11,11 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel>
-            <Button Content="下一个" Click="Button_Click" />
+        <StackPanel Orientation="Horizontal">
+            <Button Content="上" Click="Button_Click" Margin="10" Width="60" Height="25" />
+            <Button Content="下" Click="Button_Click" Margin="10" Width="60" Height="25" />
+            <Button Content="左" Click="Button_Click" Margin="10" Width="60" Height="25" />
+            <Button Content="右" Click="Button_Click" Margin="10" Width="60" Height="25" />
         </StackPanel>
         
         <WPF.UI:NavigationPanel x:Name="navigationPanel" Grid.Row="1" 

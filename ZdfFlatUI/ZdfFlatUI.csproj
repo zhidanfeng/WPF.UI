@@ -294,6 +294,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\AutoComplete\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Badge\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -752,7 +756,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MyControls\AutoComplete\Themes\" />
+    <Folder Include="Behaviors\" />
     <Folder Include="MyControls\ColorPicker\Implementation\" />
     <Folder Include="MyControls\ColorPicker\Themes\" />
     <Folder Include="MyControls\DataGrid\Implementation\" />

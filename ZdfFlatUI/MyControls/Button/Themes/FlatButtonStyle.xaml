@@ -37,7 +37,7 @@
                     <VisualState x:Name="MouseOver">
                         <Storyboard>
                             <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.OpacityMask).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:0.3" Value="#AA000000" />
+                                <EasingColorKeyFrame KeyTime="00:00:0.3" Value="#C0000000" />
                             </ColorAnimationUsingKeyFrames>
                         </Storyboard>
                     </VisualState>

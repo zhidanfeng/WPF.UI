@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:ZUI="clr-namespace:ZdfFlatUI">
 
-    <Color x:Key="Color.Light.Border.Normal">#D7DDE4</Color>
+    <Color x:Key="Color.Light.Border.Normal">#ABADB3</Color>
     <Color x:Key="Color.Light.Border.MouseOver">#5CADFF</Color>
     <Color x:Key="Color.Disabled.Background">#F3F3F3</Color>
 
