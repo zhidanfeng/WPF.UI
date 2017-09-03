@@ -23,5 +23,10 @@ namespace ZdfFlatUI.Test.UITest
         {
             InitializeComponent();
         }
+
+        private void btnStartValidate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

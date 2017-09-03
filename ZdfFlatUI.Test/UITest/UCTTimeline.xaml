@@ -28,7 +28,7 @@
                 <WPF.UI:TimelineItem Content="4" Height="50" />-->
             </WPF.UI:Timeline>
 
-            <WPF.UI:Timeline x:Name="timeline2">
+            <WPF.UI:Timeline x:Name="timeline2" VerticalAlignment="Top">
                 <WPF.UI:Timeline.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

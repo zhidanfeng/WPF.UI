@@ -128,6 +128,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adorners\WatermarkAdorner.cs" />
     <Compile Include="BaseControl\IUIElement.cs" />
     <Compile Include="BaseControl\NumericUpDown.cs" />
     <Compile Include="BaseControl\NumericUpDownBase.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="ExtensionFunc\PopupHelper.cs" />
     <Compile Include="ExtensionFunc\ScrollViewerBehavior.cs" />
     <Compile Include="ExtensionFunc\TreeViewExtension.cs" />
+    <Compile Include="ExtensionFunc\ValidateBehavior.cs" />
     <Compile Include="MyControls\Accordion\Implementation\Accordion.cs" />
     <Compile Include="MyControls\Accordion\Implementation\AccordionItem.cs" />
     <Compile Include="MyControls\Alert\Implementation\Alert.cs" />
@@ -168,6 +170,8 @@
     <Compile Include="MyControls\Primitives\ZTextBoxBase.cs" />
     <Compile Include="MyControls\SegmentControl\Implementation\SegmentControl.cs" />
     <Compile Include="MyControls\SegmentControl\Implementation\SegmentItem.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\IpTextBox.cs" />
+    <Compile Include="MyControls\TextBox\Implementation\NumbericTextBox.cs" />
     <Compile Include="MyControls\TextBox\Implementation\SearchBox.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZPasswordBox.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\ZToggleButton.cs" />
@@ -523,6 +527,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\TextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\TextBox\Themes\IpTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyControls\TextBox\Themes\NumbericTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

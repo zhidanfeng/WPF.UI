@@ -13,6 +13,7 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="宋体" />
+        <Setter Property="MinWidth" Value="{Binding ItemWidth, RelativeSource={RelativeSource AncestorType=ZUI:StepBar}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:StepBarItem}">
@@ -34,8 +35,8 @@
                             
                         </StackPanel>
                         <Border x:Name="Line" Grid.Column="1" BorderBrush="#E3E8EE" BorderThickness="0,1,0,0" 
-                                VerticalAlignment="Center" Margin="10,0"
-                                SnapsToDevicePixels="True" UseLayoutRounding="True" />
+                                VerticalAlignment="Center" Margin="10,0" MinWidth="{TemplateBinding MinWidth}"
+                                SnapsToDevicePixels="True" UseLayoutRounding="True" Visibility="Collapsed" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Value="True">
@@ -46,6 +47,7 @@
                                 </MultiBinding>
                             </DataTrigger.Binding>
                             <Setter TargetName="Line" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="HorizontalAlignment" Value="Left" />
                         </DataTrigger>
                         <DataTrigger Value="False">
                             <DataTrigger.Binding>
@@ -100,11 +102,14 @@
     </Style>
     
     <Style TargetType="{x:Type ZUI:StepBar}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:StepBar}">
-                    <Border>
-                        <ItemsPresenter />
+                    <Border Background="{TemplateBinding Background}">
+                        <ZUI:ZScrollViewer VerticalScrollBarVisibility="Disabled" PanningMode="HorizontalOnly">
+                            <ItemsPresenter />
+                        </ZUI:ZScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -112,7 +117,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <UniformGrid IsItemsHost="True" Rows="1" />
+                    <StackPanel IsItemsHost="True" Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>

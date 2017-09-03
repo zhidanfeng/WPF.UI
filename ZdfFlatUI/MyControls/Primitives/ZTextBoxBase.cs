@@ -47,9 +47,6 @@ namespace ZdfFlatUI.MyControls.Primitives
 
         #endregion
 
-        public virtual void OnCornerRadiusChanged(CornerRadius newValue)
-        {
-
-        }
+        public virtual void OnCornerRadiusChanged(CornerRadius newValue) { }
     }
 }

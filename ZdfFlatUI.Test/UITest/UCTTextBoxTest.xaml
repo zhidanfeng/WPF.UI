@@ -4,9 +4,9 @@
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             d:DesignHeight="500"
-             d:DesignWidth="700" mc:Ignorable="d">
+             Background="White"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="800"
+             d:DesignWidth="1100" mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,81 +14,112 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <StackPanel Margin="10" DataContext="fdas23">
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" />
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" />
-        </StackPanel>
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="燃烧物:" Width="240" Height="27" Margin="5,0" />
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0" />
-        </StackPanel>
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" />
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" />
-        </StackPanel>
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="燃烧物:" Width="240" Height="27" Margin="5,0" />
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0" />
-        </StackPanel>
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" />
-            <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
-                                 CanClearText="True" IsShowTitle="False" />
-        </StackPanel>
-        <StackPanel Margin="0,2" Orientation="Horizontal">
-            <WPF.UI:TitleTextBox Title="燃烧物:" Width="490" Height="150" Margin="5,0"
-                                 IsShowTitle="True" TextWrapping="Wrap" TitleOrientation="Vertical" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" MultiRow="True" />
-            <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" CornerRadius="3" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <WPF.UI:ZPasswordBox x:Name="passwordBox" Width="200" Height="28" Margin="2"
-                                 IconBackground="AliceBlue" IconForeground="Gray"
-                                 Password="{Binding .}" />
-            <WPF.UI:ZPasswordBox x:Name="passwordBox1" Width="200" Height="28" Margin="2"
-                                 IconBackground="AliceBlue" IconForeground="Gray" IsCanSeePassword="False"
-                                 Password="{Binding .}"
-                                 Watermark="请输入密码" />
-            <WPF.UI:ZPasswordBox x:Name="passwordBox2" Width="200" Height="28" Margin="2"
-                                 BorderThickness="0,0,0,1" CornerRadius="0" IconBackground="Transparent" IconBorderThickness="0"
-                                 IconForeground="Gray" Watermark="请输入密码" />
+    <WPF.UI:ZScrollViewer>
+        <StackPanel Margin="10" DataContext="fdas23">
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" />
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" />
+            </StackPanel>
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="燃烧物:" Width="240" Height="27" Margin="5,0" />
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0" />
+            </StackPanel>
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" />
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" />
+            </StackPanel>
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="燃烧物:" Width="240" Height="27" Margin="5,0" />
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0" />
+            </StackPanel>
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" />
+                <WPF.UI:TitleTextBox Title="灾害地址:" Width="240" Height="27" Margin="5,0"
+                                     CanClearText="True" IsShowTitle="False" />
+            </StackPanel>
+            <StackPanel Margin="0,2" Orientation="Horizontal">
+                <WPF.UI:TitleTextBox Title="燃烧物:" Width="490" Height="150" Margin="5,0"
+                                     IsShowTitle="True" TextWrapping="Wrap" TitleOrientation="Vertical" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" MultiRow="True" />
+                <WPF.UI:ZTextBox Width="200" Height="25" Margin="2" CornerRadius="3" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:ZPasswordBox x:Name="passwordBox" Width="200" Height="28" Margin="2"
+                                     IconBackground="AliceBlue" IconForeground="Gray"
+                                     Password="{Binding .}" />
+                <WPF.UI:ZPasswordBox x:Name="passwordBox1" Width="200" Height="28" Margin="2"
+                                     IconBackground="AliceBlue" IconForeground="Gray" IsCanSeePassword="False"
+                                     Password="{Binding .}"
+                                     Watermark="请输入密码" />
+                <WPF.UI:ZPasswordBox x:Name="passwordBox2" Width="200" Height="28" Margin="2"
+                                     BorderThickness="0,0,0,1" CornerRadius="0" IconBackground="Transparent" IconBorderThickness="0"
+                                     IconForeground="Gray" Watermark="请输入密码" />
 
-            <WPF.UI:ZPasswordBox x:Name="passwordBox3" Width="200" Height="28" Margin="2"
-                                 BorderThickness="0,0,0,1" CornerRadius="0" IconBackground="Transparent" IconBorderThickness="0"
-                                 IconForeground="Gray" IsShowIcon="False" Watermark="请输入密码" />
-            <TextBlock Text="{Binding Password, ElementName=passwordBox, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
+                <WPF.UI:ZPasswordBox x:Name="passwordBox3" Width="200" Height="28" Margin="2"
+                                     BorderThickness="0,0,0,1" CornerRadius="0" IconBackground="Transparent" IconBorderThickness="0"
+                                     IconForeground="Gray" IsShowIcon="False" Watermark="请输入密码" />
+                <TextBlock Text="{Binding Password, ElementName=passwordBox, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <WPF.UI:IconTextBox Width="200" Height="28" Margin="0,5" BorderThickness="1,1,1,1"
-                                CornerRadius="3" IconPlacement="Left" IconWidth="11"
-                                Watermark="请输入密码"
-                                IconBackground="AliceBlue" IconForeground="Gray"/>
-            <WPF.UI:IconTextBox Width="200" Height="28" Margin="10,5" BorderThickness="0,0,0,1"
-                                IconPlacement="Left" IconWidth="11"
-                                Watermark="请输入密码" IconBorderBrush="Transparent" IconBorderThickness="0"
-                                IconBackground="Transparent" IconForeground="Gray"/>
-            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="0,0,10,0"
-                                CornerRadius="14" IconPlacement="Left" Watermark="请输入密码"
-                                IconBorderThickness="0" IconPadding="15,0,10,0"/>
-            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="10,0,0,0"
-                                CornerRadius="14" IconForeground="#6C86F4" IconPlacement="Right" />
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:IconTextBox Width="200" Height="28" Margin="0,5" BorderThickness="1,1,1,1"
+                                    CornerRadius="3" IconBackground="AliceBlue" IconForeground="Gray" IconPlacement="Left"
+                                    IconWidth="11" Watermark="请输入密码" />
+                <WPF.UI:IconTextBox Width="200" Height="28" Margin="10,5" BorderThickness="0,0,0,1"
+                                    IconBackground="Transparent" IconBorderBrush="Transparent" IconBorderThickness="0"
+                                    IconForeground="Gray" IconPlacement="Left" IconWidth="11" Watermark="请输入密码" />
+                <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="0,0,10,0"
+                                    CornerRadius="14" IconBorderThickness="0" IconPadding="15,0,10,0" IconPlacement="Left"
+                                    Watermark="请输入密码" />
+                <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" Padding="10,0,0,0"
+                                    CornerRadius="14" IconForeground="#6C86F4" IconPlacement="Right" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:IconTextBox Width="200" Height="30" Margin="0,5" Padding="10,0,0,0"
+                                    CornerRadius="15" IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
+                <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
+                                    IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
+                <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
+                                    IconForeground="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:NumbericTextBox Width="200" Height="25" Margin="0,0,10,0" PatternType="NotEmpty" />
+                <WPF.UI:NumbericTextBox Width="200" Height="25" Margin="0,0,10,0" Pattern="" />
+                <WPF.UI:NumbericTextBox Width="200" Height="25" Margin="0,0,10,0" ErrorContent="IP地址不正确"
+                                        Pattern="^((2[0-4]\d|25[0-5]|(1\d{2})|([1-9]?[0-9]))\.){3}(2[0-4]\d|25[0-4]|(1\d{2})|([1-9][0-9])|([1-9]))$" />
+                <WPF.UI:NumbericTextBox Width="200" Height="25" Margin="0,0,10,0" PatternType="MobilePhone" />
+                <WPF.UI:NumbericTextBox Width="200" Height="25" Margin="0,0,10,0" PatternType="IdCard18" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <WPF.UI:NumbericTextBox Width="200" Height="30" Margin="0,11,10,0" CornerRadius="3"
+                                        PatternType="OnlyChinese" ValidateTrigger="LostFocus" />
+            </StackPanel>
+
+            <StackPanel Margin="0,10" Orientation="Horizontal">
+                <WPF.UI:IpTextBox Width="160" Height="25" />
+                <WPF.UI:IpTextBox Width="160" Height="25" Margin="10,0,0,0" Type="SubnetMask" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Left" 
+                        WPF.UI:ValidateBehavior.StartValidate="{Binding IsChecked, ElementName=btnStartValidate}"
+                        Orientation="Vertical">
+                <WPF.UI:NumbericTextBox Width="200" Height="28" Margin="0,3" PatternType="NotEmpty"
+                                        WPF.UI:WatermarkAdorner.Watermark="水印测试" />
+                <WPF.UI:NumbericTextBox Width="200" Height="28" Margin="0,3" PatternType="NotEmpty"
+                                        WPF.UI:WatermarkAdorner.Watermark="水印测试"
+                                        WPF.UI:WatermarkAdorner.WatermarkShowMode="VisibleWhenIsEmtpy"/>
+                <WPF.UI:NumbericTextBox Width="200" Height="28" Margin="0,3" PatternType="NotEmpty"
+                                        ErrorContent="文本框不能为空"/>
+                <WPF.UI:FlatToggleButton x:Name="btnStartValidate" Margin="0,3" Content="开始校验" />
+            </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <WPF.UI:IconTextBox Width="200" Height="30" Margin="0,5" Padding="10,0,0,0"
-                                CornerRadius="15" IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
-            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
-                                IconForeground="#6C86F4" IconPlacement="Right" Watermark="请输入用户名" />
-            <WPF.UI:IconTextBox Width="200" Height="30" Margin="10,5" CornerRadius="0"
-                                IconForeground="#6C86F4" IconPlacement="Right" IsShowIcon="False" Watermark="请输入用户名" />
-        </StackPanel>
-    </StackPanel>
+    </WPF.UI:ZScrollViewer>
 </UserControl>

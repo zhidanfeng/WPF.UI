@@ -16,12 +16,15 @@ namespace ZdfFlatUI
         #endregion
 
         #region 依赖属性定义
+
+        #region Progress
+
         public int Progress
         {
             get { return (int)GetValue(ProgressProperty); }
             set { SetValue(ProgressProperty, value); }
         }
-        
+
         public static readonly DependencyProperty ProgressProperty =
             DependencyProperty.Register("Progress", typeof(int), typeof(StepBar), new PropertyMetadata(0, OnProgressChangedCallback, OnProgressCoerceValueCallback));
 
@@ -34,7 +37,7 @@ namespace ZdfFlatUI
             {
                 return 0;
             }
-            else if(newValue >= stepBar.Items.Count)
+            else if (newValue >= stepBar.Items.Count)
             {
                 return stepBar.Items.Count - 1;
             }
@@ -43,9 +46,23 @@ namespace ZdfFlatUI
 
         private static void OnProgressChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            
+
         }
 
+        #endregion
+
+        #region ItemWidth
+
+        public double ItemWidth
+        {
+            get { return (double)GetValue(ItemWidthProperty); }
+            set { SetValue(ItemWidthProperty, value); }
+        }
+        
+        public static readonly DependencyProperty ItemWidthProperty =
+            DependencyProperty.Register("ItemWidth", typeof(double), typeof(StepBar), new PropertyMetadata(50d));
+
+        #endregion
 
         #endregion
 

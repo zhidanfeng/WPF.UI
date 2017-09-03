@@ -328,4 +328,71 @@ namespace ZdfFlatUI
         H6,
     }
     #endregion
+
+    #region EnumPatternType 正则类型
+    /// <summary>
+    /// 正则类型枚举
+    /// </summary>
+    public enum EnumPatternType
+    {
+        None,
+        /// <summary>
+        /// 不为空
+        /// </summary>
+        NotEmpty,
+        /// <summary>
+        /// 数字
+        /// </summary>
+        OnlyNumber,
+        /// <summary>
+        /// IP地址
+        /// </summary>
+        IPV4,
+        /// <summary>
+        /// IP地址
+        /// </summary>
+        IPV6,
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        Email,
+        /// <summary>
+        /// 15位身份证
+        /// </summary>
+        IdCard15,
+        /// <summary>
+        /// 18位身份证
+        /// </summary>
+        IdCard18,
+        /// <summary>
+        /// 手机号
+        /// </summary>
+        MobilePhone,
+        /// <summary>
+        /// 座机、固话
+        /// </summary>
+        Telephone,
+        /// <summary>
+        /// 只能录入中文
+        /// </summary>
+        OnlyChinese,
+    }
+    #endregion
+
+    #region EnumValidateTrigger 校验模式
+    /// <summary>
+    /// 校验模式
+    /// </summary>
+    public enum EnumValidateTrigger
+    {
+        /// <summary>
+        /// 属性值改变时触发
+        /// </summary>
+        PropertyChanged,
+        /// <summary>
+        /// 控件失去焦点时触发
+        /// </summary>
+        LostFocus,
+    }
+    #endregion
 }

@@ -81,6 +81,7 @@
                         </DataTrigger>
                         <Trigger Property="IsLastItem" Value="True">
                             <Setter TargetName="Line" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="VerticalAlignment" Value="Top" />
                         </Trigger>
                         <Trigger Property="IsMiddleItem" Value="True">
                             <Setter TargetName="Line" Property="Visibility" Value="Visible" />

@@ -2,6 +2,7 @@
 
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Accordion\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Alert\Themes\Generic.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\AutoComplete\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Badge\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\BusyIndicator\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ButtonGroup\Themes\Generic.xaml;;
@@ -57,6 +58,8 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TagControl
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TagControls\Themes\TagInputBoxStyle.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TagControls\Themes\TagStyle.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TextBox\Themes\Generic.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TextBox\Themes\IpTextBox.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TextBox\Themes\NumbericTextBox.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TextBox\Themes\ZPasswordBox.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Timeline\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\TimePicker\Themes\TimeSelector.xaml;;

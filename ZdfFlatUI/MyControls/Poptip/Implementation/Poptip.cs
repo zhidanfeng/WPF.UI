@@ -138,7 +138,7 @@ namespace ZdfFlatUI
             base.OnInitialized(e);
 
             this.AllowsTransparency = true;
-            this.StaysOpen = false;
+            //this.StaysOpen = false;
 
             UIElement element = this.Child;
             this.Child = null;
@@ -149,50 +149,50 @@ namespace ZdfFlatUI
             };
 
             #region 阴影
-            Border shadow = new Border()
-            {
-                Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
-                SnapsToDevicePixels = true,
-                UseLayoutRounding = true,
-                CornerRadius = new CornerRadius(3),
-            };
-            DropShadowEffect shadowEffect = new DropShadowEffect()
-            {
-                BlurRadius = 10,
-                Opacity = 0.2,
-                ShadowDepth = 0,
-                Color = Color.FromRgb(109, 129, 154),
-            };
-            shadow.SetValue(Border.EffectProperty, shadowEffect);
-            root.Children.Add(shadow);
+            //Border shadow = new Border()
+            //{
+            //    Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
+            //    SnapsToDevicePixels = true,
+            //    UseLayoutRounding = true,
+            //    CornerRadius = new CornerRadius(3),
+            //};
+            //DropShadowEffect shadowEffect = new DropShadowEffect()
+            //{
+            //    BlurRadius = 10,
+            //    Opacity = 0.2,
+            //    ShadowDepth = 0,
+            //    Color = Color.FromRgb(109, 129, 154),
+            //};
+            //shadow.SetValue(Border.EffectProperty, shadowEffect);
+            //root.Children.Add(shadow);
             #endregion
 
             #region 设置阴影的边距，防止出现白边
-            switch (this.PlacementEx)
-            {
-                case EnumPlacement.LeftTop:
-                case EnumPlacement.LeftBottom:
-                case EnumPlacement.LeftCenter:
-                    shadow.Margin = new Thickness(0, 0, 8, 0);
-                    break;
-                case EnumPlacement.RightTop:
-                case EnumPlacement.RightBottom:
-                case EnumPlacement.RightCenter:
-                    shadow.Margin = new Thickness(8, 0, 0, 0);
-                    break;
-                case EnumPlacement.TopLeft:
-                case EnumPlacement.TopCenter:
-                case EnumPlacement.TopRight:
-                    shadow.Margin = new Thickness(0, 0, 0, 8);
-                    break;
-                case EnumPlacement.BottomLeft:
-                case EnumPlacement.BottomCenter:
-                case EnumPlacement.BottomRight:
-                    shadow.Margin = new Thickness(0, 8, 0, 0);
-                    break;
-                default:
-                    break;
-            }
+            //switch (this.PlacementEx)
+            //{
+            //    case EnumPlacement.LeftTop:
+            //    case EnumPlacement.LeftBottom:
+            //    case EnumPlacement.LeftCenter:
+            //        shadow.Margin = new Thickness(0, 0, 8, 0);
+            //        break;
+            //    case EnumPlacement.RightTop:
+            //    case EnumPlacement.RightBottom:
+            //    case EnumPlacement.RightCenter:
+            //        shadow.Margin = new Thickness(8, 0, 0, 0);
+            //        break;
+            //    case EnumPlacement.TopLeft:
+            //    case EnumPlacement.TopCenter:
+            //    case EnumPlacement.TopRight:
+            //        shadow.Margin = new Thickness(0, 0, 0, 8);
+            //        break;
+            //    case EnumPlacement.BottomLeft:
+            //    case EnumPlacement.BottomCenter:
+            //    case EnumPlacement.BottomRight:
+            //        shadow.Margin = new Thickness(0, 8, 0, 0);
+            //        break;
+            //    default:
+            //        break;
+            //}
             #endregion
 
             angleBorder = new AngleBorder()
@@ -262,6 +262,8 @@ namespace ZdfFlatUI
 
             FrameworkElement targetElement = this.PlacementTarget as FrameworkElement;
             FrameworkElement child = this.Child as FrameworkElement;
+
+            if (targetElement == null || child == null) return;
 
             switch (this.PlacementEx)
             {
