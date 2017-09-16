@@ -19,9 +19,26 @@ namespace ZdfFlatUI
     public class RatingBar : Control
     {
         #region Private属性
+        /// <summary>
+        /// 保存评分控件内部的一个个子Item，比如一个个笑脸或者星星
+        /// </summary>
         private ObservableCollection<RatingBarButton> RatingButtonsInternal = new ObservableCollection<RatingBarButton>();
+        /// <summary>
+        /// 该Command在样式xaml中执行
+        /// </summary>
         public static RoutedCommand ValueChangedCommand = new RoutedCommand();
-        private double oldValue;
+        /// <summary>
+        /// 用于保存老的分数
+        /// 
+        /// 鼠标悬浮在控件上时，悬浮在哪个Item上面则预览该分数，如果鼠标没有按下（即没有确认），则当鼠标移开后应该将分数恢复至老的分数
+        /// </summary>
+        private double mOldValue;
+        /// <summary>
+        /// 用于保存是否已经选择了一个分数
+        /// 
+        /// 鼠标悬浮在控件上时，悬浮在哪个Item上面则预览该分数，如果鼠标没有按下（即没有确认），则当鼠标移开后应该将分数恢复至老的分数
+        /// </summary>
+        private bool mIsConfirm;
         #endregion
 
         #region 依赖属性定义
@@ -51,7 +68,17 @@ namespace ZdfFlatUI
         }
 
         public static readonly DependencyProperty MinimumProperty =
-            DependencyProperty.Register("Minimum", typeof(int), typeof(RatingBar), new PropertyMetadata(1, MinimumChangedCallback));
+            DependencyProperty.Register("Minimum", typeof(int), typeof(RatingBar), new PropertyMetadata(1, MinimumChangedCallback, CoreMinimumCallback));
+
+        private static object CoreMinimumCallback(DependencyObject d, object baseValue)
+        {
+            int value = (int)baseValue;
+            if(value < 1)
+            {
+                return 1;
+            }
+            return value;
+        }
 
         private static void MinimumChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -89,11 +116,22 @@ namespace ZdfFlatUI
 
         private static void ValueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            foreach (var ratingBarButton in ((RatingBar)d).RatingButtonsInternal)
+            RatingBar ratingBar = d as RatingBar;
+            double newValue = Convert.ToDouble(e.NewValue);
+            var buttonList = ((RatingBar)d).RatingButtonsInternal;
+
+            foreach (var ratingBarButton in buttonList)
             {
                 ratingBarButton.IsHalf = false;
-                ratingBarButton.IsSelected = ratingBarButton.Value <= Convert.ToDouble(e.NewValue);
+                ratingBarButton.IsSelected = ratingBarButton.Value <= newValue;
             }
+            
+            //for (int i = 0; i < buttonList.Count; i++)
+            //{
+            //    RatingBarButton ratingBarButton = buttonList[i];
+            //    ratingBarButton.IsSelected = i <= Math.Ceiling(newValue);
+            //    ratingBarButton.IsHalf = ratingBar.IsInt(newValue) ? false : Math.Ceiling(newValue) == i;
+            //}
         }
         #endregion
 
@@ -222,24 +260,6 @@ namespace ZdfFlatUI
         public RatingBar()
         {
             CommandBindings.Add(new CommandBinding(ValueChangedCommand, ValueChangedHanlder));
-            this.MouseEnter += RatingBar_MouseEnter;
-            this.MouseLeftButtonUp += RatingBar_MouseLeftButtonUp;
-            this.MouseLeave += RatingBar_MouseLeave;
-        }
-
-        private void RatingBar_MouseLeave(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void RatingBar_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void RatingBar_MouseEnter(object sender, MouseEventArgs e)
-        {
-            this.oldValue = this.Value;
         }
 
         private void ValueChangedHanlder(object sender, ExecutedRoutedEventArgs e)
@@ -247,6 +267,7 @@ namespace ZdfFlatUI
             if(!this.IsReadOnly && e.Parameter is int)
             {
                 this.Value = Convert.ToDouble(e.Parameter);
+                this.mIsConfirm = true;
             }
         }
         #endregion
@@ -274,6 +295,20 @@ namespace ZdfFlatUI
                     IsHalf = this.IsInt(this.Value) ? false : Math.Ceiling(this.Value) == i,
                     ContentTemplate = this.ValueItemTemplate,
                     Style = this.ValueItemStyle
+                };
+                button.ItemMouseEnter += (o, n) =>
+                {
+                    this.mOldValue = this.Value;
+                    this.Value = button.Value;
+                    this.mIsConfirm = false;
+                };
+                button.ItemMouseLeave += (o, n) =>
+                {
+                    if(!this.mIsConfirm)
+                    {
+                        this.Value = this.mOldValue;
+                        this.mIsConfirm = false;
+                    }
                 };
 
                 this.RatingButtonsInternal.Add(button);

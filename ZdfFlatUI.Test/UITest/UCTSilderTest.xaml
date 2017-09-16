@@ -8,6 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ZUI:FlatSilder IsMoveToPointEnabled="True" Value="20" Maximum="100" />
+        <ZUI:FlatSilder IsMoveToPointEnabled="True" Value="20" Maximum="100" AutoToolTipPlacement="TopLeft" />
     </Grid>
 </UserControl>

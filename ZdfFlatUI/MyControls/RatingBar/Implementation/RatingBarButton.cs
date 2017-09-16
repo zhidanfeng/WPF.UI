@@ -13,11 +13,7 @@ namespace ZdfFlatUI
 
         #endregion
 
-        #region 依赖属性定义
-
-        #endregion
-
-        #region 依赖属性set get
+        #region 依赖属性
 
         #region IsSelected 是否选中
         public bool IsSelected
@@ -54,6 +50,60 @@ namespace ZdfFlatUI
 
         #endregion
 
+        #region 路由事件
+        
+        #region ItemMouseEnterEvent
+
+        public static readonly RoutedEvent ItemMouseEnterEvent = EventManager.RegisterRoutedEvent("ItemMouseEnter",
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<int>), typeof(RatingBarButton));
+
+        public event RoutedPropertyChangedEventHandler<int> ItemMouseEnter
+        {
+            add
+            {
+                this.AddHandler(ItemMouseEnterEvent, value);
+            }
+            remove
+            {
+                this.RemoveHandler(ItemMouseEnterEvent, value);
+            }
+        }
+
+        public virtual void OnItemMouseEnter(int oldValue, int newValue)
+        {
+            RoutedPropertyChangedEventArgs<int> arg = new RoutedPropertyChangedEventArgs<int>(oldValue, newValue, ItemMouseEnterEvent);
+            this.RaiseEvent(arg);
+        }
+
+        #endregion
+
+        #region ItemMouseLeaveEvent
+
+        public static readonly RoutedEvent ItemMouseLeaveEvent = EventManager.RegisterRoutedEvent("ItemMouseLeave",
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<int>), typeof(RatingBarButton));
+
+        public event RoutedPropertyChangedEventHandler<int> ItemMouseLeave
+        {
+            add
+            {
+                this.AddHandler(ItemMouseLeaveEvent, value);
+            }
+            remove
+            {
+                this.RemoveHandler(ItemMouseLeaveEvent, value);
+            }
+        }
+
+        public virtual void OnItemMouseLeave(int oldValue, int newValue)
+        {
+            RoutedPropertyChangedEventArgs<int> arg = new RoutedPropertyChangedEventArgs<int>(oldValue, newValue, ItemMouseLeaveEvent);
+            this.RaiseEvent(arg);
+        }
+
+        #endregion
+
+        #endregion
+
         #region Constructors
         static RatingBarButton()
         {
@@ -62,7 +112,26 @@ namespace ZdfFlatUI
         #endregion
 
         #region Override方法
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
+            this.MouseEnter += RatingBarButton_MouseEnter;
+            this.MouseLeave += RatingBarButton_MouseLeave;
+        }
+
+        #endregion
+
+        #region 事件实现
+        private void RatingBarButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.OnItemMouseEnter(this.Value, this.Value);
+        }
+
+        private void RatingBarButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.OnItemMouseLeave(this.Value, this.Value);
+        }
         #endregion
 
         #region Private方法

@@ -71,6 +71,8 @@
                 </Style>
             </WPF.UI:RatingBar.ValueItemStyle>
         </WPF.UI:RatingBar>
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3" Maximum="10" SelectedColor="#FEDF32" IsShowContent="True"
+                          ContentStringFormat="{}{0}星" />
         <ItemsControl x:Name="ItemsControl">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
