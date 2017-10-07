@@ -243,6 +243,7 @@ namespace ZdfFlatUI
                 default:
                     break;
             }
+            
             //在原有控件基础上，最外层套一个AngleBorder
             angleBorder.Child = element;
 

@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border Grid.ColumnSpan="2" CornerRadius="8" Background="White" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+            <Border Grid.ColumnSpan="2" CornerRadius="0" Background="White" SnapsToDevicePixels="True" UseLayoutRounding="True" />
             <Border Grid.ColumnSpan="2">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="5" Opacity="1" ShadowDepth="1" Color="Brown" />

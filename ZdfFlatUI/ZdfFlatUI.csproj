@@ -128,11 +128,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adorners\NoticeMessageAdorner.cs" />
     <Compile Include="Adorners\WatermarkAdorner.cs" />
     <Compile Include="BaseControl\IUIElement.cs" />
     <Compile Include="BaseControl\NumericUpDown.cs" />
     <Compile Include="BaseControl\NumericUpDownBase.cs" />
     <Compile Include="BaseControl\TextBoxBase.cs" />
+    <Compile Include="Behaviors\MaskLayerBehavior.cs" />
     <Compile Include="Converters\CalendarDayButtonTypeConverter.cs" />
     <Compile Include="Converters\IsFirstItemConverter.cs" />
     <Compile Include="Converters\IsLastItemConverter.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="MyControls\NavigationPanel\Implementation\NavigationPanel.cs" />
     <Compile Include="MyControls\Panel\Implementation\WaterfallPanel - 复制.cs" />
     <Compile Include="MyControls\Poptip\Implementation\Poptip.cs" />
+    <Compile Include="MyControls\Popup\Implementation\PopupEx.cs" />
     <Compile Include="MyControls\Primitives\IconTextBoxBase.cs" />
     <Compile Include="MyControls\Primitives\ZTextBoxBase.cs" />
     <Compile Include="MyControls\SegmentControl\Implementation\SegmentControl.cs" />
@@ -222,7 +225,7 @@
     <Compile Include="MyControls\NavigateMenu\Implementation\NavigateMenu.cs" />
     <Compile Include="MyControls\Notice\Implementation\Notice.cs" />
     <Compile Include="MyControls\Notice\Implementation\NoticeItem.cs" />
-    <Compile Include="MyControls\Popup\Implementation\NoticeMessage.cs" />
+    <Compile Include="MyControls\Message\Implementation\NoticeMessage.cs" />
     <Compile Include="Converters\InverseBooleanVisibilityConverter.cs" />
     <Compile Include="Converters\InverseVisibilityConverter.cs" />
     <Compile Include="Converters\ValueIsZeroConverter.cs" />
@@ -281,10 +284,10 @@
     <Compile Include="StyleSelectors\RatingBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateBarStyleSelector.cs" />
     <Compile Include="StyleSelectors\NavigateMenuGroupStyleSelector.cs" />
+    <Compile Include="Utils\CommonUtil.cs" />
     <Compile Include="Utils\DateTimeHelper.cs" />
     <Compile Include="Utils\DialogHelper.cs" />
     <Compile Include="Utils\DoubleUtil.cs" />
-    <Compile Include="Utils\EnumCommon.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\MyVisualTreeHelper.cs" />
     <Compile Include="Utils\PaletteHelper.cs" />
@@ -714,7 +717,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyControls\Popup\Themes\Generic.xaml">
+    <Page Include="MyControls\Message\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -768,12 +771,12 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Behaviors\" />
     <Folder Include="MyControls\ColorPicker\Implementation\" />
     <Folder Include="MyControls\ColorPicker\Themes\" />
     <Folder Include="MyControls\DataGrid\Implementation\" />
     <Folder Include="MyControls\DataGrid\Themes\" />
     <Folder Include="MyControls\Page\" />
+    <Folder Include="MyControls\Popup\Themes\" />
     <Folder Include="MyControls\Validate\" />
   </ItemGroup>
   <ItemGroup>

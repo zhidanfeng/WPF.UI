@@ -203,6 +203,9 @@
     <Compile Include="UITest\UCTLoadingTest.xaml.cs">
       <DependentUpon>UCTLoadingTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTMaskLayerTest.xaml.cs">
+      <DependentUpon>UCTMaskLayerTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTMessageBoxTest.xaml.cs">
       <DependentUpon>UCTMessageBoxTest.xaml</DependentUpon>
     </Compile>
@@ -407,6 +410,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTLoadingTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTMaskLayerTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

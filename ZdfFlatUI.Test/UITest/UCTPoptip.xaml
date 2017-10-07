@@ -40,7 +40,9 @@
         <!--#region 上-->
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton1}"
                        PlacementEx="TopLeft" PlacementTarget="{Binding ElementName=toggleButton1}">
-            <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            <Border Background="AliceBlue">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </Border>
         </WPF.UI:Poptip>
         <WPF.UI:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton2}"
                        PlacementEx="TopCenter" PlacementTarget="{Binding ElementName=toggleButton2}">

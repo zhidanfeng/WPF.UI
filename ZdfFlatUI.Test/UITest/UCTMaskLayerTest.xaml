@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTMaskLayerTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:wpf="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             xmlns:masklayer="clr-namespace:ZdfFlatUI.Behaviors;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <PathGeometry x:Key="Icon_Close" Figures="M754.782 212.596 512 455.368 269.218 212.596c-13.081-13.081-34.29-13.081-47.369 0-13.081 13.081-13.081 34.288 0 47.367l242.782 242.771L221.849 745.507c-13.081 13.081-13.081 34.288 0 47.367 13.081 13.081 34.29 13.081 47.369 0L512 550.103l242.782 242.771c13.081 13.081 34.289 13.081 47.37 0 13.081-13.081 13.081-34.288 0-47.367L559.37 502.735l242.782-242.771c13.081-13.081 13.081-34.288 0-47.367C789.07 199.517 767.862 199.517 754.782 212.596z" />
+    </UserControl.Resources>
+    <Grid>
+        <Button x:Name="btnOpenMaskLayer" Content="打开遮罩层" Width="100" Height="30" Click="btnOpenMaskLayer_Click" />
+        <wpf:MaskLayer Topmost="False" x:Name="maskLayer" PopupAnimation="Fade"
+                     masklayer:MaskLayerBehavior.Owner="{Binding Path=., RelativeSource={RelativeSource AncestorType=Window}}">
+            <Grid Width="800" Height="500" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Border Background="#FAFAFB" CornerRadius="5">
+                    <TextBlock Text="这是遮罩层" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" />
+                </Border>
+                
+                <wpf:PathIconButton Background="Transparent" Width="30" Grid.Column="1"  x:Name="btnClose" Click="btnClose_Click"
+                                    PathData="{StaticResource Icon_Close}" VerticalAlignment="Top"
+                                    Margin="20,4,0,0" PathWidth="18" NormalPathColor="White"
+                                    MouseOverBackground="Transparent"
+                                    PressedBackground="Transparent"/>
+            </Grid>
+        </wpf:MaskLayer>
+    </Grid>
+</UserControl>

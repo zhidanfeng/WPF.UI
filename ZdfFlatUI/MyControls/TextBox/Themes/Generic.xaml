@@ -92,7 +92,7 @@
                 <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" Value="{StaticResource Color.Disabled.Background}" />
+                <Setter Property="Background" Value="#F3F3F3" />
             </Trigger>
         </Style.Triggers>
     </Style>

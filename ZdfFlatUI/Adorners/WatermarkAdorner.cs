@@ -68,24 +68,35 @@ namespace ZdfFlatUI
 
         private static void WatermarkChangedCallBack(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var element = d as FrameworkElement;
-            if (element != null)
+            try
             {
-                var adornerLayer = AdornerLayer.GetAdornerLayer(element);
+                var element = d as FrameworkElement;
+                if (element != null)
+                {
+                    var adornerLayer = AdornerLayer.GetAdornerLayer(element);
 
-                if (adornerLayer != null)
-                {
-                    adornerLayer.Add(new WatermarkAdorner(element as UIElement));
+                    if (adornerLayer != null)
+                    {
+                        adornerLayer.Add(new WatermarkAdorner(element as UIElement));
+                    }
+                    else
+                    {
+                        //layer为null，说明还未load过（整个可视化树中没有装饰层的情况不考虑）
+                        //在控件的loaded事件内生成装饰件
+                        element.Loaded += (s1, e1) => {
+                            var adorner = new WatermarkAdorner(element);
+                            var v = AdornerLayer.GetAdornerLayer(element);
+                            if(v != null)
+                            {
+                                v.Add(adorner);
+                            }
+                        };
+                    }
                 }
-                else
-                {
-                    //layer为null，说明还未load过（整个可视化树中没有装饰层的情况不考虑）
-                    //在控件的loaded事件内生成装饰件
-                    element.Loaded += (s1, e1) => {
-                        var adorner = new WatermarkAdorner(element);
-                        AdornerLayer.GetAdornerLayer(element).Add(adorner);
-                    };
-                }
+            }
+            catch (Exception)
+            {
+                
             }
         }
 

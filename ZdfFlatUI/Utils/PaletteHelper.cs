@@ -9,7 +9,6 @@ namespace ZdfFlatUI.Utils
 {
     public class PaletteHelper
     {
-
         public static void SetLightDarkTheme(bool IsDarkTheme)
         {
             var existingResourceDictionary = Application.Current.Resources.MergedDictionaries
@@ -21,8 +20,8 @@ namespace ZdfFlatUI.Utils
                 //throw new ApplicationException("Unable to find Light/Dark base theme in Application resources.");
             }
 
-            var source =
-                $"pack://application:,,,/WPF.UI;component/Themes/Theme.{(IsDarkTheme ? "Dark" : "Light")}.xaml";
+            string theme = IsDarkTheme ? "Dark" : "Light";
+            var source = string.Format("pack://application:,,,/WPF.UI;component/Themes/Theme.{0}.xaml", theme);
             var newResourceDictionary = new ResourceDictionary() { Source = new Uri(source) };
 
             Application.Current.Resources.MergedDictionaries.Remove(existingResourceDictionary);

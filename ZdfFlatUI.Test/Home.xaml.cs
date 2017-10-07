@@ -299,6 +299,11 @@ namespace ZdfFlatUI.Test
                 Name = "NaviationPanel导航容器",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "MaskLayer遮罩层",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -463,6 +468,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "NaviationPanel导航容器":
                         this.ControlPanel.Content = new UITest.UCTNavigationPanel();
+                        break;
+                    case "MaskLayer遮罩层":
+                        this.ControlPanel.Content = new UITest.UCTMaskLayerTest();
                         break;
                         #endregion
                 }

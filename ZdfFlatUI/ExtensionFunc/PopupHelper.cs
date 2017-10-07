@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Interop;
 
 namespace ZdfFlatUI
 {
@@ -13,6 +15,7 @@ namespace ZdfFlatUI
     /// </summary>
     public class PopopHelper
     {
+        #region PopupPlacementTarget
         public static DependencyObject GetPopupPlacementTarget(DependencyObject obj)
         {
             return (DependencyObject)obj.GetValue(PopupPlacementTargetProperty);
@@ -22,7 +25,7 @@ namespace ZdfFlatUI
         {
             obj.SetValue(PopupPlacementTargetProperty, value);
         }
-        
+
         public static readonly DependencyProperty PopupPlacementTargetProperty =
             DependencyProperty.RegisterAttached("PopupPlacementTarget", typeof(DependencyObject), typeof(PopopHelper), new PropertyMetadata(null, OnPopupPlacementTargetChanged));
 
@@ -41,6 +44,7 @@ namespace ZdfFlatUI
                     {
                         UpdatePosition(pop);
                     };
+
                     //让Popup随着窗体的Size改变而移动位置
                     w.SizeChanged += delegate
                     {
@@ -49,6 +53,7 @@ namespace ZdfFlatUI
                 }
             }
         }
+        #endregion
 
         private static void UpdatePosition(Popup pop)
         {
@@ -57,18 +62,22 @@ namespace ZdfFlatUI
                 return;
             }
 
-            MethodInfo mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            try
-            {
-                if(mi != null)
-                {
-                    mi.Invoke(pop, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
+            var offset = pop.HorizontalOffset;
+            pop.HorizontalOffset = offset + 1;
+            pop.HorizontalOffset = offset;
+
+            //MethodInfo mi = typeof(Popup).GetMethod("UpdatePosition", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            //try
+            //{
+            //    if(mi != null)
+            //    {
+            //        mi.Invoke(pop, null);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(ex.Message);
+            //}
         }
     }
 }

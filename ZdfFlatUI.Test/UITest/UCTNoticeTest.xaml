@@ -1,30 +1,45 @@
-﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTNoticeTest" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="600" d:DesignWidth="800" mc:Ignorable="d">
-    <Grid VerticalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTNoticeTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="600"
+             d:DesignWidth="800" mc:Ignorable="d">
+    <UniformGrid Columns="2">
         <StackPanel Orientation="Vertical">
             <WPF.UI:FlatButton x:Name="btnInfo" Width="200" Height="25" Margin="5"
                                Click="btnInfo_Click" Content="Info" CornerRadius="3" />
             <WPF.UI:FlatButton x:Name="btnSuccess" Width="200" Height="25" Margin="5"
-                               Click="btnSuccess_Click" Content="Success" CornerRadius="3"
-                               ToolTipService.ShowDuration="5000" Type="success">
+                               Click="btnSuccess_Click" Content="Success" CornerRadius="3" ToolTipService.ShowDuration="5000"
+                               Type="success">
                 <WPF.UI:FlatButton.ToolTip>
                     <WPF.UI:ZToolTip Placement="Top">
-                        <TextBlock Text="显示Success按钮的ToolTip显示Success按钮的ToolTip" Width="150"
-                                   TextWrapping="Wrap"/>
+                        <TextBlock Width="150" Text="显示Success按钮的ToolTip显示Success按钮的ToolTip" TextWrapping="Wrap" />
                     </WPF.UI:ZToolTip>
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
-            <WPF.UI:FlatButton x:Name="btnError" Width="200" Height="25" Margin="5" Type="error"
-                               Click="btnError_Click" Content="Error" CornerRadius="3" />
-            <WPF.UI:FlatButton x:Name="btnWarn" Width="200" Height="25" Margin="5" Type="warning"
-                               Click="btnWarn_Click" Content="Warn" CornerRadius="3" />
+            <WPF.UI:FlatButton x:Name="btnError" Width="200" Height="25" Margin="5"
+                               Click="btnError_Click" Content="Error" CornerRadius="3" Type="error" />
+            <WPF.UI:FlatButton x:Name="btnWarn" Width="200" Height="25" Margin="5"
+                               Click="btnWarn_Click" Content="Warn" CornerRadius="3" Type="warning" />
         </StackPanel>
 
-        <WPF.UI:Alert Grid.Column="1" Content="错误提示文案" VerticalAlignment="Center" />
-    </Grid>
+        <WPF.UI:Alert Grid.Column="1" VerticalAlignment="Center" Content="错误提示文案" />
+
+        <Grid Background="AliceBlue" WPF.UI:NoticeMessageAdorner.IsOpen="{Binding IsChecked, ElementName=btnShowNoticeMessage}"
+              WPF.UI:NoticeMessageAdorner.Content="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" 
+              WPF.UI:NoticeMessageAdorner.CornerRadius="3"
+              WPF.UI:NoticeMessageAdorner.MessageType="Error">
+            <CheckBox x:Name="btnShowNoticeMessage" Content="显示" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Grid>
+
+        <ToggleButton x:Name="aa" Background="AliceBlue" Width="100" Height="30" VerticalAlignment="Top"
+                      WPF.UI:NoticeMessageAdorner.IsOpen="{Binding IsChecked, ElementName=aa, Mode=TwoWay}"
+                      WPF.UI:NoticeMessageAdorner.Content="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" 
+                      WPF.UI:NoticeMessageAdorner.CornerRadius="3"
+                      WPF.UI:NoticeMessageAdorner.MessageType="Error">
+           
+        </ToggleButton>
+    </UniformGrid>
 </UserControl>

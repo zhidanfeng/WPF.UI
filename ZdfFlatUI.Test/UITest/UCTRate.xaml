@@ -73,6 +73,30 @@
         </WPF.UI:RatingBar>
         <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3" Maximum="10" SelectedColor="#FEDF32" IsShowContent="True"
                           ContentStringFormat="{}{0}星" />
+        <WPF.UI:RatingBar VerticalAlignment="Center" Height="30" Value="3" SelectedColor="#FEDF32" IsShowContent="True">
+            <WPF.UI:RatingBar.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock x:Name="content" />
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Value, RelativeSource={RelativeSource AncestorType=WPF.UI:RatingBar}}" Value="1">
+                            <Setter TargetName="content" Property="Text" Value="差" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Value, RelativeSource={RelativeSource AncestorType=WPF.UI:RatingBar}}" Value="2">
+                            <Setter TargetName="content" Property="Text" Value="一般" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Value, RelativeSource={RelativeSource AncestorType=WPF.UI:RatingBar}}" Value="3">
+                            <Setter TargetName="content" Property="Text" Value="满意" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Value, RelativeSource={RelativeSource AncestorType=WPF.UI:RatingBar}}" Value="4">
+                            <Setter TargetName="content" Property="Text" Value="非常满意" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Value, RelativeSource={RelativeSource AncestorType=WPF.UI:RatingBar}}" Value="5">
+                            <Setter TargetName="content" Property="Text" Value="无可挑剔" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </WPF.UI:RatingBar.ContentTemplate>
+        </WPF.UI:RatingBar>
         <ItemsControl x:Name="ItemsControl">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
