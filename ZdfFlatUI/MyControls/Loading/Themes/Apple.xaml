@@ -4,13 +4,12 @@
     
     <ControlTemplate x:Key="Apple" TargetType="{x:Type ZUI:Loading}">
         <Grid x:Name="PART_Root" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid x:Name="LayoutRoot" Width="24" Height="24" />
-            <Canvas Width="24" Height="24">
-                <Rectangle x:Name="Rectangle01" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+            <Canvas>
+                <Rectangle x:Name="Rectangle01" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" />
-                <Rectangle x:Name="Rectangle02" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle02" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -21,8 +20,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle03" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle03" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -33,8 +32,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle04" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle04" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -45,8 +44,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle05" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle05" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -57,8 +56,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle06" Canvas.Left="11" Canvas.Top="2" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle06" Canvas.Left="0" Canvas.Top="2" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -69,11 +68,11 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle07" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle07" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" />
-                <Rectangle x:Name="Rectangle08" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle08" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -84,8 +83,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle09" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle09" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -96,8 +95,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle10" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle10" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -108,8 +107,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle11" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle11" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -120,8 +119,8 @@
                         </TransformGroup>
                     </Rectangle.RenderTransform>
                 </Rectangle>
-                <Rectangle x:Name="Rectangle12" Canvas.Left="11" Canvas.Top="17" Width="2"
-                           Height="6" Fill="White" Opacity="0.2" RadiusX="1"
+                <Rectangle x:Name="Rectangle12" Canvas.Left="0" Canvas.Top="17" Width="2"
+                           Height="6" Fill="{TemplateBinding Foreground}" Opacity="0.2" RadiusX="1"
                            RadiusY="1" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -133,10 +132,21 @@
                     </Rectangle.RenderTransform>
                 </Rectangle>
             </Canvas>
-
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="ActiveStates">
-                    <VisualState x:Name="Inactive" />
+                    <VisualState x:Name="Inactive">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Duration="0:0:0">
+                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" >
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Collapsed</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
                     <VisualState x:Name="Active">
                         <Storyboard BeginTime="00:00:00" RepeatBehavior="Forever">
                             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Rectangle01" Storyboard.TargetProperty="(UIElement.Opacity)">

@@ -31,7 +31,11 @@
             <WPF.UI:FlatButton Grid.Row="0" Grid.Column="2" Width="60" Height="30"
                                Margin="2" Content="上中" CornerRadius="3" Type="Default">
                 <WPF.UI:FlatButton.ToolTip>
-                    <WPF.UI:ZToolTip Content="文字提示文字提示" IsShowShadow="False" PlacementEx="TopCenter" />
+                    <WPF.UI:ZToolTip IsShowShadow="False" PlacementEx="TopCenter">
+                        <WPF.UI:ZToolTip.Content>
+                            <TextBlock Text="文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示文字提示" Width="150" TextWrapping="Wrap" />
+                        </WPF.UI:ZToolTip.Content>
+                    </WPF.UI:ZToolTip>
                 </WPF.UI:FlatButton.ToolTip>
             </WPF.UI:FlatButton>
             <WPF.UI:FlatButton Grid.Row="0" Grid.Column="3" Width="60" Height="30"

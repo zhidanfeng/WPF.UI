@@ -49,23 +49,23 @@ namespace ZdfFlatUI
         /// <summary>
         /// 左中
         /// </summary>
-        LeftBottom,
+        LeftCenter,
         /// <summary>
         /// 左下
         /// </summary>
-        LeftCenter,
+        LeftBottom,
         /// <summary>
         /// 右上
         /// </summary>
         RightTop,
         /// <summary>
-        /// 右下
-        /// </summary>
-        RightBottom,
-        /// <summary>
         /// 右中
         /// </summary>
         RightCenter,
+        /// <summary>
+        /// 右下
+        /// </summary>
+        RightBottom,
         /// <summary>
         /// 上左
         /// </summary>

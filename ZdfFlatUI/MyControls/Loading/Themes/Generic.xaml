@@ -46,6 +46,7 @@
                 <Setter Property="Template" Value="{StaticResource Cogs}" />
             </Trigger>
             <Trigger Property="Type" Value="Apple">
+                <Setter Property="Width" Value="24" />
                 <Setter Property="Foreground" Value="#1282B3" />
                 <Setter Property="Template" Value="{StaticResource Apple}" />
             </Trigger>

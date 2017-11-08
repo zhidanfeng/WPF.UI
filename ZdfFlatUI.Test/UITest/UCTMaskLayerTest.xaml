@@ -13,7 +13,7 @@
     </UserControl.Resources>
     <Grid>
         <Button x:Name="btnOpenMaskLayer" Content="打开遮罩层" Width="100" Height="30" Click="btnOpenMaskLayer_Click" />
-        <wpf:MaskLayer Topmost="False" x:Name="maskLayer" PopupAnimation="Fade"
+        <wpf:PopupEx Topmost="False" x:Name="maskLayer" PopupAnimation="Fade"
                      masklayer:MaskLayerBehavior.Owner="{Binding Path=., RelativeSource={RelativeSource AncestorType=Window}}">
             <Grid Width="800" Height="500" Background="Transparent">
                 <Grid.ColumnDefinitions>
@@ -30,6 +30,6 @@
                                     MouseOverBackground="Transparent"
                                     PressedBackground="Transparent"/>
             </Grid>
-        </wpf:MaskLayer>
+        </wpf:PopupEx>
     </Grid>
 </UserControl>

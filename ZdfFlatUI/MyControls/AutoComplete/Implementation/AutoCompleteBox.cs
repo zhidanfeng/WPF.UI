@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -177,16 +178,16 @@ namespace ZdfFlatUI
 
         #region 私有依赖属性
 
-        #region FilterItemsSource
+        #region IsBusy
 
-        public IEnumerable FilterItemsSource
+        public bool IsBusy
         {
-            get { return (IEnumerable)GetValue(FilterItemsSourceProperty); }
-            private set { SetValue(FilterItemsSourceProperty, value); }
+            get { return (bool)GetValue(IsBusyProperty); }
+            set { SetValue(IsBusyProperty, value); }
         }
         
-        public static readonly DependencyProperty FilterItemsSourceProperty =
-            DependencyProperty.Register("FilterItemsSource", typeof(IEnumerable), typeof(AutoCompleteBox), new PropertyMetadata(null));
+        public static readonly DependencyProperty IsBusyProperty =
+            DependencyProperty.Register("IsBusy", typeof(bool), typeof(AutoCompleteBox), new PropertyMetadata(false));
 
         #endregion
 
@@ -202,7 +203,6 @@ namespace ZdfFlatUI
             DependencyProperty.Register("SelectedIndex", typeof(int), typeof(AutoCompleteBox), new PropertyMetadata(0));
 
         #endregion
-
 
         #endregion
 
@@ -314,28 +314,33 @@ namespace ZdfFlatUI
 
             if(collectionView == null)
             {
-                //this.FilterItemsSource = this.ItemsSource;
                 collectionView = CollectionViewSource.GetDefaultView(this.ItemsSource);
             }
-            
-            collectionView.Filter = (o) =>
-            {
-                if (string.IsNullOrEmpty(this.DisplayMemberPath)
-                    && (this.FilterMemberSource.Count == 0 || this.FilterMemberSource == null))
-                {
-                    return Convert.ToString(o).Contains(this.Text);
-                }
-                else
-                {
-                    //foreach (PropertyFilterDescription item in this.FilterMemberSource)
-                    //{
 
-                    //}
-                    object value = Utils.CommonUtil.GetPropertyValue(o, this.DisplayMemberPath);
-                    System.Diagnostics.Debug.WriteLine(Convert.ToString(value));
-                    return Convert.ToString(value).Contains(this.Text);
-                }
-            };
+            Task.Factory.StartNew(() =>
+            {
+                this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(()=> 
+                {
+                    collectionView.Filter = (o) =>
+                    {
+                        if (string.IsNullOrEmpty(this.DisplayMemberPath)
+                            && (this.FilterMemberSource.Count == 0 || this.FilterMemberSource == null))
+                        {
+                            return Convert.ToString(o).Contains(this.Text);
+                        }
+                        else
+                        {
+                            //foreach (PropertyFilterDescription item in this.FilterMemberSource)
+                            //{
+
+                            //}
+                            object value = Utils.CommonUtil.GetPropertyValue(o, this.DisplayMemberPath);
+                            System.Diagnostics.Debug.WriteLine(Convert.ToString(value));
+                            return Convert.ToString(value).Contains(this.Text);
+                        }
+                    };
+                }));
+            });
 
             int count = ((System.Windows.Data.ListCollectionView)collectionView).Count;
             if (count > 0)
@@ -348,6 +353,7 @@ namespace ZdfFlatUI
                 this.IsDropDownOpen = false;
             }
         }
+        
         #endregion
     }
 

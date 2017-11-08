@@ -19,8 +19,7 @@ namespace ZdfFlatUI
             get { return (bool)GetValue(IsActivedProperty); }
             set { SetValue(IsActivedProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for IsActived.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty IsActivedProperty =
             DependencyProperty.Register("IsActived", typeof(bool), typeof(Loading), new PropertyMetadata(true, OnIsActivedChangedCallback));
 
@@ -64,10 +63,6 @@ namespace ZdfFlatUI
         public static readonly DependencyProperty TypeProperty =
             DependencyProperty.Register("Type", typeof(EnumLoadingType), typeof(Loading), new PropertyMetadata(EnumLoadingType.DoubleArc));
 
-
-        #endregion
-
-        #region 依赖属性set get
 
         #endregion
 

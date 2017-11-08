@@ -24,10 +24,14 @@ namespace ZdfFlatUI.Test.UITest
             InitializeComponent();
 
             List<Student> list = new List<Student>();
-            list.Add(new Student() { ID = "1", Name = "1" });
-            list.Add(new Student() { ID = "2", Name = "111" });
-            list.Add(new Student() { ID = "3", Name = "121" });
-            list.Add(new Student() { ID = "4", Name = "2" });
+            for (int i = 0; i < 10000; i++)
+            {
+                list.Add(new Student() { ID = i.ToString(), Name = i.ToString() });
+            }
+            //list.Add(new Student() { ID = "1", Name = "1" });
+            //list.Add(new Student() { ID = "2", Name = "111" });
+            //list.Add(new Student() { ID = "3", Name = "121" });
+            //list.Add(new Student() { ID = "4", Name = "2" });
             this.AutoCompleteBox.ItemsSource = list;
             this.AutoCompleteBox.DisplayMemberPath = "Name";
         }

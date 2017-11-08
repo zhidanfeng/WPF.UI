@@ -1,13 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:ZUI="clr-namespace:ZdfFlatUI">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ZUI="clr-namespace:ZdfFlatUI">
 
     <SolidColorBrush x:Key="Brush.BorderBrush" Color="#ABADB3" />
     <SolidColorBrush x:Key="Brush.Item.MouseOver.Background" Color="#E2E2E2" />
     <SolidColorBrush x:Key="Brush.Item.Selected.Background" Color="#47A3FF" />
     <SolidColorBrush x:Key="Brush.Item.MouseOver.Foreground" Color="#000000" />
     <SolidColorBrush x:Key="Brush.Item.Selected.Foreground" Color="#FFFFFF" />
-    
+
     <Style x:Key="ListBoxStyle" TargetType="ListBox">
         <Setter Property="Background" Value="#FFFFFF" />
         <Setter Property="BorderBrush" Value="{StaticResource Brush.BorderBrush}" />
@@ -15,9 +14,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
                         <ZUI:ZScrollViewer>
                             <ItemsPresenter />
                         </ZUI:ZScrollViewer>
@@ -39,10 +38,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Background="{TemplateBinding Background}"
+                    <Border Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}"
                             SnapsToDevicePixels="true" UseLayoutRounding="True">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -81,34 +80,43 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:AutoCompleteBox}">
-                    <Grid>
-                        <Border x:Name="border" CornerRadius="{TemplateBinding CornerRadius}"
-                                Padding="{TemplateBinding Padding}"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                            <ScrollViewer x:Name="PART_ContentHost"
+                    <Border x:Name="border"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.ColumnSpan="2"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
-                        </Border>
-                        <Popup AllowsTransparency="True"
-                               IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                               Placement="Bottom"
-                               PlacementTarget="{Binding ElementName=border}"
-                               MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
-                               MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                               StaysOpen="False">
-                            <ListBox x:Name="PART_ListBox" DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
-                                     ItemsSource="{Binding ItemsSource, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                     SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}}"
-                                     SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}"
-                                     Style="{TemplateBinding DropDownBoxStyle}"
-                                     ItemContainerStyle="{TemplateBinding DropDownBoxItemContainerStyle}" />
-                        </Popup>
-                    </Grid>
+                                          Focusable="false" HorizontalScrollBarVisibility="Hidden" 
+                                          VerticalScrollBarVisibility="Hidden" />
+                            <ZUI:Loading Grid.Column="1" Type="Apple" Width="10" Foreground="Black"
+                                         VerticalAlignment="Center" IsActived="{TemplateBinding IsBusy}"/>
+                            <Popup MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                   MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                   AllowsTransparency="True"
+                                   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                   Placement="Bottom"
+                                   PlacementTarget="{Binding ElementName=border}"
+                                   StaysOpen="False">
+                                <ListBox x:Name="PART_ListBox"
+                                         DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
+                                         ItemContainerStyle="{TemplateBinding DropDownBoxItemContainerStyle}"
+                                         ItemsSource="{Binding ItemsSource, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                         SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource TemplatedParent}}"
+                                         SelectedItem="{Binding SelectedItem, RelativeSource={RelativeSource TemplatedParent}}"
+                                         Style="{TemplateBinding DropDownBoxStyle}" />
+                            </Popup>
+                        </Grid>
+                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderBrush" Value="Blue" />

@@ -10,11 +10,11 @@ using System.Windows.Interop;
 
 namespace ZdfFlatUI
 {
-    public class MaskLayer : Popup
+    public class PopupEx : Popup
     {
         #region TopMost 设置Popup是否每次都置顶
 
-        public static DependencyProperty TopmostProperty = Window.TopmostProperty.AddOwner(typeof(MaskLayer), new FrameworkPropertyMetadata(false, OnTopmostChanged));
+        public static DependencyProperty TopmostProperty = Window.TopmostProperty.AddOwner(typeof(PopupEx), new FrameworkPropertyMetadata(false, OnTopmostChanged));
         public bool Topmost
         {
             get { return (bool)GetValue(TopmostProperty); }
@@ -22,8 +22,23 @@ namespace ZdfFlatUI
         }
         private static void OnTopmostChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
-            (obj as MaskLayer).UpdateWindow();
+            (obj as PopupEx).UpdateWindow();
         }
+
+        #endregion
+
+        #region IsUpdatePosition
+        /// <summary>
+        /// 设置或者获取Popup是否跟随窗口移动
+        /// </summary>
+        public bool IsUpdatePosition
+        {
+            get { return (bool)GetValue(IsUpdatePositionProperty); }
+            set { SetValue(IsUpdatePositionProperty, value); }
+        }
+        
+        public static readonly DependencyProperty IsUpdatePositionProperty =
+            DependencyProperty.Register("IsUpdatePosition", typeof(bool), typeof(PopupEx), new PropertyMetadata(true));
 
         #endregion
 
@@ -42,6 +57,7 @@ namespace ZdfFlatUI
                 if(element != null)
                 {
                     //第二个参数和最后一个参数为关键参数，设置为1表示保持窗口大小，网上的代码是0，如果设置为0会导致Popup弹出时同时更改了PlacementTarget的大小
+                    //但如果hwnd句柄的获取是通过this.Child获取的，则最后一个参数可以设置为0
                     SetWindowPos(hwnd, Topmost ? -1 : -2, rect.Left, rect.Top, (int)element.ActualWidth, (int)element.ActualHeight, 1);
                 }
                 else

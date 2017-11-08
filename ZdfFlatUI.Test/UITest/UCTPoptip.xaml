@@ -93,5 +93,9 @@
                        Background="White">
             <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="Black" />
         </WPF.UI:Poptip>
+
+        <Border Grid.Column="5" Grid.Row="5" BorderBrush="Black" BorderThickness="1" 
+                SnapsToDevicePixels="True" UseLayoutRounding="True"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="100"/>
     </Grid>
 </UserControl>

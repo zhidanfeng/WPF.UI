@@ -49,7 +49,7 @@ namespace ZdfFlatUI.Behaviors
         {
             bool isOpen = (bool)e.NewValue;
             ContentControl owner = MaskLayerBehavior.GetOwner(d) as ContentControl;
-            MaskLayer layerContent = d as MaskLayer;
+            PopupEx layerContent = d as PopupEx;
 
             if (owner != null)
             {
