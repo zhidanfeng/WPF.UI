@@ -45,7 +45,8 @@ namespace ZdfFlatUI
         }
 
         public static readonly DependencyProperty MessageTypeProperty = DependencyProperty.Register("MessageType"
-            , typeof(EnumMessageType), typeof(NoticeMessage), new FrameworkPropertyMetadata(new PropertyChangedCallback(OnMessageTypeChanged)));
+            , typeof(EnumMessageType), typeof(NoticeMessage)
+            , new FrameworkPropertyMetadata(new PropertyChangedCallback(OnMessageTypeChanged)));
 
         /// <summary>
         /// 是否显示

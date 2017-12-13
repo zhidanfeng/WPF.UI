@@ -15,11 +15,11 @@ namespace ZdfFlatUI
         /// <summary>
         /// 当文本框为空时就显示水印，不管该文本框有没有获得焦点
         /// </summary>
-        VisibleWhenIsEmtpy,
+        VisibleWhenIsEmpty,
         /// <summary>
         /// 当文本框失去焦点且文本框没有内容时显示水印
         /// </summary>
-        VisibleWhenLostFocusAndEmtpy,
+        VisibleWhenLostFocusAndEmpty,
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ namespace ZdfFlatUI
         }
         
         public static readonly DependencyProperty WatermarkShowModeProperty =
-            DependencyProperty.RegisterAttached("WatermarkShowMode", typeof(EnumWatermarkShowMode), typeof(WatermarkAdorner), new PropertyMetadata(EnumWatermarkShowMode.VisibleWhenLostFocusAndEmtpy));
+            DependencyProperty.RegisterAttached("WatermarkShowMode", typeof(EnumWatermarkShowMode), typeof(WatermarkAdorner), new PropertyMetadata(EnumWatermarkShowMode.VisibleWhenLostFocusAndEmpty));
 
         #endregion
 
@@ -109,12 +109,17 @@ namespace ZdfFlatUI
                 {
                     this.SetWatermarkVisible(true);
                 };
-                adornedTextBox.GotFocus += (s1, e1) => {
+                adornedTextBox.GotFocus += (s1, e1) => 
+                {
                     this.SetWatermarkVisible(true);
                 };
                 adornedTextBox.LostFocus += (s1, e1) => 
                 {
                     this.SetWatermarkVisible(false);
+                };
+                adornedTextBox.IsVisibleChanged += (o, e) =>
+                {
+                    this.textBlock.Visibility = (bool)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
                 };
 
                 _visuals = new VisualCollection(this);
@@ -164,17 +169,21 @@ namespace ZdfFlatUI
         {
             switch (this.showModel)
             {
-                case EnumWatermarkShowMode.VisibleWhenIsEmtpy:
+                case EnumWatermarkShowMode.VisibleWhenIsEmpty:
                     if (string.IsNullOrEmpty(this.adornedTextBox.Text))
                     {
                         this.textBlock.Visibility = Visibility.Visible;
+                        if(!this.adornedTextBox.IsVisible)
+                        {
+                            this.textBlock.Visibility = Visibility.Collapsed;
+                        }
                     }
                     else
                     {
                         this.textBlock.Visibility = Visibility.Collapsed;
                     }
                     break;
-                case EnumWatermarkShowMode.VisibleWhenLostFocusAndEmtpy:
+                case EnumWatermarkShowMode.VisibleWhenLostFocusAndEmpty:
                     if(!isFocus && string.IsNullOrEmpty(this.adornedTextBox.Text))
                     {
                         this.textBlock.Visibility = Visibility.Visible;
