@@ -81,14 +81,30 @@ namespace ZdfFlatUI
                     }
                     else
                     {
+                        WatermarkAdorner adorner = null;
+
+                        //增加Initialized事件处理是为了解决当水印放置在TabControl中时导致水印频繁的Loaded和Unload
+                        element.Initialized += (o1, e1) =>
+                        {
+                            adorner = new WatermarkAdorner(element);
+                        };
+
                         //layer为null，说明还未load过（整个可视化树中没有装饰层的情况不考虑）
                         //在控件的loaded事件内生成装饰件
-                        element.Loaded += (s1, e1) => {
-                            var adorner = new WatermarkAdorner(element);
+                        element.Loaded += (s1, e1) => 
+                        {
                             var v = AdornerLayer.GetAdornerLayer(element);
-                            if(v != null)
+                            if(v != null && adorner != null)
                             {
                                 v.Add(adorner);
+                            }
+                        };
+                        element.Unloaded += (s1, e1) => 
+                        {
+                            var v = AdornerLayer.GetAdornerLayer(element);
+                            if (v != null && adorner != null)
+                            {
+                                v.Remove(adorner);
                             }
                         };
                     }
@@ -119,15 +135,22 @@ namespace ZdfFlatUI
                 };
                 adornedTextBox.IsVisibleChanged += (o, e) =>
                 {
-                    this.textBlock.Visibility = (bool)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
+                    if(string.IsNullOrEmpty(this.adornedTextBox.Text))
+                    {
+                        this.textBlock.Visibility = (bool)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
+                    }
+                    else
+                    {
+                        this.textBlock.Visibility = Visibility.Collapsed;
+                    }
                 };
 
                 _visuals = new VisualCollection(this);
                 
                 textBlock = new TextBlock()
                 {
-                    HorizontalAlignment = System.Windows.HorizontalAlignment.Left,
-                    VerticalAlignment = System.Windows.VerticalAlignment.Center,
+                    HorizontalAlignment = adornedTextBox.HorizontalContentAlignment,
+                    VerticalAlignment = adornedTextBox.VerticalContentAlignment,
                     Text = WatermarkAdorner.GetWatermark(adornedElement),
                     Foreground = new SolidColorBrush(Color.FromRgb(153, 153, 153)),
                     Margin = new Thickness(5,0,2,0),

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTCheckComboBoxTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:wpf="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel VerticalAlignment="Center">
+        
+        <wpf:FlatButton x:Name="btnGetContent" Content="获取Content" Margin="0,10" Width="90" Click="btnGetContent_Click" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,10">
+            <TextBlock Text="SelectedObjList：" />
+            <TextBlock Text="{Binding SelectedObjList.Count, ElementName=CheckComboBox}" />
+
+            <TextBlock Text="SelectedStrList：" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding SelectedStrList.Count, ElementName=CheckComboBox}" />
+
+            <TextBlock Text="Value：" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Value, ElementName=CheckComboBox}" />
+
+            <TextBlock Text="Content：" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Content, ElementName=CheckComboBox}" />
+        </StackPanel>
+
+        <wpf:CheckComboBox x:Name="CheckComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="28" IsShowFilterBox="True" MaxShowNumber="3">
+            <!--<wpf:CheckComboBoxItem>C#</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>C++</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>C语言</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>Javascript</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>Java</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>Object C</wpf:CheckComboBoxItem>
+            <wpf:CheckComboBoxItem>Phtyon</wpf:CheckComboBoxItem>-->
+        </wpf:CheckComboBox>
+    </StackPanel>
+</UserControl>

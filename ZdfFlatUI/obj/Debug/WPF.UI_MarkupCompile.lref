@@ -6,6 +6,8 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\AutoComple
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Badge\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\BusyIndicator\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ButtonGroup\Themes\Generic.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\CheckBox\Themes\ZCheckBox.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\CheckComboBox\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Clock\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ColorSelector\Themes\ColorItem.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\ColorSelector\Themes\ColorSelector.xaml;;
@@ -19,6 +21,7 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateContro
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateControl\Themes\ZCalendarItem.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DateControl\Themes\ZDatePicker.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\DropDownButton\Themes\Generic.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\EmailBox\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\FloatingActionControls\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Heading\Themes\Generic.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\MyControls\Icon\Themes\Generic.xaml;;

@@ -202,4 +202,6 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\WPF.UI.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\WPF.UI.pdb
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\TextBox\Themes\IpTextBox.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\Message\Themes\Generic.baml
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csprojResolveAssemblyReference.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\CheckComboBox\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\CheckBox\Themes\ZCheckBox.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\EmailBox\Themes\Generic.baml

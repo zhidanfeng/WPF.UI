@@ -121,7 +121,7 @@
                                         WPF.UI:WatermarkAdorner.Watermark="水印测试" />
                 <WPF.UI:NumbericTextBox Width="200" Height="28" Margin="0,3" PatternType="NotEmpty"
                                         WPF.UI:WatermarkAdorner.Watermark="水印测试"
-                                        WPF.UI:WatermarkAdorner.WatermarkShowMode="VisibleWhenIsEmtpy"/>
+                                        WPF.UI:WatermarkAdorner.WatermarkShowMode="VisibleWhenIsEmpty"/>
                 <WPF.UI:NumbericTextBox Width="200" Height="28" Margin="0,3" PatternType="NotEmpty"
                                         ErrorContent="文本框不能为空"/>
                 <WPF.UI:FlatToggleButton x:Name="btnStartValidate" Margin="0,3" Content="开始校验" />

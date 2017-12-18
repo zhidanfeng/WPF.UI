@@ -22,6 +22,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/BaseWindowStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Window/Themes/ZWindow.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/DefaultCheckBoxStyle.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckBox/Themes/ZCheckBox.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/RadionButton/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/FlatDatePickerStyle.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/Themes/DateControl/DateTimePickerStyle.xaml" />
@@ -86,5 +87,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Panel/Themes/WaterfallPanel.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ButtonGroup/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationPanel/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckComboBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/EmailBox/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

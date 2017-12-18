@@ -310,6 +310,7 @@
                                     </ScrollViewer>
                                 </Grid>
                             </Popup>
+                            
                         </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>

@@ -38,7 +38,8 @@
                 </Border.Effect>
             </Border>
 
-            <WPF.UI:NavigateMenu x:Name="menu" FontSize="13" Margin="0,5" SelectionChanged="menu_SelectionChanged">
+            <WPF.UI:NavigateMenu x:Name="menu" FontSize="13" Margin="0,5" SelectionChanged="menu_SelectionChanged"
+                                 SelectedValue="CheckComboBox多选下拉框">
                 <WPF.UI:NavigateMenu.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" />

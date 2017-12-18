@@ -87,6 +87,21 @@ namespace ZdfFlatUI
             get { return (string)GetValue(CancelButtonTextProperty); }
             set { SetValue(CancelButtonTextProperty, value); }
         }
+
+
+        #region CornerRadius
+
+        public CornerRadius CornerRadius
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(MessageBoxModule), new PropertyMetadata(new CornerRadius(3d)));
+
+        #endregion
+
         #endregion
 
         #region Constructors
@@ -115,7 +130,7 @@ namespace ZdfFlatUI
             this.Loaded += MessageBoxModule_Loaded;
         }
 
-        
+
 
         private void MessageBoxModule_Loaded(object sender, RoutedEventArgs e)
         {
@@ -131,9 +146,9 @@ namespace ZdfFlatUI
             base.OnApplyTemplate();
 
             this.PART_CloseButton = this.GetTemplateChild("PART_CloseButton") as Button;
-            Grid  s  = this.GetTemplateChild("grid") as Grid;
+            Grid s = this.GetTemplateChild("grid") as Grid;
 
-            
+
             if (this.PART_CloseButton != null)
             {
                 this.PART_CloseButton.Click += CloseWindow;
@@ -205,8 +220,8 @@ namespace ZdfFlatUI
             , MessageBoxButton button, MessageBoxResult defaultResult, EnumPromptType type)
         {
             MessageBoxModule messageBox = new MessageBoxModule();
-            
-            if(owner != null)
+
+            if (owner != null)
             {
                 //蒙板
                 Grid layer = new Grid() { Background = new SolidColorBrush(Color.FromArgb(128, 0, 0, 0)) };
@@ -251,6 +266,25 @@ namespace ZdfFlatUI
                     break;
                 default:
                     break;
+
+                    //case MessageBoxButton.OK:
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "确定", FlatButtonSkinEnum.Default, MessageBoxResult.OK, new CornerRadius(0, 0, messageBox.CornerRadius.BottomRight, messageBox.CornerRadius.BottomLeft), new Thickness(0,1,0,0)));
+                    //    break;
+                    //case MessageBoxButton.OKCancel:
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "取消", FlatButtonSkinEnum.Default, MessageBoxResult.Cancel, new CornerRadius(0, 0, 0, messageBox.CornerRadius.BottomLeft), new Thickness(0, 1, 1, 0)));
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "确定", FlatButtonSkinEnum.Default, MessageBoxResult.OK, new CornerRadius(0, 0, messageBox.CornerRadius.BottomRight, 0), new Thickness(0, 1, 0, 0)));
+                    //    break;
+                    //case MessageBoxButton.YesNoCancel:
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "取消", FlatButtonSkinEnum.Default, MessageBoxResult.Cancel, new CornerRadius(0, 0, 0, messageBox.CornerRadius.BottomLeft), new Thickness(0, 1, 1, 0)));
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "否", FlatButtonSkinEnum.Default, MessageBoxResult.No, new CornerRadius(0, 0, 0, 0), new Thickness(0, 1, 1, 0)));
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "是", FlatButtonSkinEnum.Default, MessageBoxResult.Yes, new CornerRadius(0, 0, messageBox.CornerRadius.BottomRight, 0), new Thickness(0, 1, 0, 0)));
+                    //    break;
+                    //case MessageBoxButton.YesNo:
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "否", FlatButtonSkinEnum.Default, MessageBoxResult.No, new CornerRadius(0, 0, 0, messageBox.CornerRadius.BottomLeft), new Thickness(0, 1, 1, 0)));
+                    //    messageBox.ButtonCollection.Add(CreateButton(messageBox, "是", FlatButtonSkinEnum.Default, MessageBoxResult.Yes, new CornerRadius(0, 0, messageBox.CornerRadius.BottomRight, 0), new Thickness(0, 1, 0, 0)));
+                    //    break;
+                    //default:
+                    //    break;
             }
 
             //该行是关键代码，窗体显示后进入阻塞状态，直到窗体有返回值：即点击了某个按钮或者关闭了窗体
@@ -321,17 +355,21 @@ namespace ZdfFlatUI
             return caption;
         }
 
-        private static Button CreateButton(MessageBoxModule messageBox, string content, FlatButtonSkinEnum buttonType, MessageBoxResult dialogResult)
+        private static Button CreateButton(MessageBoxModule messageBox, string content, FlatButtonSkinEnum buttonType
+            , MessageBoxResult dialogResult)
         {
             FlatButton button = new FlatButton();
             button.Content = content;
             button.Type = buttonType;
-            button.Width = 70;
-            button.Height = 28;
-            button.CornerRadius = new CornerRadius(3);
-            button.Margin = new Thickness(5,0,5,0);
+            //button.Width = 70;
+            button.Height = 30;
+            button.HorizontalAlignment = HorizontalAlignment.Stretch;
+            //button.CornerRadius = cornerRadius;
+            //button.BorderThickness = thickness;
+            //button.BorderBrush = new SolidColorBrush(Color.FromRgb(0, 122, 204));
+            button.Margin = new Thickness(10, 0, 10, 10);
             //注册按钮的点击事件，返回相应的结果用于ShowDialog的返回值
-            button.Click += (o, e) => 
+            button.Click += (o, e) =>
             {
                 bool? flag = null;
                 switch (dialogResult)
@@ -362,7 +400,7 @@ namespace ZdfFlatUI
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            if(this.Owner != null)
+            if (this.Owner != null)
             {
                 //容器Grid
                 Grid grid = this.Owner.Content as Grid;
@@ -373,7 +411,7 @@ namespace ZdfFlatUI
                 //赋给父级窗体
                 this.Owner.Content = original;
             }
-            
+
             VisualStateManager.GoToState(this, "Closed", true);
             //e.Cancel = true;
         }

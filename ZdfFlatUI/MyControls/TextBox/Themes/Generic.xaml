@@ -55,7 +55,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="FocusStates">
-                                <VisualState x:Name="Focused">
+                                <!--<VisualState x:Name="Focused">
                                     <Storyboard>
                                         <ColorAnimation Duration="0:0:0.2" Storyboard.TargetName="ShadowBorder"
                                                         Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Color)" 
@@ -68,7 +68,7 @@
                                                         Storyboard.TargetProperty="(Border.Effect).(DropShadowEffect.Color)" 
                                                         To="Transparent" />
                                     </Storyboard>
-                                </VisualState>
+                                </VisualState>-->
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                     </Grid>

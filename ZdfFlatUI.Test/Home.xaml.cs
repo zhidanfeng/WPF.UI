@@ -304,6 +304,16 @@ namespace ZdfFlatUI.Test
                 Name = "MaskLayer遮罩层",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "CheckComboBox多选下拉框",
+                GroupName = ControlType.View.ToString(),
+            });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "EmailBox邮件接收人",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -471,6 +481,12 @@ namespace ZdfFlatUI.Test
                         break;
                     case "MaskLayer遮罩层":
                         this.ControlPanel.Content = new UITest.UCTMaskLayerTest();
+                        break;
+                    case "CheckComboBox多选下拉框":
+                        this.ControlPanel.Content = new UITest.UCTCheckComboBoxTest();
+                        break;
+                    case "EmailBox邮件接收人":
+                        this.ControlPanel.Content = new UITest.UCTEmailBoxTest();
                         break;
                         #endregion
                 }

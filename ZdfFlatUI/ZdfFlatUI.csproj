@@ -162,8 +162,12 @@
     <Compile Include="MyControls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
     <Compile Include="MyControls\ButtonGroup\Implementation\ButtonGroup.cs" />
     <Compile Include="MyControls\ButtonGroup\Implementation\ButtonGroupItem.cs" />
+    <Compile Include="MyControls\CheckBox\Implementation\ZCheckBox.cs" />
+    <Compile Include="MyControls\CheckComboBox\Implementation\CheckComboBox.cs" />
+    <Compile Include="MyControls\CheckComboBox\Implementation\CheckComboBoxItem.cs" />
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
+    <Compile Include="MyControls\EmailBox\Implementation\EmailBox.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
     <Compile Include="MyControls\NavigationPanel\Implementation\NavigationPanel.cs" />
     <Compile Include="MyControls\Panel\Implementation\WaterfallPanel - 复制.cs" />
@@ -321,6 +325,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyControls\CheckBox\Themes\ZCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\CheckComboBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyControls\Clock\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -370,6 +382,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\DropDownButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\EmailBox\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

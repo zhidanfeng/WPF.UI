@@ -170,6 +170,9 @@
     <Compile Include="UITest\UCTCheckBoxTest.xaml.cs">
       <DependentUpon>UCTCheckBoxTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UITest\UCTCheckComboBoxTest.xaml.cs">
+      <DependentUpon>UCTCheckComboBoxTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UITest\UCTClock.xaml.cs">
       <DependentUpon>UCTClock.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,9 @@
     </Compile>
     <Compile Include="UITest\UCTDropDownTest.xaml.cs">
       <DependentUpon>UCTDropDownTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTEmailBoxTest.xaml.cs">
+      <DependentUpon>UCTEmailBoxTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTFloatingActionControl.xaml.cs">
       <DependentUpon>UCTFloatingActionControl.xaml</DependentUpon>
@@ -369,6 +375,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTCheckComboBoxTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -394,6 +404,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UITest\UCTDropDownTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UITest\UCTEmailBoxTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
