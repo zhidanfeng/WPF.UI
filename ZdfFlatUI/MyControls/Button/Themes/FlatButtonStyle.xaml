@@ -63,6 +63,7 @@
                 <Setter TargetName="contentPresenter" Property="Margin" Value="0,0,0,0" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Cursor" Value="No" />
                 <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
                 <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
                 <Setter TargetName="border" Property="BorderThickness" Value="1" />

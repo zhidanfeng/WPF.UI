@@ -4,6 +4,7 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\Home.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\MainWindow.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITestWindow.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\BaseWindowTest.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\Base\BehaviorTest.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\Base\Icon.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\ChangeTheme\UCTChangeTheme.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTBadgeTest.xaml;;
@@ -11,6 +12,7 @@ FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTButton
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTCascaderBoxTest.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTCheckBoxTest.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTCheckComboBoxTest.xaml;;
+FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTChooseBoxTest.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTColorSelectorTest.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTDateControl.xaml;;
 FD:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\UITest\UCTDropDownTest.xaml;;

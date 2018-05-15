@@ -98,7 +98,6 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\Bass.Ne
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\WPFSoundVisualizationLib.dll
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\ZEditor.pdb
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\bin\Debug\WPF.UI.pdb
-D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csprojResolveAssemblyReference.cache
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\Styles\ContextMenuStyle.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\Color.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTAccordion.baml
@@ -226,3 +225,10 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTCheckComboBoxTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTEmailBoxTest.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTEmailBoxTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTChooseBoxTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\UCTChooseBoxTest.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csproj.CoreCompileInputs.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csprojAssemblyReference.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\ZdfFlatUI.Test.csproj.CopyComplete
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\BehaviorTest.g.cs
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI.Test\obj\Debug\UITest\Base\BehaviorTest.baml

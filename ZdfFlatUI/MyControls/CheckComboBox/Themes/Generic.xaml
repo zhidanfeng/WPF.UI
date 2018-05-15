@@ -13,13 +13,12 @@
     <SolidColorBrush x:Key="ComboBox.Normal.Background" Color="#FFFFFF" />
     <SolidColorBrush x:Key="ComboBox.BorderBrush" Color="#ABADB3" />
     <SolidColorBrush x:Key="ComboBox.Disabled.Foreground" Color="#888" />
-    <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="#00eeeeee" />
-    <SolidColorBrush x:Key="ComboBox.Disabled.BorderBrush" Color="#00888888" />
+    <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="#eeeeee" />
+    <SolidColorBrush x:Key="ComboBox.Disabled.BorderBrush" Color="#888888" />
     <SolidColorBrush x:Key="ComboBox.Popup.BorderBrush" Color="#C8C8C8" />
 
     <PathGeometry x:Key="Arrow.Down" Figures="M191.814654 383.980301 832.184323 383.980301 512 767.996418Z" />
     <PathGeometry x:Key="Arrow.Up" Figures="M832.185 640.020h-640.37l320.184-384.016z" />
-
 
     <ControlTemplate x:Key="ComboBoxToggleButtonTemplate" TargetType="{x:Type ZUI:ZToggleButton}">
         <Grid Background="Transparent">
@@ -105,6 +104,7 @@
                 <Setter Property="TextElement.Foreground" Value="{StaticResource ComboBox.Disabled.Foreground}" />
                 <Setter TargetName="Arrow" Property="Stroke" Value="#999" />
                 <Setter TargetName="Arrow" Property="StrokeThickness" Value="0" />
+                <Setter Property="Cursor" Value="No" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -166,14 +166,14 @@
                                            Template="{StaticResource ComboBoxToggleButtonTemplate}" />
                         <ContentPresenter x:Name="PART_ContentSite" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
+                                          Content="{TemplateBinding Content}" IsHitTestVisible="False"
                                           Margin="{TemplateBinding Padding}"/>
 
-                        <Popup Name="popup"
+                        <Popup Name="PART_Popup"
                                MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                AllowsTransparency="True"
-                               IsOpen="{Binding IsChecked, ElementName=toggleButton, Mode=TwoWay}"
+                               IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                Placement="Bottom" StaysOpen="False" VerticalOffset="1">
                             <Grid Name="DropDown"
                                   Width="{TemplateBinding FrameworkElement.ActualWidth}"
@@ -185,7 +185,7 @@
                                 </Grid.RowDefinitions>
                                 <Border Grid.RowSpan="2" Background="#FFFFFF" CornerRadius="3" SnapsToDevicePixels="True" UseLayoutRounding="True">
                                     <Border.Effect>
-                                        <DropShadowEffect BlurRadius="5" Opacity="0.2" ShadowDepth="0" Color="Brown" />
+                                        <DropShadowEffect BlurRadius="7" Opacity="0.2" ShadowDepth="0" Color="Brown" />
                                     </Border.Effect>
                                 </Border>
 
@@ -203,6 +203,11 @@
                             </Grid>
                         </Popup>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Cursor" Value="No" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

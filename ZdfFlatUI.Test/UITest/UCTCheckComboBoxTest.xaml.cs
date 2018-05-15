@@ -34,6 +34,8 @@ namespace ZdfFlatUI.Test.UITest
 
             this.CheckComboBox.ItemsSource = data;
             this.CheckComboBox.DisplayMemberPath = "Content";
+            this.CheckComboBox.SelectedObjList.Add(data[1]);
+            this.CheckComboBox.SelectedObjList.Add(data[3]);
         }
 
         internal class CheckComboBoxTest

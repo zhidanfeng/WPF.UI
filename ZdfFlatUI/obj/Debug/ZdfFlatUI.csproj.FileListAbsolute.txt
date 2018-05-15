@@ -205,3 +205,6 @@ D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\M
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\CheckComboBox\Themes\Generic.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\CheckBox\Themes\ZCheckBox.baml
 D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\EmailBox\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\MyControls\ChooseBox\Themes\Generic.baml
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csproj.CoreCompileInputs.cache
+D:\WorkSpace\MySources\MyWPFSource\WPF控件库\ZdfFlatUI\obj\Debug\ZdfFlatUI.csproj.CopyComplete

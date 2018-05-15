@@ -89,5 +89,6 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigationPanel/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/CheckComboBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/EmailBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ChooseBox/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

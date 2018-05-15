@@ -129,6 +129,7 @@
                 <Setter TargetName="indeterminateMark" Property="Fill" Value="{StaticResource OptionMark.MouseOver.Glyph}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Cursor" Value="No" />
                 <Setter TargetName="checkBoxBorder" Property="Background" Value="{StaticResource OptionMark.Disabled.Background}" />
                 <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{StaticResource OptionMark.Disabled.Border}" />
                 <Setter TargetName="optionMark" Property="Fill" Value="{StaticResource OptionMark.Disabled.Glyph}" />
@@ -259,6 +260,7 @@
                 <Setter TargetName="borderMark" Property="BorderBrush" Value="{StaticResource OptionMark.MouseOver.Border}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Cursor" Value="No" />
                 <Setter TargetName="borderMark" Property="Background" Value="{StaticResource OptionMark.Disabled.Background}" />
                 <Setter TargetName="borderMark" Property="BorderBrush" Value="{StaticResource OptionMark.Disabled.Border}" />
                 <Setter TargetName="optionMark" Property="Fill" Value="{StaticResource OptionMark.Disabled.Glyph}" />
@@ -296,6 +298,7 @@
                 <Setter TargetName="cp" Property="Fill" Value="{Binding CheckedColor, RelativeSource={RelativeSource TemplatedParent}}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Cursor" Value="No" />
                 <Setter TargetName="cp" Property="Fill" Value="#DDDBD5" />
             </Trigger>
         </ControlTemplate.Triggers>

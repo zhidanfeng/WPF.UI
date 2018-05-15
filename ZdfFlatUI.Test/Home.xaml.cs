@@ -68,6 +68,11 @@ namespace ZdfFlatUI.Test
                 Name = "Button按钮",
                 GroupName = ControlType.Basic.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "Behavior测试",
+                GroupName = ControlType.Basic.ToString(),
+            });
             #endregion
 
             #region Form
@@ -314,6 +319,11 @@ namespace ZdfFlatUI.Test
                 Name = "EmailBox邮件接收人",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "ChooseBox选择控件",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -333,6 +343,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "Icon图标":
                         this.ControlPanel.Content = new UITest.Base.Icon();
+                        break;
+                    case "Behavior测试":
+                        this.ControlPanel.Content = new UITest.Base.BehaviorTest();
                         break;
                     #endregion
 
@@ -487,6 +500,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "EmailBox邮件接收人":
                         this.ControlPanel.Content = new UITest.UCTEmailBoxTest();
+                        break;
+                    case "ChooseBox选择控件":
+                        this.ControlPanel.Content = new UITest.UCTChooseBoxTest();
                         break;
                         #endregion
                 }

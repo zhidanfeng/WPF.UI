@@ -110,6 +110,7 @@
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="TitleBackground" Value="#21A7ED" />
         <Setter Property="TitleForeground" Value="#FFFFFF" />
+		<!--记得在标题按钮区域增加Shell:WindowChrome.IsHitTestVisibleInChrome="True"，否则点击不了-->
         <Setter Property="Shell:WindowChrome.WindowChrome">
             <Setter.Value>
                 <Shell:WindowChrome CaptionHeight="50" CornerRadius="5" GlassFrameThickness="-1" NonClientFrameEdges="None"

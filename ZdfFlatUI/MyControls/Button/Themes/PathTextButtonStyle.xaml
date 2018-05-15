@@ -63,6 +63,7 @@
                             <Setter TargetName="path" Property="Fill" Value="{Binding PressedForeground, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Cursor" Value="No" />
                             <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="#888" />
                             <Setter TargetName="path" Property="Fill" Value="#888" />
                         </Trigger>

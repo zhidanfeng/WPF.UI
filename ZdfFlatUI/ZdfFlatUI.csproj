@@ -134,6 +134,7 @@
     <Compile Include="BaseControl\NumericUpDown.cs" />
     <Compile Include="BaseControl\NumericUpDownBase.cs" />
     <Compile Include="BaseControl\TextBoxBase.cs" />
+    <Compile Include="Behaviors\TextCompleteDisplayBehavior.cs" />
     <Compile Include="Behaviors\MaskLayerBehavior.cs" />
     <Compile Include="Converters\CalendarDayButtonTypeConverter.cs" />
     <Compile Include="Converters\IsFirstItemConverter.cs" />
@@ -165,9 +166,11 @@
     <Compile Include="MyControls\CheckBox\Implementation\ZCheckBox.cs" />
     <Compile Include="MyControls\CheckComboBox\Implementation\CheckComboBox.cs" />
     <Compile Include="MyControls\CheckComboBox\Implementation\CheckComboBoxItem.cs" />
+    <Compile Include="MyControls\ChooseBox\Implementation\ChooseBox.cs" />
     <Compile Include="MyControls\Clock\Implementation\Clock.cs" />
     <Compile Include="MyControls\ContentNavigation\Implementation\ContentNavigation.cs" />
     <Compile Include="MyControls\EmailBox\Implementation\EmailBox.cs" />
+    <Compile Include="MyControls\EmailBox\Implementation\EmailReceiverButton.cs" />
     <Compile Include="MyControls\Heading\Implementation\Heading.cs" />
     <Compile Include="MyControls\NavigationPanel\Implementation\NavigationPanel.cs" />
     <Compile Include="MyControls\Panel\Implementation\WaterfallPanel - 复制.cs" />
@@ -330,6 +333,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\CheckComboBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ChooseBox\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

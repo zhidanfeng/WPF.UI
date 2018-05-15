@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ZdfFlatUI.Test.UITest.UCTChooseBoxTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdfFlatUI.Test.UITest"
+             xmlns:wpf="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel VerticalAlignment="Center">
+        <wpf:ChooseBox Width="300" Height="28" />
+        <wpf:ChooseBox Width="300" Height="28" ChooseBoxType="Folder" Margin="0,20,0,0" />
+        <wpf:ChooseBox Width="299" Height="30" ChooseBoxType="Folder" Margin="0,20,0,0" 
+                       ChooseButtonWidth="50">
+            <wpf:ChooseBox.ChooseButtonStyle>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="#68B3FF" BorderThickness="0">
+                                    <TextBlock Text="选择..." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </wpf:ChooseBox.ChooseButtonStyle>
+        </wpf:ChooseBox>
+    </StackPanel>
+</UserControl>
