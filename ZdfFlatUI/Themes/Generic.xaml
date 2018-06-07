@@ -37,6 +37,7 @@
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Upload/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/NavigateMenu/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ToggleButton/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPF.UI;component/MyControls/ToggleButton/Themes/IconToggleButton.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Expander/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/ScrollViewer/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPF.UI;component/MyControls/Badge/Themes/Generic.xaml" />

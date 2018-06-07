@@ -77,7 +77,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>WPFUI.ico</ApplicationIcon>
+    <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -604,6 +604,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="bitbug_favicon.ico" />
     <Content Include="DLL\GalaSoft.MvvmLight.dll" />
     <Content Include="DLL\Microsoft.Expression.Controls.dll" />
     <Content Include="DLL\Microsoft.Expression.Drawing.dll" />

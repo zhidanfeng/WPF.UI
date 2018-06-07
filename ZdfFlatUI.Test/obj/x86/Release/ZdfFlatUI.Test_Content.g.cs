@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/galasoft.mvvmlight.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.expression.controls.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.expression.drawing.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.expression.interactions.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/system.windows.interactivity.dll")]
 

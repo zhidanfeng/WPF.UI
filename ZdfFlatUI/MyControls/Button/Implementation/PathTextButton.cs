@@ -65,6 +65,39 @@ namespace ZdfFlatUI
 
         #endregion
 
+        #region Orientation
+        public Orientation Orientation
+        {
+            get { return (Orientation)GetValue(OrientationProperty); }
+            set { SetValue(OrientationProperty, value); }
+        }
+
+        public static readonly DependencyProperty OrientationProperty =
+            DependencyProperty.Register("Orientation", typeof(Orientation), typeof(PathTextButton), new PropertyMetadata(Orientation.Horizontal));
+        #endregion
+
+        #region ContentMargin
+        public Thickness ContentMargin
+        {
+            get { return (Thickness)GetValue(ContentMarginProperty); }
+            set { SetValue(ContentMarginProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentMarginProperty =
+            DependencyProperty.Register("ContentMargin", typeof(Thickness), typeof(PathTextButton));
+        #endregion
+
+        #region DisabledForeground
+        public Brush DisabledForeground
+        {
+            get { return (Brush)GetValue(DisabledForegroundProperty); }
+            set { SetValue(DisabledForegroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty DisabledForegroundProperty =
+            DependencyProperty.Register("DisabledForeground", typeof(Brush), typeof(PathTextButton));
+        #endregion
+
         #endregion
 
         static PathTextButton()

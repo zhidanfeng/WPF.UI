@@ -184,6 +184,7 @@
     <Compile Include="MyControls\TextBox\Implementation\NumbericTextBox.cs" />
     <Compile Include="MyControls\TextBox\Implementation\SearchBox.cs" />
     <Compile Include="MyControls\TextBox\Implementation\ZPasswordBox.cs" />
+    <Compile Include="MyControls\ToggleButton\Implementation\IconToggleButton.cs" />
     <Compile Include="MyControls\ToggleButton\Implementation\ZToggleButton.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderItem.cs" />
     <Compile Include="MyControls\CascaderBox\Implementation\CascaderListBox.cs" />
@@ -589,6 +590,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyControls\ToggleButton\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyControls\ToggleButton\Themes\IconToggleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

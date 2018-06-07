@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI">
+
+    <PathGeometry x:Key="UncheckedIcon" Figures="M224 902.4H83.2v-140.8h140.8v140.8z m-108.8-32H192v-76.8H115.2v76.8zM89.6 448h128v128h-128zM89.6 115.2h128v128h-128zM409.6 147.2h544v64H409.6zM409.6 480h544v64H409.6zM409.6 800h544v64H409.6z" />
+    <PathGeometry x:Key="CheckedIcon" Figures="M63.983243 511.790222c0-247.275803 200.458521-447.735347 447.735347-447.735347 247.286036 0 447.735347 200.458521 447.735347 447.735347S759.004627 959.52557 511.718591 959.52557C264.441764 959.52557 63.983243 759.067049 63.983243 511.790222zM920.520207 511.790222c0-225.775116-183.025477-408.801617-408.801617-408.801617S102.916974 286.015106 102.916974 511.790222 285.942451 920.591839 511.718591 920.591839 920.520207 737.566362 920.520207 511.790222zM754.760976 349.506139c0 0-0.509606-0.550539-0.794086-0.793062-0.346901-0.336668-1.125637-0.923022-1.125637-0.923022-15.784498-12.414751-38.953174-10.578939-52.490491 4.458545L477.677287 599.559195 368.525308 469.475488c-13.770632-16.412808-38.379099-18.575054-54.828746-4.770653-16.530488 13.869892-18.652825 38.33919-4.821819 54.824653l137.687896 164.089196c13.770632 16.412808 38.376029 18.575054 54.827723 4.770653 1.830695-1.535983 3.475148-3.208065 4.949732-4.978385l249.431909-280.887318C769.44542 387.118781 768.878508 364.006388 754.760976 349.506139z" />
+
+    <Style TargetType="{x:Type ZUI:IconToggleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="UncheckedIcon" Value="{StaticResource UncheckedIcon}" />
+        <Setter Property="CheckedIcon" Value="{StaticResource CheckedIcon}" />
+        <Setter Property="Content" Value="选择" />
+        <Setter Property="CheckedContent" Value="完成" />
+        <Setter Property="UncheckedIconSize" Value="14" />
+        <Setter Property="CheckedIconSize" Value="14" />
+        <Setter Property="CheckedForeground" Value="Blue" />
+        <Setter Property="ContentMargin" Value="5,0,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ZUI:IconToggleButton}">
+                    <StackPanel Orientation="{TemplateBinding Orientation}" Background="Transparent">
+                        <Path x:Name="icon" Data="{TemplateBinding UncheckedIcon}" Stretch="Uniform" 
+                              Width="{TemplateBinding UncheckedIconSize}" Fill="{TemplateBinding Foreground}" />
+                        <ContentPresenter x:Name="content" Content="{TemplateBinding Content}" 
+                                          Margin="{TemplateBinding ContentMargin}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="icon" Property="Data" Value="{Binding CheckedIcon, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                            <Setter TargetName="content" Property="Content" Value="{Binding CheckedContent, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                            <Setter TargetName="icon" Property="Width" Value="{Binding CheckedIconSize, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                            <Setter TargetName="icon" Property="Fill" Value="{Binding CheckedForeground, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                            <Setter TargetName="content" Property="TextElement.Foreground" Value="{Binding CheckedForeground, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                            <Setter TargetName="content" Property="TextElement.FontSize" Value="{Binding CheckedIconSize, RelativeSource={RelativeSource AncestorType=ZUI:IconToggleButton}}" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="ContentMargin" Value="0,5,0,0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

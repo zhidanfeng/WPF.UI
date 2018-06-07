@@ -5,7 +5,7 @@
     <Style TargetType="{x:Type ZUI:ZCalendarDayButton}">
         <Setter Property="MinWidth" Value="27" />
         <Setter Property="MinHeight" Value="27" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="13" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Margin" Value="1" />
@@ -15,10 +15,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ZUI:ZCalendarDayButton}">
-                    <Grid MinWidth="{TemplateBinding MinWidth}"
-                          MinHeight="{TemplateBinding MinHeight}"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
                           Background="{TemplateBinding Background}">
                         <Border x:Name="HighlightBackground" Margin="-1,1" />
 

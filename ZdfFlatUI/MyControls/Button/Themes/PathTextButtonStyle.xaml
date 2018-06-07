@@ -14,12 +14,14 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="MouseOverForeground" Value="#288BE1" />
         <Setter Property="PressedForeground" Value="#247FCF" />
+        <Setter Property="DisabledForeground" Value="#888" />
         <Setter Property="PathData" Value="{StaticResource DefaultIcon}" />
         <Setter Property="PathWidth" Value="13" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="ContentMargin" Value="5,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type My:PathTextButton}">
@@ -28,27 +30,22 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             SnapsToDevicePixels="true" UseLayoutRounding="True">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
+                        <StackPanel Orientation="{TemplateBinding Orientation}" Background="Transparent">
                             <Path x:Name="path" 
                                   Width="{TemplateBinding PathWidth}" 
-                                  Margin="10,0,0,0" 
+                                  Margin="0,0,0,0" 
                                   VerticalAlignment="Center"
                                   Data="{TemplateBinding PathData}"
                                   Fill="{TemplateBinding Foreground}"
                                   Stretch="Uniform" />
 
                             <ContentPresenter x:Name="contentPresenter" Grid.Column="1"
-                                              Margin="{TemplateBinding Padding}"
+                                              Margin="{TemplateBinding ContentMargin}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Focusable="False" RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Grid>
+                        </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDefaulted" Value="true">
@@ -65,7 +62,10 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Cursor" Value="No" />
                             <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="#888" />
-                            <Setter TargetName="path" Property="Fill" Value="#888" />
+                            <Setter TargetName="path" Property="Fill" Value="{Binding DisabledForeground, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="ContentMargin" Value="0,5,0,0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

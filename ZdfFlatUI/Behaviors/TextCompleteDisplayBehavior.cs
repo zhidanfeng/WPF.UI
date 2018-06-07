@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,8 +18,14 @@ namespace ZdfFlatUI.Behaviors
     /// </summary>
     public class TextCompleteDisplayBehavior : Behavior<TextBlock>
     {
+        #region Field
         private Popup popup;
         private TextBox textBox;
+
+        //MethodInfo m_GetLineDetails = typeof(TextBlock).GetMethod("GetLineDetails",
+        //      BindingFlags.NonPublic | BindingFlags.Instance);
+        //object[] args = new object[] { 0, 0, 0, 0, 0 };
+        #endregion
 
         #region Text
         public string Text
@@ -77,6 +84,7 @@ namespace ZdfFlatUI.Behaviors
                         VerticalOffset = -AssociatedObject.ActualHeight,
                     };
 
+                    #region 阴影
                     Grid root = new Grid();
                     root.Margin = new Thickness(5);
                     Border shadow = new Border()
@@ -91,7 +99,9 @@ namespace ZdfFlatUI.Behaviors
                         },
                     };
                     root.Children.Add(shadow);
+                    #endregion
 
+                    #region 正文
                     Border border = new Border
                     {
                         Background = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
@@ -113,9 +123,13 @@ namespace ZdfFlatUI.Behaviors
                     border.Child = textBox;
 
                     root.Children.Add(border);
+                    #endregion
 
                     popup.Child = root;
                 }
+
+                //通过args最后一个是否为0可以判断出文本是否出现截断，但是只在一行文本的情况下才生效，如果设置了TextWraping则失效
+                //m_GetLineDetails.Invoke(AssociatedObject, args);
 
                 this.textBox.Text = this.Text;
                 this.popup.IsOpen = true;
