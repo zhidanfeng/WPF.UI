@@ -20,6 +20,7 @@
         <Setter Property="NormalPathColor" Value="#000000" />
         <Setter Property="MouseOverPathColor" Value="#000000" />
         <Setter Property="PressedPathColor" Value="#000000" />
+        <Setter Property="DisabledPathColor" Value="#888" />
         <Setter Property="PathData" Value="{StaticResource DefaultIcon}" />
         <Setter Property="PathWidth" Value="13" />
         <Setter Property="BorderThickness" Value="0" />
@@ -59,7 +60,7 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Cursor" Value="No" />
                             <Setter TargetName="border" Property="Background" Value="Transparent" />
-                            <Setter TargetName="path" Property="Fill" Value="#888" />
+                            <Setter TargetName="path" Property="Fill" Value="{Binding DisabledPathColor, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

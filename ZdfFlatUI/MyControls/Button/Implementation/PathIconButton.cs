@@ -71,6 +71,17 @@ namespace ZdfFlatUI
             set { SetValue(PressedPathColorProperty, value); }
         }
 
+
+        public Brush DisabledPathColor
+        {
+            get { return (Brush)GetValue(DisabledPathColorProperty); }
+            set { SetValue(DisabledPathColorProperty, value); }
+        }
+
+        public static readonly DependencyProperty DisabledPathColorProperty =
+            DependencyProperty.Register("DisabledPathColor", typeof(Brush), typeof(PathIconButton));
+
+
         #endregion
 
         #region 按钮属性

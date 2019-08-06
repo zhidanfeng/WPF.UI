@@ -56,8 +56,8 @@
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="单选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
-                    <WPFUI:FlatRadionButton Content="男" GroupName="Sex" IsChecked="True" />
-                    <WPFUI:FlatRadionButton Content="女" GroupName="Sex" Margin="10,0,0,0" />
+                  <WPFUI:ZRadionButton Content="男" GroupName="Sex" IsChecked="True" />
+                  <WPFUI:ZRadionButton Content="女" GroupName="Sex" Margin="10,0,0,0" />
                 </StackPanel>
 
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
@@ -114,8 +114,8 @@
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="单选框" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
-                    <WPFUI:FlatRadionButton Content="男" GroupName="Sex1" IsChecked="True" />
-                    <WPFUI:FlatRadionButton Content="女" GroupName="Sex1" Margin="10,0,0,0" />
+                  <WPFUI:ZRadionButton Content="男" GroupName="Sex1" IsChecked="True" />
+                  <WPFUI:ZRadionButton Content="女" GroupName="Sex1" Margin="10,0,0,0" />
                 </StackPanel>
 
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="多选框" HorizontalAlignment="Right" VerticalAlignment="Center" />

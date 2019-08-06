@@ -11,7 +11,7 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <ZUI:FlatCheckBox Content="未处理" Margin="0,5" UnCheckedColor="Gray" />
             <ZUI:FlatCheckBox Content="未处理" Skins="DefaultEllipse" Margin="0,5" CheckedColor="Black" />
-            <ZUI:ZCheckBox Content="未处理"  Margin="0,5" IsChecked="True" />
+            <ZUI:ZCheckBox Content="未处理"  Margin="0,5" IsChecked="False" />
         </StackPanel>
     </Grid>
 </UserControl>

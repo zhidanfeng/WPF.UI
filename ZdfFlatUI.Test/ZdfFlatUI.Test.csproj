@@ -80,8 +80,6 @@
     <ApplicationIcon>bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpf.Core.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37223, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\GalaSoft.MvvmLight.dll</HintPath>
@@ -298,6 +296,9 @@
     </Compile>
     <Compile Include="UITest\UCTUploadTest.xaml.cs">
       <DependentUpon>UCTUploadTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITest\UCTVideoPlayerTest.xaml.cs">
+      <DependentUpon>UCTVideoPlayerTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UITest\UCTWaterfallPanel.xaml.cs">
       <DependentUpon>UCTWaterfallPanel.xaml</DependentUpon>
@@ -553,6 +554,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UITest\UCTVideoPlayerTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UITest\UCTWaterfallPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -598,9 +603,13 @@
       <Project>{6c9f261c-07d9-4562-bdf4-5f0d4a55b5f2}</Project>
       <Name>WPFRichTextEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ZdfFlatUI\ZdfFlatUI.csproj">
+    <ProjectReference Include="..\ZdfFlatUI\ZUI.Core.csproj">
       <Project>{a5932abc-910b-4a80-ada0-0732ff08d520}</Project>
-      <Name>ZdfFlatUI</Name>
+      <Name>ZUI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZUI.VideoPlayer\ZUI.VideoPlayer.csproj">
+      <Project>{352b7021-9907-404c-9732-23cf0a325689}</Project>
+      <Name>ZUI.VideoPlayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

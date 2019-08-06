@@ -204,7 +204,7 @@ namespace ZdfFlatUI
             int count = this.PART_SlideSwitchPanel.Children.Count;
             for (int i = 0; i < count; i++)
             {
-                FlatRadionButton radioButton = new FlatRadionButton();
+                ZRadionButton radioButton = new ZRadionButton();
                 //使用随机数作为RadioButton的分组依据，防止一个界面出现多个Carousel时，RadioButton选中出现问题
                 radioButton.GroupName = "Index" + this.GroupName;
                 radioButton.Checked += RadioButton_Checked;

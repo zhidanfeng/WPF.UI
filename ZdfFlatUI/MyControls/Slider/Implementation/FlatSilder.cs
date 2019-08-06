@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
 namespace ZdfFlatUI
 {
@@ -14,6 +15,7 @@ namespace ZdfFlatUI
         #region Private属性
         private Thumb PART_Thumb;
         private Track PART_Track;
+        private bool _thumbIsPressed;
         #endregion
 
         #region 依赖属性
@@ -43,6 +45,18 @@ namespace ZdfFlatUI
             DependencyProperty.Register("IncreaseColor", typeof(Brush), typeof(FlatSilder));
 
         #endregion
+
+
+        public bool IsVideoVisibleWhenPressThumb
+        {
+            get { return (bool)GetValue(IsVideoVisibleWhenPressThumbProperty); }
+            set { SetValue(IsVideoVisibleWhenPressThumbProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsVideoVisibleWhenPressThumb.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsVideoVisibleWhenPressThumbProperty =
+            DependencyProperty.Register("IsVideoVisibleWhenPressThumb", typeof(bool), typeof(FlatSilder), new PropertyMetadata(false));
+
 
         #endregion
 
@@ -82,7 +96,7 @@ namespace ZdfFlatUI
         }
 
         #endregion
-
+        
         #endregion
 
         #region Constructors
@@ -101,21 +115,44 @@ namespace ZdfFlatUI
             this.PART_Track = this.GetTemplateChild("PART_Track") as Track;
             if(this.PART_Thumb != null)
             {
+                this.PART_Thumb.PreviewMouseLeftButtonDown += PART_Thumb_PreviewMouseLeftButtonDown;
                 this.PART_Thumb.PreviewMouseLeftButtonUp += PART_Thumb_PreviewMouseLeftButtonUp;
             }
             if(this.PART_Track != null)
             {
+                this.PART_Track.MouseLeftButtonDown += PART_Track_MouseLeftButtonDown;
                 this.PART_Track.MouseLeftButtonUp += PART_Track_MouseLeftButtonUp;
+            }
+            this.ValueChanged += FlatSilder_ValueChanged;
+        }
+
+        private void PART_Track_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this._thumbIsPressed = this.IsVideoVisibleWhenPressThumb && true;
+        }
+
+        private void PART_Thumb_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this._thumbIsPressed = this.IsVideoVisibleWhenPressThumb && true;
+        }
+
+        private void FlatSilder_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(this.IsVideoVisibleWhenPressThumb && this._thumbIsPressed)
+            {
+                this.OnDropValueChanged(this.Value, this.Value);
             }
         }
 
         private void PART_Thumb_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (this.IsVideoVisibleWhenPressThumb) return;
             this.OnDropValueChanged(this.Value, this.Value);
         }
 
         private void PART_Track_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (this.IsVideoVisibleWhenPressThumb) return;
             this.OnDropValueChanged(this.Value, this.Value);
         }
         #endregion

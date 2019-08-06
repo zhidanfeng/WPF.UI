@@ -17,6 +17,7 @@ namespace ZdfFlatUI
 
         #region 依赖属性
 
+        #region UnCheckedColor
         public static readonly DependencyProperty UnCheckedColorProperty = DependencyProperty.Register("UnCheckedColor"
             , typeof(Brush), typeof(ZCheckBox));
         /// <summary>
@@ -27,7 +28,9 @@ namespace ZdfFlatUI
             get { return (Brush)GetValue(UnCheckedColorProperty); }
             set { SetValue(UnCheckedColorProperty, value); }
         }
+        #endregion
 
+        #region CheckedColor
         public static readonly DependencyProperty CheckedColorProperty = DependencyProperty.Register("CheckedColor"
             , typeof(Brush), typeof(ZCheckBox));
         /// <summary>
@@ -38,6 +41,19 @@ namespace ZdfFlatUI
             get { return (Brush)GetValue(CheckedColorProperty); }
             set { SetValue(CheckedColorProperty, value); }
         }
+        #endregion
+
+        #region CornerRadius
+        public CornerRadius CornerRadius
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ZCheckBox));
+        #endregion
+
         #endregion
     }
 }

@@ -5,18 +5,19 @@
     <PathGeometry x:Key="Icon_UnChecked" Figures="M12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20 M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2z" />
     <PathGeometry x:Key="Icon_Checked" Figures="M12,20A8,8,0,0,1,4,12A8,8,0,0,1,12,4A8,8,0,0,1,20,12A8,8,0,0,1,12,20 M12,2A10,10,0,0,0,2,12A10,10,0,0,0,12,22A10,10,0,0,0,22,12A10,10,0,0,0,12,2 M12,7A5,5,0,0,0,7,12A5,5,0,0,0,12,17A5,5,0,0,0,17,12A5,5,0,0,0,12,7z" />
 
-    <Style TargetType="{x:Type WPF.UI:FlatRadionButton}">
+    <Style TargetType="{x:Type WPF.UI:ZRadionButton}">
         <Setter Property="BorderBrush" Value="#B3B3B3" />
+        <Setter Property="Padding" Value="5,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type WPF.UI:FlatRadionButton}">
+                <ControlTemplate TargetType="{x:Type WPF.UI:ZRadionButton}">
                     <BulletDecorator Background="Transparent" VerticalAlignment="Center" >
                         <BulletDecorator.Bullet>
                             <Path x:Name="path" Fill="{TemplateBinding BorderBrush}" 
-                                  Stretch="Uniform" Width="16"
+                                  Stretch="Uniform" Width="15"
                                   Data="{StaticResource Icon_UnChecked}"/>
                         </BulletDecorator.Bullet>
-                        <ContentPresenter Margin="5,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </BulletDecorator>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -31,17 +32,16 @@
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsEnabled" Value="False" />
                             </MultiTrigger.Conditions>
-                            <!--<Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
-                            <Setter TargetName="bd1" Property="Fill" Value="#DDDBD5"/>-->
+                            <Setter Property="Foreground" Value="#DDDBD5"/>
+                            <Setter TargetName="path" Property="Fill" Value="#DDDBD5"/>
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <!--<Setter TargetName="bd" Property="Stroke" Value="#DDDBD5"/>
-                            <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>-->
+                            <Setter TargetName="path" Property="Fill" Value="#DDDBD5"/>
+                            <Setter Property="Foreground" Value="#DDDBD5"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>

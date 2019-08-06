@@ -324,6 +324,11 @@ namespace ZdfFlatUI.Test
                 Name = "ChooseBox选择控件",
                 GroupName = ControlType.View.ToString(),
             });
+            this.MenuList.Add(new MenuInfo()
+            {
+                Name = "VideoPlayer视频播放器",
+                GroupName = ControlType.View.ToString(),
+            });
             #endregion
 
             this.menu.GroupItemsSource = this.MenuList;
@@ -503,6 +508,9 @@ namespace ZdfFlatUI.Test
                         break;
                     case "ChooseBox选择控件":
                         this.ControlPanel.Content = new UITest.UCTChooseBoxTest();
+                        break;
+                    case "VideoPlayer视频播放器":
+                        this.ControlPanel.Content = new UITest.UCTVideoPlayerTest();
                         break;
                         #endregion
                 }

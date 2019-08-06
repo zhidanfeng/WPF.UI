@@ -9,9 +9,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ZUI:FlatRadionButton Content="未处理" Margin="0,5" />
-            <ZUI:FlatRadionButton Content="未处理" Margin="0,5" />
-            <ZUI:FlatRadionButton Content="未处理" Margin="0,5" />
+          <ZUI:ZRadionButton Content="未处理" Margin="0,5" />
+          <ZUI:ZRadionButton Content="未处理" Margin="0,5" />
+          <ZUI:ZRadionButton Content="未处理" Margin="0,5" IsChecked="True" IsEnabled="False" />
         </StackPanel>
     </Grid>
 </UserControl>

@@ -7,7 +7,7 @@
              xmlns:WPF.UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
              mc:Ignorable="d" Background="White"
              d:DesignHeight="300" d:DesignWidth="800">
-    <Grid>
+    <Grid Margin="10,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
@@ -21,8 +21,8 @@
             <WPF.UI:FlatButton Content="RemoveMiddle" Width="90" Tag="RemoveLast" VerticalAlignment="Bottom" Click="add_Click" Margin="10,0" />
         </StackPanel>
         <UniformGrid Columns="4">
-            <WPF.UI:Timeline x:Name="timeline">
-                <WPF.UI:TimelineItem Content="1" Height="50" />
+            <WPF.UI:Timeline x:Name="timeline" Background="Yellow" VerticalAlignment="Center">
+                <WPF.UI:TimelineItem Content="1" />
                 <!--<WPF.UI:TimelineItem Content="2" Height="50" />
                 <WPF.UI:TimelineItem Content="3" Height="50" />
                 <WPF.UI:TimelineItem Content="4" Height="50" />-->
