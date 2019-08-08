@@ -125,7 +125,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate x:Key="SliderHorizontal" TargetType="{x:Type ZUI:FlatSilder}">
-        <Border x:Name="border"
+        <Border x:Name="border" VerticalAlignment="Center"
                 Padding="{TemplateBinding Padding}"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"

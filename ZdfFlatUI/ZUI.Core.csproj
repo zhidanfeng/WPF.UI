@@ -301,6 +301,7 @@
     <Compile Include="Utils\PaletteHelper.cs" />
     <Compile Include="Utils\UIElementEx.cs" />
     <Compile Include="Utils\VisualHelper.cs" />
+    <Compile Include="Utils\VlcUtil.cs" />
     <Page Include="MyControls\Accordion\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

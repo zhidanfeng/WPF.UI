@@ -29,10 +29,15 @@ namespace ZdfFlatUI.Test.UITest
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
             FileInfo fileInfo = new FileInfo(tbVideoSource.Text);
-            if(fileInfo.Exists)
+            if (fileInfo.Exists)
             {
                 this.videoPlayer.Play(fileInfo);
             }
+        }
+
+        private void btnPlayUri_Click(object sender, RoutedEventArgs e)
+        {
+            this.videoPlayer.Play(new Uri(tbVideoSource.Text));
         }
     }
 }

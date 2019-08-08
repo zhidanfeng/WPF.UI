@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFRichTextEditor", "WPFRic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZUI.VideoPlayer", "ZUI.VideoPlayer\ZUI.VideoPlayer.csproj", "{352B7021-9907-404C-9732-23CF0A325689}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZUI.Common", "ZUI.Common\ZUI.Common.csproj", "{1281ED69-49A8-4F37-8ED1-7F20E5385074}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{352B7021-9907-404C-9732-23CF0A325689}.Release|x64.Build.0 = Release|Any CPU
 		{352B7021-9907-404C-9732-23CF0A325689}.Release|x86.ActiveCfg = Release|Any CPU
 		{352B7021-9907-404C-9732-23CF0A325689}.Release|x86.Build.0 = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|x64.Build.0 = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Debug|x86.Build.0 = Debug|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|x64.ActiveCfg = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|x64.Build.0 = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|x86.ActiveCfg = Release|Any CPU
+		{1281ED69-49A8-4F37-8ED1-7F20E5385074}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

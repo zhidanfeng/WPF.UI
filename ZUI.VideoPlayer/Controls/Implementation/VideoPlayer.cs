@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,15 @@ using Vlc.DotNet.Core;
 using Vlc.DotNet.Core.Interops.Signatures;
 using Vlc.DotNet.Wpf;
 using ZdfFlatUI;
+using ZdfFlatUI.Utils;
+using ZUI.Common.Model;
 
 namespace ZUI.VideoPlayer.Controls
 {
     public class VideoPlayer : Control
     {
+        private const int InitVolume = 200;
+
         #region Inner Controls
         private VlcControl PART_VlcControl;
         /// <summary>
@@ -72,6 +77,12 @@ namespace ZUI.VideoPlayer.Controls
         /// 鼠标悬浮触发区域，用于触发地图操作区域的显示与隐藏
         /// </summary>
         private Border PART_MouseOver_Area;
+
+        private Button PART_Btn_Screenshot;
+        /// <summary>
+        /// 音量
+        /// </summary>
+        private Slider PART_Volume_Slider;
         #endregion
 
         #region private fields
@@ -132,6 +143,7 @@ namespace ZUI.VideoPlayer.Controls
 
         #region 依赖属性
 
+        #region IsPlaying
         public bool IsPlaying
         {
             get { return (bool)GetValue(IsPlayingProperty); }
@@ -140,6 +152,45 @@ namespace ZUI.VideoPlayer.Controls
 
         public static readonly DependencyProperty IsPlayingProperty =
             DependencyProperty.Register("IsPlaying", typeof(bool), typeof(VideoPlayer), new PropertyMetadata(false));
+        #endregion
+
+        #region Volume
+
+        /// <summary>
+        /// 音量
+        /// </summary>
+        public int Volume
+        {
+            get { return (int)GetValue(VolumeProperty); }
+            set { SetValue(VolumeProperty, value); }
+        }
+        
+        public static readonly DependencyProperty VolumeProperty =
+            DependencyProperty.Register("Volume", typeof(int), typeof(VideoPlayer), new PropertyMetadata(InitVolume, new PropertyChangedCallback(VolumeChangedCallback)));
+
+        private static void VolumeChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            VideoPlayer videoPlayer = d as VideoPlayer;
+            if(e.NewValue != null && videoPlayer != null && videoPlayer.VlcIsNotNull())
+            {
+                videoPlayer.GetVlcMediaPlayer().Audio.Volume = (int)e.NewValue;
+            }
+        }
+
+        #endregion
+
+        #region PlayList
+
+        //public ObservableCollection<VideoInfo> PlayList
+        //{
+        //    get { return (ObservableCollection<VideoInfo>)GetValue(PlayListProperty); }
+        //    set { SetValue(PlayListProperty, value); }
+        //}
+        
+        //public static readonly DependencyProperty PlayListProperty =
+        //    DependencyProperty.Register("PlayList", typeof(ObservableCollection<VideoInfo>), typeof(VideoPlayer), new PropertyMetadata(null));
+
+        #endregion
 
         #endregion
 
@@ -177,6 +228,12 @@ namespace ZUI.VideoPlayer.Controls
                     {
                         this.IsVlcControlLoading = false;
                         this.RegisterEvent();
+                        if(this.PART_Volume_Slider != null)
+                        {
+                            this.PART_Volume_Slider.Maximum = InitVolume;
+                            this.PART_Volume_Slider.Minimum = 0;
+                            this.PART_Volume_Slider.Value = this.Volume;
+                        }
                     });
                 });
             }
@@ -194,6 +251,9 @@ namespace ZUI.VideoPlayer.Controls
             this.PART_Btn_Slower = this.GetTemplateChild("PART_Btn_Slower") as Button;
             this.PART_Btn_Faster = this.GetTemplateChild("PART_Btn_Faster") as Button;
             this.PART_MouseOver_Area = this.GetTemplateChild("PART_MouseOver_Area") as Border;
+            this.PART_Volume_Slider = this.GetTemplateChild("PART_Volume_Slider") as Slider;
+
+            this.PART_Btn_Screenshot = this.GetTemplateChild("PART_Btn_Screenshot") as Button;
 
             this.VideoStoped();
         }
@@ -203,13 +263,14 @@ namespace ZUI.VideoPlayer.Controls
         /// </summary>
         private void RegisterEvent()
         {
-            if (this.PART_VlcControl != null && this.PART_VlcControl.SourceProvider.MediaPlayer != null)
+            if (this.VlcIsNotNull())
             {
-                this.PART_VlcControl.SourceProvider.MediaPlayer.LengthChanged += MediaPlayer_LengthChanged;
-                this.PART_VlcControl.SourceProvider.MediaPlayer.PositionChanged += MediaPlayer_PositionChanged;
-                this.PART_VlcControl.SourceProvider.MediaPlayer.Playing += MediaPlayer_Playing;
-                this.PART_VlcControl.SourceProvider.MediaPlayer.Paused += MediaPlayer_Paused;
-                this.PART_VlcControl.SourceProvider.MediaPlayer.Stopped += MediaPlayer_Stopped;
+                this.GetVlcMediaPlayer().LengthChanged += MediaPlayer_LengthChanged;
+                this.GetVlcMediaPlayer().PositionChanged += MediaPlayer_PositionChanged;
+                this.GetVlcMediaPlayer().Playing += MediaPlayer_Playing;
+                this.GetVlcMediaPlayer().Paused += MediaPlayer_Paused;
+                this.GetVlcMediaPlayer().Stopped += MediaPlayer_Stopped;
+                this.GetVlcMediaPlayer().SnapshotTaken += VideoPlayer_SnapshotTaken;
             }
 
             if (this.PART_Btn_Play != null)
@@ -263,6 +324,20 @@ namespace ZUI.VideoPlayer.Controls
                 //this.PART_Btn_Faster.MouseLeftButtonUp += PART_Btn_Faster_MouseLeftButtonUp;
                 this.PART_Btn_Faster.Click += PART_Btn_Faster_Click;
             }
+
+            if(this.PART_Btn_Screenshot != null)
+            {
+                this.PART_Btn_Screenshot.Click += PART_Btn_Screenshot_Click;
+            }
+        }
+
+        private void PART_Btn_Screenshot_Click(object sender, RoutedEventArgs e)
+        {
+            FileInfo fileInfo = new FileInfo(string.Format("{0}\\{1}.png", AppDomain.CurrentDomain.BaseDirectory, DateTime.Now.ToString("yyyy-MM-dd_HHmmss")));
+            Task.Run(() =>
+            {
+                this.GetVlcMediaPlayer().TakeSnapshot(fileInfo);
+            });
         }
 
         private void PART_Btn_Slower_Click(object sender, RoutedEventArgs e)
@@ -352,7 +427,8 @@ namespace ZUI.VideoPlayer.Controls
         {
             Task.Run(() =>
             {
-                this.PART_VlcControl.SourceProvider.MediaPlayer.Stop();
+
+                  this.PART_VlcControl.SourceProvider.MediaPlayer.Stop();
             });
         }
 
@@ -392,6 +468,11 @@ namespace ZUI.VideoPlayer.Controls
             this.SetVideoTotalTime(e.NewLength);
         }
 
+        private void VideoPlayer_SnapshotTaken(object sender, VlcMediaPlayerSnapshotTakenEventArgs e)
+        {
+            VlcUtil.ScreenshotWithWatermark(e.FileName, "127.0.0.1", Brushes.White, 3, 2);
+        }
+
         private void PART_Slider_DropValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             //if (this.VlcIsNotNull())
@@ -406,7 +487,7 @@ namespace ZUI.VideoPlayer.Controls
             if (IsPlaying)
             {
                 _isOverBottomTool = true;
-                VisualStateManager.GoToState(this, "MouseOverVideoTool", true);
+                VisualStateManager.GoToState(this, "ShowVideoTool", true);
             }
         }
 
@@ -421,7 +502,7 @@ namespace ZUI.VideoPlayer.Controls
                     {
                         if (!this._isOverBottomTool)
                         {
-                            VisualStateManager.GoToState(this, "MouseLeaveVideoTool", true);
+                            VisualStateManager.GoToState(this, "HideVideoTool", true);
                         }
                     });
                 });
@@ -496,10 +577,13 @@ namespace ZUI.VideoPlayer.Controls
                 this.PART_Btn_Slower.Visibility = Visibility.Visible;
                 this.PART_Btn_Faster.Visibility = Visibility.Visible;
                 this.PART_Slider.Visibility = Visibility.Visible;
+                this.PART_Btn_Screenshot.Visibility = Visibility.Visible;
 
                 this.PART_Btn_Stop.IsEnabled = true;
                 this.PART_Btn_Next.IsEnabled = true;
                 this.PART_Btn_Previous.IsEnabled = true;
+
+                VisualStateManager.GoToState(this, "HideVideoTool", true);
             });
         }
 
@@ -527,10 +611,13 @@ namespace ZUI.VideoPlayer.Controls
                 this.PART_Btn_Slower.Visibility = Visibility.Collapsed;
                 this.PART_Btn_Faster.Visibility = Visibility.Collapsed;
                 this.PART_Slider.Visibility = Visibility.Collapsed;
+                this.PART_Btn_Screenshot.Visibility = Visibility.Collapsed;
 
                 this.PART_Btn_Stop.IsEnabled = false;
                 this.PART_Btn_Next.IsEnabled = false;
                 this.PART_Btn_Previous.IsEnabled = false;
+
+                VisualStateManager.GoToState(this, "ShowVideoTool", true);
             });
         }
 
@@ -542,7 +629,7 @@ namespace ZUI.VideoPlayer.Controls
         {
             if (this.VlcIsNotNull())
             {
-                return this.PART_VlcControl.SourceProvider.MediaPlayer.State == MediaStates.Stopped;
+                return this.GetVlcMediaPlayer().State == MediaStates.Stopped;
             }
             return true;
         }
@@ -553,6 +640,7 @@ namespace ZUI.VideoPlayer.Controls
         {
             this.PART_Btn_Play_Click(this, new RoutedEventArgs());
         }
+
         /// <summary>
         /// 播放本地视频
         /// </summary>

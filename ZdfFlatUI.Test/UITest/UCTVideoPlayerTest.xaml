@@ -15,6 +15,7 @@
         <WrapPanel Margin="10, 10">
             <zui.core:ZTextBox x:Name="tbVideoSource" Width="300" Height="25" />
             <zui.core:FlatButton x:Name="btnPlay" Width="50" Height="25" Content="Play" Margin="10,0,0,0" Click="btnPlay_Click" />
+            <zui.core:FlatButton x:Name="btnPlayUri" Width="70" Height="25" Content="btnPlayUri" Margin="10,0,0,0" Click="btnPlayUri_Click" />
         </WrapPanel>
         <zui.videoplayer:VideoPlayer x:Name="videoPlayer" Grid.Row="1" />
     </Grid>
