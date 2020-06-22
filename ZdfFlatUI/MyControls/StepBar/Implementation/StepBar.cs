@@ -24,10 +24,13 @@ namespace ZdfFlatUI
             get { return (int)GetValue(ProgressProperty); }
             set { SetValue(ProgressProperty, value); }
         }
-
+        
         public static readonly DependencyProperty ProgressProperty =
-            DependencyProperty.Register("Progress", typeof(int), typeof(StepBar), new PropertyMetadata(0, OnProgressChangedCallback, OnProgressCoerceValueCallback));
-
+            DependencyProperty.Register("Progress", typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(0, OnProgressChangedCallback, OnProgressCoerceValueCallback) {
+                BindsTwoWayByDefault = true,
+                DefaultUpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+            });
+            
         private static object OnProgressCoerceValueCallback(DependencyObject d, object baseValue)
         {
             //不让Progress超出边界
